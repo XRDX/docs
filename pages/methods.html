@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+  <title>绘图函数</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width initial-scale=1'>
+  <script src="https://cdn.bootcss.com/ace/1.3.3/ace.js"></script>
+  <script src="https://cdn.bootcss.com/ace/1.3.3/ext-language_tools.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="load.js"></script>
+</head>
+<body onload="load()">
+
+<header>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #ff9c0f;">
+    <a class="navbar-brand" href="../">LeapLearner</a>
+  </nav>
+</header>
+
+  <div id="sidebar">
+    <h1>绘图函数</h1>
+    <p>Author: Vic Wang</p>
+    <h2>绘图 Drawing</h2>
+    <ol>
+      <li><a href='examples/basicDraw/image.js'>图片 image</a></li>
+      <li><a href='examples/basicDraw/text.js'>文字 text</a></li>
+      <li><a href='examples/basicDraw/rectangle.js'>长方形 rectangle</a></li>
+      <li><a href='examples/basicDraw/circle.js'>圆 circle</a></li>
+      <li><a href='examples/basicDraw/ellipse.js'>椭圆 ellipse</a></li>
+      <li><a href='examples/basicDraw/line.js'>线条 line</a></li>
+      <li><a href='examples/basicDraw/triangle.js'>三角形 triangle</a></li>
+      <li><a href='examples/basicDraw/point.js'>点 point</a></li>
+      <li><a href='examples/basicDraw/polygon.js'>多边形 polygon</a></li>
+    </ol>
+    <h2>填充设置 fill</h2>
+    <ol>
+      <li><a href='examples/basicDraw/fill.js'>设置填充 fill</a></li>
+      <li><a href='examples/basicDraw/font.js'>设置字体 font</a></li>
+    </ol>   
+  </div>
+  
+  <div id="code">
+    <textarea id="js"></textarea>
+  </div>
+  <div id="output">
+    <button onclick="submit()">Run</button>
+    <iframe></iframe>
+  </div>
+
+<footer>
+  <nav class="navbar sticky-bottom navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">友情链接</span>
+  </nav>
+</footer>
+
+</body>
+</html>
