@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <title>游戏合辑</title>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width initial-scale=1'>
+  <script src="https://cdn.bootcss.com/ace/1.3.3/ace.js"></script>
+  <script src="https://cdn.bootcss.com/ace/1.3.3/ext-language_tools.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="load.js"></script>
+</head>
+<body onload="load()">
+
+<header>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #ff9c0f;">
+    <a class="navbar-brand" href="../">LeapLearner</a>
+  </nav>
+</header>
+
+  <div id="sidebar">
+    <h1>游戏合辑</h1>
+    <p>Author: Vic Wang</p>
+    <h2>游戏合集</h2>
+    <ol>
+      <li><a href='examples/games/theSpike.js'>躲避尖刺 Drops</a></li>
+      <li><a href='examples/games/clickHero.js'>点击英雄 Click Hero</a></li>
+      <li><a href='examples/games/flppyBird.js'>飞翔的小鸟 Flappy Bird</a></li>
+      <li><a href='examples/games/keyboardPractice.js'>键盘练习 Keyboard Practice</a></li>
+      <li><a href='examples/games/theAlien.js'>外星人入侵 The Alien</a></li>
+      <li><a href='examples/games/theFries.js'>薯条大战鸡米花 The French Fries</a></li>
+      <li><a href='examples/games/chase.js'>逃脱 Escape</a></li>
+      <li><a href='examples/games/jump.js'>跳一跳 Jump</a></li>
+    </ol>
+  </div>
+
+  <div id="code">
+  </div>
+
+  <div id="output">
+    <button onclick="submit()">Run</button>
+    <iframe></iframe>
+  </div>
+
+<footer>
+  <nav class="navbar sticky-bottom navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">友情链接</span>
+  </nav>
+</footer>
+
+</body>
+</html>
