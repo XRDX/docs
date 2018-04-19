@@ -65,7 +65,7 @@ let header = `
         </div>
       </li>
       <a class="nav-link active" href="projects.html">项目合辑</a>
-      <a class="nav-link active" href="games.html">游戏合辑</a>
+      <a class="nav-link active" href="#">游戏合辑</a>
     </ul>
 </nav>
 `;
