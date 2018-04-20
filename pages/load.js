@@ -3,10 +3,37 @@ var JSEditor;
 function iframeHtml () {
   var html = ''
   var text = JSEditor.getValue();
+   
+  html += `
+  <html>
+  <body>
+    <script src="../LLEG.js"></script>
+    <script>
+      let _logY = 0;
+      const _log = console.log;
+      function _to2(n){ return n<10 ? "0"+n : n};
+      function _to3(n){ 
+        if(n<10) return "00" + n;
+        if(n<100) return "0" + n;
+        return n;
+      }
+      console.log = function(obj){
+        a = new Date(); 
+        str = [_to2(a.getHours()), _to2(a.getMinutes()), _to2(a.getSeconds())].join(":")  
+        + "." + _to3(a.getMilliseconds()) + " " + JSON.stringify(obj);
+        text(str, 10, 10 + 20 * _logY++);
+        _log(obj);
+      }
+    </script>
+    <script>
+  `;
 
-  html += '<html><body><script src="../LLEG.js"></script><script>';
   html += text
-  html += '</script></body>'
+
+  html += `
+    </script>
+  </body>
+  `;
   return html
 }
 
@@ -56,16 +83,16 @@ let header = `
           JS语法
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-          <a class="dropdown-item" href="#">变量</a>
-          <a class="dropdown-item" href="#">对象</a>
-          <a class="dropdown-item" href="#">数组</a>
-          <a class="dropdown-item" href="#">循环</a>
-          <a class="dropdown-item" href="#">函数</a>
-          <a class="dropdown-item" href="#">类</a>
+          <a class="dropdown-item" href="variables.html">变量</a>
+          <a class="dropdown-item" href="object.html">对象</a>
+          <a class="dropdown-item" href="array.html">数组</a>
+          <a class="dropdown-item" href="loop.html">循环</a>
+          <a class="dropdown-item" href="function.html">函数</a>
+          <a class="dropdown-item" href="class.html">类</a>
         </div>
       </li>
       <a class="nav-link active" href="projects.html">项目合辑</a>
-      <a class="nav-link active" href="#">游戏合辑</a>
+      <a class="nav-link active" href="games.html">游戏合辑</a>
     </ul>
 </nav>
 `;
@@ -114,6 +141,9 @@ function load(){
     showPrintMargin: false,
     useSoftTabs: true,
     navigateWithinSoftTabs: true,
+    wrapBehavioursEnabled: true,
+    autoScrollEditorIntoView: true,
+    wrap: true,
   }); 
 $("header").html(header);
 $("footer").html(footer);
