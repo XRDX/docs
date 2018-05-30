@@ -78,19 +78,7 @@ let header = `
           <a class="dropdown-item" href="physics.html">物理效果</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          JS语法
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-          <a class="dropdown-item" href="variables.html">变量</a>
-          <a class="dropdown-item" href="object.html">对象</a>
-          <a class="dropdown-item" href="array.html">数组</a>
-          <a class="dropdown-item" href="loop.html">循环</a>
-          <a class="dropdown-item" href="function.html">函数</a>
-          <a class="dropdown-item" href="class.html">类</a>
-        </div>
-      </li>
+      <a class="nav-link active" href="../JSTuturial/index.html">JS教程</a>
       <a class="nav-link active" href="projects.html">项目合辑</a>
       <a class="nav-link active" href="games.html">游戏合辑</a>
       <a class="nav-link active" href="ide.html">在线IDE</a>

@@ -1,0 +1,62 @@
+#sidebar {
+  width: 20%;
+  display: block;
+  float: left;
+  height: calc(100vh - 7rem);
+  overflow-y: auto;
+  overflow: -moz-scrollbars-vertical;
+}
+
+#sidebar h1 {
+  font-size: 25px;
+}
+
+#sidebar h1 a:link, #sidebar h1 a:visited {
+  color: #333;
+}
+
+#sidebar h2 {
+  font-size: 1rem;
+}
+
+#sidebar a:visited, #sidebar a:link {
+  color: #4682BE;
+  text-decoration: none;
+}
+
+#sidebar ol {
+  padding-left: 15px;
+}
+
+#sidebar ol li {
+  margin-left: 15px;
+  font-size: 1rem;
+}
+
+
+.right {
+  width: 80%;
+  display: block;
+  float: left;
+  height: calc(100vh - 7rem);
+}
+
+
+#markdown {
+    width: 940px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.CodeMirror {
+  font-family: Courier New;
+  font-size: 16px;
+}
+
