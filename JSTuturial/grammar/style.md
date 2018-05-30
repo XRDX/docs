@@ -1,10 +1,4 @@
----
-title: JavaScript 编程风格
-layout: page
-category: grammar
-date: 2013-06-02
-modifiedOn: 2013-10-26
----
+# 编程风格
 
 ## 概述
 

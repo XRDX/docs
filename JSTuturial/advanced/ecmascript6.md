@@ -1,12 +1,4 @@
----
-title: ECMAScript 6 介绍
-layout: page
-category: advanced
-date: 2013-05-09
-modifiedOn: 2014-02-27
----
-
-> **[公告] 本节不再更新，变为一个独立项目，请访问[《ECMAScript 6入门》](http://es6.ruanyifeng.com/)。（2014年4月25日）**
+# ECMAScript 6 介绍
 
 ## 概述
 
@@ -334,7 +326,7 @@ function push(array, ...items) {
     console.log(item);
   });
 }
- 
+
 var a = [];
 push(a, "a1", "a2", "a3", "a4"); 
 
@@ -568,7 +560,7 @@ for (n of fibonacci()) {
 {% highlight javascript %}
 
 var Q = require('q');
- 
+
 function delay(milliseconds) {
     var deferred = Q.defer();
     setTimeout(deferred.resolve, milliseconds);
@@ -596,7 +588,7 @@ function *f() {
     var arrayOfPromises = urls.map(someOperation);
 
     var arrayOfResponses = yield arrayOfPromises;
- 
+     
     this.body = "Results";
     for (var i = 0; i < urls.length; i++) {
         this.body += '\n' + urls[i] + ' response length is '
@@ -765,12 +757,12 @@ var result = values.sort((a, b) => a - b);
 var handler = {
 
     id: "123456",
-
+    
     init: function() {
         document.addEventListener("click",
                 event => this.doSomething(event.type), false);
     },
-
+    
     doSomething: function(type) {
         console.log("Handling " + type  + " for " + this.id);
     }

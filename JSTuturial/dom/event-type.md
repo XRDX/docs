@@ -1,10 +1,4 @@
----
-title: 事件种类
-layout: page
-category: dom
-date: 2016-11-20
-modifiedOn: 2016-11-20
----
+# 事件种类
 
 浏览器支持大量的事件，本章介绍其中一些主要的事件。
 

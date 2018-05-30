@@ -1,10 +1,4 @@
----
-title: Promise 对象
-layout: page
-category: advanced
-date: 2012-12-22
-modifiedOn: 2013-11-28
----
+# Promise 对象
 
 ## 概述
 

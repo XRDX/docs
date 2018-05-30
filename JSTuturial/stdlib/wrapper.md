@@ -1,10 +1,4 @@
----
-title: 包装对象
-layout: page
-category: stdlib
-date: 2013-04-30
-modifiedOn: 2014-01-01
----
+# 包装对象
 
 ## 定义
 

@@ -1,10 +1,4 @@
----
-title: 构造函数与 new 命令
-layout: page
-category: oop
-date: 2012-12-28
-modifiedOn: 2014-02-04
----
+# 构造函数与 new 命令
 
 JavaScript 语言具有很强的面向对象编程能力，本章介绍 JavaScript 面向对象编程的基础知识。
 

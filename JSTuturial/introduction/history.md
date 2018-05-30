@@ -1,10 +1,4 @@
----
-title: JavaScript语言的历史
-category: introduction
-layout: page
-date: 2015-11-21
-modifiedOn: 2015-11-21
----
+# JavaScript语言的历史
 
 ## JavaScript的诞生
 

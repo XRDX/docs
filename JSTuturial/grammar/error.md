@@ -1,10 +1,4 @@
----
-title: 错误处理机制
-layout: page
-category: grammar
-date: 2013-08-30
-modifiedOn: 2013-12-07
----
+# 错误处理机制
 
 ## Error 实例对象
 

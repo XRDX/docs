@@ -1,10 +1,4 @@
----
-title: Object 对象的相关方法
-layout: page
-date: 2012-12-12
-modifiedOn: 2013-05-04
-category: oop
----
+# Object 对象的相关方法
 
 JavaScript 在`Object`对象上面，提供了很多相关方法，处理面向对象编程的相关操作。本章介绍这些方法。
 

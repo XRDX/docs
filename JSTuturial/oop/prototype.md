@@ -1,10 +1,4 @@
----
-title: prototype 对象
-layout: page
-category: oop
-date: 2012-12-14
-modifiedOn: 2013-11-23
----
+# prototype 对象
 
 面向对象编程很重要的一个方面，就是对象的继承。A 对象通过继承 B 对象，就能直接拥有 B 对象的所有属性和方法。这对于代码的复用是非常有用的。
 

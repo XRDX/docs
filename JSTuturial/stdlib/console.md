@@ -1,10 +1,4 @@
----
-title: console对象
-layout: page
-category: tool
-date: 2013-03-10
-modifiedOn: 2013-12-03
----
+# console对象
 
 `console`对象是 JavaScript 的原生对象，它有点像 Unix 系统的标准输出`stdout`和标准错误`stderr`，可以输出各种信息到控制台，并且还提供了很多有用的辅助方法。
 

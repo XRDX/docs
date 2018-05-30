@@ -1,10 +1,4 @@
----
-title: Date对象
-layout: page
-category: stdlib
-date: 2013-09-03
-modifiedOn: 2014-01-05
----
+# Date对象
 
 `Date`对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。
 

@@ -1,10 +1,4 @@
----
-title: 函数
-layout: page
-category: grammar
-date: 2012-12-15
-modifiedOn: 2013-12-19
----
+#  函数
 
 函数是一段可以反复调用的代码块。函数还能接受输入的参数，不同的参数会返回不同的值。
 

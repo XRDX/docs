@@ -1,10 +1,4 @@
----
-title: Element对象
-category: dom
-layout: page
-date: 2015-04-15
-modifiedOn: 2015-04-15
----
+# Element对象
 
 `Element`对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个`Element`节点对象（以下简称元素节点）。
 

@@ -1,10 +1,4 @@
----
-title: IndexedDB：浏览器端数据库
-layout: page
-category: bom
-date: 2013-10-07
-modifiedOn: 2013-11-09
----
+# IndexedDB：浏览器端数据库
 
 ## 概述
 
@@ -69,12 +63,12 @@ var db;
 openRequest.onupgradeneeded = function(e) {
     console.log("Upgrading...");
 }
- 
+
 openRequest.onsuccess = function(e) {
     console.log("Success!");
     db = e.target.result;
 }
- 
+
 openRequest.onerror = function(e) {
     console.log("Error");
     console.dir(e);
@@ -216,7 +210,7 @@ get方法也是异步的，会触发自己的success和error事件，可以对�
 {% highlight javascript %}
 
 var ob = store.get(x);
- 
+
 ob.onsuccess = function(e) {
 	// ...
 }

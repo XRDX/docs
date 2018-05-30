@@ -1,10 +1,4 @@
----
-title: Text 节点和 DocumentFragment 节点
-category: dom
-layout: page
-date: 2015-05-01
-modifiedOn: 2015-05-01
----
+# Text 节点和 DocumentFragment 节点
 
 ## Text 节点的概念
 

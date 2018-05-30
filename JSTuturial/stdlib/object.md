@@ -1,10 +1,4 @@
----
-title: Object对象
-layout: page
-category: stdlib
-date: 2013-04-30
-modifiedOn: 2013-12-15
----
+# Object对象
 
 ## 概述
 
