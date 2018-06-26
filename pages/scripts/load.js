@@ -109,9 +109,88 @@ function submit () {
   iframe.focus()
 }
 
+var Options = {
+  undef: true,
+  unused: true,
+
+  esnext: true,
+  moz: true,
+  devel: true,
+  browser: true,
+  node: true,
+  laxcomma: true,
+  laxbreak: true,
+  lastsemic: true,
+  onevar: false,
+  passfail: false,
+
+  // maxerr: 1000
+  maxerr: 1000,
+  expr: true,
+  multistr: true,
+  globalstrict: true,
+
+  globals: {
+
+    canvas: true, 
+    ctx: true, 
+
+    // shapes
+    Line: true, 
+    Rectangle: true, 
+    Polygon: true, 
+    Triangle: true, 
+    Circle: true, 
+    Text: true, 
+    Sprite: true, 
+    Animation: true, 
+    Point: true, 
+    Ellipse: true, 
+
+    // events
+    Key: true, 
+    Mouse: true, 
+
+    // rss
+    loadRssAndRun: true, 
+    run: true, 
+    stop: true, 
+    nextFrame: true, 
+
+    // colors
+    RGB: true, 
+    RGBA: true, 
+    HSL: true, 
+    HSLA: true, 
+
+    // basic method
+    Swing: true, 
+    Increase: true, 
+    Sine: true, 
+    Volatile: true, 
+    randint: true, 
+
+    // basic draw method
+    background: true, 
+    fill: true, 
+    rectangle: true, 
+    circle: true, 
+    line: true, 
+    point: true, 
+    polygon: true, 
+    triangle: true, 
+    ellipse: true, 
+    image: true, 
+    text: true, 
+    play: true, 
+    pause: true, 
+  }
+};
+
 function load(){
   ace.require("ace/ext/language_tools");
   JSEditor = ace.edit("code");
+
   JSEditor.setOptions({
     mode: "ace/mode/javascript",
     theme: "",
@@ -127,9 +206,20 @@ function load(){
     autoScrollEditorIntoView: true,
     wrap: true,
   });
-$("header").html(header);
-$("footer").html(footer);
 
-loadFile('examples/index.js')
 
+
+  $("header").html(header);
+  $("footer").html(footer);
+
+  loadFile('examples/index.js')
+
+  function configureWorker(e, session) {
+    if (session.getMode().$id == "ace/mode/javascript")
+      if (session.$worker) {
+         session.$worker.send("setOptions", [ Options ]);
+      }
+  }
+  // after changing the session
+  JSEditor.session.on("changeMode", configureWorker)
 }
