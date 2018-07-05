@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>浏览器端数据储存机制 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="同源政策" href="same-origin.html" />
+    <link rel="prev" title="Cookie" href="cookie.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">BOM 浏览器环境</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="engine.html">浏览器环境概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">window对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">History 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookie.html">Cookie</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">浏览器端数据储存机制</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">属性和方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#storage-setitem">Storage.setItem()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-getitem">Storage.getItem()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-removeitem">Storage.removeItem()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-clear">Storage.clear()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-key">Storage.key()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#storage">storage 事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="same-origin.html">同源政策</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ajax.html">AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cors.html">CORS通信</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexeddb.html">IndexedDB：浏览器端数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification.html">Web Notifications API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile.html">移动设备API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">BOM 浏览器环境</a> &raquo;</li>
+        
+      <li>浏览器端数据储存机制</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>浏览器端数据储存机制<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>Storage 接口用于脚本在浏览器保存数据。两个对象部署了这个接口：<code class="docutils literal notranslate"><span class="pre">window.sessionStorage</span></code>和<code class="docutils literal notranslate"><span class="pre">window.localStorage</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">sessionStorage</span></code>保存的数据用于浏览器的一次会话（session），当会话结束（通常是窗口关闭），数据被清空；<code class="docutils literal notranslate"><span class="pre">localStorage</span></code>保存的数据长期存在，下一次访问该网站的时候，网页可以直接读取以前保存的数据。除了保存期限的长短不同，这两个对象的其他方面都一致。</p>
+<p>保存的数据都以“键值对”的形式存在。也就是说，每一项数据都有一个键名和对应的值。所有的数据都是以文本格式保存。</p>
+<p>这个接口很像 Cookie 的强化版，能够使用大得多的存储空间。目前，每个域名的存储上限视浏览器而定，Chrome 是 2.5MB，Firefox 和 Opera 是 5MB，IE 是 10MB。其中，Firefox 的存储空间由一级域名决定，而其他浏览器没有这个限制。也就是说，Firefox 中，<code class="docutils literal notranslate"><span class="pre">a.example.com</span></code>和<code class="docutils literal notranslate"><span class="pre">b.example.com</span></code>共享 5MB 的存储空间。另外，与 Cookie 一样，它们也受同域限制。某个网页存入的数据，只有同域下的网页才能读取，如果跨域操作会报错。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>属性和方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>Storage 接口只有一个属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Storage.length</span></code>：返回保存的数据项个数。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">);</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">);</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>该接口提供5个方法。</p>
+<div class="section" id="storage-setitem">
+<span id="storage-setitem"></span><h3>Storage.setItem()<a class="headerlink" href="#storage-setitem" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Storage.setItem()</span></code>方法用于存入数据。它接受两个参数，第一个是键名，第二个是保存的数据。如果键名已经存在，该方法会更新已有的键值。该方法没有返回值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">);</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">Storage.setItem()</span></code>两个参数都是字符串。如果不是字符串，会自动转成字符串，再存入浏览器。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mi">1</span> <span class="p">});</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span> <span class="c1">// &quot;[object Object]&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">setItem</span></code>方法的两个参数都不是字符串，但是存入的值都是字符串。</p>
+<p>如果储存空间已满，该方法会抛错。</p>
+<p>写入不一定要用这个方法，直接赋值也是可以的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 下面三种写法等价</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storage-getitem">
+<span id="storage-getitem"></span><h3>Storage.getItem()<a class="headerlink" href="#storage-getitem" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Storage.getItem()</span></code>方法用于读取数据。它只有一个参数，就是键名。如果键名不存在，该方法返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>键名应该是一个字符串，否则会被自动转为字符串。</p>
+</div>
+<div class="section" id="storage-removeitem">
+<span id="storage-removeitem"></span><h3>Storage.removeItem()<a class="headerlink" href="#storage-removeitem" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Storage.removeItem()</span></code>方法用于清除某个键名对应的键值。它接受键名作为参数，如果键名不存在，该方法不会做任何事情。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">);</span>
+<span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storage-clear">
+<span id="storage-clear"></span><h3>Storage.clear()<a class="headerlink" href="#storage-clear" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Storage.clear()</span></code>方法用于清除所有保存的数据。该方法的返回值是<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storage-key">
+<span id="storage-key"></span><h3>Storage.key()<a class="headerlink" href="#storage-key" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Storage.key()</span></code>接受一个整数作为参数（从零开始），返回该位置对应的键值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">);</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">key</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// &quot;key&quot;</span>
+</pre></div>
+</div>
+<p>结合使用<code class="docutils literal notranslate"><span class="pre">Storage.length</span></code>属性和<code class="docutils literal notranslate"><span class="pre">Storage.key()</span></code>方法，可以遍历所有的键。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">key</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="storage">
+<span id="storage"></span><h2>storage 事件<a class="headerlink" href="#storage" title="永久链接至标题">¶</a></h2>
+<p>Storage 接口储存的数据发生变化时，会触发 storage 事件，可以指定这个事件的监听函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;storage&#39;</span><span class="p">,</span> <span class="nx">onStorageChange</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>监听函数接受一个<code class="docutils literal notranslate"><span class="pre">event</span></code>实例对象作为参数。这个实例对象继承了 StorageEvent 接口，有几个特有的属性，都是只读属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">StorageEvent.key</span></code>：字符串，表示发生变动的键名。如果 storage 事件是由<code class="docutils literal notranslate"><span class="pre">clear()</span></code>方法引起，该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">StorageEvent.newValue</span></code>：字符串，表示新的键值。如果 storage 事件是由<code class="docutils literal notranslate"><span class="pre">clear()</span></code>方法或删除该键值对引发的，该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Storage.oldValue</span></code>：字符串，表示旧的键值。如果该键值对是新增的，该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Storage.storageArea</span></code>：对象，返回键值对所在的整个对象。也说是说，可以从这个属性上面拿到当前域名储存的所有键值对。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Storage.url</span></code>：字符串，表示原始触发 storage 事件的那个网页的网址。</li>
+</ul>
+<p>下面是<code class="docutils literal notranslate"><span class="pre">StorageEvent.key</span></code>属性的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">onStorageChange</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">key</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;storage&#39;</span><span class="p">,</span> <span class="nx">onStorageChange</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>注意，该事件有一个很特别的地方，就是它不在导致数据变化的当前页面触发，而是在同一个域名的其他窗口触发。也就是说，如果浏览器只打开一个窗口，可能观察不到这个事件。比如同时打开多个窗口，当其中的一个窗口导致储存的数据发生改变时，只有在其他窗口才能观察到监听函数的执行。可以通过这种机制，实现多个窗口之间的通信。</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Ryan Stewart，<a class="reference external" href="http://www.adobe.com/devnet/html5/articles/html5-storage-apis.html">Introducing the HTML5 storage APIs</a></li>
+<li><a class="reference external" href="http://codular.com/localstorage">Getting Started with LocalStorage</a></li>
+<li>Feross Aboukhadijeh, <a class="reference external" href="http://feross.org/fill-disk/">Introducing the HTML5 Hard Disk Filler™ API</a></li>
+<li>Ben Summers, <a class="reference external" href="http://bens.me.uk/2013/localstorage-inter-window-messaging">Inter-window messaging using localStorage</a></li>
+<li>Stack Overflow, <a class="reference external" href="http://stackoverflow.com/questions/18265556/why-does-internet-explorer-fire-the-window-storage-event-on-the-window-that-st">Why does Internet Explorer fire the window “storage” event on the window that stored the data?</a></li>
+<li>Stack Overflow, <a class="reference external" href="https://stackoverflow.com/questions/5370784/localstorage-eventlistener-is-not-called">localStorage eventListener is not called</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="same-origin.html" class="btn btn-neutral float-right" title="同源政策" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cookie.html" class="btn btn-neutral" title="Cookie" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Math对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Date对象" href="date.html" />
+    <link rel="prev" title="String对象" href="string.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html">包装对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html">Number对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Math对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">静态属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">静态方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#math-abs">Math.abs()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-max-math-min">Math.max()，Math.min()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-floor-math-ceil">Math.floor()，Math.ceil()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-round">Math.round()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-pow">Math.pow()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-sqrt">Math.sqrt()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-log">Math.log()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-exp">Math.exp()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-random">Math.random()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">三角函数方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">stdlib 标准库</a> &raquo;</li>
+        
+      <li>Math对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="math">
+<span id="math"></span><h1>Math对象<a class="headerlink" href="#math" title="永久链接至标题">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Math</span></code>是 JavaScript 的原生对象，提供各种数学功能。该对象不是构造函数，不能生成实例，所有的属性和方法都必须在<code class="docutils literal notranslate"><span class="pre">Math</span></code>对象上调用。</p>
+<div class="section" id="">
+<span id="id1"></span><h2>静态属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Math</span></code>对象的静态属性，提供以下一些数学常数。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Math.E</span></code>：常数<code class="docutils literal notranslate"><span class="pre">e</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.LN2</span></code>：2 的自然对数。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.LN10</span></code>：10 的自然对数。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.LOG2E</span></code>：以 2 为底的<code class="docutils literal notranslate"><span class="pre">e</span></code>的对数。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.LOG10E</span></code>：以 10 为底的<code class="docutils literal notranslate"><span class="pre">e</span></code>的对数。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.PI</span></code>：常数 Pi。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.SQRT1_2</span></code>：0.5 的平方根。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.SQRT2</span></code>：2 的平方根。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">E</span> <span class="c1">// 2.718281828459045</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">LN2</span> <span class="c1">// 0.6931471805599453</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">LN10</span> <span class="c1">// 2.302585092994046</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">LOG2E</span> <span class="c1">// 1.4426950408889634</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">LOG10E</span> <span class="c1">// 0.4342944819032518</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="c1">// 3.141592653589793</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">SQRT1_2</span> <span class="c1">// 0.7071067811865476</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">SQRT2</span> <span class="c1">// 1.4142135623730951</span>
+</pre></div>
+</div>
+<p>这些属性都是只读的，不能修改。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>静态方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Math</span></code>对象提供以下一些静态方法。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Math.abs()</span></code>：绝对值</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.ceil()</span></code>：向上取整</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.floor()</span></code>：向下取整</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.max()</span></code>：最大值</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.min()</span></code>：最小值</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.pow()</span></code>：指数运算</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.sqrt()</span></code>：平方根</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.log()</span></code>：自然对数</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.exp()</span></code>：e的指数</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.round()</span></code>：四舍五入</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.random()</span></code>：随机数</li>
+</ul>
+<div class="section" id="math-abs">
+<span id="math-abs"></span><h3>Math.abs()<a class="headerlink" href="#math-abs" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.abs</span></code>方法返回参数值的绝对值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-max-math-min">
+<span id="math-max-math-min"></span><h3>Math.max()，Math.min()<a class="headerlink" href="#math-max-math-min" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.max</span></code>方法返回参数之中最大的那个值，<code class="docutils literal notranslate"><span class="pre">Math.min</span></code>返回最小的那个值。如果参数为空, <code class="docutils literal notranslate"><span class="pre">Math.min</span></code>返回<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">Math.max</span></code>返回<code class="docutils literal notranslate"><span class="pre">-Infinity</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">// 5</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">// -1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">()</span> <span class="c1">// Infinity</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">()</span> <span class="c1">// -Infinity</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-floor-math-ceil">
+<span id="math-floor-math-ceil"></span><h3>Math.floor()，Math.ceil()<a class="headerlink" href="#math-floor-math-ceil" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.floor</span></code>方法小于参数值的最大整数（地板值）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// 3</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="o">-</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// -4</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Math.ceil</span></code>方法返回大于参数值的最小整数（天花板值）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// 4</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="o">-</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// -3</span>
+</pre></div>
+</div>
+<p>这两个方法可以结合起来，实现一个总是返回数值的整数部分的函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">ToInteger</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">x</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">ToInteger</span><span class="p">(</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// 3</span>
+<span class="nx">ToInteger</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span> <span class="c1">// 3</span>
+<span class="nx">ToInteger</span><span class="p">(</span><span class="mf">3.8</span><span class="p">)</span> <span class="c1">// 3</span>
+<span class="nx">ToInteger</span><span class="p">(</span><span class="o">-</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// -3</span>
+<span class="nx">ToInteger</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">)</span> <span class="c1">// -3</span>
+<span class="nx">ToInteger</span><span class="p">(</span><span class="o">-</span><span class="mf">3.8</span><span class="p">)</span> <span class="c1">// -3</span>
+</pre></div>
+</div>
+<p>上面代码中，不管正数或负数，<code class="docutils literal notranslate"><span class="pre">ToInteger</span></code>函数总是返回一个数值的整数部分。</p>
+</div>
+<div class="section" id="math-round">
+<span id="math-round"></span><h3>Math.round()<a class="headerlink" href="#math-round" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.round</span></code>方法用于四舍五入。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="c1">// 0</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span> <span class="c1">// 1</span>
+
+<span class="c1">// 等同于</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意，它对负数的处理（主要是对<code class="docutils literal notranslate"><span class="pre">0.5</span></code>的处理）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">)</span> <span class="c1">// -1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1">// -1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="o">-</span><span class="mf">1.6</span><span class="p">)</span> <span class="c1">// -2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-pow">
+<span id="math-pow"></span><h3>Math.pow()<a class="headerlink" href="#math-pow" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.pow</span></code>方法返回以第一个参数为底数、第二个参数为幂的指数值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 等同于 2 ** 2</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// 4</span>
+<span class="c1">// 等同于 2 ** 3</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// 8</span>
+</pre></div>
+</div>
+<p>下面是计算圆面积的方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">radius</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-sqrt">
+<span id="math-sqrt"></span><h3>Math.sqrt()<a class="headerlink" href="#math-sqrt" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.sqrt</span></code>方法返回参数值的平方根。如果参数是一个负值，则返回<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1">// 2</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="c1">// NaN</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-log">
+<span id="math-log"></span><h3>Math.log()<a class="headerlink" href="#math-log" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.log</span></code>方法返回以<code class="docutils literal notranslate"><span class="pre">e</span></code>为底的自然对数值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">E</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">// 2.302585092994046</span>
+</pre></div>
+</div>
+<p>如果要计算以10为底的对数，可以先用<code class="docutils literal notranslate"><span class="pre">Math.log</span></code>求出自然对数，然后除以<code class="docutils literal notranslate"><span class="pre">Math.LN10</span></code>；求以2为底的对数，可以除以<code class="docutils literal notranslate"><span class="pre">Math.LN2</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">LN10</span> <span class="c1">// 2</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">LN2</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-exp">
+<span id="math-exp"></span><h3>Math.exp()<a class="headerlink" href="#math-exp" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.exp</span></code>方法返回常数<code class="docutils literal notranslate"><span class="pre">e</span></code>的参数次方。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 2.718281828459045</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// 20.085536923187668</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="math-random">
+<span id="math-random"></span><h3>Math.random()<a class="headerlink" href="#math-random" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math.random()</span></code>返回0到1之间的一个伪随机数，可能等于0，但是一定小于1。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="c1">// 0.7151307314634323</span>
+</pre></div>
+</div>
+<p>任意范围的随机数生成函数如下。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getRandomArbitrary</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span><span class="p">)</span> <span class="o">+</span> <span class="nx">min</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">getRandomArbitrary</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">)</span>
+<span class="c1">// 2.4942810038223864</span>
+</pre></div>
+</div>
+<p>任意范围的随机整数生成函数如下。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getRandomInt</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="nx">min</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">getRandomInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1">// 5</span>
+</pre></div>
+</div>
+<p>返回随机字符的例子如下。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">random_str</span><span class="p">(</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">ALPHABET</span> <span class="o">=</span> <span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span><span class="p">;</span>
+  <span class="nx">ALPHABET</span> <span class="o">+=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">;</span>
+  <span class="nx">ALPHABET</span> <span class="o">+=</span> <span class="s1">&#39;0123456789-_&#39;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">rand</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">ALPHABET</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="nx">str</span> <span class="o">+=</span> <span class="nx">ALPHABET</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">rand</span><span class="p">,</span> <span class="nx">rand</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">random_str</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1">// &quot;NdQKOr&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">random_str</span></code>函数接受一个整数作为参数，返回变量<code class="docutils literal notranslate"><span class="pre">ALPHABET</span></code>内的随机字符所组成的指定长度的字符串。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>三角函数方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Math</span></code>对象还提供一系列三角函数方法。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Math.sin()</span></code>：返回参数的正弦（参数为弧度值）</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.cos()</span></code>：返回参数的余弦（参数为弧度值）</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.tan()</span></code>：返回参数的正切（参数为弧度值）</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.asin()</span></code>：返回参数的反正弦（返回值为弧度值）</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.acos()</span></code>：返回参数的反余弦（返回值为弧度值）</li>
+<li><code class="docutils literal notranslate"><span class="pre">Math.atan()</span></code>：返回参数的反正切（返回值为弧度值）</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// 0</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// 0</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// 1</span>
+
+<span class="nb">Math</span><span class="p">.</span><span class="nx">asin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 1.5707963267948966</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">acos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 0</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">atan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 0.7853981633974483</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="date.html" class="btn btn-neutral float-right" title="Date对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="string.html" class="btn btn-neutral" title="String对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

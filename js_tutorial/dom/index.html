@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DOM 模型 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="DOM 模型概述" href="node.html" />
+    <link rel="prev" title="ECMAScript 6 介绍" href="../advanced/ecmascript6.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DOM 模型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node.html">DOM 模型概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">事件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html">事件种类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>DOM 模型</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dom">
+<h1>DOM 模型<a class="headerlink" href="#dom" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="node.html">DOM 模型概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node.html#">基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#node">Node 接口的属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#node">Node 接口的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#nodelist">NodeList 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#htmlcollection">HTMLCollection 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#parentnode">ParentNode 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#childnode">ChildNode 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node.html#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="document.html">document 对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="document.html#">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html#">属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html#">方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="element.html">Element对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="element.html#">实例属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html#">实例方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attribute.html">属性的操作</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html#element-attributes">Element.attributes 属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html#">元素的标准属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html#">属性操作的标准方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html#dataset">dataset 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="text.html#text">Text 节点的概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#text">Text 节点的属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#text">Text 节点的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html#documentfragment">DocumentFragment 节点</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="event.html">事件模型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="event.html#eventtarget">EventTarget 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#">监听函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#this">this 的指向</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#">事件的传播</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#">事件的代理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#event">Event 对象概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#event">Event 对象的实例属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#event">Event 对象的实例方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#customevent">CustomEvent 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="event-type.html">事件种类</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">鼠标事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#mouseevent">MouseEvent 接口概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#mouseevent">MouseEvent 接口的实例属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#mouseevent">MouseEvent 接口的实例方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#wheelevent">WheelEvent 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">键盘事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#keyboardevent">KeyboardEvent 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#keyboardevent">KeyboardEvent 的实例属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#keyboardevent">KeyboardEvent 的实例方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">进度事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#progressevent">ProgressEvent 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">拖拉事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#dragevent">DragEvent 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#datatransfer">DataTransfer 接口概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#datatransfer">DataTransfer 的实例属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#datatransfer">DataTransfer 的实例方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">触摸操作概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#touch">Touch 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#touchlist">TouchList 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#touchevent">TouchEvent 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">触摸事件的种类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">表单事件的种类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">资源事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#session">session 历史事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">网页状态事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">窗口事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">剪贴板事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html#">焦点事件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="css.html">CSS操作</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="css.html#html-style">HTML 元素的 style 属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#cssstyledeclaration">CSSStyleDeclaration 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#css">CSS 模块的侦测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#css">CSS 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#window-getcomputedstyle">window.getComputedStyle()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#css">CSS 伪元素</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#stylesheet">StyleSheet 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#">实例：添加样式表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#cssrulelist">CSSRuleList 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#cssrule">CSSRule 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#window-matchmedia">window.matchMedia()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#css">CSS事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Image对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="image.html#">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#">特性相关的属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-width-htmlimageelement-height">HTMLImageElement.width，HTMLImageElement.height</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-naturalwidth-htmlimageelement-naturalheight">HTMLImageElement.naturalWidth，HTMLImageElement.naturalHeight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-complete">HTMLImageElement.complete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-crossorigin">HTMLImageElement.crossOrigin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-referrerpolicy">HTMLImageElement.referrerPolicy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-x-htmlimageelement-y">HTMLImageElement.x，HTMLImageElement.y</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#">事件属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#mutationobserver">MutationObserver 构造函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#mutationobserver">MutationObserver 的实例方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#mutationrecord">MutationRecord 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#">应用示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#">参考链接</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="node.html" class="btn btn-neutral float-right" title="DOM 模型概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../advanced/ecmascript6.html" class="btn btn-neutral" title="ECMAScript 6 介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

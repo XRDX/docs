@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Object对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Array 对象" href="array.html" />
+    <link rel="prev" title="stdlib 标准库" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Object对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object">Object()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object">Object 构造函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object">Object 的静态方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#object-keys-object-getownpropertynames">Object.keys()，Object.getOwnPropertyNames()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">其他方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#object">Object 的实例方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#object-prototype-valueof">Object.prototype.valueOf()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-prototype-tostring">Object.prototype.toString()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tostring">toString() 的应用：判断数据类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-prototype-tolocalestring">Object.prototype.toLocaleString()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-prototype-hasownproperty">Object.prototype.hasOwnProperty()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html">包装对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html">Number对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">stdlib 标准库</a> &raquo;</li>
+        
+      <li>Object对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object">
+<span id="object"></span><h1>Object对象<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>JavaScript 原生提供<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象（注意起首的<code class="docutils literal notranslate"><span class="pre">O</span></code>是大写），本章介绍该对象原生的各种方法。</p>
+<p>JavaScript 的所有其他对象都继承自<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象，即那些对象都是<code class="docutils literal notranslate"><span class="pre">Object</span></code>的实例。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Object</span></code>对象的原生方法分成两类：<code class="docutils literal notranslate"><span class="pre">Object</span></code>本身的方法与<code class="docutils literal notranslate"><span class="pre">Object</span></code>的实例方法。</p>
+<p><strong>（1）<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象本身的方法</strong></p>
+<p>所谓”本身的方法“就是直接定义在<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象的方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Object</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">print</span></code>方法就是直接定义在<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象上。</p>
+<p><strong>（2）<code class="docutils literal notranslate"><span class="pre">Object</span></code>的实例方法</strong></p>
+<p>所谓实例方法就是定义在<code class="docutils literal notranslate"><span class="pre">Object</span></code>原型对象<code class="docutils literal notranslate"><span class="pre">Object.prototype</span></code>上的方法。它可以被<code class="docutils literal notranslate"><span class="pre">Object</span></code>实例直接使用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">print</span><span class="p">()</span> <span class="c1">// Object</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">Object.prototype</span></code>定义了一个<code class="docutils literal notranslate"><span class="pre">print</span></code>方法，然后生成一个<code class="docutils literal notranslate"><span class="pre">Object</span></code>的实例<code class="docutils literal notranslate"><span class="pre">obj</span></code>。<code class="docutils literal notranslate"><span class="pre">obj</span></code>直接继承了<code class="docutils literal notranslate"><span class="pre">Object.prototype</span></code>的属性和方法，可以直接使用<code class="docutils literal notranslate"><span class="pre">obj.print</span></code>调用<code class="docutils literal notranslate"><span class="pre">print</span></code>方法。也就是说，<code class="docutils literal notranslate"><span class="pre">obj</span></code>对象的<code class="docutils literal notranslate"><span class="pre">print</span></code>方法实质上就是调用<code class="docutils literal notranslate"><span class="pre">Object.prototype.print</span></code>方法。</p>
+<p>关于原型对象<code class="docutils literal notranslate"><span class="pre">object.prototype</span></code>的详细解释，参见《面向对象编程》章节。这里只要知道，凡是定义在<code class="docutils literal notranslate"><span class="pre">Object.prototype</span></code>对象上面的属性和方法，将被所有实例对象共享就可以了。</p>
+<p>以下先介绍<code class="docutils literal notranslate"><span class="pre">Object</span></code>作为函数的用法，然后再介绍<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象的原生方法，分成对象自身的方法（又称为”静态方法“）和实例方法两部分。</p>
+</div>
+<div class="section" id="object">
+<span id="id2"></span><h2>Object()<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Object</span></code>本身是一个函数，可以当作工具方法使用，将任意值转为对象。这个方法常用于保证某个值一定是对象。</p>
+<p>如果参数为空（或者为<code class="docutils literal notranslate"><span class="pre">undefined</span></code>和<code class="docutils literal notranslate"><span class="pre">null</span></code>），<code class="docutils literal notranslate"><span class="pre">Object()</span></code>返回一个空对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="c1">// 等同于</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Object</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码的含义，是将<code class="docutils literal notranslate"><span class="pre">undefined</span></code>和<code class="docutils literal notranslate"><span class="pre">null</span></code>转为对象，结果得到了一个空对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">instanceof</span></code>运算符用来验证，一个对象是否为指定的构造函数的实例。<code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">instanceof</span> <span class="pre">Object</span></code>返回<code class="docutils literal notranslate"><span class="pre">true</span></code>，就表示<code class="docutils literal notranslate"><span class="pre">obj</span></code>对象是<code class="docutils literal notranslate"><span class="pre">Object</span></code>的实例。</p>
+<p>如果参数是原始类型的值，<code class="docutils literal notranslate"><span class="pre">Object</span></code>方法将其转为对应的包装对象的实例（参见《原始类型的包装对象》一章）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Object</span> <span class="c1">// true</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Number</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Object</span> <span class="c1">// true</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">String</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Object</span> <span class="c1">// true</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Boolean</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">Object</span></code>函数的参数是各种原始类型的值，转换成对象就是原始类型值对应的包装对象。</p>
+<p>如果<code class="docutils literal notranslate"><span class="pre">Object</span></code>方法的参数是一个对象，它总是返回该对象，即不用转换。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// 返回原数组</span>
+<span class="nx">obj</span> <span class="o">===</span> <span class="nx">arr</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="c1">// 返回原对象</span>
+<span class="nx">obj</span> <span class="o">===</span> <span class="nx">value</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{};</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 返回原函数</span>
+<span class="nx">obj</span> <span class="o">===</span> <span class="nx">fn</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>利用这一点，可以写一个判断变量是否为对象的函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">isObject</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">value</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">isObject</span><span class="p">([])</span> <span class="c1">// true</span>
+<span class="nx">isObject</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="object">
+<span id="id3"></span><h2>Object 构造函数<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Object</span></code>不仅可以当作工具函数使用，还可以当作构造函数使用，即前面可以使用<code class="docutils literal notranslate"><span class="pre">new</span></code>命令。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Object</span></code>构造函数的首要用途，是直接通过它来生成新对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div>注意，通过<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">obj</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Object()</span></code>的写法生成新对象，与字面量的写法<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">obj</span> <span class="pre">=</span> <span class="pre">{}</span></code>是等价的。或者说，后者只是前者的一种简便写法。</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Object</span></code>构造函数的用法与工具方法很相似，几乎一模一样。使用时，可以接受一个参数，如果该参数是一个对象，则直接返回这个对象；如果是一个原始类型的值，则返回该值对应的包装对象（详见《包装对象》一章）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">o1</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">(</span><span class="nx">o1</span><span class="p">);</span>
+<span class="nx">o1</span> <span class="o">===</span> <span class="nx">o2</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="nx">obj</span> <span class="k">instanceof</span> <span class="nb">Number</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>虽然用法相似，但是<code class="docutils literal notranslate"><span class="pre">Object(value)</span></code>与<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Object(value)</span></code>两者的语义是不同的，<code class="docutils literal notranslate"><span class="pre">Object(value)</span></code>表示将<code class="docutils literal notranslate"><span class="pre">value</span></code>转成一个对象，<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Object(value)</span></code>则表示新生成一个对象，它的值是<code class="docutils literal notranslate"><span class="pre">value</span></code>。</p>
+</div>
+<div class="section" id="object">
+<span id="id4"></span><h2>Object 的静态方法<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h2>
+<p>所谓“静态方法”，是指部署在<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象自身的方法。</p>
+<div class="section" id="object-keys-object-getownpropertynames">
+<span id="object-keys-object-getownpropertynames"></span><h3>Object.keys()，Object.getOwnPropertyNames()<a class="headerlink" href="#object-keys-object-getownpropertynames" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Object.keys</span></code>方法和<code class="docutils literal notranslate"><span class="pre">Object.getOwnPropertyNames</span></code>方法都用来遍历对象的属性。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Object.keys</span></code>方法的参数是一个对象，返回一个数组。该数组的成员都是该对象自身的（而不是继承的）所有属性名。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">p1</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+  <span class="nx">p2</span><span class="o">:</span> <span class="mi">456</span>
+<span class="p">};</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// [&quot;p1&quot;, &quot;p2&quot;]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Object.getOwnPropertyNames</span></code>方法与<code class="docutils literal notranslate"><span class="pre">Object.keys</span></code>类似，也是接受一个对象作为参数，返回一个数组，包含了该对象自身的所有属性名。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">p1</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+  <span class="nx">p2</span><span class="o">:</span> <span class="mi">456</span>
+<span class="p">};</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// [&quot;p1&quot;, &quot;p2&quot;]</span>
+</pre></div>
+</div>
+<p>对于一般的对象来说，<code class="docutils literal notranslate"><span class="pre">Object.keys()</span></code>和<code class="docutils literal notranslate"><span class="pre">Object.getOwnPropertyNames()</span></code>返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。<code class="docutils literal notranslate"><span class="pre">Object.keys</span></code>方法只返回可枚举的属性（详见《对象属性的描述对象》一章），<code class="docutils literal notranslate"><span class="pre">Object.getOwnPropertyNames</span></code>方法还返回不可枚举的属性名。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">];</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// [&quot;0&quot;, &quot;1&quot;]</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// [&quot;0&quot;, &quot;1&quot;, &quot;length&quot;]</span>
+</pre></div>
+</div>
+<p>上面代码中，数组的<code class="docutils literal notranslate"><span class="pre">length</span></code>属性是不可枚举的属性，所以只出现在<code class="docutils literal notranslate"><span class="pre">Object.getOwnPropertyNames</span></code>方法的返回结果中。</p>
+<p>由于 JavaScript 没有提供计算对象属性个数的方法，所以可以用这两个方法代替。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">p1</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+  <span class="nx">p2</span><span class="o">:</span> <span class="mi">456</span>
+<span class="p">};</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">length</span> <span class="c1">// 2</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">length</span> <span class="c1">// 2</span>
+</pre></div>
+</div>
+<p>一般情况下，几乎总是使用<code class="docutils literal notranslate"><span class="pre">Object.keys</span></code>方法，遍历数组的属性。</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>其他方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>除了上面提到的两个方法，<code class="docutils literal notranslate"><span class="pre">Object</span></code>还有不少其他静态方法，将在后文逐一详细介绍。</p>
+<p><strong>（1）对象属性模型的相关方法</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Object.getOwnPropertyDescriptor()</span></code>：获取某个属性的描述对象。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.defineProperty()</span></code>：通过描述对象，定义某个属性。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.defineProperties()</span></code>：通过描述对象，定义多个属性。</li>
+</ul>
+<p><strong>（2）控制对象状态的方法</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Object.preventExtensions()</span></code>：防止对象扩展。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.isExtensible()</span></code>：判断对象是否可扩展。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.seal()</span></code>：禁止对象配置。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.isSealed()</span></code>：判断一个对象是否可配置。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.freeze()</span></code>：冻结一个对象。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.isFrozen()</span></code>：判断一个对象是否被冻结。</li>
+</ul>
+<p><strong>（3）原型链相关方法</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Object.create()</span></code>：该方法可以指定原型对象和属性，返回一个新的对象。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.getPrototypeOf()</span></code>：获取对象的<code class="docutils literal notranslate"><span class="pre">Prototype</span></code>对象。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="object">
+<span id="id6"></span><h2>Object 的实例方法<a class="headerlink" href="#object" title="永久链接至标题">¶</a></h2>
+<p>除了静态方法，还有不少方法定义在<code class="docutils literal notranslate"><span class="pre">Object.prototype</span></code>对象。它们称为实例方法，所有<code class="docutils literal notranslate"><span class="pre">Object</span></code>的实例对象都继承了这些方法。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Object</span></code>实例对象的方法，主要有以下六个。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Object.prototype.valueOf()</span></code>：返回当前对象对应的值。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.prototype.toString()</span></code>：返回当前对象对应的字符串形式。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.prototype.toLocaleString()</span></code>：返回当前对象对应的本地字符串形式。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.prototype.hasOwnProperty()</span></code>：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.prototype.isPrototypeOf()</span></code>：判断当前对象是否为另一个对象的原型。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Object.prototype.propertyIsEnumerable()</span></code>：判断某个属性是否可枚举。</li>
+</ul>
+<p>本节介绍前四个方法，另外两个方法将在后文相关章节介绍。</p>
+<div class="section" id="object-prototype-valueof">
+<span id="object-prototype-valueof"></span><h3>Object.prototype.valueOf()<a class="headerlink" href="#object-prototype-valueof" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法的作用是返回一个对象的“值”，默认情况下返回对象本身。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="o">===</span> <span class="nx">obj</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码比较<code class="docutils literal notranslate"><span class="pre">obj.valueOf()</span></code>与<code class="docutils literal notranslate"><span class="pre">obj</span></code>本身，两者是一样的。</p>
+<p><code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法（详见《数据类型转换》一章）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="nx">obj</span> <span class="c1">// &quot;1[object Object]&quot;</span>
+</pre></div>
+</div>
+<p>上面代码将对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>与数字<code class="docutils literal notranslate"><span class="pre">1</span></code>相加，这时 JavaScript 就会默认调用<code class="docutils literal notranslate"><span class="pre">valueOf()</span></code>方法，求出<code class="docutils literal notranslate"><span class="pre">obj</span></code>的值再与<code class="docutils literal notranslate"><span class="pre">1</span></code>相加。所以，如果自定义<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法，就可以得到想要的结果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">valueOf</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="mi">1</span> <span class="o">+</span> <span class="nx">obj</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>上面代码自定义了<code class="docutils literal notranslate"><span class="pre">obj</span></code>对象的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法，于是<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">obj</span></code>就得到了<code class="docutils literal notranslate"><span class="pre">3</span></code>。这种方法就相当于用自定义的<code class="docutils literal notranslate"><span class="pre">obj.valueOf</span></code>，覆盖<code class="docutils literal notranslate"><span class="pre">Object.prototype.valueOf</span></code>。</p>
+</div>
+<div class="section" id="object-prototype-tostring">
+<span id="object-prototype-tostring"></span><h3>Object.prototype.toString()<a class="headerlink" href="#object-prototype-tostring" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toString</span></code>方法的作用是返回一个对象的字符串形式，默认情况下返回类型字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">o1</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;[object Object]&quot;</span>
+
+<span class="kd">var</span> <span class="nx">o2</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">};</span>
+<span class="nx">o2</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;[object Object]&quot;</span>
+</pre></div>
+</div>
+<p>上面代码表示，对于一个对象调用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，会返回字符串<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>，该字符串说明对象的类型。</p>
+<p>字符串<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>本身没有太大的用处，但是通过自定义<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，可以让对象在自动类型转换时，得到想要的字符串形式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;world&#39;</span> <span class="c1">// &quot;hello world&quot;</span>
+</pre></div>
+</div>
+<p>上面代码表示，当对象用于字符串加法时，会自动调用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。由于自定义了<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，所以返回字符串<code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">world</span></code>。</p>
+<p>数组、字符串、函数、Date 对象都分别部署了自定义的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，覆盖了<code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;1,2,3&quot;</span>
+
+<span class="s1">&#39;123&#39;</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;123&quot;</span>
+
+<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">123</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">toString</span><span class="p">()</span>
+<span class="c1">// &quot;function () {</span>
+<span class="c1">//   return 123;</span>
+<span class="c1">// }&quot;</span>
+
+<span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">toString</span><span class="p">()</span>
+<span class="c1">// &quot;Tue May 10 2016 09:11:31 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，数组、字符串、函数、Date 对象调用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，并不会返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>，因为它们都自定义了<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，覆盖原始方法。</p>
+</div>
+<div class="section" id="tostring">
+<span id="tostring"></span><h3>toString() 的应用：判断数据类型<a class="headerlink" href="#tostring" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>方法返回对象的类型字符串，因此可以用来判断一个值的类型。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;[object Object]&quot;</span>
+</pre></div>
+</div>
+<p>上面代码调用空对象的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，结果返回一个字符串<code class="docutils literal notranslate"><span class="pre">object</span> <span class="pre">Object</span></code>，其中第二个<code class="docutils literal notranslate"><span class="pre">Object</span></code>表示该值的构造函数。这是一个十分有用的判断数据类型的方法。</p>
+<p>由于实例对象可能会自定义<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，覆盖掉<code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>方法，所以为了得到类型字符串，最好直接使用<code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>方法。通过函数的<code class="docutils literal notranslate"><span class="pre">call</span></code>方法，可以在任意值上调用这个方法，帮助我们判断这个值的类型。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码表示对<code class="docutils literal notranslate"><span class="pre">value</span></code>这个值调用<code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>方法。</p>
+<p>不同数据类型的<code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>方法返回值如下。</p>
+<ul class="simple">
+<li>数值：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Number]</span></code>。</li>
+<li>字符串：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">String]</span></code>。</li>
+<li>布尔值：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Boolean]</span></code>。</li>
+<li>undefined：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Undefined]</span></code>。</li>
+<li>null：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Null]</span></code>。</li>
+<li>数组：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Array]</span></code>。</li>
+<li>arguments 对象：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Arguments]</span></code>。</li>
+<li>函数：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Function]</span></code>。</li>
+<li>Error 对象：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Error]</span></code>。</li>
+<li>Date 对象：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Date]</span></code>。</li>
+<li>RegExp 对象：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">RegExp]</span></code>。</li>
+<li>其他对象：返回<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>。</li>
+</ul>
+<p>这就是说，<code class="docutils literal notranslate"><span class="pre">Object.prototype.toString</span></code>可以看出一个值到底是什么类型。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;[object Number]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">// &quot;[object String]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// &quot;[object Boolean]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">// &quot;[object Undefined]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// &quot;[object Null]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">Math</span><span class="p">)</span> <span class="c1">// &quot;[object Math]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">({})</span> <span class="c1">// &quot;[object Object]&quot;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">([])</span> <span class="c1">// &quot;[object Array]&quot;</span>
+</pre></div>
+</div>
+<p>利用这个特性，可以写出一个比<code class="docutils literal notranslate"><span class="pre">typeof</span></code>运算符更准确的类型判断函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/\[object (.*?)\]/</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">type</span><span class="p">({});</span> <span class="c1">// &quot;object&quot;</span>
+<span class="nx">type</span><span class="p">([]);</span> <span class="c1">// &quot;array&quot;</span>
+<span class="nx">type</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// &quot;number&quot;</span>
+<span class="nx">type</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span> <span class="c1">// &quot;null&quot;</span>
+<span class="nx">type</span><span class="p">();</span> <span class="c1">// &quot;undefined&quot;</span>
+<span class="nx">type</span><span class="p">(</span><span class="sr">/abcd/</span><span class="p">);</span> <span class="c1">// &quot;regex&quot;</span>
+<span class="nx">type</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">());</span> <span class="c1">// &quot;date&quot;</span>
+</pre></div>
+</div>
+<p>在上面这个<code class="docutils literal notranslate"><span class="pre">type</span></code>函数的基础上，还可以加上专门判断某种类型数据的方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/\[object (.*?)\]/</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="p">[</span><span class="s1">&#39;Null&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Undefined&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Object&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Array&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;String&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Number&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Boolean&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Function&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;RegExp&#39;</span>
+<span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">type</span><span class="p">[</span><span class="s1">&#39;is&#39;</span> <span class="o">+</span> <span class="nx">t</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="o">===</span> <span class="nx">t</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+
+<span class="nx">type</span><span class="p">.</span><span class="nx">isObject</span><span class="p">({})</span> <span class="c1">// true</span>
+<span class="nx">type</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="nx">type</span><span class="p">.</span><span class="nx">isRegExp</span><span class="p">(</span><span class="sr">/abc/</span><span class="p">)</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="object-prototype-tolocalestring">
+<span id="object-prototype-tolocalestring"></span><h3>Object.prototype.toLocaleString()<a class="headerlink" href="#object-prototype-tolocalestring" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Object.prototype.toLocaleString</span></code>方法与<code class="docutils literal notranslate"><span class="pre">toString</span></code>的返回结果相同，也是返回一个值的字符串形式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// &quot;[object Object]&quot;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// &quot;[object Object]&quot;</span>
+</pre></div>
+</div>
+<p>这个方法的主要作用是留出一个接口，让各种不同的对象实现自己版本的<code class="docutils literal notranslate"><span class="pre">toLocaleString</span></code>，用来返回针对某些地域的特定的值。目前，主要有三个对象自定义了<code class="docutils literal notranslate"><span class="pre">toLocaleString</span></code>方法。</p>
+<ul class="simple">
+<li>Array.prototype.toLocaleString()</li>
+<li>Number.prototype.toLocaleString()</li>
+<li>Date.prototype.toLocaleString()</li>
+</ul>
+<p>举例来说，日期的实例对象的<code class="docutils literal notranslate"><span class="pre">toString</span></code>和<code class="docutils literal notranslate"><span class="pre">toLocaleString</span></code>返回值就不一样，而且<code class="docutils literal notranslate"><span class="pre">toLocaleString</span></code>的返回值跟用户设定的所在地域相关。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="nx">date</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;Tue Jan 01 2018 12:01:33 GMT+0800 (CST)&quot;</span>
+<span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">()</span> <span class="c1">// &quot;1/01/2018, 12:01:33 PM&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="object-prototype-hasownproperty">
+<span id="object-prototype-hasownproperty"></span><h3>Object.prototype.hasOwnProperty()<a class="headerlink" href="#object-prototype-hasownproperty" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Object.prototype.hasOwnProperty</span></code>方法接受一个字符串作为参数，返回一个布尔值，表示该实例对象自身是否具有该属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">p</span><span class="o">:</span> <span class="mi">123</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;toString&#39;</span><span class="p">)</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+<p>上面代码中，对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>自身具有<code class="docutils literal notranslate"><span class="pre">p</span></code>属性，所以返回<code class="docutils literal notranslate"><span class="pre">true</span></code>。<code class="docutils literal notranslate"><span class="pre">toString</span></code>属性是继承的，所以返回<code class="docutils literal notranslate"><span class="pre">false</span></code>。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2013/08/protecting-objects.html">Protecting objects in JavaScript</a></li>
+<li>kangax, <a class="reference external" href="http://perfectionkills.com/understanding-delete/">Understanding delete</a></li>
+<li>Jon Bretman, <a class="reference external" href="http://techblog.badoo.com/blog/2013/11/01/type-checking-in-javascript/">Type Checking in JavaScript</a></li>
+<li>Cody Lindley, <a class="reference external" href="http://tech.pro/tutorial/1671/thinking-about-ecmascript-5-parts">Thinking About ECMAScript 5 Parts</a></li>
+<li>Bjorn Tipling, <a class="reference external" href="http://bjorn.tipling.com/advanced-objects-in-javascript">Advanced objects in JavaScript</a></li>
+<li>Javier Márquez, <a class="reference external" href="http://arqex.com/967/javascript-properties-enumerable-writable-configurable">Javascript properties are enumerable, writable and configurable</a></li>
+<li>Sella Rafaeli, <a class="reference external" href="http://www.sellarafaeli.com/blog/native_javascript_data_binding">Native JavaScript Data-Binding</a>: 使用存取函数实现model与view的双向绑定</li>
+<li>Lea Verou, <a class="reference external" href="http://lea.verou.me/2015/08/copying-properties-the-robust-way/">Copying object properties, the robust way</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="array.html" class="btn btn-neutral float-right" title="Array 对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="stdlib 标准库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

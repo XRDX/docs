@@ -1,0 +1,653 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>console对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="属性描述对象" href="attributes.html" />
+    <link rel="prev" title="JSON对象" href="json.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html">包装对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html">Number对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">console对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">浏览器实现</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#console">console 对象的静态方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#console-log-console-info-console-debug">console.log()，console.info()，console.debug()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-warn-console-error">console.warn()，console.error()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-table">console.table()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-count">console.count()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-dir-console-dirxml">console.dir()，console.dirxml()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-assert">console.assert()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-time-console-timeend">console.time()，console.timeEnd()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-group-console-groupend-console-groupcollapsed">console.group()，console.groupEnd()，console.groupCollapsed()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-trace-console-clear">console.trace()，console.clear()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#api">命令行 API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugger">debugger 语句</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">stdlib 标准库</a> &raquo;</li>
+        
+      <li>console对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="console">
+<span id="console"></span><h1>console对象<a class="headerlink" href="#console" title="永久链接至标题">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">console</span></code>对象是 JavaScript 的原生对象，它有点像 Unix 系统的标准输出<code class="docutils literal notranslate"><span class="pre">stdout</span></code>和标准错误<code class="docutils literal notranslate"><span class="pre">stderr</span></code>，可以输出各种信息到控制台，并且还提供了很多有用的辅助方法。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console</span></code>的常见用途有两个。</p>
+<ul class="simple">
+<li>调试程序，显示网页代码运行时的错误信息。</li>
+<li>提供了一个命令行接口，用来与网页代码互动。</li>
+</ul>
+<div class="section" id="">
+<span id="id1"></span><h2>浏览器实现<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">console</span></code>对象的浏览器实现，包含在浏览器自带的开发工具之中。以 Chrome 浏览器的“开发者工具”（Developer Tools）为例，可以使用下面三种方法的打开它。</p>
+<ol class="simple">
+<li>按 F12 或者<code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">i</span></code>（PC）/ <code class="docutils literal notranslate"><span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">Command</span> <span class="pre">+</span> <span class="pre">i</span></code>（Mac）。</li>
+<li>浏览器菜单选择“工具/开发者工具”。</li>
+<li>在一个页面元素上，打开右键菜单，选择其中的“Inspect Element”。</li>
+</ol>
+<p>打开开发者工具以后，顶端有多个面板。</p>
+<ul class="simple">
+<li><strong>Elements</strong>：查看网页的 HTML 源码和 CSS 代码。</li>
+<li><strong>Resources</strong>：查看网页加载的各种资源文件（比如代码文件、字体文件 CSS 文件等），以及在硬盘上创建的各种内容（比如本地缓存、Cookie、Local Storage等）。</li>
+<li><strong>Network</strong>：查看网页的 HTTP 通信情况。</li>
+<li><strong>Sources</strong>：查看网页加载的脚本源码。</li>
+<li><strong>Timeline</strong>：查看各种网页行为随时间变化的情况。</li>
+<li><strong>Performance</strong>：查看网页的性能情况，比如 CPU 和内存消耗。</li>
+<li><strong>Console</strong>：用来运行 JavaScript 命令。</li>
+</ul>
+<p>这些面板都有各自的用途，以下只介绍<code class="docutils literal notranslate"><span class="pre">Console</span></code>面板（又称为控制台）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Console</span></code>面板基本上就是一个命令行窗口，你可以在提示符下，键入各种命令。</p>
+</div>
+<div class="section" id="console">
+<span id="id2"></span><h2>console 对象的静态方法<a class="headerlink" href="#console" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">console</span></code>对象提供的各种静态方法，用来与控制台窗口互动。</p>
+<div class="section" id="console-log-console-info-console-debug">
+<span id="console-log-console-info-console-debug"></span><h3>console.log()，console.info()，console.debug()<a class="headerlink" href="#console-log-console-info-console-debug" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法用于在控制台输出信息。它可以接受一个或多个参数，将它们连接起来输出。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+<span class="c1">// Hello World</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="c1">// a b c</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法会自动在每次输出的结尾，添加换行符。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="c1">// 1</span>
+<span class="c1">// 2</span>
+<span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>如果第一个参数是格式字符串（使用了格式占位符），<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法将依次用后面的参数替换占位符，然后再进行输出。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39; %s + %s = %s&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">//  1 + 1 = 2</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法的第一个参数有三个占位符（<code class="docutils literal notranslate"><span class="pre">%s</span></code>），第二、三、四个参数会在显示时，依次替换掉这个三个占位符。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法支持以下占位符，不同类型的数据必须使用对应的占位符。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">%s</span></code> 字符串</li>
+<li><code class="docutils literal notranslate"><span class="pre">%d</span></code> 整数</li>
+<li><code class="docutils literal notranslate"><span class="pre">%i</span></code> 整数</li>
+<li><code class="docutils literal notranslate"><span class="pre">%f</span></code> 浮点数</li>
+<li><code class="docutils literal notranslate"><span class="pre">%o</span></code> 对象的链接</li>
+<li><code class="docutils literal notranslate"><span class="pre">%c</span></code> CSS 格式字符串</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">11</span> <span class="o">*</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;%d %s balloons&#39;</span><span class="p">,</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
+<span class="c1">// 99 red balloons</span>
+</pre></div>
+</div>
+<p>上面代码中，第二个参数是数值，对应的占位符是<code class="docutils literal notranslate"><span class="pre">%d</span></code>，第三个参数是字符串，对应的占位符是<code class="docutils literal notranslate"><span class="pre">%s</span></code>。</p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">%c</span></code>占位符时，对应的参数必须是 CSS 代码，用来对输出内容进行CSS渲染。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="s1">&#39;%cThis text is styled!&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;color: red; background: yellow; font-size: 24px;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码运行后，输出的内容将显示为黄底红字。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法的两种参数格式，可以结合在一起使用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39; %s + %s &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;= 2&#39;</span><span class="p">)</span>
+<span class="c1">// 1 + 1  = 2</span>
+</pre></div>
+</div>
+<p>如果参数是一个对象，<code class="docutils literal notranslate"><span class="pre">console.log</span></code>会显示该对象的值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span><span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+<span class="c1">// Object {foo: &quot;bar&quot;}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Date</span><span class="p">)</span>
+<span class="c1">// function Date() { [native code] }</span>
+</pre></div>
+</div>
+<p>上面代码输出<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象的值，结果为一个构造函数。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console.info</span></code>是<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法的别名，用法完全一样。只不过<code class="docutils literal notranslate"><span class="pre">console.info</span></code>方法会在输出信息的前面，加上一个蓝色图标。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console.debug</span></code>方法与<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法类似，会在控制台输出调试信息。但是，默认情况下，<code class="docutils literal notranslate"><span class="pre">console.debug</span></code>输出的信息不会显示，只有在打开显示级别在<code class="docutils literal notranslate"><span class="pre">verbose</span></code>的情况下，才会显示。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console</span></code>对象的所有方法，都可以被覆盖。因此，可以按照自己的需要，定义<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;warn&#39;</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">[</span><span class="nx">method</span><span class="p">]</span> <span class="o">=</span> <span class="nx">console</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">bind</span><span class="p">(</span>
+    <span class="nx">console</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">()</span>
+  <span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;出错了！&quot;</span><span class="p">);</span>
+<span class="c1">// 2014-05-18T09:00.000Z 出错了！</span>
+</pre></div>
+</div>
+<p>上面代码表示，使用自定义的<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法，可以在显示结果添加当前时间。</p>
+</div>
+<div class="section" id="console-warn-console-error">
+<span id="console-warn-console-error"></span><h3>console.warn()，console.error()<a class="headerlink" href="#console-warn-console-error" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">warn</span></code>方法和<code class="docutils literal notranslate"><span class="pre">error</span></code>方法也是在控制台输出信息，它们与<code class="docutils literal notranslate"><span class="pre">log</span></code>方法的不同之处在于，<code class="docutils literal notranslate"><span class="pre">warn</span></code>方法输出信息时，在最前面加一个黄色三角，表示警告；<code class="docutils literal notranslate"><span class="pre">error</span></code>方法输出信息时，在最前面加一个红色的叉，表示出错。同时，还会高亮显示输出文字和错误发生的堆栈。其他方面都一样。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error: %s (%i)&#39;</span><span class="p">,</span> <span class="s1">&#39;Server is not responding&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="c1">// Error: Server is not responding (500)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">&#39;Warning! Too few nodes (%d)&#39;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+<span class="c1">// Warning! Too few nodes (1)</span>
+</pre></div>
+</div>
+<p>可以这样理解，<code class="docutils literal notranslate"><span class="pre">log</span></code>方法是写入标准输出（<code class="docutils literal notranslate"><span class="pre">stdout</span></code>），<code class="docutils literal notranslate"><span class="pre">warn</span></code>方法和<code class="docutils literal notranslate"><span class="pre">error</span></code>方法是写入标准错误（<code class="docutils literal notranslate"><span class="pre">stderr</span></code>）。</p>
+</div>
+<div class="section" id="console-table">
+<span id="console-table"></span><h3>console.table()<a class="headerlink" href="#console-table" title="永久链接至标题">¶</a></h3>
+<p>对于某些复合类型的数据，<code class="docutils literal notranslate"><span class="pre">console.table</span></code>方法可以将其转为表格显示。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">languages</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;JavaScript&quot;</span><span class="p">,</span> <span class="nx">fileExtension</span><span class="o">:</span> <span class="s2">&quot;.js&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;TypeScript&quot;</span><span class="p">,</span> <span class="nx">fileExtension</span><span class="o">:</span> <span class="s2">&quot;.ts&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;CoffeeScript&quot;</span><span class="p">,</span> <span class="nx">fileExtension</span><span class="o">:</span> <span class="s2">&quot;.coffee&quot;</span> <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">languages</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码的<code class="docutils literal notranslate"><span class="pre">language</span></code>变量，转为表格显示如下。</p>
+<p>(index)|name|fileExtension
+-------|----|-------------
+0|&quot;JavaScript&quot;|&quot;.js&quot;
+1|&quot;TypeScript&quot;|&quot;.ts&quot;
+2|&quot;CoffeeScript&quot;|&quot;.coffee&quot;</p>
+<p>下面是显示表格内容的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">languages</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">csharp</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;C#&quot;</span><span class="p">,</span> <span class="nx">paradigm</span><span class="o">:</span> <span class="s2">&quot;object-oriented&quot;</span> <span class="p">},</span>
+  <span class="nx">fsharp</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;F#&quot;</span><span class="p">,</span> <span class="nx">paradigm</span><span class="o">:</span> <span class="s2">&quot;functional&quot;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">languages</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码的<code class="docutils literal notranslate"><span class="pre">language</span></code>，转为表格显示如下。</p>
+<p>(index)|name|paradigm
+-------|----|--------
+csharp|&quot;C#&quot;|&quot;object-oriented&quot;
+fsharp|&quot;F#&quot;|&quot;functional&quot;</p>
+</div>
+<div class="section" id="console-count">
+<span id="console-count"></span><h3>console.count()<a class="headerlink" href="#console-count" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">count</span></code>方法用于计数，输出它被调用了多少次。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">();</span>
+  <span class="k">return</span> <span class="s1">&#39;hi &#39;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+<span class="c1">//  : 1</span>
+<span class="c1">// &quot;hi bob&quot;</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;alice&#39;</span><span class="p">)</span>
+<span class="c1">//  : 2</span>
+<span class="c1">// &quot;hi alice&quot;</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+<span class="c1">//  : 3</span>
+<span class="c1">// &quot;hi bob&quot;</span>
+</pre></div>
+</div>
+<p>上面代码每次调用<code class="docutils literal notranslate"><span class="pre">greet</span></code>函数，内部的<code class="docutils literal notranslate"><span class="pre">console.count</span></code>方法就输出执行次数。</p>
+<p>该方法可以接受一个字符串作为参数，作为标签，对执行次数进行分类。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+  <span class="k">return</span> <span class="s2">&quot;hi &quot;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+<span class="c1">// bob: 1</span>
+<span class="c1">// &quot;hi bob&quot;</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;alice&#39;</span><span class="p">)</span>
+<span class="c1">// alice: 1</span>
+<span class="c1">// &quot;hi alice&quot;</span>
+
+<span class="nx">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+<span class="c1">// bob: 2</span>
+<span class="c1">// &quot;hi bob&quot;</span>
+</pre></div>
+</div>
+<p>上面代码根据参数的不同，显示<code class="docutils literal notranslate"><span class="pre">bob</span></code>执行了两次，<code class="docutils literal notranslate"><span class="pre">alice</span></code>执行了一次。</p>
+</div>
+<div class="section" id="console-dir-console-dirxml">
+<span id="console-dir-console-dirxml"></span><h3>console.dir()，console.dirxml()<a class="headerlink" href="#console-dir-console-dirxml" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">dir</span></code>方法用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span><span class="nx">f1</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nx">f2</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+<span class="c1">// Object {f1: &quot;foo&quot;, f2: &quot;bar&quot;}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">({</span><span class="nx">f1</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nx">f2</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+<span class="c1">// Object</span>
+<span class="c1">//   f1: &quot;foo&quot;</span>
+<span class="c1">//   f2: &quot;bar&quot;</span>
+<span class="c1">//   __proto__: Object</span>
+</pre></div>
+</div>
+<p>上面代码显示<code class="docutils literal notranslate"><span class="pre">dir</span></code>方法的输出结果，比<code class="docutils literal notranslate"><span class="pre">log</span></code>方法更易读，信息也更丰富。</p>
+<p>该方法对于输出 DOM 对象非常有用，因为会显示 DOM 对象的所有属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Node 环境之中，还可以指定以代码高亮的形式输出。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">{</span><span class="nx">colors</span><span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dirxml</span></code>方法主要用于以目录树的形式，显示 DOM 节点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">dirxml</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果参数不是 DOM 节点，而是普通的 JavaScript 对象，<code class="docutils literal notranslate"><span class="pre">console.dirxml</span></code>等同于<code class="docutils literal notranslate"><span class="pre">console.dir</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">dirxml</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c1">// 等同于</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="console-assert">
+<span id="console-assert"></span><h3>console.assert()<a class="headerlink" href="#console-assert" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">console.assert</span></code>方法主要用于程序运行过程中，进行条件判断，如果不满足条件，就显示一个错误，但不会中断程序执行。这样就相当于提示用户，内部状态不正确。</p>
+<p>它接受两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为<code class="docutils literal notranslate"><span class="pre">false</span></code>，才会提示有错误，在控制台输出第二个参数，否则不会有任何结果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s1">&#39;判断条件不成立&#39;</span><span class="p">)</span>
+<span class="c1">// Assertion failed: 判断条件不成立</span>
+
+<span class="c1">// 相当于</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;判断条件不成立&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>下面是一个例子，判断子节点的个数是否大于等于500。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;节点个数大于等于500&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码中，如果符合条件的节点小于500个，不会有任何输出；只有大于等于500时，才会在控制台提示错误，并且显示指定文本。</p>
+</div>
+<div class="section" id="console-time-console-timeend">
+<span id="console-time-console-timeend"></span><h3>console.time()，console.timeEnd()<a class="headerlink" href="#console-time-console-timeend" title="永久链接至标题">¶</a></h3>
+<p>这两个方法用于计时，可以算出一个操作所花费的准确时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;Array initialize&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">array</span><span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;Array initialize&#39;</span><span class="p">);</span>
+<span class="c1">// Array initialize: 1914.481ms</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">time</span></code>方法表示计时开始，<code class="docutils literal notranslate"><span class="pre">timeEnd</span></code>方法表示计时结束。它们的参数是计时器的名称。调用<code class="docutils literal notranslate"><span class="pre">timeEnd</span></code>方法之后，控制台会显示“计时器名称: 所耗费的时间”。</p>
+</div>
+<div class="section" id="console-group-console-groupend-console-groupcollapsed">
+<span id="console-group-console-groupend-console-groupcollapsed"></span><h3>console.group()，console.groupEnd()，console.groupCollapsed()<a class="headerlink" href="#console-group-console-groupend-console-groupcollapsed" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">console.group</span></code>和<code class="docutils literal notranslate"><span class="pre">console.groupEnd</span></code>这两个方法用于将显示的信息分组。它只在输出大量信息时有用，分在一组的信息，可以用鼠标折叠/展开。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="s1">&#39;一级分组&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;一级分组的内容&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="s1">&#39;二级分组&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;二级分组的内容&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">();</span> <span class="c1">// 一级分组结束</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">();</span> <span class="c1">// 二级分组结束</span>
+</pre></div>
+</div>
+<p>上面代码会将“二级分组”显示在“一级分组”内部，并且“一级分类”和“二级分类”前面都有一个折叠符号，可以用来折叠本级的内容。</p>
+<p><code class="docutils literal notranslate"><span class="pre">console.groupCollapsed</span></code>方法与<code class="docutils literal notranslate"><span class="pre">console.group</span></code>方法很类似，唯一的区别是该组的内容，在第一次显示时是收起的（collapsed），而不是展开的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">groupCollapsed</span><span class="p">(</span><span class="s1">&#39;Fetching Data&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Request Sent&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error: Server not responding (500)&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>上面代码只显示一行”Fetching Data“，点击后才会展开，显示其中包含的两行。</p>
+</div>
+<div class="section" id="console-trace-console-clear">
+<span id="console-trace-console-clear"></span><h3>console.trace()，console.clear()<a class="headerlink" href="#console-trace-console-clear" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">console.trace</span></code>方法显示当前执行的代码在堆栈中的调用路径。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">()</span>
+<span class="c1">// console.trace()</span>
+<span class="c1">//   (anonymous function)</span>
+<span class="c1">//   InjectedScript._evaluateOn</span>
+<span class="c1">//   InjectedScript._evaluateAndWrap</span>
+<span class="c1">//   InjectedScript.evaluate</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">console.clear</span></code>方法用于清除当前控制台的所有输出，将光标回置到第一行。如果用户选中了控制台的“Preserve log”选项，<code class="docutils literal notranslate"><span class="pre">console.clear</span></code>方法将不起作用。</p>
+</div>
+</div>
+<div class="section" id="api">
+<span id="api"></span><h2>命令行 API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h2>
+<p>浏览器控制台中，除了使用<code class="docutils literal notranslate"><span class="pre">console</span></code>对象，还可以使用一些控制台自带的命令行方法。</p>
+<p>（1）<code class="docutils literal notranslate"><span class="pre">$_</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$_</span></code>属性返回上一个表达式的值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="c1">// 4</span>
+<span class="nx">$_</span>
+<span class="c1">// 4</span>
+</pre></div>
+</div>
+<p>（2）<code class="docutils literal notranslate"><span class="pre">$0</span></code> - <code class="docutils literal notranslate"><span class="pre">$4</span></code></p>
+<p>控制台保存了最近5个在 Elements 面板选中的 DOM 元素，<code class="docutils literal notranslate"><span class="pre">$0</span></code>代表倒数第一个（最近一个），<code class="docutils literal notranslate"><span class="pre">$1</span></code>代表倒数第二个，以此类推直到<code class="docutils literal notranslate"><span class="pre">$4</span></code>。</p>
+<p>（3）<code class="docutils literal notranslate"><span class="pre">$(selector)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$(selector)</span></code>返回第一个匹配的元素，等同于<code class="docutils literal notranslate"><span class="pre">document.querySelector()</span></code>。注意，如果页面脚本对<code class="docutils literal notranslate"><span class="pre">$</span></code>有定义，则会覆盖原始的定义。比如，页面里面有 jQuery，控制台执行<code class="docutils literal notranslate"><span class="pre">$(selector)</span></code>就会采用 jQuery 的实现，返回一个数组。</p>
+<p>（4）<code class="docutils literal notranslate"><span class="pre">$$(selector)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$$(selector)</span></code>返回选中的 DOM 对象，等同于<code class="docutils literal notranslate"><span class="pre">document.querySelectorAll</span></code>。</p>
+<p>（5）<code class="docutils literal notranslate"><span class="pre">$x(path)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$x(path)</span></code>方法返回一个数组，包含匹配特定 XPath 表达式的所有 DOM 元素。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$x</span><span class="p">(</span><span class="s2">&quot;//p[a]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码返回所有包含<code class="docutils literal notranslate"><span class="pre">a</span></code>元素的<code class="docutils literal notranslate"><span class="pre">p</span></code>元素。</p>
+<p>（6）<code class="docutils literal notranslate"><span class="pre">inspect(object)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">inspect(object)</span></code>方法打开相关面板，并选中相应的元素，显示它的细节。DOM 元素在<code class="docutils literal notranslate"><span class="pre">Elements</span></code>面板中显示，比如<code class="docutils literal notranslate"><span class="pre">inspect(document)</span></code>会在 Elements 面板显示<code class="docutils literal notranslate"><span class="pre">document</span></code>元素。JavaScript 对象在控制台面板<code class="docutils literal notranslate"><span class="pre">Profiles</span></code>面板中显示，比如<code class="docutils literal notranslate"><span class="pre">inspect(window)</span></code>。</p>
+<p>（7）<code class="docutils literal notranslate"><span class="pre">getEventListeners(object)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">getEventListeners(object)</span></code>方法返回一个对象，该对象的成员为<code class="docutils literal notranslate"><span class="pre">object</span></code>登记了回调函数的各种事件（比如<code class="docutils literal notranslate"><span class="pre">click</span></code>或<code class="docutils literal notranslate"><span class="pre">keydown</span></code>），每个事件对应一个数组，数组的成员为该事件的回调函数。</p>
+<p>（8）<code class="docutils literal notranslate"><span class="pre">keys(object)</span></code>，<code class="docutils literal notranslate"><span class="pre">values(object)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">keys(object)</span></code>方法返回一个数组，包含<code class="docutils literal notranslate"><span class="pre">object</span></code>的所有键名。</p>
+<p><code class="docutils literal notranslate"><span class="pre">values(object)</span></code>方法返回一个数组，包含<code class="docutils literal notranslate"><span class="pre">object</span></code>的所有键值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p1&#39;</span><span class="o">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;p2&#39;</span><span class="o">:</span> <span class="s1">&#39;b&#39;</span><span class="p">};</span>
+
+<span class="nx">keys</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+<span class="c1">// [&quot;p1&quot;, &quot;p2&quot;]</span>
+<span class="nx">values</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+<span class="c1">// [&quot;a&quot;, &quot;b&quot;]</span>
+</pre></div>
+</div>
+<p>（9）<code class="docutils literal notranslate"><span class="pre">monitorEvents(object[,</span> <span class="pre">events])</span> <span class="pre">，unmonitorEvents(object[,</span> <span class="pre">events])</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">monitorEvents(object[,</span> <span class="pre">events])</span></code>方法监听特定对象上发生的特定事件。事件发生时，会返回一个<code class="docutils literal notranslate"><span class="pre">Event</span></code>对象，包含该事件的相关信息。<code class="docutils literal notranslate"><span class="pre">unmonitorEvents</span></code>方法用于停止监听。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">monitorEvents</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s2">&quot;resize&quot;</span><span class="p">);</span>
+<span class="nx">monitorEvents</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="s2">&quot;scroll&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>上面代码分别表示单个事件和多个事件的监听方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">monitorEvents</span><span class="p">(</span><span class="nx">$0</span><span class="p">,</span> <span class="s1">&#39;mouse&#39;</span><span class="p">);</span>
+<span class="nx">unmonitorEvents</span><span class="p">(</span><span class="nx">$0</span><span class="p">,</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码表示如何停止监听。</p>
+<p><code class="docutils literal notranslate"><span class="pre">monitorEvents</span></code>允许监听同一大类的事件。所有事件可以分成四个大类。</p>
+<ul class="simple">
+<li>mouse：&quot;mousedown&quot;, &quot;mouseup&quot;, &quot;click&quot;, &quot;dblclick&quot;, &quot;mousemove&quot;, &quot;mouseover&quot;, &quot;mouseout&quot;, &quot;mousewheel&quot;</li>
+<li>key：&quot;keydown&quot;, &quot;keyup&quot;, &quot;keypress&quot;, &quot;textInput&quot;</li>
+<li>touch：&quot;touchstart&quot;, &quot;touchmove&quot;, &quot;touchend&quot;, &quot;touchcancel&quot;</li>
+<li>control：&quot;resize&quot;, &quot;scroll&quot;, &quot;zoom&quot;, &quot;focus&quot;, &quot;blur&quot;, &quot;select&quot;, &quot;change&quot;, &quot;submit&quot;, &quot;reset&quot;</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">monitorEvents</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#msg&quot;</span><span class="p">),</span> <span class="s2">&quot;key&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码表示监听所有<code class="docutils literal notranslate"><span class="pre">key</span></code>大类的事件。</p>
+<p>（10）其他方法</p>
+<p>命令行 API 还提供以下方法。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">clear()</span></code>：清除控制台的历史。</li>
+<li><code class="docutils literal notranslate"><span class="pre">copy(object)</span></code>：复制特定 DOM 元素到剪贴板。</li>
+<li><code class="docutils literal notranslate"><span class="pre">dir(object)</span></code>：显示特定对象的所有属性，是<code class="docutils literal notranslate"><span class="pre">console.dir</span></code>方法的别名。</li>
+<li><code class="docutils literal notranslate"><span class="pre">dirxml(object)</span></code>：显示特定对象的 XML 形式，是<code class="docutils literal notranslate"><span class="pre">console.dirxml</span></code>方法的别名。</li>
+</ul>
+</div>
+<div class="section" id="debugger">
+<span id="debugger"></span><h2>debugger 语句<a class="headerlink" href="#debugger" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">debugger</span></code>语句主要用于除错，作用是设置断点。如果有正在运行的除错工具，程序运行到<code class="docutils literal notranslate"><span class="pre">debugger</span></code>语句时会自动停下。如果没有除错工具，<code class="docutils literal notranslate"><span class="pre">debugger</span></code>语句不会产生任何结果，JavaScript 引擎自动跳过这一句。</p>
+<p>Chrome 浏览器中，当代码运行到<code class="docutils literal notranslate"><span class="pre">debugger</span></code>语句时，就会暂停运行，自动打开脚本源码界面。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="kr">debugger</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码打印出0，1，2以后，就会暂停，自动打开源码界面，等待进一步处理。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Chrome Developer Tools, <a class="reference external" href="https://developers.google.com/chrome-developer-tools/docs/console">Using the Console</a></li>
+<li>Matt West, <a class="reference external" href="http://blog.teamtreehouse.com/mastering-developer-tools-console">Mastering The Developer Tools Console</a></li>
+<li>Firebug Wiki, <a class="reference external" href="https://getfirebug.com/wiki/index.php/Console_API">Console API</a></li>
+<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2013/10/console-api.html">The JavaScript console API</a></li>
+<li>Marius Schulz, <a class="reference external" href="http://blog.mariusschulz.com/2013/11/13/advanced-javascript-debugging-with-consoletable">Advanced JavaScript Debugging with console.table()</a></li>
+<li>Google Developer, <a class="reference external" href="https://developers.google.com/chrome-developer-tools/docs/commandline-api">Command Line API Reference</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="attributes.html" class="btn btn-neutral float-right" title="属性描述对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="json.html" class="btn btn-neutral" title="JSON对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

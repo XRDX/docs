@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Date对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="RegExp对象" href="regexp.html" />
+    <link rel="prev" title="Math对象" href="math.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html">包装对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html">Number对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Date对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">普通函数的用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">构造函数的用法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">日期的运算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">静态方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#date-now">Date.now()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-parse">Date.parse()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-utc">Date.UTC()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">实例方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#date-prototype-valueof">Date.prototype.valueOf()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to">to 类方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get">get 类方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set">set 类方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">stdlib 标准库</a> &raquo;</li>
+        
+      <li>Date对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="date">
+<span id="date"></span><h1>Date对象<a class="headerlink" href="#date" title="永久链接至标题">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。</p>
+<div class="section" id="">
+<span id="id1"></span><h2>普通函数的用法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Date</span><span class="p">()</span>
+<span class="c1">// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+<p>注意，即使带有参数，<code class="docutils literal notranslate"><span class="pre">Date</span></code>作为普通函数使用时，返回的还是当前时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+<p>上面代码说明，无论有没有参数，直接调用<code class="docutils literal notranslate"><span class="pre">Date</span></code>总是返回当前时间。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>构造函数的用法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>还可以当作构造函数使用。对它使用<code class="docutils literal notranslate"><span class="pre">new</span></code>命令，会返回一个<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象的实例。如果不加参数，实例代表的就是当前时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>实例有一个独特的地方。其他对象求值的时候，都是默认调用<code class="docutils literal notranslate"><span class="pre">.valueOf()</span></code>方法，但是<code class="docutils literal notranslate"><span class="pre">Date</span></code>实例求值的时候，默认调用的是<code class="docutils literal notranslate"><span class="pre">toString()</span></code>方法。这导致对<code class="docutils literal notranslate"><span class="pre">Date</span></code>实例求值，返回的是一个字符串，代表该实例对应的时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+<span class="nx">today</span>
+<span class="c1">// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot;</span>
+
+<span class="c1">// 等同于</span>
+<span class="nx">today</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+<span class="c1">// &quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">today</span></code>是<code class="docutils literal notranslate"><span class="pre">Date</span></code>的实例，直接求值等同于调用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。</p>
+<p>作为构造函数时，<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象可以接受多种格式的参数，返回一个该参数对应的时间实例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 参数为时间零点开始计算的毫秒数</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">1378218728000</span><span class="p">)</span>
+<span class="c1">// Tue Sep 03 2013 22:32:08 GMT+0800 (CST)</span>
+
+<span class="c1">// 参数为日期字符串</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+<span class="c1">// Sun Jan 06 2013 00:00:00 GMT+0800 (CST)</span>
+
+<span class="c1">// 参数为多个整数，</span>
+<span class="c1">// 代表年、月、日、小时、分钟、秒、毫秒</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>关于<code class="docutils literal notranslate"><span class="pre">Date</span></code>构造函数的参数，有几点说明。</p>
+<p>第一点，参数可以是负整数，代表1970年元旦之前的时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="o">-</span><span class="mi">1378218728000</span><span class="p">)</span>
+<span class="c1">// Fri Apr 30 1926 17:27:52 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>第二点，只要是能被<code class="docutils literal notranslate"><span class="pre">Date.parse()</span></code>方法解析的字符串，都可以当作参数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2013-2-15&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2013/2/15&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;02/15/2013&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2013-FEB-15&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;FEB, 15, 2013&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;FEB 15, 2013&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;Feberuary, 15, 2013&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;Feberuary 15, 2013&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;15 Feb 2013&#39;</span><span class="p">)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;15, Feberuary, 2013&#39;</span><span class="p">)</span>
+<span class="c1">// Fri Feb 15 2013 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>上面多种日期字符串的写法，返回的都是同一个时间。</p>
+<p>第三，参数为年、月、日等多个整数时，年和月是不能省略的，其他参数都可以省略的。也就是说，这时至少需要两个参数，因为如果只使用“年”这一个参数，<code class="docutils literal notranslate"><span class="pre">Date</span></code>会将其解释为毫秒数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">)</span>
+<span class="c1">// Thu Jan 01 1970 08:00:02 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>上面代码中，2013被解释为毫秒数，而不是年份。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// Tue Jan 01 2013 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>上面代码中，不管有几个参数，返回的都是2013年1月1日零点。</p>
+<p>最后，各个参数的取值范围如下。</p>
+<ul class="simple">
+<li>年：使用四位数年份，比如<code class="docutils literal notranslate"><span class="pre">2000</span></code>。如果写成两位数或个位数，则加上<code class="docutils literal notranslate"><span class="pre">1900</span></code>，即<code class="docutils literal notranslate"><span class="pre">10</span></code>代表1910年。如果是负数，表示公元前。</li>
+<li>月：<code class="docutils literal notranslate"><span class="pre">0</span></code>表示一月，依次类推，<code class="docutils literal notranslate"><span class="pre">11</span></code>表示12月。</li>
+<li>日：<code class="docutils literal notranslate"><span class="pre">1</span></code>到<code class="docutils literal notranslate"><span class="pre">31</span></code>。</li>
+<li>小时：<code class="docutils literal notranslate"><span class="pre">0</span></code>到<code class="docutils literal notranslate"><span class="pre">23</span></code>。</li>
+<li>分钟：<code class="docutils literal notranslate"><span class="pre">0</span></code>到<code class="docutils literal notranslate"><span class="pre">59</span></code>。</li>
+<li>秒：<code class="docutils literal notranslate"><span class="pre">0</span></code>到<code class="docutils literal notranslate"><span class="pre">59</span></code></li>
+<li>毫秒：<code class="docutils literal notranslate"><span class="pre">0</span></code>到<code class="docutils literal notranslate"><span class="pre">999</span></code>。</li>
+</ul>
+<p>注意，月份从<code class="docutils literal notranslate"><span class="pre">0</span></code>开始计算，但是，天数从<code class="docutils literal notranslate"><span class="pre">1</span></code>开始计算。另外，除了日期的默认值为<code class="docutils literal notranslate"><span class="pre">1</span></code>，小时、分钟、秒钟和毫秒的默认值都是<code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<p>这些参数如果超出了正常范围，会被自动折算。比如，如果月设为<code class="docutils literal notranslate"><span class="pre">15</span></code>，就折算为下一年的4月。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="c1">// Tue Apr 01 2014 00:00:00 GMT+0800 (CST)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// Mon Dec 31 2012 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>上面代码的第二个例子，日期设为<code class="docutils literal notranslate"><span class="pre">0</span></code>，就代表上个月的最后一天。</p>
+<p>参数还可以使用负数，表示扣去的时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">// Sat Dec 01 2012 00:00:00 GMT+0800 (CST)</span>
+<span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">// Sun Dec 30 2012 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>上面代码中，分别对月和日使用了负数，表示从基准日扣去相应的时间。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>日期的运算<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>类型自动转换时，<code class="docutils literal notranslate"><span class="pre">Date</span></code>实例如果转为数值，则等于对应的毫秒数；如果转为字符串，则等于对应的日期字符串。所以，两个日期实例对象进行减法运算时，返回的是它们间隔的毫秒数；进行加法运算时，返回的是两个字符串连接而成的新字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">d2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d2</span> <span class="o">-</span> <span class="nx">d1</span>
+<span class="c1">// 2678400000</span>
+<span class="nx">d2</span> <span class="o">+</span> <span class="nx">d1</span>
+<span class="c1">// &quot;Sat Apr 01 2000 00:00:00 GMT+0800 (CST)Wed Mar 01 2000 00:00:00 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>静态方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="date-now">
+<span id="date-now"></span><h3>Date.now()<a class="headerlink" href="#date-now" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Date.now</span></code>方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="c1">// 1364026285194</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-parse">
+<span id="date-parse"></span><h3>Date.parse()<a class="headerlink" href="#date-parse" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Date.parse</span></code>方法用来解析日期字符串，返回该时间距离时间零点（1970年1月1日 00:00:00）的毫秒数。</p>
+<p>日期字符串应该符合 RFC 2822 和 ISO 8061 这两个标准，即<code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:mm:ss.sssZ</span></code>格式，其中最后的<code class="docutils literal notranslate"><span class="pre">Z</span></code>表示时区。但是，其他格式也可以被解析，请看下面的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;Aug 9, 1995&#39;</span><span class="p">)</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;January 26, 2011 13:51:50&#39;</span><span class="p">)</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;Mon, 25 Dec 1995 13:30:00 GMT&#39;</span><span class="p">)</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;Mon, 25 Dec 1995 13:30:00 +0430&#39;</span><span class="p">)</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;2011-10-10&#39;</span><span class="p">)</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;2011-10-10T14:48:00&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面的日期字符串都可以解析。</p>
+<p>如果解析失败，返回<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span> <span class="c1">// NaN</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-utc">
+<span id="date-utc"></span><h3>Date.UTC()<a class="headerlink" href="#date-utc" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Date.UTC</span></code>方法接受年、月、日等变量作为参数，返回该时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 格式</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">month</span><span class="p">[,</span> <span class="nx">date</span><span class="p">[,</span> <span class="nx">hrs</span><span class="p">[,</span> <span class="nx">min</span><span class="p">[,</span> <span class="nx">sec</span><span class="p">[,</span> <span class="nx">ms</span><span class="p">]]]]])</span>
+
+<span class="c1">// 用法</span>
+<span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">567</span><span class="p">)</span>
+<span class="c1">// 1293847384567</span>
+</pre></div>
+</div>
+<p>该方法的参数用法与<code class="docutils literal notranslate"><span class="pre">Date</span></code>构造函数完全一致，比如月从<code class="docutils literal notranslate"><span class="pre">0</span></code>开始计算，日期从<code class="docutils literal notranslate"><span class="pre">1</span></code>开始计算。区别在于<code class="docutils literal notranslate"><span class="pre">Date.UTC</span></code>方法的参数，会被解释为 UTC 时间（世界标准时间），<code class="docutils literal notranslate"><span class="pre">Date</span></code>构造函数的参数会被解释为当前时区的时间。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>的实例对象，有几十个自己的方法，除了<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>和<code class="docutils literal notranslate"><span class="pre">toString</span></code>，可以分为以下三类。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">to</span></code>类：从<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象返回一个字符串，表示指定的时间。</li>
+<li><code class="docutils literal notranslate"><span class="pre">get</span></code>类：获取<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象的日期和时间。</li>
+<li><code class="docutils literal notranslate"><span class="pre">set</span></code>类：设置<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象的日期和时间。</li>
+</ul>
+<div class="section" id="date-prototype-valueof">
+<span id="date-prototype-valueof"></span><h3>Date.prototype.valueOf()<a class="headerlink" href="#date-prototype-valueof" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回实例对象距离时间零点（1970年1月1日00:00:00 UTC）对应的毫秒数，该方法等同于<code class="docutils literal notranslate"><span class="pre">getTime</span></code>方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="c1">// 1362790014817</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="c1">// 1362790014817</span>
+</pre></div>
+</div>
+<p>预期为数值的场合，<code class="docutils literal notranslate"><span class="pre">Date</span></code>实例会自动调用该方法，所以可以用下面的方法计算时间的间隔。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="c1">// ...</span>
+<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">elapsed</span> <span class="o">=</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to">
+<span id="to"></span><h3>to 类方法<a class="headerlink" href="#to" title="永久链接至标题">¶</a></h3>
+<p><strong>（1）Date.prototype.toString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回一个完整的日期字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+<span class="c1">// &quot;Tue Jan 01 2013 00:00:00 GMT+0800 (CST)&quot;</span>
+<span class="nx">d</span>
+<span class="c1">// &quot;Tue Jan 01 2013 00:00:00 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+<p>因为<code class="docutils literal notranslate"><span class="pre">toString</span></code>是默认的调用方法，所以如果直接读取<code class="docutils literal notranslate"><span class="pre">Date</span></code>实例，就相当于调用这个方法。</p>
+<p><strong>（2）Date.prototype.toUTCString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toUTCString</span></code>方法返回对应的 UTC 时间，也就是比北京时间晚8个小时。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">toUTCString</span><span class="p">()</span>
+<span class="c1">// &quot;Mon, 31 Dec 2012 16:00:00 GMT&quot;</span>
+</pre></div>
+</div>
+<p><strong>（3）Date.prototype.toISOString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toISOString</span></code>方法返回对应时间的 ISO8601 写法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">()</span>
+<span class="c1">// &quot;2012-12-31T16:00:00.000Z&quot;</span>
+</pre></div>
+</div>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">toISOString</span></code>方法返回的总是 UTC 时区的时间。</p>
+<p><strong>（4）Date.prototype.toJSON()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toJSON</span></code>方法返回一个符合 JSON 格式的 ISO 日期字符串，与<code class="docutils literal notranslate"><span class="pre">toISOString</span></code>方法的返回结果完全相同。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">()</span>
+<span class="c1">// &quot;2012-12-31T16:00:00.000Z&quot;</span>
+</pre></div>
+</div>
+<p><strong>（5）Date.prototype.toDateString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toDateString</span></code>方法返回日期字符串（不含小时、分和秒）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">toDateString</span><span class="p">()</span> <span class="c1">// &quot;Tue Jan 01 2013&quot;</span>
+</pre></div>
+</div>
+<p><strong>（6）Date.prototype.toTimeString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toTimeString</span></code>方法返回时间字符串（不含年月日）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">toTimeString</span><span class="p">()</span> <span class="c1">// &quot;00:00:00 GMT+0800 (CST)&quot;</span>
+</pre></div>
+</div>
+<p><strong>（7）Date.prototype.toLocaleDateString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toLocaleDateString</span></code>方法返回一个字符串，代表日期的当地写法（不含小时、分和秒）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleDateString</span><span class="p">()</span>
+<span class="c1">// 中文版浏览器为&quot;2013年1月1日&quot;</span>
+<span class="c1">// 英文版浏览器为&quot;1/1/2013&quot;</span>
+</pre></div>
+</div>
+<p><strong>（8）Date.prototype.toLocaleTimeString()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">toLocaleTimeString</span></code>方法返回一个字符串，代表时间的当地写法（不含年月日）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">()</span>
+<span class="c1">// 中文版浏览器为&quot;上午12:00:00&quot;</span>
+<span class="c1">// 英文版浏览器为&quot;12:00:00 AM&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get">
+<span id="get"></span><h3>get 类方法<a class="headerlink" href="#get" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>对象提供了一系列<code class="docutils literal notranslate"><span class="pre">get*</span></code>方法，用来获取实例对象某个方面的值。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">getTime()</span></code>：返回实例距离1970年1月1日00:00:00的毫秒数，等同于<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getDate()</span></code>：返回实例对象对应每个月的几号（从1开始）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getDay()</span></code>：返回星期几，星期日为0，星期一为1，以此类推。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getYear()</span></code>：返回距离1900的年数。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getFullYear()</span></code>：返回四位的年份。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getMonth()</span></code>：返回月份（0表示1月，11表示12月）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getHours()</span></code>：返回小时（0-23）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getMilliseconds()</span></code>：返回毫秒（0-999）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getMinutes()</span></code>：返回分钟（0-59）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getSeconds()</span></code>：返回秒（0-59）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">getTimezoneOffset()</span></code>：返回当前时间与 UTC 的时区差异，以分钟表示，返回结果考虑到了夏令时因素。</li>
+</ul>
+<p>所有这些<code class="docutils literal notranslate"><span class="pre">get*</span></code>方法返回的都是整数，不同方法返回值的范围不一样。</p>
+<ul class="simple">
+<li>分钟和秒：0 到 59</li>
+<li>小时：0 到 23</li>
+<li>星期：0（星期天）到 6（星期六）</li>
+<li>日期：1 到 31</li>
+<li>月份：0（一月）到 11（十二月）</li>
+<li>年份：距离1900年的年数</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="c1">// 6</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="c1">// 0</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getYear</span><span class="p">()</span> <span class="c1">// 113</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="c1">// 2013</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getTimezoneOffset</span><span class="p">()</span> <span class="c1">// -480</span>
+</pre></div>
+</div>
+<p>上面代码中，最后一行返回<code class="docutils literal notranslate"><span class="pre">-480</span></code>，即 UTC 时间减去当前时间，单位是分钟。<code class="docutils literal notranslate"><span class="pre">-480</span></code>表示 UTC 比当前时间少480分钟，即当前时区比 UTC 早8个小时。</p>
+<p>下面是一个例子，计算本年度还剩下多少天。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">leftDays</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">endYear</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">today</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">(),</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">999</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">msPerDay</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="nx">endYear</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">-</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getTime</span><span class="p">())</span> <span class="o">/</span> <span class="nx">msPerDay</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面这些<code class="docutils literal notranslate"><span class="pre">get*</span></code>方法返回的都是当前时区的时间，<code class="docutils literal notranslate"><span class="pre">Date</span></code>对象还提供了这些方法对应的 UTC 版本，用来返回 UTC 时间。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">getUTCDate()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCFullYear()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCMonth()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCDay()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCHours()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCMinutes()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCSeconds()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getUTCMilliseconds()</span></code></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="c1">// 6</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getUTCDate</span><span class="p">()</span> <span class="c1">// 5</span>
+</pre></div>
+</div>
+<p>上面代码中，实例对象<code class="docutils literal notranslate"><span class="pre">d</span></code>表示当前时区（东八时区）的1月6日0点0分0秒，这个时间对于当前时区来说是1月6日，所以<code class="docutils literal notranslate"><span class="pre">getDate</span></code>方法返回6，对于 UTC 时区来说是1月5日，所以<code class="docutils literal notranslate"><span class="pre">getUTCDate</span></code>方法返回5。</p>
+</div>
+<div class="section" id="set">
+<span id="set"></span><h3>set 类方法<a class="headerlink" href="#set" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Date</span></code>对象提供了一系列<code class="docutils literal notranslate"><span class="pre">set*</span></code>方法，用来设置实例对象的各个方面。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">setDate(date)</span></code>：设置实例对象对应的每个月的几号（1-31），返回改变后毫秒时间戳。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setYear(year)</span></code>: 设置距离1900年的年数。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setFullYear(year</span> <span class="pre">[,</span> <span class="pre">month,</span> <span class="pre">date])</span></code>：设置四位年份。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setHours(hour</span> <span class="pre">[,</span> <span class="pre">min,</span> <span class="pre">sec,</span> <span class="pre">ms])</span></code>：设置小时（0-23）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setMilliseconds()</span></code>：设置毫秒（0-999）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setMinutes(min</span> <span class="pre">[,</span> <span class="pre">sec,</span> <span class="pre">ms])</span></code>：设置分钟（0-59）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setMonth(month</span> <span class="pre">[,</span> <span class="pre">date])</span></code>：设置月份（0-11）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setSeconds(sec</span> <span class="pre">[,</span> <span class="pre">ms])</span></code>：设置秒（0-59）。</li>
+<li><code class="docutils literal notranslate"><span class="pre">setTime(milliseconds)</span></code>：设置毫秒时间戳。</li>
+</ul>
+<p>这些方法基本是跟<code class="docutils literal notranslate"><span class="pre">get*</span></code>方法一一对应的，但是没有<code class="docutils literal notranslate"><span class="pre">setDay</span></code>方法，因为星期几是计算出来的，而不是设置的。另外，需要注意的是，凡是涉及到设置月份，都是从0开始算的，即<code class="docutils literal notranslate"><span class="pre">0</span></code>是1月，<code class="docutils literal notranslate"><span class="pre">11</span></code>是12月。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span> <span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+
+<span class="nx">d</span> <span class="c1">// Sun Jan 06 2013 00:00:00 GMT+0800 (CST)</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="c1">// 1357660800000</span>
+<span class="nx">d</span> <span class="c1">// Wed Jan 09 2013 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set*</span></code>方法的参数都会自动折算。以<code class="docutils literal notranslate"><span class="pre">setDate</span></code>为例，如果参数超过当月的最大天数，则向下一个月顺延，如果参数是负数，表示从上个月的最后一天开始减去的天数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+
+<span class="nx">d1</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1">// 1359648000000</span>
+<span class="nx">d1</span> <span class="c1">// Fri Feb 01 2013 00:00:00 GMT+0800 (CST)</span>
+
+<span class="kd">var</span> <span class="nx">d2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span> <span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+
+<span class="nx">d</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 1356796800000</span>
+<span class="nx">d</span> <span class="c1">// Sun Dec 30 2012 00:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set</span></code>类方法和<code class="docutils literal notranslate"><span class="pre">get</span></code>类方法，可以结合使用，得到相对时间。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+<span class="c1">// 将日期向后推1000天</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="c1">// 将时间设为6小时后</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">setHours</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">+</span> <span class="mi">6</span><span class="p">);</span>
+<span class="c1">// 将年份设为去年</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">setFullYear</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set*</span></code>系列方法除了<code class="docutils literal notranslate"><span class="pre">setTime()</span></code>和<code class="docutils literal notranslate"><span class="pre">setYear()</span></code>，都有对应的 UTC 版本，即设置 UTC 时区的时间。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">setUTCDate()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setUTCFullYear()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setUTCHours()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setUTCMilliseconds()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setUTCMinutes()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setUTCMonth()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setUTCSeconds()</span></code></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;January 6, 2013&#39;</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">getUTCHours</span><span class="p">()</span> <span class="c1">// 16</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">setUTCHours</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span> <span class="c1">// 1357423200000</span>
+<span class="nx">d</span> <span class="c1">// Sun Jan 06 2013 06:00:00 GMT+0800 (CST)</span>
+</pre></div>
+</div>
+<p>上面代码中，本地时区（东八时区）的1月6日0点0分，是 UTC 时区的前一天下午16点。设为 UTC 时区的22点以后，就变为本地时区的上午6点。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Rakhitha Nimesh，<a class="reference external" href="http://jspro.com/raw-javascript/beginners-guide-to-javascript-date-and-time/">Getting Started with the Date Object</a></li>
+<li>Ilya Kantor, <a class="reference external" href="http://javascript.info/tutorial/datetime-functions">Date/Time functions</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="regexp.html" class="btn btn-neutral float-right" title="RegExp对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="math.html" class="btn btn-neutral" title="Math对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

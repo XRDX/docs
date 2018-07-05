@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>属性的操作 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Text 节点和 DocumentFragment 节点" href="text.html" />
+    <link rel="prev" title="Element对象" href="element.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">DOM 模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="node.html">DOM 模型概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">属性的操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#element-attributes">Element.attributes 属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">元素的标准属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">属性操作的标准方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#element-getattribute">Element.getAttribute()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#element-setattribute">Element.setAttribute()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#element-hasattribute">Element.hasAttribute()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#element-removeattribute">Element.removeAttribute()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset">dataset 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">事件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html">事件种类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">DOM 模型</a> &raquo;</li>
+        
+      <li>属性的操作</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>属性的操作<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>HTML 元素包括标签名和若干个键值对，这个键值对就称为“属性”（attribute）。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.example.com&quot;</span><span class="p">&gt;</span>
+  链接
+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">a</span></code>元素包括两个属性：<code class="docutils literal notranslate"><span class="pre">id</span></code>属性和<code class="docutils literal notranslate"><span class="pre">href</span></code>属性。</p>
+<p>属性本身是一个对象（<code class="docutils literal notranslate"><span class="pre">Attr</span></code>对象），但是实际上，这个对象极少使用。一般都是通过元素节点对象（<code class="docutils literal notranslate"><span class="pre">HTMlElement</span></code>对象）来操作属性。本章介绍如何操作这些属性。</p>
+<div class="section" id="element-attributes">
+<span id="element-attributes"></span><h2>Element.attributes 属性<a class="headerlink" href="#element-attributes" title="永久链接至标题">¶</a></h2>
+<p>元素对象有一个<code class="docutils literal notranslate"><span class="pre">attributes</span></code>属性，返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上。其他类型的节点对象，虽然也有<code class="docutils literal notranslate"><span class="pre">attributes</span></code>属性，但返回的都是<code class="docutils literal notranslate"><span class="pre">null</span></code>，因此可以把这个属性视为元素对象独有的。</p>
+<p>单个属性可以通过序号引用，也可以通过属性名引用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;body bgcolor=&quot;yellow&quot; onload=&quot;&quot;&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">bgcolor</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="s1">&#39;ONLOAD&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>注意，上面代码的三种方法，返回的都是属性节点对象，而不是属性值。</p>
+<p>属性节点对象有<code class="docutils literal notranslate"><span class="pre">name</span></code>和<code class="docutils literal notranslate"><span class="pre">value</span></code>属性，对应该属性的属性名和属性值，等同于<code class="docutils literal notranslate"><span class="pre">nodeName</span></code>属性和<code class="docutils literal notranslate"><span class="pre">nodeValue</span></code>属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;div id=&quot;mydiv&quot;&gt;</span>
+<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mydiv&#39;</span><span class="p">);</span>
+
+<span class="nx">n</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span> <span class="c1">// &quot;id&quot;</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">nodeName</span> <span class="c1">// &quot;id&quot;</span>
+
+<span class="nx">n</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span> <span class="c1">// &quot;mydiv&quot;</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">nodeValue</span> <span class="c1">// &quot;mydiv&quot;</span>
+</pre></div>
+</div>
+<p>下面代码可以遍历一个元素节点的所有属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">para</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">para</span><span class="p">.</span><span class="nx">hasAttributes</span><span class="p">())</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">attrs</span> <span class="o">=</span> <span class="nx">para</span><span class="p">.</span><span class="nx">attributes</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">attrs</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">output</span> <span class="o">+=</span> <span class="nx">attrs</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;-&gt;&#39;</span> <span class="o">+</span> <span class="nx">attrs</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">result</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">output</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">result</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;No attributes to show&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>元素的标准属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>HTML 元素的标准属性（即在标准中定义的属性），会自动成为元素节点对象的属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">id</span> <span class="c1">// &quot;test&quot;</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">href</span> <span class="c1">// &quot;http://www.example.com/&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">a</span></code>元素标签的属性<code class="docutils literal notranslate"><span class="pre">id</span></code>和<code class="docutils literal notranslate"><span class="pre">href</span></code>，自动成为节点对象的属性。</p>
+<p>这些属性都是可写的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myImage&#39;</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;http://www.example.com/image.jpg&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>上面的写法，会立刻替换掉<code class="docutils literal notranslate"><span class="pre">img</span></code>对象的<code class="docutils literal notranslate"><span class="pre">src</span></code>属性，即会显示另外一张图片。</p>
+<p>这种修改属性的方法，常常用于添加表单的属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">f</span><span class="p">.</span><span class="nx">action</span> <span class="o">=</span> <span class="s1">&#39;submit.php&#39;</span><span class="p">;</span>
+<span class="nx">f</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="s1">&#39;POST&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>上面代码为表单添加提交网址和提交方法。</p>
+<p>注意，这种用法虽然可以读写属性，但是无法删除属性，<code class="docutils literal notranslate"><span class="pre">delete</span></code>运算符在这里不会生效。</p>
+<p>HTML 元素的属性名是大小写不敏感的，但是 JavaScript 对象的属性名是大小写敏感的。转换规则是，转为 JavaScript 属性名时，一律采用小写。如果属性名包括多个单词，则采用骆驼拼写法，即从第二个单词开始，每个单词的首字母采用大写，比如<code class="docutils literal notranslate"><span class="pre">onClick</span></code>。</p>
+<p>有些 HTML 属性名是 JavaScript 的保留字，转为 JavaScript 属性时，必须改名。主要是以下两个。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">for</span></code>属性改为<code class="docutils literal notranslate"><span class="pre">htmlFor</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">class</span></code>属性改为<code class="docutils literal notranslate"><span class="pre">className</span></code></li>
+</ul>
+<p>另外，HTML 属性值一般都是字符串，但是 JavaScript 属性会自动转换类型。比如，将字符串<code class="docutils literal notranslate"><span class="pre">true</span></code>转为布尔值，将<code class="docutils literal notranslate"><span class="pre">onClick</span></code>的值转为一个函数，将<code class="docutils literal notranslate"><span class="pre">style</span></code>属性的值转为一个<code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration</span></code>对象。因此，可以对这些属性赋予各种类型的值。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>属性操作的标准方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id4"></span><h3>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>元素节点提供四个方法，用来操作属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">getAttribute()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">setAttribute()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hasAttribute()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">removeAttribute()</span></code></li>
+</ul>
+<p>这有几点注意。</p>
+<p>（1）适用性</p>
+<p>这四个方法对所有属性（包括用户自定义的属性）都适用。</p>
+<p>（2）返回值</p>
+<p><code class="docutils literal notranslate"><span class="pre">getAttribute()</span></code>只返回字符串，不会返回其他类型的值。</p>
+<p>（3）属性名</p>
+<p>这些方法只接受属性的标准名称，不用改写保留字，比如<code class="docutils literal notranslate"><span class="pre">for</span></code>和<code class="docutils literal notranslate"><span class="pre">class</span></code>都可以直接使用。另外，这些方法对于属性名是大小写不敏感的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">images</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">image</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;myImage&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">setAttribute</span></code>方法直接使用<code class="docutils literal notranslate"><span class="pre">class</span></code>作为属性名，不用写成<code class="docutils literal notranslate"><span class="pre">className</span></code>。</p>
+</div>
+<div class="section" id="element-getattribute">
+<span id="element-getattribute"></span><h3>Element.getAttribute()<a class="headerlink" href="#element-getattribute" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Element.getAttribute</span></code>方法返回当前元素节点的指定属性。如果指定属性不存在，则返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;div id=&quot;div1&quot; align=&quot;left&quot;&gt;</span>
+<span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;div1&#39;</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">)</span> <span class="c1">// &quot;left&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="element-setattribute">
+<span id="element-setattribute"></span><h3>Element.setAttribute()<a class="headerlink" href="#element-setattribute" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Element.setAttribute</span></code>方法用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;d1&#39;</span><span class="p">);</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>下面是对<code class="docutils literal notranslate"><span class="pre">img</span></code>元素的<code class="docutils literal notranslate"><span class="pre">src</span></code>属性赋值的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">myImage</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="nx">myImage</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span> <span class="s1">&#39;path/to/example.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="element-hasattribute">
+<span id="element-hasattribute"></span><h3>Element.hasAttribute()<a class="headerlink" href="#element-hasattribute" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Element.hasAttribute</span></code>方法返回一个布尔值，表示当前元素节点是否包含指定属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;div1&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">hasAttribute</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码检查<code class="docutils literal notranslate"><span class="pre">div</span></code>节点是否含有<code class="docutils literal notranslate"><span class="pre">align</span></code>属性。如果有，则设置为居中对齐。</p>
+</div>
+<div class="section" id="element-removeattribute">
+<span id="element-removeattribute"></span><h3>Element.removeAttribute()<a class="headerlink" href="#element-removeattribute" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Element.removeAttribute</span></code>方法用于从当前元素节点移除属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;div id=&quot;div1&quot; align=&quot;left&quot; width=&quot;200px&quot;&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;div1&#39;</span><span class="p">).</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">&#39;align&#39;</span><span class="p">);</span>
+<span class="c1">// 现在的HTML代码为</span>
+<span class="c1">// &lt;div id=&quot;div1&quot; width=&quot;200px&quot;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dataset">
+<span id="dataset"></span><h2>dataset 属性<a class="headerlink" href="#dataset" title="永久链接至标题">¶</a></h2>
+<p>有时，需要在HTML元素上附加数据，供 JavaScript 脚本使用。一种解决方法是自定义属性。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;mydiv&quot;</span> <span class="na">foo</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>上面代码为<code class="docutils literal notranslate"><span class="pre">div</span></code>元素自定义了<code class="docutils literal notranslate"><span class="pre">foo</span></code>属性，然后可以用<code class="docutils literal notranslate"><span class="pre">getAttribute()</span></code>和<code class="docutils literal notranslate"><span class="pre">setAttribute()</span></code>读写这个属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mydiv&#39;</span><span class="p">);</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="c1">// bar</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这种方法虽然可以达到目的，但是会使得 HTML 元素的属性不符合标准，导致网页代码通不过校验。</p>
+<p>更好的解决方法是，使用标准提供的<code class="docutils literal notranslate"><span class="pre">data-*</span></code>属性。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;mydiv&quot;</span> <span class="na">data-foo</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>然后，使用元素节点对象的<code class="docutils literal notranslate"><span class="pre">dataset</span></code>属性，它指向一个对象，可以用来操作 HTML 元素标签的<code class="docutils literal notranslate"><span class="pre">data-*</span></code>属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mydiv&#39;</span><span class="p">);</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">foo</span> <span class="c1">// bar</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span>
+</pre></div>
+</div>
+<p>上面代码中，通过<code class="docutils literal notranslate"><span class="pre">dataset.foo</span></code>读写<code class="docutils literal notranslate"><span class="pre">data-foo</span></code>属性。</p>
+<p>删除一个<code class="docutils literal notranslate"><span class="pre">data-*</span></code>属性，可以直接使用<code class="docutils literal notranslate"><span class="pre">delete</span></code>命令。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">delete</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">).</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">foo</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>除了<code class="docutils literal notranslate"><span class="pre">dataset</span></code>属性，也可以用<code class="docutils literal notranslate"><span class="pre">getAttribute('data-foo')</span></code>、<code class="docutils literal notranslate"><span class="pre">removeAttribute('data-foo')</span></code>、<code class="docutils literal notranslate"><span class="pre">setAttribute('data-foo')</span></code>、<code class="docutils literal notranslate"><span class="pre">hasAttribute('data-foo')</span></code>等方法操作<code class="docutils literal notranslate"><span class="pre">data-*</span></code>属性。</p>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">data-</span></code>后面的属性名有限制，只能包含字母、数字、连词线（<code class="docutils literal notranslate"><span class="pre">-</span></code>）、点（<code class="docutils literal notranslate"><span class="pre">.</span></code>）、冒号（<code class="docutils literal notranslate"><span class="pre">:</span></code>）和下划线（<code class="docutils literal notranslate"><span class="pre">_</span></code>)。而且，属性名不应该使用<code class="docutils literal notranslate"><span class="pre">A</span></code>到<code class="docutils literal notranslate"><span class="pre">Z</span></code>的大写字母，比如不能有<code class="docutils literal notranslate"><span class="pre">data-helloWorld</span></code>这样的属性名，而要写成<code class="docutils literal notranslate"><span class="pre">data-hello-world</span></code>。</p>
+<p>转成<code class="docutils literal notranslate"><span class="pre">dataset</span></code>的键名时，连词线后面如果跟着一个小写字母，那么连词线会被移除，该小写字母转为大写字母，其他字符不变。反过来，<code class="docutils literal notranslate"><span class="pre">dataset</span></code>的键名转成属性名时，所有大写字母都会被转成连词线+该字母的小写形式，其他字符不变。比如，<code class="docutils literal notranslate"><span class="pre">dataset.helloWorld</span></code>会转成<code class="docutils literal notranslate"><span class="pre">data-hello-world</span></code>。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="text.html" class="btn btn-neutral float-right" title="Text 节点和 DocumentFragment 节点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="element.html" class="btn btn-neutral" title="Element对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

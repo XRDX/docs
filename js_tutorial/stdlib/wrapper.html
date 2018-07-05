@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>包装对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Number对象" href="number.html" />
+    <link rel="prev" title="Array 对象" href="array.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">包装对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">实例方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#valueof">valueOf()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tostring">toString()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">原始类型与实例对象的自动转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">自定义方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boolean">Boolean 对象</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean 函数的类型转换作用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="number.html">Number对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">stdlib 标准库</a> &raquo;</li>
+        
+      <li>包装对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>包装对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>定义<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>对象是 JavaScript 语言最主要的数据类型，三种原始类型的值——数值、字符串、布尔值——在一定条件下，也会自动转为对象，也就是原始类型的“包装对象”。</p>
+<p>所谓“包装对象”，就是分别与数值、字符串、布尔值相对应的<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>三个原生对象。这三个原生对象可以把原始类型的值变成（包装成）对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">v3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码中，基于原始类型的值，生成了三个对应的包装对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">typeof</span> <span class="nx">v1</span> <span class="c1">// &quot;object&quot;</span>
+<span class="k">typeof</span> <span class="nx">v2</span> <span class="c1">// &quot;object&quot;</span>
+<span class="k">typeof</span> <span class="nx">v3</span> <span class="c1">// &quot;object&quot;</span>
+
+<span class="nx">v1</span> <span class="o">===</span> <span class="mi">123</span> <span class="c1">// false</span>
+<span class="nx">v2</span> <span class="o">===</span> <span class="s1">&#39;abc&#39;</span> <span class="c1">// false</span>
+<span class="nx">v3</span> <span class="o">===</span> <span class="kc">true</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+<p>包装对象的最大目的，首先是使得 JavaScript 的对象涵盖所有的值，其次使得原始类型的值可以方便地调用某些方法。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">String</span></code>和<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>如果不作为构造函数调用（即调用时不加<code class="docutils literal notranslate"><span class="pre">new</span></code>），常常用于将任意类型的值转为数值、字符串和布尔值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span> <span class="c1">// 123</span>
+<span class="nb">String</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span> <span class="c1">// &quot;abc&quot;</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面这种数据类型的转换，详见《数据类型转换》一节。</p>
+<p>总结一下，这三个对象作为构造函数使用（带有<code class="docutils literal notranslate"><span class="pre">new</span></code>）时，可以将原始类型的值转为对象；作为普通函数使用时（不带有<code class="docutils literal notranslate"><span class="pre">new</span></code>），可以将任意类型的值，转为原始类型的值。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>包装对象的实例可以使用<code class="docutils literal notranslate"><span class="pre">Object</span></code>对象提供的原生方法，主要是<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法和<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。</p>
+<div class="section" id="valueof">
+<span id="valueof"></span><h3>valueOf()<a class="headerlink" href="#valueof" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回包装对象实例对应的原始类型的值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">).</span><span class="nx">valueOf</span><span class="p">()</span>  <span class="c1">// 123</span>
+<span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">).</span><span class="nx">valueOf</span><span class="p">()</span> <span class="c1">// &quot;abc&quot;</span>
+<span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">valueOf</span><span class="p">()</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tostring">
+<span id="tostring"></span><h3>toString()<a class="headerlink" href="#tostring" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回对应的字符串形式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;123&quot;</span>
+<span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;abc&quot;</span>
+<span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;true&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>原始类型与实例对象的自动转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>原始类型的值，可以自动当作对象调用，即调用各种对象的方法和参数。这时，JavaScript 引擎会自动将原始类型的值转为包装对象实例，在使用后立刻销毁实例。</p>
+<p>比如，字符串可以调用<code class="docutils literal notranslate"><span class="pre">length</span></code>属性，返回字符串的长度。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;abc&#39;</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">abc</span></code>是一个字符串，本身不是对象，不能调用<code class="docutils literal notranslate"><span class="pre">length</span></code>属性。JavaScript 引擎自动将其转为包装对象，在这个对象上调用<code class="docutils literal notranslate"><span class="pre">length</span></code>属性。调用结束后，这个临时对象就会被销毁。这就叫原始类型与实例对象的自动转换。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span><span class="p">;</span>
+<span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
+
+<span class="c1">// 等同于</span>
+<span class="kd">var</span> <span class="nx">strObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="c1">// String {</span>
+<span class="c1">//   0: &quot;a&quot;, 1: &quot;b&quot;, 2: &quot;c&quot;, length: 3, [[PrimitiveValue]]: &quot;abc&quot;</span>
+<span class="c1">// }</span>
+<span class="nx">strObj</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>上面代码中，字符串<code class="docutils literal notranslate"><span class="pre">abc</span></code>的包装对象提供了多个属性。</p>
+<p>自动转换生成的包装对象是只读的，无法修改。所以，字符串无法添加新属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">x</span> <span class="c1">// undefined</span>
+</pre></div>
+</div>
+<p>上面代码为字符串<code class="docutils literal notranslate"><span class="pre">s</span></code>添加了一个<code class="docutils literal notranslate"><span class="pre">x</span></code>属性，结果无效，总是返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。</p>
+<p>另一方面，调用结束后，包装对象实例会自动销毁。这意味着，下一次调用字符串的属性时，实际是调用一个新生成的对象，而不是上一次调用时生成的那个对象，所以取不到赋值在上一个对象的属性。如果要为字符串添加属性，只有在它的原型对象<code class="docutils literal notranslate"><span class="pre">String.prototype</span></code>上定义（参见《面向对象编程》章节）。</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>自定义方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>三种包装对象除了提供很多原生的实例方法（详见后文的介绍），还可以在原型上添加自定义方法和属性，供原始类型的值直接调用。</p>
+<p>比如，我们可以新增一个<code class="docutils literal notranslate"><span class="pre">double</span></code>方法，使得字符串和数字翻倍。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">double</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="s1">&#39;abc&#39;</span><span class="p">.</span><span class="kr">double</span><span class="p">()</span>
+<span class="c1">// abcabc</span>
+
+<span class="nb">Number</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kr">double</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="p">(</span><span class="mi">123</span><span class="p">).</span><span class="kr">double</span><span class="p">()</span>
+<span class="c1">// 246</span>
+</pre></div>
+</div>
+<p>上面代码在<code class="docutils literal notranslate"><span class="pre">123</span></code>外面必须要加上圆括号，否则后面的点运算符（<code class="docutils literal notranslate"><span class="pre">.</span></code>）会被解释成小数点。</p>
+<p>但是，这种自定义方法和属性的机制，只能定义在包装对象的原型上，如果直接对原始类型的变量添加属性，则无效。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span><span class="p">;</span>
+
+<span class="nx">s</span><span class="p">.</span><span class="nx">p</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">p</span> <span class="c1">// undefined</span>
+</pre></div>
+</div>
+<p>上面代码直接对字符串<code class="docutils literal notranslate"><span class="pre">abc</span></code>添加属性，结果无效。主要原因是上面说的，这里的包装对象是自动生成的，赋值后自动销毁，所以最后一行实际上调用的是一个新的包装对象。</p>
+</div>
+<div class="section" id="boolean">
+<span id="boolean"></span><h2>Boolean 对象<a class="headerlink" href="#boolean" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id6"></span><h3>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>对象是 JavaScript 的三个包装对象之一。作为构造函数，它主要用于生成布尔值的包装对象实例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+<span class="k">typeof</span> <span class="nx">b</span> <span class="c1">// &quot;object&quot;</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码的变量<code class="docutils literal notranslate"><span class="pre">b</span></code>是一个<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>对象的实例，它的类型是对象，值为布尔值<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">false</span></code>对应的包装对象实例，布尔运算结果也是<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// true</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="nx">valueOf</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// 无输出</span>
+</pre></div>
+</div>
+<p>上面代码的第一个例子之所以得到<code class="docutils literal notranslate"><span class="pre">true</span></code>，是因为<code class="docutils literal notranslate"><span class="pre">false</span></code>对应的包装对象实例是一个对象，进行逻辑运算时，被自动转化成布尔值<code class="docutils literal notranslate"><span class="pre">true</span></code>（因为所有对象对应的布尔值都是<code class="docutils literal notranslate"><span class="pre">true</span></code>）。而实例的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法，则返回实例对应的原始值，本例为<code class="docutils literal notranslate"><span class="pre">false</span></code>。</p>
+</div>
+<div class="section" id="boolean">
+<span id="id7"></span><h3>Boolean 函数的类型转换作用<a class="headerlink" href="#boolean" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>对象除了可以作为构造函数，还可以单独使用，将任意值转为布尔值。这时<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>就是一个单纯的工具方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Boolean</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nb">Boolean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="s1">&#39;false&#39;</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">([])</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">({})</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{})</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码中几种得到<code class="docutils literal notranslate"><span class="pre">true</span></code>的情况，都值得认真记住。</p>
+<p>顺便提一下，使用双重的否运算符（<code class="docutils literal notranslate"><span class="pre">!</span></code>）也可以将任意值转为对应的布尔值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">!!</span><span class="kc">undefined</span> <span class="c1">// false</span>
+<span class="o">!!</span><span class="kc">null</span> <span class="c1">// false</span>
+<span class="o">!!</span><span class="mi">0</span> <span class="c1">// false</span>
+<span class="o">!!</span><span class="s1">&#39;&#39;</span> <span class="c1">// false</span>
+<span class="o">!!</span><span class="kc">NaN</span> <span class="c1">// false</span>
+<span class="o">!!</span><span class="mi">1</span> <span class="c1">// true</span>
+<span class="o">!!</span><span class="s1">&#39;false&#39;</span> <span class="c1">// true</span>
+<span class="o">!!</span><span class="p">[]</span> <span class="c1">// true</span>
+<span class="o">!!</span><span class="p">{}</span> <span class="c1">// true</span>
+<span class="o">!!</span><span class="kd">function</span><span class="p">(){}</span> <span class="c1">// true</span>
+<span class="o">!!</span><span class="sr">/foo/</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>最后，对于一些特殊值，<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>对象前面加不加<code class="docutils literal notranslate"><span class="pre">new</span></code>，会得到完全相反的结果，必须小心。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// 无输出</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// true</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">Boolean</span><span class="p">(</span><span class="kc">null</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// 无输出</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">null</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="number.html" class="btn btn-neutral float-right" title="Number对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="array.html" class="btn btn-neutral" title="Array 对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

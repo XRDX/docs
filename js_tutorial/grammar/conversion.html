@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>数据类型转换 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="错误处理机制" href="error.html" />
+    <link rel="prev" title="运算符" href="operator.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本语法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic.html">基本语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="number.html">数值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object.html">对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">数组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据类型转换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">强制转换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#number">Number()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string">String()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">自动转换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">自动转换为布尔值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">自动转换为字符串</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">自动转换为数值</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">编程风格</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">基本语法</a> &raquo;</li>
+        
+      <li>数据类型转换</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>数据类型转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>JavaScript 是一种动态类型语言，变量没有类型限制，可以随时赋予任意值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="s1">&#39;a&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>上面代码中，变量<code class="docutils literal notranslate"><span class="pre">x</span></code>到底是数值还是字符串，取决于另一个变量<code class="docutils literal notranslate"><span class="pre">y</span></code>的值。<code class="docutils literal notranslate"><span class="pre">y</span></code>为<code class="docutils literal notranslate"><span class="pre">true</span></code>时，<code class="docutils literal notranslate"><span class="pre">x</span></code>是一个数值；<code class="docutils literal notranslate"><span class="pre">y</span></code>为<code class="docutils literal notranslate"><span class="pre">false</span></code>时，<code class="docutils literal notranslate"><span class="pre">x</span></code>是一个字符串。这意味着，<code class="docutils literal notranslate"><span class="pre">x</span></code>的类型没法在编译阶段就知道，必须等到运行时才能知道。</p>
+<p>虽然变量的数据类型是不确定的，但是各种运算符对数据类型是有要求的。如果运算符发现，运算子的类型与预期不符，就会自动转换类型。比如，减法运算符预期左右两侧的运算子应该是数值，如果不是，就会自动将它们转为数值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;4&#39;</span> <span class="o">-</span> <span class="s1">&#39;3&#39;</span> <span class="c1">// 1</span>
+</pre></div>
+</div>
+<p>上面代码中，虽然是两个字符串相减，但是依然会得到结果数值<code class="docutils literal notranslate"><span class="pre">1</span></code>，原因就在于 JavaScript 将运算子自动转为了数值。</p>
+<p>本章讲解数据类型自动转换的规则。在此之前，先讲解如何手动强制转换数据类型。</p>
+<div class="section" id="">
+<span id="id2"></span><h2>强制转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>强制转换主要指使用<code class="docutils literal notranslate"><span class="pre">Number</span></code>、<code class="docutils literal notranslate"><span class="pre">String</span></code>和<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>三个函数，手动将各种类型的值，分布转换成数字、字符串或者布尔值。</p>
+<div class="section" id="number">
+<span id="number"></span><h3>Number()<a class="headerlink" href="#number" title="永久链接至标题">¶</a></h3>
+<p>使用<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数，可以将任意类型的值转化成数值。</p>
+<p>下面分成两种情况讨论，一种是参数是原始类型的值，另一种是参数是对象。</p>
+<p><strong>（1）原始类型值</strong></p>
+<p>原始类型值的转换规则如下。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 数值：转换后还是原来的值</span>
+<span class="nb">Number</span><span class="p">(</span><span class="mi">324</span><span class="p">)</span> <span class="c1">// 324</span>
+
+<span class="c1">// 字符串：如果可以被解析为数值，则转换为相应的数值</span>
+<span class="nb">Number</span><span class="p">(</span><span class="s1">&#39;324&#39;</span><span class="p">)</span> <span class="c1">// 324</span>
+
+<span class="c1">// 字符串：如果不可以被解析为数值，返回 NaN</span>
+<span class="nb">Number</span><span class="p">(</span><span class="s1">&#39;324abc&#39;</span><span class="p">)</span> <span class="c1">// NaN</span>
+
+<span class="c1">// 空字符串转为0</span>
+<span class="nb">Number</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">// 0</span>
+
+<span class="c1">// 布尔值：true 转成 1，false 转成 0</span>
+<span class="nb">Number</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nb">Number</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="c1">// 0</span>
+
+<span class="c1">// undefined：转成 NaN</span>
+<span class="nb">Number</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">// NaN</span>
+
+<span class="c1">// null：转成0</span>
+<span class="nb">Number</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// 0</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>函数将字符串转为数值，要比<code class="docutils literal notranslate"><span class="pre">parseInt</span></code>函数严格很多。基本上，只要有一个字符无法转成数值，整个字符串就会被转为<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;42 cats&#39;</span><span class="p">)</span> <span class="c1">// 42</span>
+<span class="nb">Number</span><span class="p">(</span><span class="s1">&#39;42 cats&#39;</span><span class="p">)</span> <span class="c1">// NaN</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">parseInt</span></code>逐个解析字符，而<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数整体转换字符串的类型。</p>
+<p>另外，<code class="docutils literal notranslate"><span class="pre">parseInt</span></code>和<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数都会自动过滤一个字符串前导和后缀的空格。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;\t\v\r12.34\n&#39;</span><span class="p">)</span> <span class="c1">// 12</span>
+<span class="nb">Number</span><span class="p">(</span><span class="s1">&#39;\t\v\r12.34\n&#39;</span><span class="p">)</span> <span class="c1">// 12.34</span>
+</pre></div>
+</div>
+<p><strong>（2）对象</strong></p>
+<p>简单的规则是，<code class="docutils literal notranslate"><span class="pre">Number</span></code>方法的参数是对象时，将返回<code class="docutils literal notranslate"><span class="pre">NaN</span></code>，除非是包含单个数值的数组。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">})</span> <span class="c1">// NaN</span>
+<span class="nb">Number</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1">// NaN</span>
+<span class="nb">Number</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span> <span class="c1">// 5</span>
+</pre></div>
+</div>
+<p>之所以会这样，是因为<code class="docutils literal notranslate"><span class="pre">Number</span></code>背后的转换规则比较复杂。</p>
+<p>第一步，调用对象自身的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法。如果返回原始类型的值，则直接对该值使用<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数，不再进行后续步骤。</p>
+<p>第二步，如果<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回的还是对象，则改为调用对象自身的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。如果<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回原始类型的值，则对该值使用<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数，不再进行后续步骤。</p>
+<p>第三步，如果<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回的是对象，就报错。</p>
+<p>请看下面的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+<span class="nb">Number</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// NaN</span>
+
+<span class="c1">// 等同于</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">Number</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nb">Number</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数将<code class="docutils literal notranslate"><span class="pre">obj</span></code>对象转为数值。背后发生了一连串的操作，首先调用<code class="docutils literal notranslate"><span class="pre">obj.valueOf</span></code>方法, 结果返回对象本身；于是，继续调用<code class="docutils literal notranslate"><span class="pre">obj.toString</span></code>方法，这时返回字符串<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>，对这个字符串使用<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数，得到<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</p>
+<p>默认情况下，对象的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回对象本身，所以一般总是会调用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，而<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回对象的类型字符串（比如<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>）。所以，会有下面的结果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">({})</span> <span class="c1">// NaN</span>
+</pre></div>
+</div>
+<p>如果<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回的不是原始类型的值，结果就会报错。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">valueOf</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">},</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nb">Number</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+<span class="c1">// TypeError: Cannot convert object to primitive value</span>
+</pre></div>
+</div>
+<p>上面代码的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>和<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，返回的都是对象，所以转成数值时会报错。</p>
+<p>从上例还可以看到，<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>和<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，都是可以自定义的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">({</span>
+  <span class="nx">valueOf</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// 2</span>
+
+<span class="nb">Number</span><span class="p">({</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// 3</span>
+
+<span class="nb">Number</span><span class="p">({</span>
+  <span class="nx">valueOf</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// 2</span>
+</pre></div>
+</div>
+<p>上面代码对三个对象使用<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数。第一个对象返回<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法的值，第二个对象返回<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法的值，第三个对象表示<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法先于<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法执行。</p>
+</div>
+<div class="section" id="string">
+<span id="string"></span><h3>String()<a class="headerlink" href="#string" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">String</span></code>函数可以将任意类型的值转化成字符串，转换规则如下。</p>
+<p><strong>（1）原始类型值</strong></p>
+<ul class="simple">
+<li><strong>数值</strong>：转为相应的字符串。</li>
+<li><strong>字符串</strong>：转换后还是原来的值。</li>
+<li><strong>布尔值</strong>：<code class="docutils literal notranslate"><span class="pre">true</span></code>转为字符串<code class="docutils literal notranslate"><span class="pre">&quot;true&quot;</span></code>，<code class="docutils literal notranslate"><span class="pre">false</span></code>转为字符串<code class="docutils literal notranslate"><span class="pre">&quot;false&quot;</span></code>。</li>
+<li><strong>undefined</strong>：转为字符串<code class="docutils literal notranslate"><span class="pre">&quot;undefined&quot;</span></code>。</li>
+<li><strong>null</strong>：转为字符串<code class="docutils literal notranslate"><span class="pre">&quot;null&quot;</span></code>。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span> <span class="c1">// &quot;123&quot;</span>
+<span class="nb">String</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span> <span class="c1">// &quot;abc&quot;</span>
+<span class="nb">String</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// &quot;true&quot;</span>
+<span class="nb">String</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">// &quot;undefined&quot;</span>
+<span class="nb">String</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// &quot;null&quot;</span>
+</pre></div>
+</div>
+<p><strong>（2）对象</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">String</span></code>方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">})</span> <span class="c1">// &quot;[object Object]&quot;</span>
+<span class="nb">String</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1">// &quot;1,2,3&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">String</span></code>方法背后的转换规则，与<code class="docutils literal notranslate"><span class="pre">Number</span></code>方法基本相同，只是互换了<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法和<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法的执行顺序。</p>
+<ol class="simple">
+<li>先调用对象自身的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。如果返回原始类型的值，则对该值使用<code class="docutils literal notranslate"><span class="pre">String</span></code>函数，不再进行以下步骤。</li>
+<li>如果<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法返回的是对象，再调用原对象的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法。如果<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回原始类型的值，则对该值使用<code class="docutils literal notranslate"><span class="pre">String</span></code>函数，不再进行以下步骤。</li>
+<li>如果<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回的是对象，就报错。</li>
+</ol>
+<p>下面是一个例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="c1">// &quot;[object Object]&quot;</span>
+
+<span class="c1">// 等同于</span>
+<span class="nb">String</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">}.</span><span class="nx">toString</span><span class="p">())</span>
+<span class="c1">// &quot;[object Object]&quot;</span>
+</pre></div>
+</div>
+<p>上面代码先调用对象的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，发现返回的是字符串<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>，就不再调用<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法了。</p>
+<p>如果<code class="docutils literal notranslate"><span class="pre">toString</span></code>法和<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法，返回的都是对象，就会报错。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">valueOf</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">},</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nb">String</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+<span class="c1">// TypeError: Cannot convert object to primitive value</span>
+</pre></div>
+</div>
+<p>下面是通过自定义<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，改变返回值的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">({</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// &quot;3&quot;</span>
+
+<span class="nb">String</span><span class="p">({</span>
+  <span class="nx">valueOf</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// &quot;[object Object]&quot;</span>
+
+<span class="nb">String</span><span class="p">({</span>
+  <span class="nx">valueOf</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">// &quot;3&quot;</span>
+</pre></div>
+</div>
+<p>上面代码对三个对象使用<code class="docutils literal notranslate"><span class="pre">String</span></code>函数。第一个对象返回<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法的值（数值3），第二个对象返回的还是<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法的值（<code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">Object]</span></code>），第三个对象表示<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法先于<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法执行。</p>
+</div>
+<div class="section" id="boolean">
+<span id="boolean"></span><h3>Boolean()<a class="headerlink" href="#boolean" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code>函数可以将任意类型的值转为布尔值。</p>
+<p>它的转换规则相对简单：除了以下五个值的转换结果为<code class="docutils literal notranslate"><span class="pre">false</span></code>，其他的值全部为<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">undefined</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">null</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">-0</span></code>或<code class="docutils literal notranslate"><span class="pre">+0</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">NaN</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">''</span></code>（空字符串）</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Boolean</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span> <span class="c1">// false</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+<p>注意，所有对象（包括空对象）的转换结果都是<code class="docutils literal notranslate"><span class="pre">true</span></code>，甚至连<code class="docutils literal notranslate"><span class="pre">false</span></code>对应的布尔对象<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Boolean(false)</span></code>也是<code class="docutils literal notranslate"><span class="pre">true</span></code>（详见《原始类型值的包装对象》一章）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Boolean</span><span class="p">({})</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">([])</span> <span class="c1">// true</span>
+<span class="nb">Boolean</span><span class="p">(</span><span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">))</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>所有对象的布尔值都是<code class="docutils literal notranslate"><span class="pre">true</span></code>，这是因为 JavaScript 语言设计的时候，出于性能的考虑，如果对象需要计算才能得到布尔值，对于<code class="docutils literal notranslate"><span class="pre">obj1</span> <span class="pre">&amp;&amp;</span> <span class="pre">obj2</span></code>这样的场景，可能会需要较多的计算。为了保证性能，就统一规定，对象的布尔值为<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>自动转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>下面介绍自动转换，它是以强制转换为基础的。</p>
+<p>遇到以下三种情况时，JavaScript 会自动转换数据类型，即转换是自动完成的，用户不可见。</p>
+<p>第一种情况，不同类型的数据互相运算。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span> <span class="o">+</span> <span class="s1">&#39;abc&#39;</span> <span class="c1">// &quot;123abc&quot;</span>
+</pre></div>
+</div>
+<p>第二种情况，对非布尔值类型的数据求布尔值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="p">}</span>  <span class="c1">// &quot;hello&quot;</span>
+</pre></div>
+</div>
+<p>第三种情况，对非数值类型的值使用一元运算符（即<code class="docutils literal notranslate"><span class="pre">+</span></code>和<code class="docutils literal notranslate"><span class="pre">-</span></code>）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="p">{</span><span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">}</span> <span class="c1">// NaN</span>
+<span class="o">-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// NaN</span>
+</pre></div>
+</div>
+<p>自动转换的规则是这样的：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用<code class="docutils literal notranslate"><span class="pre">String</span></code>函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
+<p>由于自动转换具有不确定性，而且不易除错，建议在预期为布尔值、数值、字符串的地方，全部使用<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>、<code class="docutils literal notranslate"><span class="pre">Number</span></code>和<code class="docutils literal notranslate"><span class="pre">String</span></code>函数进行显式转换。</p>
+<div class="section" id="">
+<span id="id4"></span><h3>自动转换为布尔值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>JavaScript 遇到预期为布尔值的地方（比如<code class="docutils literal notranslate"><span class="pre">if</span></code>语句的条件部分），就会将非布尔值的参数自动转换为布尔值。系统内部会自动调用<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>函数。</p>
+<p>因此除了以下五个值，其他都是自动转为<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">undefined</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">null</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">+0</span></code>或<code class="docutils literal notranslate"><span class="pre">-0</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">NaN</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">''</span></code>（空字符串）</li>
+</ul>
+<p>下面这个例子中，条件部分的每个值都相当于<code class="docutils literal notranslate"><span class="pre">false</span></code>，使用否定运算符后，就变成了<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="kc">undefined</span>
+  <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="kc">null</span>
+  <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="mi">0</span>
+  <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="kc">NaN</span>
+  <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="s1">&#39;&#39;</span>
+<span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>下面两种写法，有时也用于将一个表达式转为布尔值。它们内部调用的也是<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 写法一</span>
+<span class="nx">expression</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span>
+
+<span class="c1">// 写法二</span>
+<span class="o">!!</span> <span class="nx">expression</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>自动转换为字符串<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>JavaScript 遇到预期为字符串的地方，就会将非字符串的值自动转为字符串。具体规则是，先将复合类型的值转为原始类型的值，再将原始类型的值转为字符串。</p>
+<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">// &#39;51&#39;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="kc">true</span> <span class="c1">// &quot;5true&quot;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="kc">false</span> <span class="c1">// &quot;5false&quot;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="p">{}</span> <span class="c1">// &quot;5[object Object]&quot;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="p">[]</span> <span class="c1">// &quot;5&quot;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="kd">function</span> <span class="p">(){}</span> <span class="c1">// &quot;5function (){}&quot;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="kc">undefined</span> <span class="c1">// &quot;5undefined&quot;</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="kc">null</span> <span class="c1">// &quot;5null&quot;</span>
+</pre></div>
+</div>
+<p>这种自动转换很容易出错。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100&#39;</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="mi">20</span> <span class="c1">// &quot;10020&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，开发者可能期望返回<code class="docutils literal notranslate"><span class="pre">120</span></code>，但是由于自动转换，实际上返回了一个字符<code class="docutils literal notranslate"><span class="pre">10020</span></code>。</p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>自动转换为数值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>JavaScript 遇到预期为数值的地方，就会将参数值自动转换为数值。系统内部会自动调用<code class="docutils literal notranslate"><span class="pre">Number</span></code>函数。</p>
+<p>除了加法运算符（<code class="docutils literal notranslate"><span class="pre">+</span></code>）有可能把运算子转为字符串，其他运算符都会把运算子自动转成数值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;5&#39;</span> <span class="o">-</span> <span class="s1">&#39;2&#39;</span> <span class="c1">// 3</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">*</span> <span class="s1">&#39;2&#39;</span> <span class="c1">// 10</span>
+<span class="kc">true</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1">// 0</span>
+<span class="kc">false</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1">// -1</span>
+<span class="s1">&#39;1&#39;</span> <span class="o">-</span> <span class="mi">1</span>   <span class="c1">// 0</span>
+<span class="s1">&#39;5&#39;</span> <span class="o">*</span> <span class="p">[]</span>    <span class="c1">// 0</span>
+<span class="kc">false</span> <span class="o">/</span> <span class="s1">&#39;5&#39;</span> <span class="c1">// 0</span>
+<span class="s1">&#39;abc&#39;</span> <span class="o">-</span> <span class="mi">1</span>   <span class="c1">// NaN</span>
+<span class="kc">null</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">// 1</span>
+<span class="kc">undefined</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">// NaN</span>
+</pre></div>
+</div>
+<p>上面代码中，运算符两侧的运算子，都被转成了数值。</p>
+<blockquote>
+<div>注意：<code class="docutils literal notranslate"><span class="pre">null</span></code>转为数值时为<code class="docutils literal notranslate"><span class="pre">0</span></code>，而<code class="docutils literal notranslate"><span class="pre">undefined</span></code>转为数值时为<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</div></blockquote>
+<p>一元运算符也会把运算子转成数值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="s1">&#39;abc&#39;</span> <span class="c1">// NaN</span>
+<span class="o">-</span><span class="s1">&#39;abc&#39;</span> <span class="c1">// NaN</span>
+<span class="o">+</span><span class="kc">true</span> <span class="c1">// 1</span>
+<span class="o">-</span><span class="kc">false</span> <span class="c1">// 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2012/01/object-plus-object.html">What is {} + {} in JavaScript?</a></li>
+<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2013/04/quirk-implicit-conversion.html">JavaScript quirk 1: implicit conversion of values</a></li>
+<li>Benjie Gillam, <a class="reference external" href="http://www.benjiegillam.com/2013/06/quantum-javascript/">Quantum JavaScript?</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="error.html" class="btn btn-neutral float-right" title="错误处理机制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="operator.html" class="btn btn-neutral" title="运算符" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

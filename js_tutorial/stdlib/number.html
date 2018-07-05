@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Number对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="String对象" href="string.html" />
+    <link rel="prev" title="包装对象" href="wrapper.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html">包装对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Number对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">实例方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#number-prototype-tostring">Number.prototype.toString()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-prototype-tofixed">Number.prototype.toFixed()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-prototype-toexponential">Number.prototype.toExponential()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-prototype-toprecision">Number.prototype.toPrecision()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">自定义方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">stdlib 标准库</a> &raquo;</li>
+        
+      <li>Number对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="number">
+<span id="number"></span><h1>Number对象<a class="headerlink" href="#number" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>对象是数值对应的包装对象，可以作为构造函数使用，也可以作为工具函数使用。</p>
+<p>作为构造函数时，它用于生成值为数值的对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">typeof</span> <span class="nx">n</span> <span class="c1">// &quot;object&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">Number</span></code>对象作为构造函数使用，返回一个值为<code class="docutils literal notranslate"><span class="pre">1</span></code>的对象。</p>
+<p>作为工具函数时，它可以将任何类型的值转为数值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="c1">// 1</span>
+</pre></div>
+</div>
+<p>上面代码将布尔值<code class="docutils literal notranslate"><span class="pre">true</span></code>转为数值<code class="docutils literal notranslate"><span class="pre">1</span></code>。<code class="docutils literal notranslate"><span class="pre">Number</span></code>作为工具函数的用法，详见《数据类型转换》一章。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>对象拥有以下一些属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Number.POSITIVE_INFINITY</span></code>：正的无限，指向<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Number.NEGATIVE_INFINITY</span></code>：负的无限，指向<code class="docutils literal notranslate"><span class="pre">-Infinity</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Number.NaN</span></code>：表示非数值，指向<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Number.MAX_VALUE</span></code>：表示最大的正数，相应的，最小的负数为<code class="docutils literal notranslate"><span class="pre">-Number.MAX_VALUE</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Number.MIN_VALUE</span></code>：表示最小的正数（即最接近0的正数，在64位浮点数体系中为<code class="docutils literal notranslate"><span class="pre">5e-324</span></code>），相应的，最接近0的负数为<code class="docutils literal notranslate"><span class="pre">-Number.MIN_VALUE</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Number.MAX_SAFE_INTEGER</span></code>：表示能够精确表示的最大整数，即<code class="docutils literal notranslate"><span class="pre">9007199254740991</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Number.MIN_SAFE_INTEGER</span></code>：表示能够精确表示的最小整数，即<code class="docutils literal notranslate"><span class="pre">-9007199254740991</span></code>。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">.</span><span class="nx">POSITIVE_INFINITY</span> <span class="c1">// Infinity</span>
+<span class="nb">Number</span><span class="p">.</span><span class="nx">NEGATIVE_INFINITY</span> <span class="c1">// -Infinity</span>
+<span class="nb">Number</span><span class="p">.</span><span class="kc">NaN</span> <span class="c1">// NaN</span>
+
+<span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span>
+<span class="c1">// 1.7976931348623157e+308</span>
+<span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_VALUE</span> <span class="o">&lt;</span> <span class="kc">Infinity</span>
+<span class="c1">// true</span>
+
+<span class="nb">Number</span><span class="p">.</span><span class="nx">MIN_VALUE</span>
+<span class="c1">// 5e-324</span>
+<span class="nb">Number</span><span class="p">.</span><span class="nx">MIN_VALUE</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="c1">// true</span>
+
+<span class="nb">Number</span><span class="p">.</span><span class="nx">MAX_SAFE_INTEGER</span> <span class="c1">// 9007199254740991</span>
+<span class="nb">Number</span><span class="p">.</span><span class="nx">MIN_SAFE_INTEGER</span> <span class="c1">// -9007199254740991</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>对象有4个实例方法，都跟将数值转换成指定格式有关。</p>
+<div class="section" id="number-prototype-tostring">
+<span id="number-prototype-tostring"></span><h3>Number.prototype.toString()<a class="headerlink" href="#number-prototype-tostring" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span></code>对象部署了自己的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法，用来将一个数值转为字符串形式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;10&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">toString</span></code>方法可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1010&quot;</span>
+<span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1">// &quot;12&quot;</span>
+<span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="c1">// &quot;a&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">10</span></code>一定要放在括号里，这样表明后面的点表示调用对象属性。如果不加括号，这个点会被 JavaScript 引擎解释成小数点，从而报错。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mf">10.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">// SyntaxError: Unexpected token ILLEGAL</span>
+</pre></div>
+</div>
+<p>只要能够让 JavaScript 引擎不混淆小数点和对象的点运算符，各种写法都能用。除了为<code class="docutils literal notranslate"><span class="pre">10</span></code>加上括号，还可以在<code class="docutils literal notranslate"><span class="pre">10</span></code>后面加两个点，JavaScript 会把第一个点理解成小数点（即<code class="docutils literal notranslate"><span class="pre">10.0</span></code>），把第二个点理解成调用对象属性，从而得到正确结果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mf">10.</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">// &quot;1010&quot;</span>
+
+<span class="c1">// 其他方法还包括</span>
+<span class="mi">10</span> <span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1010&quot;</span>
+<span class="mf">10.0</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1010&quot;</span>
+</pre></div>
+</div>
+<p>这实际上意味着，可以直接对一个小数使用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mf">10.5</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// &quot;10.5&quot;</span>
+<span class="mf">10.5</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1010.1&quot;</span>
+<span class="mf">10.5</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1">// &quot;12.4&quot;</span>
+<span class="mf">10.5</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="c1">// &quot;a.8&quot;</span>
+</pre></div>
+</div>
+<p>通过方括号运算符也可以调用<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="p">[</span><span class="s1">&#39;toString&#39;</span><span class="p">](</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1010&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">toString</span></code>方法只能将十进制的数，转为其他进制的字符串。如果要将其他进制的数，转回十进制，需要使用<code class="docutils literal notranslate"><span class="pre">parseInt</span></code>方法。</p>
+</div>
+<div class="section" id="number-prototype-tofixed">
+<span id="number-prototype-tofixed"></span><h3>Number.prototype.toFixed()<a class="headerlink" href="#number-prototype-tofixed" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toFixed</span></code>方法先将一个数转为指定位数的小数，然后返回这个小数对应的字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;10.00&quot;</span>
+<span class="mf">10.005</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;10.01&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">10</span></code>和<code class="docutils literal notranslate"><span class="pre">10.005</span></code>转成2位小数，其中<code class="docutils literal notranslate"><span class="pre">10</span></code>必须放在括号里，否则后面的点会被处理成小数点。</p>
+<p><code class="docutils literal notranslate"><span class="pre">toFixed</span></code>方法的参数为小数位数，有效范围为0到20，超出这个范围将抛出 RangeError 错误。</p>
+</div>
+<div class="section" id="number-prototype-toexponential">
+<span id="number-prototype-toexponential"></span><h3>Number.prototype.toExponential()<a class="headerlink" href="#number-prototype-toexponential" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toExponential</span></code>方法用于将一个数转为科学计数法形式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toExponential</span><span class="p">()</span>  <span class="c1">// &quot;1e+1&quot;</span>
+<span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toExponential</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// &quot;1.0e+1&quot;</span>
+<span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nx">toExponential</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1.00e+1&quot;</span>
+
+<span class="p">(</span><span class="mi">1234</span><span class="p">).</span><span class="nx">toExponential</span><span class="p">()</span>  <span class="c1">// &quot;1.234e+3&quot;</span>
+<span class="p">(</span><span class="mi">1234</span><span class="p">).</span><span class="nx">toExponential</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// &quot;1.2e+3&quot;</span>
+<span class="p">(</span><span class="mi">1234</span><span class="p">).</span><span class="nx">toExponential</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;1.23e+3&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">toExponential</span></code>方法的参数是小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个 RangeError 错误。</p>
+</div>
+<div class="section" id="number-prototype-toprecision">
+<span id="number-prototype-toprecision"></span><h3>Number.prototype.toPrecision()<a class="headerlink" href="#number-prototype-toprecision" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toPrecision</span></code>方法用于将一个数转为指定位数的有效数字。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">12.34</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// &quot;1e+1&quot;</span>
+<span class="p">(</span><span class="mf">12.34</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// &quot;12&quot;</span>
+<span class="p">(</span><span class="mf">12.34</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// &quot;12.3&quot;</span>
+<span class="p">(</span><span class="mf">12.34</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1">// &quot;12.34&quot;</span>
+<span class="p">(</span><span class="mf">12.34</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">// &quot;12.340&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">toPrecision</span></code>方法的参数为有效数字的位数，范围是1到21，超出这个范围会抛出 RangeError 错误。</p>
+<p><code class="docutils literal notranslate"><span class="pre">toPrecision</span></code>方法用于四舍五入时不太可靠，跟浮点数不是精确储存有关。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">12.35</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// &quot;12.3&quot;</span>
+<span class="p">(</span><span class="mf">12.25</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// &quot;12.3&quot;</span>
+<span class="p">(</span><span class="mf">12.15</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// &quot;12.2&quot;</span>
+<span class="p">(</span><span class="mf">12.45</span><span class="p">).</span><span class="nx">toPrecision</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// &quot;12.4&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>自定义方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>与其他对象一样，<code class="docutils literal notranslate"><span class="pre">Number.prototype</span></code>对象上面可以自定义方法，被<code class="docutils literal notranslate"><span class="pre">Number</span></code>的实例继承。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span> <span class="o">+</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="mi">8</span><span class="p">[</span><span class="s1">&#39;add&#39;</span><span class="p">](</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// 10</span>
+</pre></div>
+</div>
+<p>上面代码为<code class="docutils literal notranslate"><span class="pre">Number</span></code>对象实例定义了一个<code class="docutils literal notranslate"><span class="pre">add</span></code>方法。在数值上调用某个方法，数值会自动转为<code class="docutils literal notranslate"><span class="pre">Number</span></code>的实例对象，所以就可以调用<code class="docutils literal notranslate"><span class="pre">add</span></code>方法了。由于<code class="docutils literal notranslate"><span class="pre">add</span></code>方法返回的还是数值，所以可以链式运算。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">subtract</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span> <span class="o">-</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">subtract</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1">// 6</span>
+</pre></div>
+</div>
+<p>上面代码在<code class="docutils literal notranslate"><span class="pre">Number</span></code>对象的实例上部署了<code class="docutils literal notranslate"><span class="pre">subtract</span></code>方法，它可以与<code class="docutils literal notranslate"><span class="pre">add</span></code>方法链式调用。</p>
+<p>我们还可以部署更复杂的方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Number</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">iterate</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="nx">iterate</span><span class="p">()</span>
+<span class="c1">// [0, 1, 2, 3, 4, 5, 6, 7, 8]</span>
+</pre></div>
+</div>
+<p>上面代码在<code class="docutils literal notranslate"><span class="pre">Number</span></code>对象的原型上部署了<code class="docutils literal notranslate"><span class="pre">iterate</span></code>方法，将一个数值自动遍历为一个数组。</p>
+<p>注意，数值的自定义方法，只能定义在它的原型对象<code class="docutils literal notranslate"><span class="pre">Number.prototype</span></code>上面，数值本身是无法自定义属性的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">x</span> <span class="c1">// undefined</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">n</span></code>是一个原始类型的数值。直接在它上面新增一个属性<code class="docutils literal notranslate"><span class="pre">x</span></code>，不会报错，但毫无作用，总是返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。这是因为一旦被调用属性，<code class="docutils literal notranslate"><span class="pre">n</span></code>就自动转为<code class="docutils literal notranslate"><span class="pre">Number</span></code>的实例对象，调用结束后，该对象自动销毁。所以，下一次调用<code class="docutils literal notranslate"><span class="pre">n</span></code>的属性时，实际取到的是另一个对象，属性<code class="docutils literal notranslate"><span class="pre">x</span></code>当然就读不出来。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="string.html" class="btn btn-neutral float-right" title="String对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="wrapper.html" class="btn btn-neutral" title="包装对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

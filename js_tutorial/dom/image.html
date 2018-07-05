@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Image对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Mutation Observer API" href="mutationobserver.html" />
+    <link rel="prev" title="CSS操作" href="css.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">DOM 模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="node.html">DOM 模型概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">事件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html">事件种类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Image对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">特性相关的属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htmlimageelement-width-htmlimageelement-height">HTMLImageElement.width，HTMLImageElement.height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htmlimageelement-naturalwidth-htmlimageelement-naturalheight">HTMLImageElement.naturalWidth，HTMLImageElement.naturalHeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htmlimageelement-complete">HTMLImageElement.complete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htmlimageelement-crossorigin">HTMLImageElement.crossOrigin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htmlimageelement-referrerpolicy">HTMLImageElement.referrerPolicy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#htmlimageelement-x-htmlimageelement-y">HTMLImageElement.x，HTMLImageElement.y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">事件属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">DOM 模型</a> &raquo;</li>
+        
+      <li>Image对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="image">
+<span id="image"></span><h1>Image对象<a class="headerlink" href="#image" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素用于插入图片，主要继承了 HTMLImageElement 接口。</p>
+<p>浏览器提供一个原生构造函数<code class="docutils literal notranslate"><span class="pre">Image</span></code>，用于生成<code class="docutils literal notranslate"><span class="pre">HTMLImageElement</span></code>实例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">img</span> <span class="k">instanceof</span> <span class="nx">Image</span> <span class="c1">// true</span>
+<span class="nx">img</span> <span class="k">instanceof</span> <span class="nx">HTMLImageElement</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Image</span></code>构造函数可以接受两个整数作为参数，分别表示<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的宽度和长度。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 语法</span>
+<span class="nx">Image</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
+
+<span class="c1">// 用法</span>
+<span class="kd">var</span> <span class="nx">myImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>实例的<code class="docutils literal notranslate"><span class="pre">src</span></code>属性可以定义图像的网址。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;picture.jpg&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>新生成的<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>实例并不属于文档的一部分。如果想让它显示在文档中，必须手动插入文档。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;image1.png&#39;</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>除了使用<code class="docutils literal notranslate"><span class="pre">Image</span></code>构造，下面的方法也可以得到<code class="docutils literal notranslate"><span class="pre">HTMLImageElement</span></code>实例。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">document.images</span></code>的成员</li>
+<li>节点选取方法（比如<code class="docutils literal notranslate"><span class="pre">document.getElementById</span></code>）得到的<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>节点</li>
+<li><code class="docutils literal notranslate"><span class="pre">document.createElement('img')</span></code>生成的<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>节点</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">HTMLImageElement</span>
+<span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myImg&#39;</span><span class="p">);</span>
+<span class="nx">img</span> <span class="k">instanceof</span> <span class="nx">HTMLImageElement</span>
+<span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="nx">img</span> <span class="k">instanceof</span> <span class="nx">HTMLImageElement</span>
+<span class="c1">// true</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement</span></code>实例除了具有 Node、Element、HTMLElement 接口以外，还拥有一些独有的属性。这个接口没有定义自己的方法。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>特性相关的属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><strong>（1）HTMLImageElement.src</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.src</span></code>属性返回图像的完整网址。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;img width=&quot;300&quot; height=&quot;400&quot; id=&quot;myImg&quot; src=&quot;http://example.com/pic.jpg&quot;&gt;</span>
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="c1">// http://example.com/pic.jpg</span>
+</pre></div>
+</div>
+<p><strong>（2）HTMLImageElement.currentSrc</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.currentSrc</span></code>属性返回当前正在展示的图像的网址。JavaScript 和 CSS 的 mediaQuery 都可能改变正在展示的图像。</p>
+<p><strong>（3）HTMLImageElement.alt</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.alt</span></code>属性可以读写<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>的 HTML 属性<code class="docutils literal notranslate"><span class="pre">alt</span></code>，表示对图片的文字说明。</p>
+<p><strong>（4）HTMLImageElement.isMap，HTMLImageElement.useMap</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.isMap</span></code>属性对应<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的 HTML 属性<code class="docutils literal notranslate"><span class="pre">ismap</span></code>，返回一个布尔值，表示图像是否为服务器端的图像映射的一部分。</p>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.useMap</span></code>属性对应<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的 HTML 属性<code class="docutils literal notranslate"><span class="pre">usemap</span></code>，表示当前图像对应的<code class="docutils literal notranslate"><span class="pre">&lt;map&gt;</span></code>元素。</p>
+<p><strong>（5）HTMLImageElement.srcset，HTMLImageElement.sizes</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.srcset</span></code>属性和<code class="docutils literal notranslate"><span class="pre">HTMLImageElement.sizes</span></code>属性，分别用于读写<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的<code class="docutils literal notranslate"><span class="pre">srcset</span></code>属性和<code class="docutils literal notranslate"><span class="pre">sizes</span></code>属性。它们用于<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的响应式加载。<code class="docutils literal notranslate"><span class="pre">srcset</span></code>属性可以单独使用，但是<code class="docutils literal notranslate"><span class="pre">sizes</span></code>属性必须与<code class="docutils literal notranslate"><span class="pre">srcset</span></code>属性同时使用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;img srcset=&quot;example-320w.jpg 320w,</span>
+<span class="c1">//              example-480w.jpg 480w,</span>
+<span class="c1">//              example-800w.jpg 800w&quot;</span>
+<span class="c1">//      sizes=&quot;(max-width: 320px) 280px,</span>
+<span class="c1">//             (max-width: 480px) 440px,</span>
+<span class="c1">//             800px&quot;</span>
+<span class="c1">//      id=&quot;myImg&quot;</span>
+<span class="c1">//      src=&quot;example-800w.jpg&quot;&gt;</span>
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myImg&#39;</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">srcset</span>
+<span class="c1">// &quot;example-320w.jpg 320w,</span>
+<span class="c1">//  example-480w.jpg 480w,</span>
+<span class="c1">//  example-800w.jpg 800w&quot;</span>
+
+<span class="nx">img</span><span class="p">.</span><span class="nx">sizes</span>
+<span class="c1">// &quot;(max-width: 320px) 280px,</span>
+<span class="c1">//  (max-width: 480px) 440px,</span>
+<span class="c1">//  800px&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">sizes</span></code>属性指定，对于小于<code class="docutils literal notranslate"><span class="pre">320px</span></code>的屏幕，图像的宽度为<code class="docutils literal notranslate"><span class="pre">280px</span></code>；对于小于<code class="docutils literal notranslate"><span class="pre">480px</span></code>的屏幕，图像宽度为<code class="docutils literal notranslate"><span class="pre">440px</span></code>；其他情况下，图像宽度为<code class="docutils literal notranslate"><span class="pre">800px</span></code>。然后，浏览器会根据当前屏幕下的图像宽度，到<code class="docutils literal notranslate"><span class="pre">srcset</span></code>属性加载宽度最接近的图像。</p>
+</div>
+<div class="section" id="htmlimageelement-width-htmlimageelement-height">
+<span id="htmlimageelement-width-htmlimageelement-height"></span><h2>HTMLImageElement.width，HTMLImageElement.height<a class="headerlink" href="#htmlimageelement-width-htmlimageelement-height" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code>属性表示<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>的 HTML 宽度，<code class="docutils literal notranslate"><span class="pre">height</span></code>属性表示高度。这两个属性返回的都是整数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;img width=&quot;300&quot; height=&quot;400&quot; id=&quot;myImg&quot; src=&quot;pic.jpg&quot;&gt;</span>
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">width</span> <span class="c1">// 300</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">height</span> <span class="c1">// 400</span>
+</pre></div>
+</div>
+<p>如果图像还没有加载，这两个属性返回的都是<code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<p>如果 HTML 代码没有设置<code class="docutils literal notranslate"><span class="pre">width</span></code>和<code class="docutils literal notranslate"><span class="pre">height</span></code>属性，则它们返回的是图像的实际宽度和高度，即<code class="docutils literal notranslate"><span class="pre">HTMLImageElement.naturalWidth</span></code>属性和<code class="docutils literal notranslate"><span class="pre">HTMLImageElement.naturalHeight</span></code>属性。</p>
+</div>
+<div class="section" id="htmlimageelement-naturalwidth-htmlimageelement-naturalheight">
+<span id="htmlimageelement-naturalwidth-htmlimageelement-naturalheight"></span><h2>HTMLImageElement.naturalWidth，HTMLImageElement.naturalHeight<a class="headerlink" href="#htmlimageelement-naturalwidth-htmlimageelement-naturalheight" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.naturalWidth</span></code>属性表示图像的实际宽度（单位像素），<code class="docutils literal notranslate"><span class="pre">HTMLImageElement.naturalHeight</span></code>属性表示实际高度。这两个属性返回的都是整数。</p>
+<p>如果图像还没有指定或不可得，这两个属性都等于<code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">img</span><span class="p">.</span><span class="nx">naturalHeight</span> <span class="o">&gt;</span> <span class="nx">img</span><span class="p">.</span><span class="nx">naturalWidth</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">img</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;portrait&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码中，如果图片的高度大于宽度，则设为<code class="docutils literal notranslate"><span class="pre">portrait</span></code>模式。</p>
+</div>
+<div class="section" id="htmlimageelement-complete">
+<span id="htmlimageelement-complete"></span><h2>HTMLImageElement.complete<a class="headerlink" href="#htmlimageelement-complete" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.complete</span></code>属性返回一个布尔值，表示图表是否已经加载完成。如果<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素没有<code class="docutils literal notranslate"><span class="pre">src</span></code>属性，也会返回<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+</div>
+<div class="section" id="htmlimageelement-crossorigin">
+<span id="htmlimageelement-crossorigin"></span><h2>HTMLImageElement.crossOrigin<a class="headerlink" href="#htmlimageelement-crossorigin" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.crossOrigin</span></code>属性用于读写<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的<code class="docutils literal notranslate"><span class="pre">crossorigin</span></code>属性，表示跨域设置。</p>
+<p>这个属性有两个可能的值。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">anonymous</span></code>：跨域请求不要求用户身份（credentials），这是默认值。</li>
+<li><code class="docutils literal notranslate"><span class="pre">use-credentials</span></code>：跨域请求要求用户身份。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;img crossorigin=&quot;anonymous&quot; id=&quot;myImg&quot; src=&quot;pic.jpg&quot;&gt;</span>
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">crossOrigin</span> <span class="c1">// &quot;anonymous&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="htmlimageelement-referrerpolicy">
+<span id="htmlimageelement-referrerpolicy"></span><h2>HTMLImageElement.referrerPolicy<a class="headerlink" href="#htmlimageelement-referrerpolicy" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.referrerPolicy</span></code>用来读写<code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>元素的 HTML 属性<code class="docutils literal notranslate"><span class="pre">referrerpolicy</span></code>，表示请求图像资源时，如何处理 HTTP 请求的<code class="docutils literal notranslate"><span class="pre">referrer</span></code>字段。</p>
+<p>它有五个可能的值。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">no-referrer</span></code>：不带有<code class="docutils literal notranslate"><span class="pre">referrer</span></code>字段。</li>
+<li><code class="docutils literal notranslate"><span class="pre">no-referrer-when-downgrade</span></code>：如果请求的地址不是 HTTPS 协议，就不带有<code class="docutils literal notranslate"><span class="pre">referrer</span></code>字段，这是默认值。</li>
+<li><code class="docutils literal notranslate"><span class="pre">origin</span></code>：<code class="docutils literal notranslate"><span class="pre">referrer</span></code>字段是当前网页的地址，包含协议、域名和端口。</li>
+<li><code class="docutils literal notranslate"><span class="pre">origin-when-cross-origin</span></code>：如果请求的地址与当前网页是同源关系，那么<code class="docutils literal notranslate"><span class="pre">referrer</span></code>字段将带有完整路径，否则将只包含协议、域名和端口。</li>
+<li><code class="docutils literal notranslate"><span class="pre">unsafe-url</span></code>：<code class="docutils literal notranslate"><span class="pre">referrer</span></code>字段包含当前网页的地址，除了协议、域名和端口以外，还包括路径。这个设置是不安全的，因为会泄漏路径信息。</li>
+</ul>
+</div>
+<div class="section" id="htmlimageelement-x-htmlimageelement-y">
+<span id="htmlimageelement-x-htmlimageelement-y"></span><h2>HTMLImageElement.x，HTMLImageElement.y<a class="headerlink" href="#htmlimageelement-x-htmlimageelement-y" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HTMLImageElement.x</span></code>属性返回图像左上角相对于页面左上角的横坐标，<code class="docutils literal notranslate"><span class="pre">HTMLImageElement.y</span></code>属性返回纵坐标。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>事件属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>图像加载完成，会触发<code class="docutils literal notranslate"><span class="pre">onload</span></code>属性指定的回调函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为 &lt;img src=&quot;example.jpg&quot; onload=&quot;loadImage()&quot;&gt;</span>
+<span class="kd">function</span> <span class="nx">loadImage</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Image is loaded&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>图像加载完成，会触发<code class="docutils literal notranslate"><span class="pre">onerror</span></code>属性指定的回调函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为 &lt;img src=&quot;image.gif&quot; onerror=&quot;myFunction()&quot;&gt;</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;There is something wrong&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mutationobserver.html" class="btn btn-neutral float-right" title="Mutation Observer API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="css.html" class="btn btn-neutral" title="CSS操作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

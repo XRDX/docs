@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Text 节点和 DocumentFragment 节点 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="事件模型" href="event.html" />
+    <link rel="prev" title="属性的操作" href="attribute.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">DOM 模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="node.html">DOM 模型概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Text 节点和 DocumentFragment 节点</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text">Text 节点的概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text">Text 节点的属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data">data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wholetext">wholeText</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#length">length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nextelementsibling-previouselementsibling">nextElementSibling，previousElementSibling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#text">Text 节点的方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#appenddata-deletedata-insertdata-replacedata-substringdata">appendData()，deleteData()，insertData()，replaceData()，subStringData()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove">remove()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splittext">splitText()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#documentfragment">DocumentFragment 节点</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">事件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html">事件种类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">DOM 模型</a> &raquo;</li>
+        
+      <li>Text 节点和 DocumentFragment 节点</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="text-documentfragment">
+<span id="text-documentfragment"></span><h1>Text 节点和 DocumentFragment 节点<a class="headerlink" href="#text-documentfragment" title="永久链接至标题">¶</a></h1>
+<div class="section" id="text">
+<span id="text"></span><h2>Text 节点的概念<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
+<p>文本节点（<code class="docutils literal notranslate"><span class="pre">Text</span></code>）代表元素节点（<code class="docutils literal notranslate"><span class="pre">Element</span></code>）和属性节点（<code class="docutils literal notranslate"><span class="pre">Attribute</span></code>）的文本内容。如果一个节点只包含一段文本，那么它就有一个文本子节点，代表该节点的文本内容。</p>
+<p>通常我们使用父节点的<code class="docutils literal notranslate"><span class="pre">firstChild</span></code>、<code class="docutils literal notranslate"><span class="pre">nextSibling</span></code>等属性获取文本节点，或者使用<code class="docutils literal notranslate"><span class="pre">Document</span></code>节点的<code class="docutils literal notranslate"><span class="pre">createTextNode</span></code>方法创造一个文本节点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取文本节点</span>
+<span class="kd">var</span> <span class="nx">textNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">;</span>
+
+<span class="c1">// 创造文本节点</span>
+<span class="kd">var</span> <span class="nx">textNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="s1">&#39;Hi&#39;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">textNode</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>浏览器原生提供一个<code class="docutils literal notranslate"><span class="pre">Text</span></code>构造函数。它返回一个文本节点实例。它的参数就是该文本节点的文本内容。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 空字符串</span>
+<span class="kd">var</span> <span class="nx">text1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">();</span>
+
+<span class="c1">// 非空字符串</span>
+<span class="kd">var</span> <span class="nx">text2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;This is a text node&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>注意，由于空格也是一个字符，所以哪怕只有一个空格，也会形成文本节点。比如，<code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span> <span class="pre">&lt;/p&gt;</span></code>包含一个空格，它的子节点就是一个文本节点。</p>
+<p>文本节点除了继承<code class="docutils literal notranslate"><span class="pre">Node</span></code>接口，还继承了<code class="docutils literal notranslate"><span class="pre">CharacterData</span></code>接口。<code class="docutils literal notranslate"><span class="pre">Node</span></code>接口的属性和方法请参考《Node 接口》一章，这里不再重复介绍了，以下的属性和方法大部分来自<code class="docutils literal notranslate"><span class="pre">CharacterData</span></code>接口。</p>
+</div>
+<div class="section" id="text">
+<span id="id1"></span><h2>Text 节点的属性<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
+<div class="section" id="data">
+<span id="data"></span><h3>data<a class="headerlink" href="#data" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">data</span></code>属性等同于<code class="docutils literal notranslate"><span class="pre">nodeValue</span></code>属性，用来设置或读取文本节点的内容。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 读取文本内容</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">data</span>
+<span class="c1">// 等同于</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">nodeValue</span>
+
+<span class="c1">// 设置文本内容</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wholetext">
+<span id="wholetext"></span><h3>wholeText<a class="headerlink" href="#wholetext" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">wholeText</span></code>属性将当前文本节点与毗邻的文本节点，作为一个整体返回。大多数情况下，<code class="docutils literal notranslate"><span class="pre">wholeText</span></code>属性的返回值，与<code class="docutils literal notranslate"><span class="pre">data</span></code>属性和<code class="docutils literal notranslate"><span class="pre">textContent</span></code>属性相同。但是，某些特殊情况会有差异。</p>
+<p>举例来说，HTML 代码如下。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;para&quot;</span><span class="p">&gt;</span>A <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>B<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> C<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>这时，文本节点的<code class="docutils literal notranslate"><span class="pre">wholeText</span></code>属性和<code class="docutils literal notranslate"><span class="pre">data</span></code>属性，返回值相同。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;para&#39;</span><span class="p">);</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">wholeText</span> <span class="c1">// &quot;A &quot;</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">data</span> <span class="c1">// &quot;A &quot;</span>
+</pre></div>
+</div>
+<p>但是，一旦移除<code class="docutils literal notranslate"><span class="pre">&lt;em&gt;</span></code>节点，<code class="docutils literal notranslate"><span class="pre">wholeText</span></code>属性与<code class="docutils literal notranslate"><span class="pre">data</span></code>属性就会有差异，因为这时其实<code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>节点下面包含了两个毗邻的文本节点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">el</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">para</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">wholeText</span> <span class="c1">// &quot;A C&quot;</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">data</span> <span class="c1">// &quot;A &quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="length">
+<span id="length"></span><h3>length<a class="headerlink" href="#length" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">length</span></code>属性返回当前文本节点的文本长度。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)).</span><span class="nx">length</span> <span class="c1">// 5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nextelementsibling-previouselementsibling">
+<span id="nextelementsibling-previouselementsibling"></span><h3>nextElementSibling，previousElementSibling<a class="headerlink" href="#nextelementsibling-previouselementsibling" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nextElementSibling</span></code>属性返回紧跟在当前文本节点后面的那个同级元素节点。如果取不到元素节点，则返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 为</span>
+<span class="c1">// &lt;div&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/div&gt;</span>
+<span class="kd">var</span> <span class="nx">tn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">;</span>
+<span class="nx">tn</span><span class="p">.</span><span class="nx">nextElementSibling</span>
+<span class="c1">// &lt;em&gt;World&lt;/em&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">previousElementSibling</span></code>属性返回当前文本节点前面最近的同级元素节点。如果取不到元素节点，则返回<code class="docutils literal notranslate"><span class="pre">null：</span></code>。</p>
+</div>
+</div>
+<div class="section" id="text">
+<span id="id2"></span><h2>Text 节点的方法<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
+<div class="section" id="appenddata-deletedata-insertdata-replacedata-substringdata">
+<span id="appenddata-deletedata-insertdata-replacedata-substringdata"></span><h3>appendData()，deleteData()，insertData()，replaceData()，subStringData()<a class="headerlink" href="#appenddata-deletedata-insertdata-replacedata-substringdata" title="永久链接至标题">¶</a></h3>
+<p>以下5个方法都是编辑<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点文本内容的方法。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">appendData()</span></code>：在<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点尾部追加字符串。</li>
+<li><code class="docutils literal notranslate"><span class="pre">deleteData()</span></code>：删除<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度。</li>
+<li><code class="docutils literal notranslate"><span class="pre">insertData()</span></code>：在<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串。</li>
+<li><code class="docutils literal notranslate"><span class="pre">replaceData()</span></code>：用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换掉的长度，第三个参数为新加入的字符串。</li>
+<li><code class="docutils literal notranslate"><span class="pre">subStringData()</span></code>：用于获取子字符串，第一个参数为子字符串在<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点中的开始位置，第二个参数为子字符串长度。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;p&gt;Hello World&lt;/p&gt;</span>
+<span class="kd">var</span> <span class="nx">pElementText</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">;</span>
+
+<span class="nx">pElementText</span><span class="p">.</span><span class="nx">appendData</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">);</span>
+<span class="c1">// 页面显示 Hello World!</span>
+<span class="nx">pElementText</span><span class="p">.</span><span class="nx">deleteData</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="c1">// 页面显示 Hello W</span>
+<span class="nx">pElementText</span><span class="p">.</span><span class="nx">insertData</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;Hello &#39;</span><span class="p">);</span>
+<span class="c1">// 页面显示 Hello WHello</span>
+<span class="nx">pElementText</span><span class="p">.</span><span class="nx">replaceData</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">);</span>
+<span class="c1">// 页面显示 Hello WWorld</span>
+<span class="nx">pElementText</span><span class="p">.</span><span class="nx">substringData</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> 
+<span class="c1">// 页面显示不变，返回&quot;World &quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove">
+<span id="remove"></span><h3>remove()<a class="headerlink" href="#remove" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">remove</span></code>方法用于移除当前<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;p&gt;Hello World&lt;/p&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>
+<span class="c1">// 现在 HTML 代码为</span>
+<span class="c1">// &lt;p&gt;&lt;/p&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="splittext">
+<span id="splittext"></span><h3>splitText()<a class="headerlink" href="#splittext" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">splitText</span></code>方法将<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点一分为二，变成两个毗邻的<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点。它的参数就是分割位置（从零开始），分割到该位置的字符前结束。如果分割位置不存在，将报错。</p>
+<p>分割后，该方法返回分割位置后方的字符串，而原<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点变成只包含分割位置前方的字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// html 代码为 &lt;p id=&quot;p&quot;&gt;foobar&lt;/p&gt;</span>
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">textnode</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">newText</span> <span class="o">=</span> <span class="nx">textnode</span><span class="p">.</span><span class="nx">splitText</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">newText</span> <span class="c1">// &quot;bar&quot;</span>
+<span class="nx">textnode</span> <span class="c1">// &quot;foo&quot;</span>
+</pre></div>
+</div>
+<p>父节点的<code class="docutils literal notranslate"><span class="pre">normalize</span></code>方法可以将毗邻的两个<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点合并。</p>
+<p>接上面的例子，文本节点的<code class="docutils literal notranslate"><span class="pre">splitText</span></code>方法将一个<code class="docutils literal notranslate"><span class="pre">Text</span></code>节点分割成两个，父元素的<code class="docutils literal notranslate"><span class="pre">normalize</span></code>方法可以实现逆操作，将它们合并。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 2</span>
+
+<span class="c1">// 将毗邻的两个 Text 节点合并</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">normalize</span><span class="p">();</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="documentfragment">
+<span id="documentfragment"></span><h2>DocumentFragment 节点<a class="headerlink" href="#documentfragment" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点代表一个文档的片段，本身就是一个完整的 DOM 树形结构。它没有父节点，<code class="docutils literal notranslate"><span class="pre">parentNode</span></code>返回<code class="docutils literal notranslate"><span class="pre">null</span></code>，但是可以插入任意数量的子节点。它不属于当前文档，操作<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点，要比直接操作 DOM 树快得多。</p>
+<p>它一般用于构建一个 DOM 结构，然后插入当前文档。<code class="docutils literal notranslate"><span class="pre">document.createDocumentFragment</span></code>方法，以及浏览器原生的<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>构造函数，可以创建一个空的<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点。然后再使用其他 DOM 方法，向其添加子节点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">docFrag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createDocumentFragment</span><span class="p">();</span>
+<span class="c1">// 等同于</span>
+<span class="kd">var</span> <span class="nx">docFrag</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DocumentFragment</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">);</span>
+<span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
+<span class="nx">docFrag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">docFrag</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码创建了一个<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点，然后将一个<code class="docutils literal notranslate"><span class="pre">li</span></code>节点添加在它里面，最后将<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点移动到原文档。</p>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点本身不能被插入当前文档。当它作为<code class="docutils literal notranslate"><span class="pre">appendChild()</span></code>、<code class="docutils literal notranslate"><span class="pre">insertBefore()</span></code>、<code class="docutils literal notranslate"><span class="pre">replaceChild()</span></code>等方法的参数时，是它的所有子节点插入当前文档，而不是它自身。一旦<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点被添加进当前文档，它自身就变成了空节点（<code class="docutils literal notranslate"><span class="pre">textContent</span></code>属性为空字符串），可以被再次使用。如果想要保存<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点的内容，可以使用<code class="docutils literal notranslate"><span class="pre">cloneNode</span></code>方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span>
+  <span class="p">.</span><span class="nx">queryselector</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">docFrag</span><span class="p">.</span><span class="nx">cloneNode</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>上面这样添加<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点进入当前文档，不会清空<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点。</p>
+<p>下面是一个例子，使用<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>反转一个指定节点的所有子节点的顺序。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">reverse</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createDocumentFragment</span><span class="p">();</span>
+  <span class="k">while</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">lastChild</span><span class="p">)</span> <span class="nx">f</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">lastChild</span><span class="p">);</span>
+  <span class="nx">n</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点对象没有自己的属性和方法，全部继承自<code class="docutils literal notranslate"><span class="pre">Node</span></code>节点和<code class="docutils literal notranslate"><span class="pre">ParentNode</span></code>接口。也就是说，<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>节点比<code class="docutils literal notranslate"><span class="pre">Node</span></code>节点多出以下四个属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">children</span></code>：返回一个动态的<code class="docutils literal notranslate"><span class="pre">HTMLCollection</span></code>集合对象，包括当前<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>对象的所有子元素节点。</li>
+<li><code class="docutils literal notranslate"><span class="pre">firstElementChild</span></code>：返回当前<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>对象的第一个子元素节点，如果没有则返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">lastElementChild</span></code>：返回当前<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>对象的最后一个子元素节点，如果没有则返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</li>
+<li><code class="docutils literal notranslate"><span class="pre">childElementCount</span></code>：返回当前<code class="docutils literal notranslate"><span class="pre">DocumentFragment</span></code>对象的所有子元素数量。</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="event.html" class="btn btn-neutral float-right" title="事件模型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="attribute.html" class="btn btn-neutral" title="属性的操作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

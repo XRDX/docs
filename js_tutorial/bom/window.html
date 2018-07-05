@@ -1,0 +1,991 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>window对象 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="History 对象" href="history.html" />
+    <link rel="prev" title="浏览器环境概述" href="engine.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">BOM 浏览器环境</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="engine.html">浏览器环境概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">window对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#window">window 对象的属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#window-name">window.name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-closed-window-opener">window.closed，window.opener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-self-window-window">window.self，window.window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-frames-window-length">window.frames，window.length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-frameelement">window.frameElement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-top-window-parent">window.top，window.parent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-status">window.status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-devicepixelratio">window.devicePixelRatio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">位置大小属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">组件属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">全局对象属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-issecurecontext">window.isSecureContext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#screen">Screen 对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigator">Navigator 对象</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-useragent">Navigator.userAgent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-plugins">Navigator.plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-platform">Navigator.platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-online">Navigator.onLine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-language-navigator-languages">Navigator.language，Navigator.languages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-geolocation">Navigator.geolocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-cookieenabled">Navigator.cookieEnabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-javaenabled">Navigator.javaEnabled()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigator-sendbeacon">Navigator.sendBeacon()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#window">window对象的方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#window-moveto-window-moveby">window.moveTo()，window.moveBy()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-scrollto-window-scroll-window-scrollby">window.scrollTo()，window.scroll()，window.scrollBy()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-open-window-close">window.open(), window.close()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-print">window.print()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-getcomputedstyle">window.getComputedStyle()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-matchmedia">window.matchMedia()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-focus">window.focus()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-getselection">window.getSelection()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">多窗口操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">窗口的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iframe">iframe标签</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frames">frames 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">事件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loadonload">load事件和onload属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-onerror">error 事件和 onerror 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#url">URL的编码/解码方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#encodeuri">encodeURI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encodeuricomponent">encodeURIComponent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decodeuri">decodeURI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decodeuricomponent">decodeURIComponent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#alert-prompt-confirm">alert()，prompt()，confirm()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">History 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookie.html">Cookie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html">浏览器端数据储存机制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="same-origin.html">同源政策</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ajax.html">AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cors.html">CORS通信</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexeddb.html">IndexedDB：浏览器端数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification.html">Web Notifications API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile.html">移动设备API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">BOM 浏览器环境</a> &raquo;</li>
+        
+      <li>window对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="window">
+<span id="window"></span><h1>window对象<a class="headerlink" href="#window" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>浏览器里面，<code class="docutils literal notranslate"><span class="pre">window</span></code>对象（注意，<code class="docutils literal notranslate"><span class="pre">w</span></code>为小写）指当前的浏览器窗口。它也是当前页面的顶层对象，即最高一层的对象，所有其他对象都是它的下属。一个变量如果未声明，那么默认就是顶层对象的属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">a</span> <span class="c1">// 1</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">a</span></code>是一个没有声明就直接赋值的变量，它自动成为顶层对象的属性。</p>
+<p><code class="docutils literal notranslate"><span class="pre">window</span></code>有自己的实体含义，其实不适合当作最高一层的顶层对象，这是一个语言的设计失误。最早，设计这门语言的时候，原始设想是语言内置的对象越少越好，这样可以提高浏览器的性能。因此，语言设计者 Brendan Eich 就把<code class="docutils literal notranslate"><span class="pre">window</span></code>对象当作顶层对象，所有未声明就赋值的变量都自动变成<code class="docutils literal notranslate"><span class="pre">window</span></code>对象的属性。这种设计使得编译阶段无法检测出未声明变量，但到了今天已经没有办法纠正了。</p>
+</div>
+<div class="section" id="window">
+<span id="id2"></span><h2>window 对象的属性<a class="headerlink" href="#window" title="永久链接至标题">¶</a></h2>
+<div class="section" id="window-name">
+<span id="window-name"></span><h3>window.name<a class="headerlink" href="#window-name" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.name</span></code>属性是一个字符串，表示当前浏览器窗口的名字。窗口不一定需要名字，这个属性主要配合超链接和表单的<code class="docutils literal notranslate"><span class="pre">target</span></code>属性使用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="c1">// &quot;Hello World!&quot;</span>
+</pre></div>
+</div>
+<p>该属性只能保存字符串，如果写入的值不是字符串，会自动转成字符串。各个浏览器对这个值的储存容量有所不同，但是一般来说，可以高达几MB。</p>
+<p>只要浏览器窗口不关闭，这个属性是不会消失的。举例来说，访问<code class="docutils literal notranslate"><span class="pre">a.com</span></code>时，该页面的脚本设置了<code class="docutils literal notranslate"><span class="pre">window.name</span></code>，接下来在同一个窗口里面载入了<code class="docutils literal notranslate"><span class="pre">b.com</span></code>，新页面的脚本可以读到上一个网页设置的<code class="docutils literal notranslate"><span class="pre">window.name</span></code>。页面刷新也是这种情况。一旦浏览器窗口关闭后，该属性保存的值就会消失，因为这是窗口已经不存在了。</p>
+</div>
+<div class="section" id="window-closed-window-opener">
+<span id="window-closed-window-opener"></span><h3>window.closed，window.opener<a class="headerlink" href="#window-closed-window-opener" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.closed</span></code>属性返回一个布尔值，表示窗口是否关闭。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">closed</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+<p>上面代码检查当前窗口是否关闭。这种检查意义不大，因为只要能运行代码，当前窗口肯定没有关闭。这个属性一般用来检查，使用脚本打开的新窗口是否关闭。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">((</span><span class="nx">popup</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">popup</span><span class="p">.</span><span class="nx">closed</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 窗口仍然打开着</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">window.opener</span></code>属性表示打开当前窗口的父窗口。如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">opener</span> <span class="o">===</span> <span class="nb">window</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面表达式会打开一个新窗口，然后返回<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+<p>通过<code class="docutils literal notranslate"><span class="pre">opener</span></code>属性，可以获得父窗口的全局属性和方法，但只限于两个窗口同源的情况（参见《同源限制》一章），且其中一个窗口由另一个打开。<code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>元素添加<code class="docutils literal notranslate"><span class="pre">rel=&quot;noopener&quot;</span></code>属性，可以防止新打开的窗口获取父窗口。</p>
+</div>
+<div class="section" id="window-self-window-window">
+<span id="window-self-window-window"></span><h3>window.self，window.window<a class="headerlink" href="#window-self-window-window" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.self</span></code>和<code class="docutils literal notranslate"><span class="pre">window.window</span></code>属性都指向窗口本身。这两个属性只读。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">self</span> <span class="o">===</span> <span class="nb">window</span> <span class="c1">// true</span>
+<span class="nb">window</span><span class="p">.</span><span class="nb">window</span> <span class="o">===</span> <span class="nb">window</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="window-frames-window-length">
+<span id="window-frames-window-length"></span><h3>window.frames，window.length<a class="headerlink" href="#window-frames-window-length" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.frames</span></code>属性返回一个类似数组的对象，成员为页面内所有框架窗口，包括<code class="docutils literal notranslate"><span class="pre">frame</span></code>元素和<code class="docutils literal notranslate"><span class="pre">iframe</span></code>元素。<code class="docutils literal notranslate"><span class="pre">window.frames[0]</span></code>表示页面中第一个框架窗口。</p>
+<p>如果<code class="docutils literal notranslate"><span class="pre">iframe</span></code>元素设置了<code class="docutils literal notranslate"><span class="pre">id</span></code>或<code class="docutils literal notranslate"><span class="pre">name</span></code>属性，那么就可以用属性值，引用这个<code class="docutils literal notranslate"><span class="pre">iframe</span></code>窗口。比如<code class="docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">name=&quot;myIFrame&quot;&gt;</span></code>可以用<code class="docutils literal notranslate"><span class="pre">frames['myIFrame']</span></code>或者<code class="docutils literal notranslate"><span class="pre">frames.myIFrame</span></code>来引用。</p>
+<p><code class="docutils literal notranslate"><span class="pre">frames</span></code>属性实际上是<code class="docutils literal notranslate"><span class="pre">window</span></code>对象的别名。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">frames</span> <span class="o">===</span> <span class="nb">window</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>因此，<code class="docutils literal notranslate"><span class="pre">frames[0]</span></code>也可以用<code class="docutils literal notranslate"><span class="pre">window[0]</span></code>表示。但是，从语义上看，<code class="docutils literal notranslate"><span class="pre">frames</span></code>更清晰，而且考虑到<code class="docutils literal notranslate"><span class="pre">window</span></code>还是全局对象，因此推荐表示多窗口时，总是使用<code class="docutils literal notranslate"><span class="pre">frames[0]</span></code>的写法。更多介绍请看下文的《多窗口操作》部分。</p>
+<p><code class="docutils literal notranslate"><span class="pre">window.length</span></code>属性返回当前网页包含的框架总数。如果当前网页不包含<code class="docutils literal notranslate"><span class="pre">frame</span></code>和<code class="docutils literal notranslate"><span class="pre">iframe</span></code>元素，那么<code class="docutils literal notranslate"><span class="pre">window.length</span></code>就返回<code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">frames</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="nb">window</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>上面代码表示，<code class="docutils literal notranslate"><span class="pre">window.frames.length</span></code>与<code class="docutils literal notranslate"><span class="pre">window.length</span></code>应该是相等的。</p>
+</div>
+<div class="section" id="window-frameelement">
+<span id="window-frameelement"></span><h3>window.frameElement<a class="headerlink" href="#window-frameelement" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.frameElement</span></code>属性主要用于当前窗口嵌在另一个网页的情况（嵌入<code class="docutils literal notranslate"><span class="pre">&lt;object&gt;</span></code>、<code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code>或<code class="docutils literal notranslate"><span class="pre">&lt;embed&gt;</span></code>元素），返回当前窗口所在的那个元素节点。如果当前窗口是顶层窗口，或者所嵌入的那个网页不是同源的，该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;iframe src=&quot;about.html&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="c1">// 下面的脚本在 about.html 里面</span>
+<span class="kd">var</span> <span class="nx">frameEl</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">frameElement</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">frameEl</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">frameEl</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;other.html&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">frameEl</span></code>变量就是<code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code>元素。</p>
+</div>
+<div class="section" id="window-top-window-parent">
+<span id="window-top-window-parent"></span><h3>window.top，window.parent<a class="headerlink" href="#window-top-window-parent" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.top</span></code>属性指向最顶层窗口，主要用于在子窗口里面获取顶层的父窗口。</p>
+<p><code class="docutils literal notranslate"><span class="pre">window.parent</span></code>属性指向父窗口。如果当前窗口没有父窗口，<code class="docutils literal notranslate"><span class="pre">window.parent</span></code>指向自身。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">parent</span> <span class="o">!==</span> <span class="nb">window</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 表明当前窗口嵌入不止一层</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="window-status">
+<span id="window-status"></span><h3>window.status<a class="headerlink" href="#window-status" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.status</span></code>属性用于读写浏览器状态栏的文本。但是，现在很多浏览器都不允许改写状态栏文本，所以使用这个方法不一定有效。</p>
+</div>
+<div class="section" id="window-devicepixelratio">
+<span id="window-devicepixelratio"></span><h3>window.devicePixelRatio<a class="headerlink" href="#window-devicepixelratio" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.devicePixelRatio</span></code>属性返回一个数值，表示一个 CSS 像素的大小与一个物理像素的大小之间的比率。也就是说，它表示一个 CSS 像素由多少个物理像素组成。它可以用于判断用户的显示环境，如果这个比率较大，就表示用户正在使用高清屏幕，因此可以显示较大像素的图片。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>位置大小属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>以下属性返回<code class="docutils literal notranslate"><span class="pre">window</span></code>对象的位置信息和大小信息。</p>
+<p><strong>（1）window.screenX，window.screenY</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">window.screenX</span></code>和<code class="docutils literal notranslate"><span class="pre">window.screenY</span></code>属性，返回浏览器窗口左上角相对于当前屏幕左上角的水平距离和垂直距离（单位像素）。这两个属性只读。</p>
+<p><strong>（2） window.innerHeight，window.innerWidth</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">window.innerHeight</span></code>和<code class="docutils literal notranslate"><span class="pre">window.innerWidth</span></code>属性，返回网页在当前窗口中可见部分的高度和宽度，即“视口”（viewport）的大小（单位像素）。这两个属性只读。</p>
+<p>用户放大网页的时候（比如将网页从100%的大小放大为200%），这两个属性会变小。因为这时网页的像素大小不变（比如宽度还是960像素），只是每个像素占据的屏幕空间变大了，因为可见部分（视口）就变小了。</p>
+<p>注意，这两个属性值包括滚动条的高度和宽度。</p>
+<p><strong>（3）window.outerHeight，window.outerWidth</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">window.outerHeight</span></code>和<code class="docutils literal notranslate"><span class="pre">window.outerWidth</span></code>属性返回浏览器窗口的高度和宽度，包括浏览器菜单和边框（单位像素）。这两个属性只读。</p>
+<p><strong>（4）window.scrollX，window.scrollY</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">window.scrollX</span></code>属性返回页面的水平滚动距离，<code class="docutils literal notranslate"><span class="pre">window.scrollY</span></code>属性返回页面的垂直滚动距离，单位都为像素。这两个属性只读。</p>
+<p>注意，这两个属性的返回值不是整数，而是双精度浮点数。如果页面没有滚动，它们的值就是<code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<p>举例来说，如果用户向下拉动了垂直滚动条75像素，那么<code class="docutils literal notranslate"><span class="pre">window.pageYOffset</span></code>就是75左右。用户水平向右拉动水平滚动条200像素，<code class="docutils literal notranslate"><span class="pre">window.pageXOffset</span></code>就是200左右。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">&lt;</span> <span class="mi">75</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">scroll</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码中，如果页面向下滚动的距离小于75像素，那么页面向下滚动75像素。</p>
+<p><strong>（5）window.pageXOffset，window.pageYOffset</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">window.pageXOffset</span></code>属性和<code class="docutils literal notranslate"><span class="pre">window.pageYOffset</span></code>属性，是<code class="docutils literal notranslate"><span class="pre">window.scrollX</span></code>和<code class="docutils literal notranslate"><span class="pre">window.scrollY</span></code>别名。</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>组件属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>组件属性返回浏览器的组件对象。这样的属性有下面几个。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">window.locationbar</span></code>：地址栏对象</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.menubar</span></code>：菜单栏对象</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.scrollbar</span></code>：窗口的滚动条对象</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.toolbar</span></code>：工具栏对象</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.statusbar</span></code>：状态栏对象</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.personalbar</span></code>：用户安装的个人工具栏对象</li>
+</ul>
+<p>这些对象的<code class="docutils literal notranslate"><span class="pre">visible</span></code>属性是一个布尔值，表示这些组件是否可见。这些属性只读。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">locationbar</span><span class="p">.</span><span class="nx">visible</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">menubar</span><span class="p">.</span><span class="nx">visible</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">scrollbar</span><span class="p">.</span><span class="nx">visible</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">toolbar</span><span class="p">.</span><span class="nx">visible</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">statusbar</span><span class="p">.</span><span class="nx">visible</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">personalbar</span><span class="p">.</span><span class="nx">visible</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>全局对象属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>全局对象属性指向一些浏览器原生的全局对象。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">window.document</span></code>：指向<code class="docutils literal notranslate"><span class="pre">document</span></code>对象，详见《document 对象》一章。注意，这个属性有同源限制。只有来自同源的脚本才能读取这个属性。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.location</span></code>：指向<code class="docutils literal notranslate"><span class="pre">Location</span></code>对象，用于获取当前窗口的 URL 信息。它等同于<code class="docutils literal notranslate"><span class="pre">document.location</span></code>属性，详见《Location 对象》一章。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.navigator</span></code>：指向<code class="docutils literal notranslate"><span class="pre">Navigator</span></code>对象，用于获取环境信息，详见《Navigator 对象》一章。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.history</span></code>：指向<code class="docutils literal notranslate"><span class="pre">History</span></code>对象，表示浏览器的浏览历史，详见《History 对象》一章。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.localStorage</span></code>：指向本地储存的 localStorage 数据，详见《Storage 接口》一章。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.sessionStorage</span></code>：指向本地储存的 sessionStorage 数据，详见《Storage 接口》一章。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.console</span></code>：指向<code class="docutils literal notranslate"><span class="pre">console</span></code>对象，用于操作控制台，详见《console 对象》一章。</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.screen</span></code>：指向<code class="docutils literal notranslate"><span class="pre">Screen</span></code>对象，表示屏幕信息，详见《Screen 对象》一章。</li>
+</ul>
+</div>
+<div class="section" id="window-issecurecontext">
+<span id="window-issecurecontext"></span><h3>window.isSecureContext<a class="headerlink" href="#window-issecurecontext" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.isSecureContext</span></code>属性返回一个布尔值，表示当前窗口是否处在加密环境。如果是 HTTPS 协议，就是<code class="docutils literal notranslate"><span class="pre">true</span></code>，否则就是<code class="docutils literal notranslate"><span class="pre">false</span></code>。</p>
+</div>
+</div>
+<div class="section" id="screen">
+<span id="screen"></span><h2>Screen 对象<a class="headerlink" href="#screen" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">window.screen</span></code>指向一个对象包含了显示设备的信息。</p>
+<p><code class="docutils literal notranslate"><span class="pre">screen.height</span></code>和<code class="docutils literal notranslate"><span class="pre">screen.width</span></code>两个属性，一般用来了解设备的分辨率。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 显示设备的高度，单位为像素</span>
+<span class="nx">screen</span><span class="p">.</span><span class="nx">height</span> <span class="c1">// 1920</span>
+
+<span class="c1">// 显示设备的宽度，单位为像素</span>
+<span class="nx">screen</span><span class="p">.</span><span class="nx">width</span> <span class="c1">// 1080</span>
+</pre></div>
+</div>
+<p>上面代码显示，某设备的分辨率是1920x1080。</p>
+<p>除非调整显示器的分辨率，否则这两个值可以看作常量，不会发生变化。显示器的分辨率与浏览器设置无关，缩放网页并不会改变分辨率。</p>
+<p>下面是根据屏幕分辨率，将用户导向不同网页的代码。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="nx">screen</span><span class="p">.</span><span class="nx">width</span> <span class="o">&lt;=</span> <span class="mi">800</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">height</span> <span class="o">&lt;=</span> <span class="mi">600</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;small.html&#39;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;wide.html&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">screen.availHeight</span></code>和<code class="docutils literal notranslate"><span class="pre">screen.availWidth</span></code>属性返回屏幕可用的高度和宽度，单位为像素。它们的值为屏幕的实际大小减去操作系统某些功能占据的空间，比如系统的任务栏。</p>
+<p><code class="docutils literal notranslate"><span class="pre">screen.colorDepth</span></code>属性返回屏幕的颜色深度，一般为16（表示16-bit）或24（表示24-bit）。</p>
+</div>
+<div class="section" id="navigator">
+<span id="navigator"></span><h2>Navigator 对象<a class="headerlink" href="#navigator" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">window.navigator</span></code>属性指向一个包含浏览器信息的 Navigator 对象。脚本通过这个属性了解用户使用的是哪一种浏览器。</p>
+<div class="section" id="navigator-useragent">
+<span id="navigator-useragent"></span><h3>Navigator.userAgent<a class="headerlink" href="#navigator-useragent" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">navigator.userAgent</span></code>属性返回浏览器的 User Agent 字符串，表示浏览器的厂商和版本信息。</p>
+<p>下面是 Chrome 浏览器的<code class="docutils literal notranslate"><span class="pre">userAgent</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span>
+<span class="c1">// &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36&quot;</span>
+</pre></div>
+</div>
+<p>通过<code class="docutils literal notranslate"><span class="pre">userAgent</span></code>属性识别浏览器，不是一个好办法。因为必须考虑所有的情况（不同的浏览器，不同的版本），非常麻烦，而且用户可以改变这个字符串。这个字符串的格式并无统一规定，也无法保证未来的适用性，各种上网设备层出不穷，难以穷尽。所以，现在一般不再通过它识别浏览器了，而是使用“功能识别”方法，即逐一测试当前浏览器是否支持要用到的 JavaScript 功能。</p>
+<p>不过，通过<code class="docutils literal notranslate"><span class="pre">userAgent</span></code>可以大致准确地识别手机浏览器，方法就是测试是否包含<code class="docutils literal notranslate"><span class="pre">mobi</span></code>字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="sr">/mobi/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">ua</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// 手机浏览器</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// 非手机浏览器</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如果想要识别所有移动设备的浏览器，可以测试更多的特征字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="sr">/mobi|android|touch|mini/i</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">ua</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="navigator-plugins">
+<span id="navigator-plugins"></span><h3>Navigator.plugins<a class="headerlink" href="#navigator-plugins" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.plugins</span></code>属性返回一个类似数组的对象，成员是 Plugin 实例对象，表示浏览器安装的插件，比如 Flash、ActiveX 等。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">pluginsLength</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">pluginsLength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">plugins</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">plugins</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">filename</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">plugins</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">description</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">plugins</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">version</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="navigator-platform">
+<span id="navigator-platform"></span><h3>Navigator.platform<a class="headerlink" href="#navigator-platform" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.platform</span></code>属性返回用户的操作系统信息，比如<code class="docutils literal notranslate"><span class="pre">MacIntel</span></code>、<code class="docutils literal notranslate"><span class="pre">Win32</span></code>、<code class="docutils literal notranslate"><span class="pre">Linux</span> <span class="pre">x86_64</span></code>等 。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">platform</span>
+<span class="c1">// &quot;Linux x86_64&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="navigator-online">
+<span id="navigator-online"></span><h3>Navigator.onLine<a class="headerlink" href="#navigator-online" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">navigator.onLine</span></code>属性返回一个布尔值，表示用户当前在线还是离线（浏览器断线）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">onLine</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>有时，浏览器可以连接局域网，但是局域网不能连通外网。这时，有的浏览器的<code class="docutils literal notranslate"><span class="pre">onLine</span></code>属性会返回<code class="docutils literal notranslate"><span class="pre">true</span></code>，所以不能假定只要是<code class="docutils literal notranslate"><span class="pre">true</span></code>，用户就一定能访问互联网。不过，如果是<code class="docutils literal notranslate"><span class="pre">false</span></code>，可以断定用户一定离线。</p>
+<p>用户变成在线会触发<code class="docutils literal notranslate"><span class="pre">online</span></code>事件，变成离线会触发<code class="docutils literal notranslate"><span class="pre">offline</span></code>事件，可以通过<code class="docutils literal notranslate"><span class="pre">window.ononline</span></code>和<code class="docutils literal notranslate"><span class="pre">window.onoffline</span></code>指定这两个事件的回调函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;offline&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;offline&#39;</span><span class="p">);</span> <span class="p">});</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;online&#39;</span><span class="p">);</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="navigator-language-navigator-languages">
+<span id="navigator-language-navigator-languages"></span><h3>Navigator.language，Navigator.languages<a class="headerlink" href="#navigator-language-navigator-languages" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.language</span></code>属性返回一个字符串，表示浏览器的首选语言。该属性只读。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span> <span class="c1">// &quot;en&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.languages</span></code>属性返回一个数组，表示用户可以接受的语言。<code class="docutils literal notranslate"><span class="pre">Navigator.language</span></code>总是这个数组的第一个成员。HTTP 请求头信息的<code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code>字段，就来自这个数组。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">languages</span>  <span class="c1">// [&quot;en-US&quot;, &quot;en&quot;, &quot;zh-CN&quot;, &quot;zh&quot;, &quot;zh-TW&quot;]</span>
+</pre></div>
+</div>
+<p>如果这个属性发生变化，就会在<code class="docutils literal notranslate"><span class="pre">window</span></code>对象上触发<code class="docutils literal notranslate"><span class="pre">languagechange</span></code>事件。</p>
+</div>
+<div class="section" id="navigator-geolocation">
+<span id="navigator-geolocation"></span><h3>Navigator.geolocation<a class="headerlink" href="#navigator-geolocation" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.geolocation</span></code>属性返回一个 Geolocation 对象，包含用户地理位置的信息。注意，该 API 只有在 HTTPS 协议下可用，否则调用下面方法时会报错。</p>
+<p>Geolocation 对象提供下面三个方法。</p>
+<ul class="simple">
+<li>Geolocation.getCurrentPosition()：得到用户的当前位置</li>
+<li>Geolocation.watchPosition()：监听用户位置变化</li>
+<li>Geolocation.clearWatch()：取消<code class="docutils literal notranslate"><span class="pre">watchPosition()</span></code>方法指定的监听函数</li>
+</ul>
+<p>注意，调用这三个方法时，浏览器会跳出一个对话框，要求用户给予授权。</p>
+</div>
+<div class="section" id="navigator-cookieenabled">
+<span id="navigator-cookieenabled"></span><h3>Navigator.cookieEnabled<a class="headerlink" href="#navigator-cookieenabled" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.cookieEnabled</span></code>属性返回一个布尔值，表示浏览器的 Cookie 功能是否打开。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">cookieEnabled</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>注意，这个属性反映的是浏览器总的特性，与是否储存某个具体的网站的 Cookie 无关。用户可以设置某个网站不得储存 Cookie，这时<code class="docutils literal notranslate"><span class="pre">cookieEnabled</span></code>返回的还是<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
+</div>
+<div class="section" id="navigator-javaenabled">
+<span id="navigator-javaenabled"></span><h3>Navigator.javaEnabled()<a class="headerlink" href="#navigator-javaenabled" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.javaEnabled()</span></code>方法返回一个布尔值，表示浏览器是否能运行 Java Applet 小程序。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">navigator</span><span class="p">.</span><span class="nx">javaEnabled</span><span class="p">()</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="navigator-sendbeacon">
+<span id="navigator-sendbeacon"></span><h3>Navigator.sendBeacon()<a class="headerlink" href="#navigator-sendbeacon" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Navigator.sendBeacon()</span></code>方法用于向服务器异步发送数据，详见《XMLHttpRequest 对象》一章。</p>
+</div>
+</div>
+<div class="section" id="window">
+<span id="id6"></span><h2>window对象的方法<a class="headerlink" href="#window" title="永久链接至标题">¶</a></h2>
+<div class="section" id="window-moveto-window-moveby">
+<span id="window-moveto-window-moveby"></span><h3>window.moveTo()，window.moveBy()<a class="headerlink" href="#window-moveto-window-moveby" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.moveTo</span></code>方法用于移动浏览器窗口到指定位置。它接受两个参数，分别是窗口左上角距离屏幕左上角的水平距离和垂直距离，单位为像素。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码将窗口移动到屏幕<code class="docutils literal notranslate"><span class="pre">(100,</span> <span class="pre">200)</span></code>的位置。</p>
+<p><code class="docutils literal notranslate"><span class="pre">window.moveBy</span></code>方法将窗口移动到一个相对位置。它接受两个参数，分布是窗口左上角向右移动的水平距离和向下移动的垂直距离，单位为像素。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">moveBy</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码将窗口向右移动25像素、向下移动50像素。</p>
+</div>
+<div class="section" id="window-scrollto-window-scroll-window-scrollby">
+<span id="window-scrollto-window-scroll-window-scrollby"></span><h3>window.scrollTo()，window.scroll()，window.scrollBy()<a class="headerlink" href="#window-scrollto-window-scroll-window-scrollby" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.scrollTo</span></code>方法用于将文档滚动到指定位置。它接受两个参数，表示滚动后的窗口左上角的坐标。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">coord</span><span class="p">,</span> <span class="nx">y</span><span class="o">-</span><span class="nx">coord</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>它也可以接受一个配置对象作为参数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>配置对象<code class="docutils literal notranslate"><span class="pre">options</span></code>有三个属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">top</span></code>：滚动后页面左上角的垂直坐标，即 y 坐标。</li>
+<li><code class="docutils literal notranslate"><span class="pre">left</span></code>：滚动后页面左上角的水平坐标，即 x 坐标。</li>
+<li><code class="docutils literal notranslate"><span class="pre">behavior</span></code>：字符串，表示滚动的方式，有三个可能值（<code class="docutils literal notranslate"><span class="pre">smooth</span></code>、<code class="docutils literal notranslate"><span class="pre">instant</span></code>、<code class="docutils literal notranslate"><span class="pre">auto</span></code>），默认值为<code class="docutils literal notranslate"><span class="pre">auto</span></code>。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">({</span>
+  <span class="nx">top</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="nx">behavior</span><span class="o">:</span> <span class="s1">&#39;smooth&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">window.scroll()</span></code>方法是<code class="docutils literal notranslate"><span class="pre">window.scrollTo()</span></code>方法的别名。</p>
+<p><code class="docutils literal notranslate"><span class="pre">window.scrollBy()</span></code>方法用于将网页滚动指定距离（单位像素）。它接受两个参数：水平向右滚动的像素，垂直向下滚动的像素。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollBy</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码用于将网页向下滚动一屏。</p>
+<p>如果要滚动某个元素，可以使用下面三个属性和方法。</p>
+<ul class="simple">
+<li>Element.scrollTop</li>
+<li>Element.scrollLeft</li>
+<li>Element.scrollIntoView()</li>
+</ul>
+</div>
+<div class="section" id="window-open-window-close">
+<span id="window-open-window-close"></span><h3>window.open(), window.close()<a class="headerlink" href="#window-open-window-close" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.open</span></code>方法用于新建另一个浏览器窗口，并且返回该窗口对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;somefile.html&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码会让浏览器弹出一个新建窗口，网址是当前域名下的<code class="docutils literal notranslate"><span class="pre">somefile.html</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">open</span></code>方法一共可以接受四个参数。</p>
+<ul class="simple">
+<li>第一个参数：字符串，表示新窗口的网址。如果省略，默认网址就是<code class="docutils literal notranslate"><span class="pre">about:blank</span></code>。</li>
+<li>第二个参数：字符串，表示新窗口的名字。如果该名字的窗口已经存在，则跳到该窗口，不再新建窗口。如果省略，就默认使用<code class="docutils literal notranslate"><span class="pre">_blank</span></code>，表示新建一个没有名字的窗口。</li>
+<li>第三个参数：字符串，内容为逗号分隔的键值对，表示新窗口的参数，比如有没有提示栏、工具条等等。如果省略，则默认打开一个完整UI的新窗口。</li>
+<li>第四个参数：布尔值，表示第一个参数指定的网址，是否应该替换<code class="docutils literal notranslate"><span class="pre">history</span></code>对象之中的当前网址记录，默认值为<code class="docutils literal notranslate"><span class="pre">false</span></code>。显然，这个参数只有在第二个参数指向已经存在的窗口时，才有意义。</li>
+</ul>
+<p>下面是一个例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span>
+  <span class="s1">&#39;somepage.html&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;DefinitionsWindows&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;height=200,width=200,location=no,status=yes,resizable=yes,scrollbars=yes&#39;</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码表示，打开的新窗口高度和宽度都为200像素，没有地址栏和滚动条，但有状态栏，允许用户调整大小。</p>
+<p>注意，如果在第三个参数中设置了一部分参数，其他没有被设置的<code class="docutils literal notranslate"><span class="pre">yes/no</span></code>参数都会被设成<code class="docutils literal notranslate"><span class="pre">no</span></code>，只有<code class="docutils literal notranslate"><span class="pre">titlebar</span></code>和关闭按钮除外（它们的值默认为<code class="docutils literal notranslate"><span class="pre">yes</span></code>）。</p>
+<p>另外，<code class="docutils literal notranslate"><span class="pre">open</span></code>方法的第二个参数虽然可以指定已经存在的窗口，但是不等于可以任意控制其他窗口。为了防止被不相干的窗口控制，浏览器只有在两个窗口同源，或者目标窗口被当前网页打开的情况下，才允许<code class="docutils literal notranslate"><span class="pre">open</span></code>方法指向该窗口。</p>
+<p><code class="docutils literal notranslate"><span class="pre">open</span></code>方法返回新窗口的引用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">windowB</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;windowB.html&#39;</span><span class="p">,</span> <span class="s1">&#39;WindowB&#39;</span><span class="p">);</span>
+<span class="nx">windowB</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nx">name</span> <span class="c1">// &quot;WindowB&quot;</span>
+</pre></div>
+</div>
+<p>下面是另一个例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+<span class="nx">w</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;已经打开新窗口&#39;</span><span class="p">);</span>
+<span class="nx">w</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>上面代码先打开一个新窗口，然后在该窗口弹出一个对话框，再将网址导向<code class="docutils literal notranslate"><span class="pre">example.com</span></code>。</p>
+<p>由于<code class="docutils literal notranslate"><span class="pre">open</span></code>这个方法很容易被滥用，许多浏览器默认都不允许脚本自动新建窗口。只允许在用户点击链接或按钮，脚本做出反应，弹出新窗口。因此，有必要检查一下打开新窗口是否成功。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">popup</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 新建窗口失败</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">window.close</span></code>方法用于关闭当前窗口，一般用来关闭<code class="docutils literal notranslate"><span class="pre">window.open</span></code>方法新建的窗口。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">popup</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>该方法只对顶层窗口有效，<code class="docutils literal notranslate"><span class="pre">iframe</span></code>框架之中的窗口使用该方法无效。</p>
+</div>
+<div class="section" id="window-print">
+<span id="window-print"></span><h3>window.print()<a class="headerlink" href="#window-print" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">print</span></code>方法会跳出打印对话框，同用户点击菜单里面的“打印”命令效果相同。</p>
+<p>页面上的打印按钮代码如下。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;printLink&#39;</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>非桌面设备（比如手机）可能没有打印功能，这时可以这样判断。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nb">window</span><span class="p">.</span><span class="nx">print</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 支持打印功能</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="window-getcomputedstyle">
+<span id="window-getcomputedstyle"></span><h3>window.getComputedStyle()<a class="headerlink" href="#window-getcomputedstyle" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">getComputedStyle</span></code>方法接受一个HTML元素作为参数，返回一个包含该HTML元素的最终样式信息的对象。详见《DOM》一章的CSS章节。</p>
+</div>
+<div class="section" id="window-matchmedia">
+<span id="window-matchmedia"></span><h3>window.matchMedia()<a class="headerlink" href="#window-matchmedia" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.matchMedia</span></code>方法用来检查CSS的mediaQuery语句。详见《DOM》一章的CSS章节。</p>
+</div>
+<div class="section" id="window-focus">
+<span id="window-focus"></span><h3>window.focus()<a class="headerlink" href="#window-focus" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">focus</span></code>方法会激活指定当前窗口，使其获得焦点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;popup.html&#39;</span><span class="p">,</span> <span class="s1">&#39;Popup Window&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">((</span><span class="nx">popup</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">popup</span><span class="p">.</span><span class="nx">closed</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">popup</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码先检查<code class="docutils literal notranslate"><span class="pre">popup</span></code>窗口是否依然存在，确认后激活该窗口。</p>
+<p>当前窗口获得焦点时，会触发<code class="docutils literal notranslate"><span class="pre">focus</span></code>事件；当前窗口失去焦点时，会触发<code class="docutils literal notranslate"><span class="pre">blur</span></code>事件。</p>
+</div>
+<div class="section" id="window-getselection">
+<span id="window-getselection"></span><h3>window.getSelection()<a class="headerlink" href="#window-getselection" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.getSelection</span></code>方法返回一个<code class="docutils literal notranslate"><span class="pre">Selection</span></code>对象，表示用户现在选中的文本。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">selObj</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>使用<code class="docutils literal notranslate"><span class="pre">Selction</span></code>对象的<code class="docutils literal notranslate"><span class="pre">toString</span></code>方法可以得到选中的文本。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">selectedText</span> <span class="o">=</span> <span class="nx">selObj</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>多窗口操作<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>由于网页可以使用<code class="docutils literal notranslate"><span class="pre">iframe</span></code>元素，嵌入其他网页，因此一个网页之中会形成多个窗口。另一情况是，子网页之中又嵌入别的网页，形成多级窗口。</p>
+<div class="section" id="">
+<span id="id8"></span><h3>窗口的引用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>各个窗口之中的脚本，可以引用其他窗口。浏览器提供了一些特殊变量，用来返回其他窗口。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">top</span></code>：顶层窗口，即最上层的那个窗口</li>
+<li><code class="docutils literal notranslate"><span class="pre">parent</span></code>：父窗口</li>
+<li><code class="docutils literal notranslate"><span class="pre">self</span></code>：当前窗口，即自身</li>
+</ul>
+<p>下面代码可以判断，当前窗口是否为顶层窗口。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">top</span> <span class="o">===</span> <span class="nx">self</span>
+
+<span class="c1">// 更好的写法</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">top</span> <span class="o">===</span> <span class="nb">window</span><span class="p">.</span><span class="nx">self</span>
+</pre></div>
+</div>
+<p>下面的代码让父窗口的访问历史后退一次。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">parent</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>与这些变量对应，浏览器还提供一些特殊的窗口名，供<code class="docutils literal notranslate"><span class="pre">open</span></code>方法、<code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>标签、<code class="docutils literal notranslate"><span class="pre">&lt;form&gt;</span></code>标签等引用。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">_top</span></code>：顶层窗口</li>
+<li><code class="docutils literal notranslate"><span class="pre">_parent</span></code>：父窗口</li>
+<li><code class="docutils literal notranslate"><span class="pre">_blank</span></code>：新窗口</li>
+</ul>
+<p>下面代码就表示在顶层窗口打开链接。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;somepage.html&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_top&quot;</span><span class="p">&gt;</span>Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iframe">
+<span id="iframe"></span><h3>iframe标签<a class="headerlink" href="#iframe" title="永久链接至标题">¶</a></h3>
+<p>对于<code class="docutils literal notranslate"><span class="pre">iframe</span></code>嵌入的窗口，<code class="docutils literal notranslate"><span class="pre">document.getElementById</span></code>方法可以拿到该窗口的DOM节点，然后使用<code class="docutils literal notranslate"><span class="pre">contentWindow</span></code>属性获得<code class="docutils literal notranslate"><span class="pre">iframe</span></code>节点包含的<code class="docutils literal notranslate"><span class="pre">window</span></code>对象，或者使用<code class="docutils literal notranslate"><span class="pre">contentDocument</span></code>属性获得包含的<code class="docutils literal notranslate"><span class="pre">document</span></code>对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">frame</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;theFrame&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">frameWindow</span> <span class="o">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">;</span>
+
+<span class="c1">// 等同于 frame.contentWindow.document</span>
+<span class="kd">var</span> <span class="nx">frameDoc</span> <span class="o">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">contentDocument</span><span class="p">;</span>
+
+<span class="c1">// 获取子窗口的变量和属性</span>
+<span class="nx">frameWindow</span><span class="p">.</span><span class="kd">function</span><span class="p">()</span>
+
+<span class="c1">// 获取子窗口的标题</span>
+<span class="nx">frameWindow</span><span class="p">.</span><span class="nx">title</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">iframe</span></code>元素遵守同源政策，只有当父页面与框架页面来自同一个域名，两者之间才可以用脚本通信，否则只有使用<code class="docutils literal notranslate"><span class="pre">window.postMessage</span></code>方法。</p>
+<p><code class="docutils literal notranslate"><span class="pre">iframe</span></code>窗口内部，使用<code class="docutils literal notranslate"><span class="pre">window.parent</span></code>引用父窗口。如果当前页面没有父窗口，则<code class="docutils literal notranslate"><span class="pre">window.parent</span></code>属性返回自身。因此，可以通过<code class="docutils literal notranslate"><span class="pre">window.parent</span></code>是否等于<code class="docutils literal notranslate"><span class="pre">window.self</span></code>，判断当前窗口是否为<code class="docutils literal notranslate"><span class="pre">iframe</span></code>窗口。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">parent</span> <span class="o">!==</span> <span class="nb">window</span><span class="p">.</span><span class="nx">self</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 当前窗口是子窗口</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">iframe</span></code>嵌入窗口的<code class="docutils literal notranslate"><span class="pre">window</span></code>对象，有一个<code class="docutils literal notranslate"><span class="pre">frameElement</span></code>属性，返回它在父窗口中的DOM节点。对于那么非嵌入的窗口，该属性等于<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">f1Element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;f1&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">fiWindow</span> <span class="o">=</span> <span class="nx">f1Element</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">;</span>
+<span class="nx">f1Window</span><span class="p">.</span><span class="nx">frameElement</span> <span class="o">===</span> <span class="nx">f1Element</span> <span class="c1">// true</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">frameElement</span> <span class="o">===</span> <span class="kc">null</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="frames">
+<span id="frames"></span><h3>frames 属性<a class="headerlink" href="#frames" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window</span></code>对象的<code class="docutils literal notranslate"><span class="pre">frames</span></code>属性返回一个类似数组的对象，成员是所有子窗口的<code class="docutils literal notranslate"><span class="pre">window</span></code>对象。可以使用这个属性，实现窗口之间的互相引用。比如，<code class="docutils literal notranslate"><span class="pre">frames[0]</span></code>返回第一个子窗口，<code class="docutils literal notranslate"><span class="pre">frames[1].frames[2]</span></code>返回第二个子窗口内部的第三个子窗口，<code class="docutils literal notranslate"><span class="pre">parent.frames[1]</span></code>返回父窗口的第二个子窗口。</p>
+<p>需要注意的是，<code class="docutils literal notranslate"><span class="pre">window.frames</span></code>每个成员的值，是框架内的窗口（即框架的<code class="docutils literal notranslate"><span class="pre">window</span></code>对象），而不是<code class="docutils literal notranslate"><span class="pre">iframe</span></code>标签在父窗口的DOM节点。如果要获取每个框架内部的DOM树，需要使用<code class="docutils literal notranslate"><span class="pre">window.frames[0].document</span></code>的写法。</p>
+<p>另外，如果<code class="docutils literal notranslate"><span class="pre">iframe</span></code>元素设置了<code class="docutils literal notranslate"><span class="pre">name</span></code>或<code class="docutils literal notranslate"><span class="pre">id</span></code>属性，那么属性值会自动成为全局变量，并且可以通过<code class="docutils literal notranslate"><span class="pre">window.frames</span></code>属性引用，返回子窗口的<code class="docutils literal notranslate"><span class="pre">window</span></code>对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML代码为&lt;iframe id=&quot;myFrame&quot;&gt;</span>
+<span class="nx">myFrame</span> <span class="c1">// [HTMLIFrameElement]</span>
+<span class="nx">frames</span><span class="p">.</span><span class="nx">myframe</span> <span class="o">===</span> <span class="nx">myFrame</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>另外，<code class="docutils literal notranslate"><span class="pre">name</span></code>属性的值会自动成为子窗口的名称，可以用在<code class="docutils literal notranslate"><span class="pre">window.open</span></code>方法的第二个参数，或者<code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>和<code class="docutils literal notranslate"><span class="pre">&lt;frame&gt;</span></code>标签的<code class="docutils literal notranslate"><span class="pre">target</span></code>属性。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h2>事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">window</span></code>对象可以接收以下事件。</p>
+<div class="section" id="loadonload">
+<span id="loadonload"></span><h3>load事件和onload属性<a class="headerlink" href="#loadonload" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">load</span></code>事件发生在文档在浏览器窗口加载完毕时。<code class="docutils literal notranslate"><span class="pre">window.onload</span></code>属性可以指定这个事件的回调函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">elt</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>上面代码在网页加载完毕后，获取指定元素并进行处理。</p>
+</div>
+<div class="section" id="error-onerror">
+<span id="error-onerror"></span><h3>error 事件和 onerror 属性<a class="headerlink" href="#error-onerror" title="永久链接至标题">¶</a></h3>
+<p>浏览器脚本发生错误时，会触发<code class="docutils literal notranslate"><span class="pre">window</span></code>对象的<code class="docutils literal notranslate"><span class="pre">error</span></code>事件。我们可以通过<code class="docutils literal notranslate"><span class="pre">window.onerror</span></code>属性对该事件指定回调函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">filename</span><span class="p">,</span> <span class="nx">lineno</span><span class="p">,</span> <span class="nx">colno</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;出错了！--&gt; %s&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>由于历史原因，<code class="docutils literal notranslate"><span class="pre">window</span></code>的<code class="docutils literal notranslate"><span class="pre">error</span></code>事件的回调函数不接受错误对象作为参数，而是一共可以接受五个参数，它们的含义依次如下。</p>
+<ul class="simple">
+<li>出错信息</li>
+<li>出错脚本的网址</li>
+<li>行号</li>
+<li>列号</li>
+<li>错误对象</li>
+</ul>
+<p>老式浏览器只支持前三个参数。</p>
+<p>并不是所有的错误，都会触发 JavaScript 的<code class="docutils literal notranslate"><span class="pre">error</span></code>事件（即让 JavaScript 报错）。一般来说，只有 JavaScript 脚本的错误，才会触发这个事件，而像资源文件不存在之类的错误，都不会触发。</p>
+<p>下面是一个例子，如果整个页面未捕获错误超过3个，就显示警告。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">line</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">onerror</span><span class="p">.</span><span class="nx">num</span><span class="o">++</span> <span class="o">&gt;</span> <span class="nx">onerror</span><span class="p">.</span><span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;ERROR: &#39;</span> <span class="o">+</span> <span class="nx">msg</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nx">line</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">onerror</span><span class="p">.</span><span class="nx">max</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">onerror</span><span class="p">.</span><span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>需要注意的是，如果脚本网址与网页网址不在同一个域（比如使用了CDN），浏览器根本不会提供详细的出错信息，只会提示出错，错误类型是“Script error.”，行号为0，其他信息都没有。这是浏览器防止向外部脚本泄漏信息。一个解决方法是在脚本所在的服务器，设置<code class="docutils literal notranslate"><span class="pre">Access-Control-Allow-Origin</span></code>的HTTP头信息。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Access-Control-Allow-Origin: *
+</pre></div>
+</div>
+<p>然后，在网页的<code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>标签中设置<code class="docutils literal notranslate"><span class="pre">crossorigin</span></code>属性。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//example.com/file.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>上面代码的<code class="docutils literal notranslate"><span class="pre">crossorigin=&quot;anonymous&quot;</span></code>表示，读取文件不需要身份信息，即不需要cookie和HTTP认证信息。如果设为<code class="docutils literal notranslate"><span class="pre">crossorigin=&quot;use-credentials&quot;</span></code>，就表示浏览器会上传cookie和HTTP认证信息，同时还需要服务器端打开HTTP头信息<code class="docutils literal notranslate"><span class="pre">Access-Control-Allow-Credentials</span></code>。</p>
+</div>
+</div>
+<div class="section" id="url">
+<span id="url"></span><h2>URL的编码/解码方法<a class="headerlink" href="#url" title="永久链接至标题">¶</a></h2>
+<p>网页URL的合法字符分成两类。</p>
+<ul class="simple">
+<li>URL元字符：分号（<code class="docutils literal notranslate"><span class="pre">;</span></code>），逗号（','），斜杠（<code class="docutils literal notranslate"><span class="pre">/</span></code>），问号（<code class="docutils literal notranslate"><span class="pre">?</span></code>），冒号（<code class="docutils literal notranslate"><span class="pre">:</span></code>），at（<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>），<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>，等号（<code class="docutils literal notranslate"><span class="pre">=</span></code>），加号（<code class="docutils literal notranslate"><span class="pre">+</span></code>），美元符号（<code class="docutils literal notranslate"><span class="pre">$</span></code>），井号（<code class="docutils literal notranslate"><span class="pre">#</span></code>）</li>
+<li>语义字符：<code class="docutils literal notranslate"><span class="pre">a-z</span></code>，<code class="docutils literal notranslate"><span class="pre">A-Z</span></code>，<code class="docutils literal notranslate"><span class="pre">0-9</span></code>，连词号（<code class="docutils literal notranslate"><span class="pre">-</span></code>），下划线（<code class="docutils literal notranslate"><span class="pre">_</span></code>），点（<code class="docutils literal notranslate"><span class="pre">.</span></code>），感叹号（<code class="docutils literal notranslate"><span class="pre">!</span></code>），波浪线（<code class="docutils literal notranslate"><span class="pre">~</span></code>），星号（<code class="docutils literal notranslate"><span class="pre">*</span></code>），单引号（<code class="docutils literal notranslate"><span class="pre">\``），圆括号（</span></code>()`）</li>
+</ul>
+<p>除了以上字符，其他字符出现在URL之中都必须转义，规则是根据操作系统的默认编码，将每个字节转为百分号（<code class="docutils literal notranslate"><span class="pre">%</span></code>）加上两个大写的十六进制字母。比如，UTF-8的操作系统上，<code class="docutils literal notranslate"><span class="pre">http://www.example.com/q=春节</span></code>这个URL之中，汉字“春节”不是URL的合法字符，所以被浏览器自动转成<code class="docutils literal notranslate"><span class="pre">http://www.example.com/q=%E6%98%A5%E8%8A%82</span></code>。其中，“春”转成了<code class="docutils literal notranslate"><span class="pre">%E6%98%A5</span></code>，“节”转成了“%E8%8A%82”。这是因为“春”和”节“的UTF-8编码分别是<code class="docutils literal notranslate"><span class="pre">E6</span> <span class="pre">98</span> <span class="pre">A5</span></code>和<code class="docutils literal notranslate"><span class="pre">E8</span> <span class="pre">8A</span> <span class="pre">82</span></code>，将每个字节前面加上百分号，就构成了URL编码。</p>
+<p>JavaScript提供四个URL的编码/解码方法。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">encodeURI()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">encodeURIComponent()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">decodeURI()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">decodeURIComponent()</span></code></li>
+</ul>
+<div class="section" id="encodeuri">
+<span id="encodeuri"></span><h3>encodeURI<a class="headerlink" href="#encodeuri" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">encodeURI</span></code> 方法的参数是一个字符串，代表整个URL。它会将元字符和语义字符之外的字符，都进行转义。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">encodeURI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/q=春节&#39;</span><span class="p">)</span>
+<span class="c1">// &quot;http://www.example.com/q=%E6%98%A5%E8%8A%82&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encodeuricomponent">
+<span id="encodeuricomponent"></span><h3>encodeURIComponent<a class="headerlink" href="#encodeuricomponent" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">encodeURIComponent</span></code>只转除了语义字符之外的字符，元字符也会被转义。因此，它的参数通常是URL的路径或参数值，而不是整个URL。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="s1">&#39;春节&#39;</span><span class="p">)</span>
+<span class="c1">// &quot;%E6%98%A5%E8%8A%82&quot;</span>
+<span class="nb">encodeURIComponent</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/q=春节&#39;</span><span class="p">)</span>
+<span class="c1">// &quot;http%3A%2F%2Fwww.example.com%2Fq%3D%E6%98%A5%E8%8A%82&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">encodeURIComponent</span></code>会连URL元字符一起转义，所以通常只用它转URL的片段。</p>
+</div>
+<div class="section" id="decodeuri">
+<span id="decodeuri"></span><h3>decodeURI<a class="headerlink" href="#decodeuri" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">decodeURI</span></code>用于还原转义后的URL。它是<code class="docutils literal notranslate"><span class="pre">encodeURI</span></code>方法的逆运算。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">decodeURI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/q=%E6%98%A5%E8%8A%82&#39;</span><span class="p">)</span>
+<span class="c1">// &quot;http://www.example.com/q=春节&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decodeuricomponent">
+<span id="decodeuricomponent"></span><h3>decodeURIComponent<a class="headerlink" href="#decodeuricomponent" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">decodeURIComponent</span></code>用于还原转义后的URL片段。它是<code class="docutils literal notranslate"><span class="pre">encodeURIComponent</span></code>方法的逆运算。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">decodeURIComponent</span><span class="p">(</span><span class="s1">&#39;%E6%98%A5%E8%8A%82&#39;</span><span class="p">)</span>
+<span class="c1">// &quot;春节&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="alert-prompt-confirm">
+<span id="alert-prompt-confirm"></span><h2>alert()，prompt()，confirm()<a class="headerlink" href="#alert-prompt-confirm" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">alert()</span></code>、<code class="docutils literal notranslate"><span class="pre">prompt()</span></code>、<code class="docutils literal notranslate"><span class="pre">confirm()</span></code>都是浏览器与用户互动的全局方法。它们会弹出不同的对话框，要求用户做出回应。</p>
+<p>需要注意的是，<code class="docutils literal notranslate"><span class="pre">alert()</span></code>、<code class="docutils literal notranslate"><span class="pre">prompt()</span></code>、<code class="docutils literal notranslate"><span class="pre">confirm()</span></code>这三个方法弹出的对话框，都是浏览器统一规定的式样，是无法定制的。</p>
+<p><code class="docutils literal notranslate"><span class="pre">alert</span></code>方法弹出的对话框，只有一个“确定”按钮，往往用来通知用户某些信息。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 格式</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+
+<span class="c1">// 实例</span>
+<span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>用户只有点击“确定”按钮，对话框才会消失。在对话框弹出期间，浏览器窗口处于冻结状态，如果不点“确定”按钮，用户什么也干不了。</p>
+<p><code class="docutils literal notranslate"><span class="pre">alert</span></code>方法的参数只能是字符串，没法使用CSS样式，但是可以用<code class="docutils literal notranslate"><span class="pre">\n</span></code>指定换行。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;本条提示\n分成两行&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">prompt</span></code>方法弹出的对话框，在提示文字的下方，还有一个输入框，要求用户输入信息，并有“确定”和“取消”两个按钮。它往往用来获取用户输入的数据。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 格式</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="nx">text</span><span class="p">[,</span> <span class="k">default</span><span class="p">]);</span>
+
+<span class="c1">// 实例</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;您的年龄？&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>上面代码会跳出一个对话框，文字提示为“您的年龄？”，要求用户在对话框中输入自己的年龄（默认显示25）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">prompt</span></code>方法的返回值是一个字符串（有可能为空）或者<code class="docutils literal notranslate"><span class="pre">null</span></code>，具体分成三种情况。</p>
+<ol class="simple">
+<li>用户输入信息，并点击“确定”，则用户输入的信息就是返回值。</li>
+<li>用户没有输入信息，直接点击“确定”，则输入框的默认值就是返回值。</li>
+<li>用户点击了“取消”（或者按了Esc按钮），则返回值是<code class="docutils literal notranslate"><span class="pre">null</span></code>。</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">prompt</span></code>方法的第二个参数是可选的，但是如果不提供的话，IE浏览器会在输入框中显示<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。因此，最好总是提供第二个参数，作为输入框的默认值。</p>
+<p><code class="docutils literal notranslate"><span class="pre">confirm</span></code>方法弹出的对话框，除了提示信息之外，只有“确定”和“取消”两个按钮，往往用来征询用户的意见。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 格式</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">confirm</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+
+<span class="c1">// 实例</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">confirm</span><span class="p">(</span><span class="s2">&quot;你最近好吗？&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码弹出一个对话框，上面只有一行文字“你最近好吗？”，用户选择点击“确定”或“取消”。</p>
+<p><code class="docutils literal notranslate"><span class="pre">confirm</span></code>方法返回一个布尔值，如果用户点击“确定”，则返回<code class="docutils literal notranslate"><span class="pre">true</span></code>；如果用户点击“取消”，则返回<code class="docutils literal notranslate"><span class="pre">false</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">okay</span> <span class="o">=</span> <span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;Please confirm this message.&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">okay</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 用户按下“确定”</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// 用户按下“取消”</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">confirm</span></code>的一个用途是，当用户离开当前页面时，弹出一个对话框，问用户是否真的要离开。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">onunload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;你确定要离开当面页面吗？&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这三个方法都具有堵塞效应，一旦弹出对话框，整个页面就是暂停执行，等待用户做出反应。</p>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>Karl Dubost, <a class="reference external" href="https://hacks.mozilla.org/2013/09/user-agent-detection-history-and-checklist/">User-Agent detection, history and checklist</a></li>
+<li>Conrad Irwin, <a class="reference external" href="https://bugsnag.com/blog/js-stacktraces/">JS stacktraces. The good, the bad, and the ugly</a></li>
+<li>Daniel Lee, <a class="reference external" href="http://danlimerick.wordpress.com/2014/01/18/how-to-catch-javascript-errors-with-window-onerror-even-on-chrome-and-firefox/">How to catch JavaScript Errors with window.onerror (even on Chrome and Firefox)</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="history.html" class="btn btn-neutral float-right" title="History 对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="engine.html" class="btn btn-neutral" title="浏览器环境概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CSS操作 &mdash; JS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Image对象" href="image.html" />
+    <link rel="prev" title="事件种类" href="event-type.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> JS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">DOM 模型</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="node.html">DOM 模型概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">事件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-type.html">事件种类</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CSS操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#html-style">HTML 元素的 style 属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cssstyledeclaration">CSSStyleDeclaration 接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cssstyledeclaration">CSSStyleDeclaration 实例属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cssstyledeclaration">CSSStyleDeclaration 实例方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#css">CSS 模块的侦测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#css">CSS 对象</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#css-escape">CSS.escape()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#css-supports">CSS.supports()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#window-getcomputedstyle">window.getComputedStyle()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#css">CSS 伪元素</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stylesheet">StyleSheet 接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">实例属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">实例方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">实例：添加样式表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cssrulelist">CSSRuleList 接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cssrule">CSSRule 接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cssrule">CSSRule 实例的属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cssstylerule">CSSStyleRule 接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cssmediarule">CSSMediaRule 接口</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#window-matchmedia">window.matchMedia()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">基本用法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mediaquerylist">MediaQueryList 接口的实例属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mediaquerylist">MediaQueryList 接口的实例方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#css">CSS事件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#transitionend">transitionEnd事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#animationstart-animationend-animationiteration">animationstart事件，animationend事件，animationiteration事件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">DOM 模型</a> &raquo;</li>
+        
+      <li>CSS操作</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="css">
+<span id="css"></span><h1>CSS操作<a class="headerlink" href="#css" title="永久链接至标题">¶</a></h1>
+<p>CSS 与 JavaScript 是两个有着明确分工的领域，前者负责页面的视觉效果，后者负责与用户的行为互动。但是，它们毕竟同属网页开发的前端，因此不可避免有着交叉和互相配合。本节介绍如何通过 JavaScript 操作 CSS。</p>
+<div class="section" id="html-style">
+<span id="html-style"></span><h2>HTML 元素的 style 属性<a class="headerlink" href="#html-style" title="永久链接至标题">¶</a></h2>
+<p>操作 CSS 样式最简单的方法，就是使用网页元素节点的<code class="docutils literal notranslate"><span class="pre">getAttribute</span></code>方法、<code class="docutils literal notranslate"><span class="pre">setAttribute</span></code>方法和<code class="docutils literal notranslate"><span class="pre">removeAttribute</span></code>方法，直接读写或删除网页元素的<code class="docutils literal notranslate"><span class="pre">style</span></code>属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">div</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span>
+  <span class="s1">&#39;style&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;background-color:red;&#39;</span> <span class="o">+</span> <span class="s1">&#39;border:1px solid black;&#39;</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>上面的代码相当于下面的 HTML 代码。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color:red; border:1px solid black;&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cssstyledeclaration">
+<span id="cssstyledeclaration"></span><h2>CSSStyleDeclaration 接口<a class="headerlink" href="#cssstyledeclaration" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id1"></span><h3>简介<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>CSSStyleDeclaration 接口用来操作元素的样式。三个地方部署了这个接口。</p>
+<ul class="simple">
+<li>元素节点的<code class="docutils literal notranslate"><span class="pre">style</span></code>属性（<code class="docutils literal notranslate"><span class="pre">Element.style</span></code>）</li>
+<li><code class="docutils literal notranslate"><span class="pre">CSSStyle</span></code>实例的<code class="docutils literal notranslate"><span class="pre">style</span></code>属性</li>
+<li><code class="docutils literal notranslate"><span class="pre">window.getComputedStyle()</span></code>的返回值</li>
+</ul>
+<p>CSSStyleDeclaration 接口可以直接读写 CSS 的样式属性，不过，连词号需要变成骆驼拼写法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">divStyle</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">border</span> <span class="o">=</span> <span class="s1">&#39;1px solid black&#39;</span><span class="p">;</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="s1">&#39;100px&#39;</span><span class="p">;</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="s1">&#39;100px&#39;</span><span class="p">;</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">fontSize</span> <span class="o">=</span> <span class="s1">&#39;10em&#39;</span><span class="p">;</span>
+
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="c1">// red</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">border</span> <span class="c1">// 1px solid black</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">height</span> <span class="c1">// 100px</span>
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">width</span> <span class="c1">// 100px</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">style</span></code>属性的值是一个 CSSStyleDeclaration 实例。这个对象所包含的属性与 CSS 规则一一对应，但是名字需要改写，比如<code class="docutils literal notranslate"><span class="pre">background-color</span></code>写成<code class="docutils literal notranslate"><span class="pre">backgroundColor</span></code>。改写的规则是将横杠从 CSS 属性名中去除，然后将横杠后的第一个字母大写。如果 CSS 属性名是 JavaScript 保留字，则规则名之前需要加上字符串<code class="docutils literal notranslate"><span class="pre">css</span></code>，比如<code class="docutils literal notranslate"><span class="pre">float</span></code>写成<code class="docutils literal notranslate"><span class="pre">cssFloat</span></code>。</p>
+<p>注意，该对象的属性值都是字符串，设置时必须包括单位，但是不含规则结尾的分号。比如，<code class="docutils literal notranslate"><span class="pre">divStyle.width</span></code>不能写为<code class="docutils literal notranslate"><span class="pre">100</span></code>，而要写为<code class="docutils literal notranslate"><span class="pre">100px</span></code>。</p>
+<p>另外，<code class="docutils literal notranslate"><span class="pre">Element.style</span></code>返回的只是行内样式，并不是该元素的全部样式。通过样式表设置的样式，或者从父元素继承的样式，无法通过这个属性得到。元素的全部样式要通过<code class="docutils literal notranslate"><span class="pre">window.getComputedStyle()</span></code>得到。</p>
+</div>
+<div class="section" id="cssstyledeclaration">
+<span id="id2"></span><h3>CSSStyleDeclaration 实例属性<a class="headerlink" href="#cssstyledeclaration" title="永久链接至标题">¶</a></h3>
+<p><strong>（1）CSSStyleDeclaration.cssText</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.cssText</span></code>属性用来读写当前规则的所有样式声明文本。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">divStyle</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+
+<span class="nx">divStyle</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="s1">&#39;background-color: red;&#39;</span>
+  <span class="o">+</span> <span class="s1">&#39;border: 1px solid black;&#39;</span>
+  <span class="o">+</span> <span class="s1">&#39;height: 100px;&#39;</span>
+  <span class="o">+</span> <span class="s1">&#39;width: 100px;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">cssText</span></code>的属性值不用改写 CSS 属性名。</p>
+<p>删除一个元素的所有行内样式，最简便的方法就是设置<code class="docutils literal notranslate"><span class="pre">cssText</span></code>为空字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">divStyle</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>（2）CSSStyleDeclaration.length</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.length</span></code>属性返回一个整数值，表示当前规则包含多少条样式声明。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot;</span>
+<span class="c1">//   style=&quot;margin: 0 10px; background-color: #CA1; border: 1px solid red;&quot;</span>
+<span class="c1">// &gt;&lt;/div&gt;</span>
+<span class="kd">var</span> <span class="nx">myDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">divStyle</span> <span class="o">=</span> <span class="nx">myDiv</span><span class="p">.</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">divStyles</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">myDiv</span></code>元素的行内样式共包含3条样式规则。</p>
+<p><strong>（3）CSSStyleDeclaration.parentRule</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.parentRule</span></code>属性返回当前规则所属的那个样式块（CSSRule 实例）。如果不存在所属的样式块，该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<p>该属性只读，且只在使用 CSSRule 接口时有意义。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">declaration</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">rules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">declaration</span><span class="p">.</span><span class="nx">parentRule</span> <span class="o">===</span> <span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">rules</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cssstyledeclaration">
+<span id="id3"></span><h3>CSSStyleDeclaration 实例方法<a class="headerlink" href="#cssstyledeclaration" title="永久链接至标题">¶</a></h3>
+<p><strong>（1）CSSStyleDeclaration.getPropertyPriority()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.getPropertyPriority</span></code>方法接受 CSS 样式的属性名作为参数，返回一个字符串，表示有没有设置<code class="docutils literal notranslate"><span class="pre">important</span></code>优先级。如果有就返回<code class="docutils literal notranslate"><span class="pre">important</span></code>，否则返回空字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot; style=&quot;margin: 10px!important; color: red;&quot;/&gt;</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">margin</span> <span class="c1">// &quot;10px&quot;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">getPropertyPriority</span><span class="p">(</span><span class="s1">&#39;margin&#39;</span><span class="p">)</span> <span class="c1">// &quot;important&quot;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">getPropertyPriority</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">)</span> <span class="c1">// &quot;&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">margin</span></code>属性有<code class="docutils literal notranslate"><span class="pre">important</span></code>优先级，<code class="docutils literal notranslate"><span class="pre">color</span></code>属性没有。</p>
+<p><strong>（2）CSSStyleDeclaration.getPropertyValue()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.getPropertyValue</span></code>方法接受 CSS 样式属性名作为参数，返回一个字符串，表示该属性的属性值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot; style=&quot;margin: 10px!important; color: red;&quot;/&gt;</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">margin</span> <span class="c1">// &quot;10px&quot;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s2">&quot;margin&quot;</span><span class="p">)</span> <span class="c1">// &quot;10px&quot;</span>
+</pre></div>
+</div>
+<p><strong>（3）CSSStyleDeclaration.item()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.item</span></code>方法接受一个整数值作为参数，返回该位置的 CSS 属性名。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot; style=&quot;color: red; background-color: white;&quot;/&gt;</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// &quot;color&quot;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// &quot;background-color&quot;</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">0</span></code>号位置的 CSS 属性名是<code class="docutils literal notranslate"><span class="pre">color</span></code>，<code class="docutils literal notranslate"><span class="pre">1</span></code>号位置的 CSS 属性名是<code class="docutils literal notranslate"><span class="pre">background-color</span></code>。</p>
+<p>如果没有提供参数，这个方法会报错。如果参数值超过实际的属性数目，这个方法返回一个空字符值。</p>
+<p><strong>（4）CSSStyleDeclaration.removeProperty()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.removeProperty</span></code>方法接受一个属性名作为参数，在 CSS 规则里面移除这个属性，返回这个属性原来的值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot; style=&quot;color: red; background-color: white;&quot;&gt;</span>
+<span class="c1">//   111</span>
+<span class="c1">// &lt;/div&gt;</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">removeProperty</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">)</span> <span class="c1">// &#39;red&#39;</span>
+<span class="c1">// HTML 代码变为</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot; style=&quot;background-color: white;&quot;&gt;</span>
+</pre></div>
+</div>
+<p>上面代码中，删除<code class="docutils literal notranslate"><span class="pre">color</span></code>属性以后，字体颜色从红色变成默认颜色。</p>
+<p><strong>（5）CSSStyleDeclaration.setProperty()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleDeclaration.setProperty</span></code>方法用来设置新的 CSS 属性。该方法没有返回值。</p>
+<p>该方法可以接受三个参数。</p>
+<ul class="simple">
+<li>第一个参数：属性名，该参数是必需的。</li>
+<li>第二个参数：属性值，该参数可选。如果省略，则参数值默认为空字符串。</li>
+<li>第三个参数：优先级，该参数可选。如果设置，唯一的合法值是<code class="docutils literal notranslate"><span class="pre">important</span></code>，表示 CSS 规则里面的<code class="docutils literal notranslate"><span class="pre">!important</span></code>。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;div id=&quot;myDiv&quot; style=&quot;color: red; background-color: white;&quot;&gt;</span>
+<span class="c1">//   111</span>
+<span class="c1">// &lt;/div&gt;</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">;</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s1">&#39;border&#39;</span><span class="p">,</span> <span class="s1">&#39;1px solid blue&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码执行后，<code class="docutils literal notranslate"><span class="pre">myDiv</span></code>元素就会出现蓝色的边框。</p>
+</div>
+</div>
+<div class="section" id="css">
+<span id="id4"></span><h2>CSS 模块的侦测<a class="headerlink" href="#css" title="永久链接至标题">¶</a></h2>
+<p>CSS 的规格发展太快，新的模块层出不穷。不同浏览器的不同版本，对 CSS 模块的支持情况都不一样。有时候，需要知道当前浏览器是否支持某个模块，这就叫做“CSS模块的侦测”。</p>
+<p>一个比较普遍适用的方法是，判断元素的<code class="docutils literal notranslate"><span class="pre">style</span></code>对象的某个属性值是否为字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">typeof</span> <span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">animationName</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">;</span>
+<span class="k">typeof</span> <span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>如果该 CSS 属性确实存在，会返回一个字符串。即使该属性实际上并未设置，也会返回一个空字符串。如果该属性不存在，则会返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="s1">&#39;maxWidth&#39;</span><span class="p">]</span> <span class="c1">// &quot;&quot;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="s1">&#39;maximumWidth&#39;</span><span class="p">]</span> <span class="c1">// undefined</span>
+</pre></div>
+</div>
+<p>上面代码说明，这个浏览器支持<code class="docutils literal notranslate"><span class="pre">max-width</span></code>属性，但是不支持<code class="docutils literal notranslate"><span class="pre">maximum-width</span></code>属性。</p>
+<p>注意，不管 CSS 属性名的写法带不带连词线，<code class="docutils literal notranslate"><span class="pre">style</span></code>属性上都能反映出该属性是否存在。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">]</span> <span class="c1">// &quot;&quot;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="s1">&#39;background-color&#39;</span><span class="p">]</span> <span class="c1">// &quot;&quot;</span>
+</pre></div>
+</div>
+<p>另外，使用的时候，需要把不同浏览器的 CSS 前缀也考虑进去。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+<span class="k">typeof</span> <span class="nx">content</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="s1">&#39;webkitAnimation&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span>
+</pre></div>
+</div>
+<p>这种侦测方法可以写成一个函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">isPropertySupported</span><span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">property</span> <span class="k">in</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">prefixes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Moz&#39;</span><span class="p">,</span> <span class="s1">&#39;Webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="s1">&#39;Khtml&#39;</span><span class="p">];</span>
+  <span class="kd">var</span> <span class="nx">prefProperty</span> <span class="o">=</span> <span class="nx">property</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">property</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">prefixes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">((</span><span class="nx">prefixes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">prefProperty</span><span class="p">)</span> <span class="k">in</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">isPropertySupported</span><span class="p">(</span><span class="s1">&#39;background-clip&#39;</span><span class="p">)</span>
+<span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="css">
+<span id="id5"></span><h2>CSS 对象<a class="headerlink" href="#css" title="永久链接至标题">¶</a></h2>
+<p>浏览器原生提供 CSS 对象，为 JavaScript 操作 CSS 提供一些工具方法。</p>
+<p>这个对象目前有两个静态方法。</p>
+<div class="section" id="css-escape">
+<span id="css-escape"></span><h3>CSS.escape()<a class="headerlink" href="#css-escape" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">CSS.escape</span></code>方法用于转义 CSS 选择器里面的特殊字符。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;foo#bar&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>上面代码中，该元素的<code class="docutils literal notranslate"><span class="pre">id</span></code>属性包含一个<code class="docutils literal notranslate"><span class="pre">#</span></code>号，该字符在 CSS 选择器里面有特殊含义。不能直接写成<code class="docutils literal notranslate"><span class="pre">document.querySelector('#foo#bar')</span></code>，只能写成<code class="docutils literal notranslate"><span class="pre">document.querySelector('#foo\\#bar')</span></code>。这里必须使用双斜杠的原因是，单引号字符串本身会转义一次斜杠。</p>
+<p><code class="docutils literal notranslate"><span class="pre">CSS.escape</span></code>方法就用来转义那些特殊字符。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">CSS</span><span class="p">.</span><span class="nx">escape</span><span class="p">(</span><span class="s1">&#39;foo#bar&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="css-supports">
+<span id="css-supports"></span><h3>CSS.supports()<a class="headerlink" href="#css-supports" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">CSS.supports</span></code>方法返回一个布尔值，表示当前环境是否支持某一句 CSS 规则。</p>
+<p>它的参数有两种写法，一种是第一个参数是属性名，第二个参数是属性值；另一种是整个参数就是一行完整的 CSS 语句。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 第一种写法</span>
+<span class="nx">CSS</span><span class="p">.</span><span class="nx">supports</span><span class="p">(</span><span class="s1">&#39;transform-origin&#39;</span><span class="p">,</span> <span class="s1">&#39;5px&#39;</span><span class="p">)</span> <span class="c1">// true</span>
+
+<span class="c1">// 第二种写法</span>
+<span class="nx">CSS</span><span class="p">.</span><span class="nx">supports</span><span class="p">(</span><span class="s1">&#39;display: table-cell&#39;</span><span class="p">)</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>注意，第二种写法的参数结尾不能带有分号，否则结果不准确。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">CSS</span><span class="p">.</span><span class="nx">supports</span><span class="p">(</span><span class="s1">&#39;display: table-cell;&#39;</span><span class="p">)</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="window-getcomputedstyle">
+<span id="window-getcomputedstyle"></span><h2>window.getComputedStyle()<a class="headerlink" href="#window-getcomputedstyle" title="永久链接至标题">¶</a></h2>
+<p>行内样式（inline style）具有最高的优先级，改变行内样式，通常会立即反映出来。但是，网页元素最终的样式是综合各种规则计算出来的。因此，如果想得到元素实际的样式，只读取行内样式是不够的，需要得到浏览器最终计算出来的样式规则。</p>
+<p><code class="docutils literal notranslate"><span class="pre">window.getComputedStyle</span></code>方法，就用来返回浏览器计算后得到的最终规则。它接受一个节点对象作为参数，返回一个 CSSStyleDeclaration  实例，包含了指定节点的最终样式信息。所谓“最终样式信息”，指的是各种 CSS 规则叠加后的结果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">styleObj</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+<span class="nx">styleObj</span><span class="p">.</span><span class="nx">backgroundColor</span>
+</pre></div>
+</div>
+<p>上面代码中，得到的背景色就是<code class="docutils literal notranslate"><span class="pre">div</span></code>元素真正的背景色。</p>
+<p>注意，CSSStyleDeclaration 实例是一个活的对象，任何对于样式的修改，会实时反映到这个实例上面。另外，这个实例是只读的。</p>
+<p><code class="docutils literal notranslate"><span class="pre">getComputedStyle</span></code>方法还可以接受第二个参数，表示当前元素的伪元素（比如<code class="docutils literal notranslate"><span class="pre">:before</span></code>、<code class="docutils literal notranslate"><span class="pre">:after</span></code>、<code class="docutils literal notranslate"><span class="pre">:first-line</span></code>、<code class="docutils literal notranslate"><span class="pre">:first-letter</span></code>等）。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">div</span><span class="p">,</span> <span class="s1">&#39;:before&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>下面的例子是如何获取元素的高度。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;elem-container&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">styleObj</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="kc">null</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">styleObj</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+<span class="c1">// 等同于</span>
+<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">styleObj</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">styleObj</span><span class="p">.</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面代码得到的<code class="docutils literal notranslate"><span class="pre">height</span></code>属性，是浏览器最终渲染出来的高度，比其他方法得到的高度更可靠。由于<code class="docutils literal notranslate"><span class="pre">styleObj</span></code>是 CSSStyleDeclaration 实例，所以可以使用各种 CSSStyleDeclaration 的实例属性和方法。</p>
+<p>有几点需要注意。</p>
+<ul class="simple">
+<li>CSSStyleDeclaration 实例返回的 CSS 值都是绝对单位。比如，长度都是像素单位（返回值包括<code class="docutils literal notranslate"><span class="pre">px</span></code>后缀），颜色是<code class="docutils literal notranslate"><span class="pre">rgb(#,</span> <span class="pre">#,</span> <span class="pre">#)</span></code>或<code class="docutils literal notranslate"><span class="pre">rgba(#,</span> <span class="pre">#,</span> <span class="pre">#,</span> <span class="pre">#)</span></code>格式。</li>
+<li>CSS 规则的简写形式无效。比如，想读取<code class="docutils literal notranslate"><span class="pre">margin</span></code>属性的值，不能直接读，只能读<code class="docutils literal notranslate"><span class="pre">marginLeft</span></code>、<code class="docutils literal notranslate"><span class="pre">marginTop</span></code>等属性；再比如，<code class="docutils literal notranslate"><span class="pre">font</span></code>属性也是不能直接读的，只能读<code class="docutils literal notranslate"><span class="pre">font-size</span></code>等单个属性。</li>
+<li>如果读取 CSS 原始的属性名，要用方括号运算符，比如<code class="docutils literal notranslate"><span class="pre">styleObj['z-index']</span></code>；如果读取骆驼拼写法的 CSS 属性名，可以直接读取<code class="docutils literal notranslate"><span class="pre">styleObj.zIndex</span></code>。</li>
+<li>该方法返回的 CSSStyleDeclaration 实例的<code class="docutils literal notranslate"><span class="pre">cssText</span></code>属性无效，返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。</li>
+</ul>
+</div>
+<div class="section" id="css">
+<span id="id6"></span><h2>CSS 伪元素<a class="headerlink" href="#css" title="永久链接至标题">¶</a></h2>
+<p>CSS 伪元素是通过 CSS 向 DOM 添加的元素，主要是通过<code class="docutils literal notranslate"><span class="pre">:before</span></code>和<code class="docutils literal notranslate"><span class="pre">:after</span></code>选择器生成，然后用<code class="docutils literal notranslate"><span class="pre">content</span></code>属性指定伪元素的内容。</p>
+<p>下面是一段 HTML 代码。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;test&quot;</span><span class="p">&gt;</span>Test content<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>CSS 添加伪元素<code class="docutils literal notranslate"><span class="pre">:before</span></code>的写法如下。</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">test</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+  <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;Before &#39;</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#FF0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>节点元素的<code class="docutils literal notranslate"><span class="pre">style</span></code>对象无法读写伪元素的样式，这时就要用到<code class="docutils literal notranslate"><span class="pre">window.getComputedStyle()</span></code>。JavaScript 获取伪元素，可以使用下面的方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#test&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">test</span><span class="p">,</span> <span class="s1">&#39;:before&#39;</span><span class="p">).</span><span class="nx">content</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">test</span><span class="p">,</span> <span class="s1">&#39;:before&#39;</span><span class="p">).</span><span class="nx">color</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>此外，也可以使用 CSSStyleDeclaration 实例的<code class="docutils literal notranslate"><span class="pre">getPropertyValue</span></code>方法，获取伪元素的属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">test</span><span class="p">,</span> <span class="s1">&#39;:before&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">test</span><span class="p">,</span> <span class="s1">&#39;:before&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stylesheet">
+<span id="stylesheet"></span><h2>StyleSheet 接口<a class="headerlink" href="#stylesheet" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id7"></span><h3>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code>接口代表网页的一张样式表，包括<code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code>元素加载的样式表和<code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code>元素内嵌的样式表。</p>
+<p><code class="docutils literal notranslate"><span class="pre">document</span></code>对象的<code class="docutils literal notranslate"><span class="pre">styleSheets</span></code>属性，可以返回当前页面的所有<code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code>实例（即所有样式表）。它是一个类似数组的对象。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sheets</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">sheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">sheet</span> <span class="k">instanceof</span> <span class="nx">StyleSheet</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>如果是<code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code>元素嵌入的样式表，还有另一种获取<code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code>实例的方法，就是这个节点元素的<code class="docutils literal notranslate"><span class="pre">sheet</span></code>属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为 &lt;style id=&quot;myStyle&quot;&gt;&lt;/style&gt;</span>
+<span class="kd">var</span> <span class="nx">myStyleSheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myStyle&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="nx">myStyleSheet</span> <span class="k">instanceof</span> <span class="nx">StyleSheet</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h3>实例属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code>实例有以下属性。</p>
+<p><strong>（1）StyleSheet.disabled</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet.disabled</span></code>返回一个布尔值，表示该样式表是否处于禁用状态。手动设置<code class="docutils literal notranslate"><span class="pre">disabled</span></code>属性为<code class="docutils literal notranslate"><span class="pre">true</span></code>，等同于在<code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code>元素里面，将这张样式表设为<code class="docutils literal notranslate"><span class="pre">alternate</span> <span class="pre">stylesheet</span></code>，即该样式表将不会生效。</p>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">disabled</span></code>属性只能在 JavaScript 脚本中设置，不能在 HTML 语句中设置。</p>
+<p><strong>（2）Stylesheet.href</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Stylesheet.href</span></code>返回样式表的网址。对于内嵌样式表，该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。该属性只读。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">href</span>
+</pre></div>
+</div>
+<p><strong>（3）StyleSheet.media</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet.media</span></code>属性返回一个类似数组的对象（<code class="docutils literal notranslate"><span class="pre">MediaList</span></code>实例），成员是表示适用媒介的字符串。表示当前样式表是用于屏幕（screen），还是用于打印（print）或手持设备（handheld），或各种媒介都适用（all）。该属性只读，默认值是<code class="docutils literal notranslate"><span class="pre">screen</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">media</span><span class="p">.</span><span class="nx">mediaText</span>
+<span class="c1">// &quot;all&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MediaList</span></code>实例的<code class="docutils literal notranslate"><span class="pre">appendMedium</span></code>方法，用于增加媒介；<code class="docutils literal notranslate"><span class="pre">deleteMedium</span></code>方法用于删除媒介。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">media</span><span class="p">.</span><span class="nx">appendMedium</span><span class="p">(</span><span class="s1">&#39;handheld&#39;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">media</span><span class="p">.</span><span class="nx">deleteMedium</span><span class="p">(</span><span class="s1">&#39;print&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>（4）StyleSheet.title</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet.title</span></code>属性返回样式表的<code class="docutils literal notranslate"><span class="pre">title</span></code>属性。</p>
+<p><strong>（5）StyleSheet.type</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet.type</span></code>属性返回样式表的<code class="docutils literal notranslate"><span class="pre">type</span></code>属性，通常是<code class="docutils literal notranslate"><span class="pre">text/css</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">type</span>  <span class="c1">// &quot;text/css&quot;</span>
+</pre></div>
+</div>
+<p><strong>（6）StyleSheet.parentStyleSheet</strong></p>
+<p>CSS 的<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>命令允许在样式表中加载其他样式表。<code class="docutils literal notranslate"><span class="pre">StyleSheet.parentStyleSheet</span></code>属性返回包含了当前样式表的那张样式表。如果当前样式表是顶层样式表，则该属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">stylesheet</span><span class="p">.</span><span class="nx">parentStyleSheet</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">sheet</span> <span class="o">=</span> <span class="nx">stylesheet</span><span class="p">.</span><span class="nx">parentStyleSheet</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">sheet</span> <span class="o">=</span> <span class="nx">stylesheet</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>（7）StyleSheet.ownerNode</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet.ownerNode</span></code>属性返回<code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code>对象所在的 DOM 节点，通常是<code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code>或<code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code>。对于那些由其他样式表引用的样式表，该属性为<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML代码为</span>
+<span class="c1">// &lt;link rel=&quot;StyleSheet&quot; href=&quot;example.css&quot; type=&quot;text/css&quot; /&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">ownerNode</span> <span class="c1">// [object HTMLLinkElement]</span>
+</pre></div>
+</div>
+<p><strong>（8）StyleSheet.cssRules</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">StyleSheet.cssRules</span></code>属性指向一个类似数组的对象（<code class="docutils literal notranslate"><span class="pre">CSSRuleList</span></code>实例），里面每一个成员就是当前样式表的一条 CSS 规则。使用该规则的<code class="docutils literal notranslate"><span class="pre">cssText</span></code>属性，可以得到 CSS 规则对应的字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#styleElement&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+
+<span class="nx">sheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">cssText</span>
+<span class="c1">// &quot;body { background-color: red; margin: 20px; }&quot;</span>
+
+<span class="nx">sheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">cssText</span>
+<span class="c1">// &quot;p { line-height: 1.4em; color: blue; }&quot;</span>
+</pre></div>
+</div>
+<p>每条 CSS 规则还有一个<code class="docutils literal notranslate"><span class="pre">style</span></code>属性，指向一个对象，用来读写具体的 CSS 命令。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+<span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>（9）StyleSheet.ownerRule</strong></p>
+<p>有些样式表是通过<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>规则输入的，它的<code class="docutils literal notranslate"><span class="pre">ownerRule</span></code>属性会返回一个<code class="docutils literal notranslate"><span class="pre">CSSRule</span></code>实例，代表那行<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>规则。如果当前样式表不是通过<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>引入的，<code class="docutils literal notranslate"><span class="pre">ownerRule</span></code>属性返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h3>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><strong>（1）CSSStyleSheet.insertRule()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleSheet.insertRule</span></code>方法用于在当前样式表的插入一个新的 CSS 规则。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#styleElement&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="nx">sheet</span><span class="p">.</span><span class="nx">insertRule</span><span class="p">(</span><span class="s1">&#39;#block { color: white }&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">sheet</span><span class="p">.</span><span class="nx">insertRule</span><span class="p">(</span><span class="s1">&#39;p { color: red }&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>该方法可以接受两个参数，第一个参数是表示 CSS 规则的字符串，这里只能有一条规则，否则会报错。第二个参数是该规则在样式表的插入位置（从0开始），该参数可选，默认为0（即默认插在样式表的头部）。注意，如果插入位置大于现有规则的数目，会报错。</p>
+<p>该方法的返回值是新插入规则的位置序号。</p>
+<p>注意，浏览器对脚本在样式表里面插入规则有很多<a class="reference external" href="https://drafts.csswg.org/cssom/#insert-a-css-rule">限制</a>。所以，这个方法最好放在<code class="docutils literal notranslate"><span class="pre">try...catch</span></code>里使用。</p>
+<p><strong>（2）CSSStyleSheet.deleteRule()</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleSheet.deleteRule</span></code>方法用来在样式表里面移除一条规则，它的参数是该条规则在<code class="docutils literal notranslate"><span class="pre">cssRules</span></code>对象中的位置。该方法没有返回值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">deleteRule</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>实例：添加样式表<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>网页添加样式表有两种方式。一种是添加一张内置样式表，即在文档中添加一个<code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code>节点。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 写法一</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">);</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;screen&#39;</span><span class="p">);</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">&#39;body{color:red}&#39;</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">style</span><span class="p">);</span>
+
+<span class="c1">// 写法二</span>
+<span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">style</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">style</span><span class="p">;</span>
+<span class="p">})();</span>
+<span class="nx">style</span><span class="p">.</span><span class="nx">sheet</span><span class="p">.</span><span class="nx">insertRule</span><span class="p">(</span><span class="s1">&#39;.foo{color:red;}&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>另一种是添加外部样式表，即在文档中添加一个<code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code>节点，然后将<code class="docutils literal notranslate"><span class="pre">href</span></code>属性指向外部样式表的 URL。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">linkElm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">);</span>
+<span class="nx">linkElm</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;rel&#39;</span><span class="p">,</span> <span class="s1">&#39;stylesheet&#39;</span><span class="p">);</span>
+<span class="nx">linkElm</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/css&#39;</span><span class="p">);</span>
+<span class="nx">linkElm</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">,</span> <span class="s1">&#39;reset-min.css&#39;</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">linkElm</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cssrulelist">
+<span id="cssrulelist"></span><h2>CSSRuleList 接口<a class="headerlink" href="#cssrulelist" title="永久链接至标题">¶</a></h2>
+<p>CSSRuleList 接口是一个类似数组的对象，表示一组 CSS 规则，成员都是 CSSRule 实例。</p>
+<p>获取 CSSRuleList 实例，一般是通过<code class="docutils literal notranslate"><span class="pre">StyleSheet.cssRules</span></code>属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;style id=&quot;myStyle&quot;&gt;</span>
+<span class="c1">//   h1 { color: red; }</span>
+<span class="c1">//   p { color: blue; }</span>
+<span class="c1">// &lt;/style&gt;</span>
+<span class="kd">var</span> <span class="nx">myStyleSheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myStyle&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">crl</span> <span class="o">=</span> <span class="nx">myStyleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">;</span>
+<span class="nx">crl</span> <span class="k">instanceof</span> <span class="nx">CSSRuleList</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>CSSRuleList 实例里面，每一条规则（CSSRule 实例）可以通过<code class="docutils literal notranslate"><span class="pre">rules.item(index)</span></code>或者<code class="docutils literal notranslate"><span class="pre">rules[index]</span></code>拿到。CSS 规则的条数通过<code class="docutils literal notranslate"><span class="pre">rules.length</span></code>拿到。还是用上面的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">crl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">CSSRule</span> <span class="c1">// true</span>
+<span class="nx">crl</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 2</span>
+</pre></div>
+</div>
+<p>注意，添加规则和删除规则不能在 CSSRuleList 实例操作，而要在它的父元素 StyleSheet 实例上，通过<code class="docutils literal notranslate"><span class="pre">StyleSheet.insertRule()</span></code>和<code class="docutils literal notranslate"><span class="pre">StyleSheet.deleteRule()</span></code>操作。</p>
+</div>
+<div class="section" id="cssrule">
+<span id="cssrule"></span><h2>CSSRule 接口<a class="headerlink" href="#cssrule" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id11"></span><h3>概述<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>一条 CSS 规则包括两个部分：CSS 选择器和样式声明。下面就是一条典型的 CSS 规则。</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">myClass</span> <span class="p">{</span>
+  <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="kc">yellow</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>JavaScript 通过 CSSRule 接口操作 CSS 规则。一般通过 CSSRuleList 接口（<code class="docutils literal notranslate"><span class="pre">StyleSheet.cssRules</span></code>）获取 CSSRule 实例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;style id=&quot;myStyle&quot;&gt;</span>
+<span class="c1">//   .myClass {</span>
+<span class="c1">//     color: red;</span>
+<span class="c1">//     background-color: yellow;</span>
+<span class="c1">//   }</span>
+<span class="c1">// &lt;/style&gt;</span>
+<span class="kd">var</span> <span class="nx">myStyleSheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myStyle&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">ruleList</span> <span class="o">=</span> <span class="nx">myStyleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rule</span> <span class="o">=</span> <span class="nx">ruleList</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">rule</span> <span class="k">instanceof</span> <span class="nx">CSSRule</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cssrule">
+<span id="id12"></span><h3>CSSRule 实例的属性<a class="headerlink" href="#cssrule" title="永久链接至标题">¶</a></h3>
+<p><strong>（1）CSSRule.cssText</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSRule.cssText</span></code>属性返回当前规则的文本，还是使用上面的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rule</span><span class="p">.</span><span class="nx">cssText</span>
+<span class="c1">// &quot;.myClass { color: red; background-color: yellow; }&quot;</span>
+</pre></div>
+</div>
+<p>如果规则是加载（<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>）其他样式表，<code class="docutils literal notranslate"><span class="pre">cssText</span></code>属性返回<code class="docutils literal notranslate"><span class="pre">&#64;import</span> <span class="pre">'url'</span></code>。</p>
+<p><strong>（2）CSSRule.parentStyleSheet</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSRule.parentStyleSheet</span></code>属性返回当前规则所在的样式表对象（StyleSheet 实例），还是使用上面的例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rule</span><span class="p">.</span><span class="nx">parentStyleSheet</span> <span class="o">===</span> <span class="nx">myStyleSheet</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p><strong>（3）CSSRule.parentRule</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSRule.parentRule</span></code>属性返回包含当前规则的父规则，如果不存在父规则（即当前规则是顶层规则），则返回<code class="docutils literal notranslate"><span class="pre">null</span></code>。</p>
+<p>父规则最常见的情况是，当前规则包含在<code class="docutils literal notranslate"><span class="pre">&#64;media</span></code>规则代码块之中。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;style id=&quot;myStyle&quot;&gt;</span>
+<span class="c1">//   @supports (display: flex) {</span>
+<span class="c1">//     @media screen and (min-width: 900px) {</span>
+<span class="c1">//       article {</span>
+<span class="c1">//         display: flex;</span>
+<span class="c1">//       }</span>
+<span class="c1">//     }</span>
+<span class="c1">//  }</span>
+<span class="c1">// &lt;/style&gt;</span>
+<span class="kd">var</span> <span class="nx">myStyleSheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myStyle&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">ruleList</span> <span class="o">=</span> <span class="nx">myStyleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">rule0</span> <span class="o">=</span> <span class="nx">ruleList</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">rule0</span><span class="p">.</span><span class="nx">cssText</span>
+<span class="c1">// &quot;@supports (display: flex) {</span>
+<span class="c1">//    @media screen and (min-width: 900px) {</span>
+<span class="c1">//      article { display: flex; }</span>
+<span class="c1">//    }</span>
+<span class="c1">// }&quot;</span>
+
+<span class="c1">// 由于这条规则内嵌其他规则，</span>
+<span class="c1">// 所以它有 cssRules 属性，且该属性是 CSSRuleList 实例</span>
+<span class="nx">rule0</span><span class="p">.</span><span class="nx">cssRules</span> <span class="k">instanceof</span> <span class="nx">CSSRuleList</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">rule1</span> <span class="o">=</span> <span class="nx">rule0</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">rule1</span><span class="p">.</span><span class="nx">cssText</span>
+<span class="c1">// &quot;@media screen and (min-width: 900px) {</span>
+<span class="c1">//   article { display: flex; }</span>
+<span class="c1">// }&quot;</span>
+
+<span class="kd">var</span> <span class="nx">rule2</span> <span class="o">=</span> <span class="nx">rule1</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">rule2</span><span class="p">.</span><span class="nx">cssText</span>
+<span class="c1">// &quot;article { display: flex; }&quot;</span>
+
+<span class="nx">rule1</span><span class="p">.</span><span class="nx">parentRule</span> <span class="o">===</span> <span class="nx">rule0</span> <span class="c1">// true</span>
+<span class="nx">rule2</span><span class="p">.</span><span class="nx">parentRule</span> <span class="o">===</span> <span class="nx">rule1</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p><strong>（4）CSSRule.type</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSRule.type</span></code>属性返回一个整数值，表示当前规则的类型。</p>
+<p>最常见的类型有以下几种。</p>
+<ul class="simple">
+<li>1：普通样式规则（CSSStyleRule 实例）</li>
+<li>3：<code class="docutils literal notranslate"><span class="pre">&#64;import</span></code>规则</li>
+<li>4：<code class="docutils literal notranslate"><span class="pre">&#64;media</span></code>规则（CSSMediaRule 实例）</li>
+<li>5：<code class="docutils literal notranslate"><span class="pre">&#64;font-face</span></code>规则</li>
+</ul>
+</div>
+<div class="section" id="cssstylerule">
+<span id="cssstylerule"></span><h3>CSSStyleRule 接口<a class="headerlink" href="#cssstylerule" title="永久链接至标题">¶</a></h3>
+<p>如果一条 CSS 规则是普通的样式规则（不含特殊的 CSS 命令），那么除了 CSSRule 接口，它还部署了 CSSStyleRule 接口。</p>
+<p>CSSStyleRule 接口有以下两个属性。</p>
+<p><strong>（1）CSSStyleRule.selectorText</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleRule.selectorText</span></code>属性返回当前规则的选择器。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">stylesheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">styleSheets</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nx">stylesheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectorText</span> <span class="c1">// &quot;.myClass&quot;</span>
+</pre></div>
+</div>
+<p>注意，这个属性是可写的。</p>
+<p><strong>（2）CSSStyleRule.style</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CSSStyleRule.style</span></code>属性返回一个对象（CSSStyleDeclaration 实例），代表当前规则的样式声明，也就是选择器后面的大括号里面的部分。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码为</span>
+<span class="c1">// &lt;style id=&quot;myStyle&quot;&gt;</span>
+<span class="c1">//   p { color: red; }</span>
+<span class="c1">// &lt;/style&gt;</span>
+<span class="kd">var</span> <span class="nx">styleSheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myStyle&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">style</span> <span class="k">instanceof</span> <span class="nx">CSSStyleDeclaration</span>
+<span class="c1">// true</span>
+</pre></div>
+</div>
+<p>CSSStyleDeclaration 实例的<code class="docutils literal notranslate"><span class="pre">cssText</span></code>属性，可以返回所有样式声明，格式为字符串。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span>
+<span class="c1">// &quot;color: red;&quot;</span>
+<span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">selectorText</span>
+<span class="c1">// &quot;p&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cssmediarule">
+<span id="cssmediarule"></span><h3>CSSMediaRule 接口<a class="headerlink" href="#cssmediarule" title="永久链接至标题">¶</a></h3>
+<p>如果一条 CSS 规则是<code class="docutils literal notranslate"><span class="pre">&#64;media</span></code>代码块，那么它除了 CSSRule 接口，还部署了 CSSMediaRule 接口。</p>
+<p>该接口主要提供<code class="docutils literal notranslate"><span class="pre">media</span></code>属性和<code class="docutils literal notranslate"><span class="pre">conditionText</span></code>属性。前者返回代表<code class="docutils literal notranslate"><span class="pre">&#64;media</span></code>规则的一个对象（MediaList 实例），后者返回<code class="docutils literal notranslate"><span class="pre">&#64;media</span></code>规则的生效条件。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// HTML 代码如下</span>
+<span class="c1">// &lt;style id=&quot;myStyle&quot;&gt;</span>
+<span class="c1">//   @media screen and (min-width: 900px) {</span>
+<span class="c1">//     article { display: flex; }</span>
+<span class="c1">//   }</span>
+<span class="c1">// &lt;/style&gt;</span>
+<span class="kd">var</span> <span class="nx">styleSheet</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myStyle&#39;</span><span class="p">).</span><span class="nx">sheet</span><span class="p">;</span>
+<span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">CSSMediaRule</span>
+<span class="c1">// true</span>
+
+<span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">media</span>
+<span class="c1">//  {</span>
+<span class="c1">//    0: &quot;screen and (min-width: 900px)&quot;,</span>
+<span class="c1">//    appendMedium: function,</span>
+<span class="c1">//    deleteMedium: function,</span>
+<span class="c1">//    item: function,</span>
+<span class="c1">//    length: 1,</span>
+<span class="c1">//    mediaText: &quot;screen and (min-width: 900px)&quot;</span>
+<span class="c1">// }</span>
+
+<span class="nx">styleSheet</span><span class="p">.</span><span class="nx">cssRules</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">conditionText</span>
+<span class="c1">// &quot;screen and (min-width: 900px)&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="window-matchmedia">
+<span id="window-matchmedia"></span><h2>window.matchMedia()<a class="headerlink" href="#window-matchmedia" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id13"></span><h3>基本用法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">window.matchMedia</span></code>方法用来将 CSS 的<a class="reference external" href="https://developer.mozilla.org/en-US/docs/DOM/Using_media_queries_from_code"><code class="docutils literal notranslate"><span class="pre">MediaQuery</span></code></a>条件语句，转换成一个 MediaQueryList 实例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">mdl</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;(min-width: 400px)&#39;</span><span class="p">);</span>
+<span class="nx">mdl</span> <span class="k">instanceof</span> <span class="nx">MediaQueryList</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>注意，如果参数不是有效的<code class="docutils literal notranslate"><span class="pre">MediaQuery</span></code>条件语句，<code class="docutils literal notranslate"><span class="pre">window.matchMedia</span></code>不会报错，依然返回的一个 MediaQueryList 实例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;bad string&#39;</span><span class="p">)</span> <span class="k">instanceof</span> <span class="nx">MediaQueryList</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mediaquerylist">
+<span id="mediaquerylist"></span><h3>MediaQueryList 接口的实例属性<a class="headerlink" href="#mediaquerylist" title="永久链接至标题">¶</a></h3>
+<p>MediaQueryList 实例有三个属性。</p>
+<p><strong>（1）MediaQueryList.media</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">MediaQueryList.media</span></code>属性返回一个字符串，表示对应的 MediaQuery 条件语句。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">mql</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;(min-width: 400px)&#39;</span><span class="p">);</span>
+<span class="nx">mql</span><span class="p">.</span><span class="nx">media</span> <span class="c1">// &quot;(min-width: 400px)&quot;</span>
+</pre></div>
+</div>
+<p><strong>（2）MediaQueryList.matches</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">MediaQueryList.matches</span></code>属性返回一个布尔值，表示当前页面是否符合指定的 MediaQuery 条件语句。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;(min-width: 400px)&#39;</span><span class="p">).</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* 当前视口不小于 400 像素 */</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="cm">/* 当前视口小于 400 像素 */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>下面的例子根据<code class="docutils literal notranslate"><span class="pre">mediaQuery</span></code>是否匹配当前环境，加载相应的 CSS 样式表。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s2">&quot;(max-width: 700px)&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">matches</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">linkElm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">);</span>
+  <span class="nx">linkElm</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;rel&#39;</span><span class="p">,</span> <span class="s1">&#39;stylesheet&#39;</span><span class="p">);</span>
+  <span class="nx">linkElm</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/css&#39;</span><span class="p">);</span>
+  <span class="nx">linkElm</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">,</span> <span class="s1">&#39;small.css&#39;</span><span class="p">);</span>
+
+  <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">linkElm</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>（3）MediaQueryList.onchange</strong></p>
+<p>如果 MediaQuery 条件语句的适配环境发生变化，会触发<code class="docutils literal notranslate"><span class="pre">change</span></code>事件。<code class="docutils literal notranslate"><span class="pre">MediaQueryList.onchange</span></code>属性用来指定<code class="docutils literal notranslate"><span class="pre">change</span></code>事件的监听函数。该函数的参数是<code class="docutils literal notranslate"><span class="pre">change</span></code>事件对象（MediaQueryListEvent 实例），该对象与 MediaQueryList 实例类似，也有<code class="docutils literal notranslate"><span class="pre">media</span></code>和<code class="docutils literal notranslate"><span class="pre">matches</span></code>属性。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">mql</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;(max-width: 600px)&#39;</span><span class="p">);</span>
+
+<span class="nx">mql</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* 视口不超过 600 像素 */</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="cm">/* 视口超过 600 像素 */</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">change</span></code>事件发生后，存在两种可能。一种是显示宽度从700像素以上变为以下，另一种是从700像素以下变为以上，所以在监听函数内部要判断一下当前是哪一种情况。</p>
+</div>
+<div class="section" id="mediaquerylist">
+<span id="id14"></span><h3>MediaQueryList 接口的实例方法<a class="headerlink" href="#mediaquerylist" title="永久链接至标题">¶</a></h3>
+<p>MediaQueryList 实例有两个方法<code class="docutils literal notranslate"><span class="pre">MediaQueryList.addListener()</span></code>和<code class="docutils literal notranslate"><span class="pre">MediaQueryList.removeListener()</span></code>，用来为<code class="docutils literal notranslate"><span class="pre">change</span></code>事件添加或撤销监听函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">mql</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;(max-width: 600px)&#39;</span><span class="p">);</span>
+
+<span class="c1">// 指定监听函数</span>
+<span class="nx">mql</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="nx">mqCallback</span><span class="p">);</span>
+
+<span class="c1">// 撤销监听函数</span>
+<span class="nx">mql</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="nx">mqCallback</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">mqCallback</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* 视口不超过 600 像素 */</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="cm">/* 视口超过 600 像素 */</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="css">
+<span id="id15"></span><h2>CSS事件<a class="headerlink" href="#css" title="永久链接至标题">¶</a></h2>
+<div class="section" id="transitionend">
+<span id="transitionend"></span><h3>transitionEnd事件<a class="headerlink" href="#transitionend" title="永久链接至标题">¶</a></h3>
+<p>CSS的过渡效果（transition）结束后，触发<code class="docutils literal notranslate"><span class="pre">transitionEnd</span></code>事件。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;transitionend&#39;</span><span class="p">,</span> <span class="nx">onTransitionEnd</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">onTransitionEnd</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Transition end&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">transitionEnd</span></code>的事件对象具有以下属性。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">propertyName</span></code>：发生<code class="docutils literal notranslate"><span class="pre">transition</span></code>效果的CSS属性名。</li>
+<li><code class="docutils literal notranslate"><span class="pre">elapsedTime</span></code>：<code class="docutils literal notranslate"><span class="pre">transition</span></code>效果持续的秒数，不含<code class="docutils literal notranslate"><span class="pre">transition-delay</span></code>的时间。</li>
+<li><code class="docutils literal notranslate"><span class="pre">pseudoElement</span></code>：如果<code class="docutils literal notranslate"><span class="pre">transition</span></code>效果发生在伪元素，会返回该伪元素的名称，以“::”开头。如果不发生在伪元素上，则返回一个空字符串。</li>
+</ul>
+<p>实际使用<code class="docutils literal notranslate"><span class="pre">transitionend</span></code>事件时，可能需要添加浏览器前缀。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;webkitTransitionEnd&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transition</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="animationstart-animationend-animationiteration">
+<span id="animationstart-animationend-animationiteration"></span><h3>animationstart事件，animationend事件，animationiteration事件<a class="headerlink" href="#animationstart-animationend-animationiteration" title="永久链接至标题">¶</a></h3>
+<p>CSS动画有以下三个事件。</p>
+<ul class="simple">
+<li>animationstart事件：动画开始时触发。</li>
+<li>animationend事件：动画结束时触发。</li>
+<li>animationiteration事件：开始新一轮动画循环时触发。如果animation-iteration-count属性等于1，该事件不触发，即只播放一轮的CSS动画，不会触发animationiteration事件。</li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">div</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;animationiteration&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;完成一次动画&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>这三个事件的事件对象，都有animationName属性（返回产生过渡效果的CSS属性名）和elapsedTime属性（动画已经运行的秒数）。对于animationstart事件，elapsedTime属性等于0，除非animation-delay属性等于负值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;animation&quot;</span><span class="p">);</span>
+
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;animationstart&quot;</span><span class="p">,</span> <span class="nx">listener</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;animationend&quot;</span><span class="p">,</span> <span class="nx">listener</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;animationiteration&quot;</span><span class="p">,</span> <span class="nx">listener</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">listener</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">);</span>
+  <span class="k">switch</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s2">&quot;animationstart&quot;</span><span class="o">:</span>
+      <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Started: elapsed time is &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">elapsedTime</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s2">&quot;animationend&quot;</span><span class="o">:</span>
+      <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Ended: elapsed time is &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">elapsedTime</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s2">&quot;animationiteration&quot;</span><span class="o">:</span>
+      <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;New loop started at time &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">elapsedTime</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面代码的运行结果是下面的样子。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Started: elapsed time is 0
+New loop started at time 3.01200008392334
+New loop started at time 6.00600004196167
+Ended: elapsed time is 9.234000205993652
+</pre></div>
+</div>
+<p>animation-play-state属性可以控制动画的状态（暂停/播放），该属性需求加上浏览器前缀。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">webkitAnimationPlayState</span> <span class="o">=</span> <span class="s2">&quot;paused&quot;</span><span class="p">;</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">webkitAnimationPlayState</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id16"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>David Walsh, <a class="reference external" href="http://davidwalsh.name/add-rules-stylesheets">Add Rules to Stylesheets with JavaScript</a></li>
+<li>Mozilla Developer Network, <a class="reference external" href="https://developer.mozilla.org/en-US/docs/CSS/Tutorials/Using_CSS_animations">Using CSS animations</a></li>
+<li>Ryan Morr, <a class="reference external" href="http://ryanmorr.com/detecting-css-style-support/">Detecting CSS Style Support</a></li>
+<li>Mozilla Developer Network, <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Testing_media_queries">Testing media queries</a></li>
+<li>Robert Nyman, <a class="reference external" href="https://hacks.mozilla.org/2012/06/using-window-matchmedia-to-do-media-queries-in-javascript/">Using window.matchMedia to do media queries in JavaScript</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="image.html" class="btn btn-neutral float-right" title="Image对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="event-type.html" class="btn btn-neutral" title="事件种类" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
