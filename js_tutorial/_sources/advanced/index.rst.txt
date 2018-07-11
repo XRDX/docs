@@ -9,8 +9,5 @@
 .. toctree::
    :maxdepth: 2
 
-   single-thread
    timer 
-   promise 
    strict
-   ecmascript6

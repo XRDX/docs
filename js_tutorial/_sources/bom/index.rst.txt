@@ -10,14 +10,7 @@ BOM 浏览器环境
    :maxdepth: 2
 
    engine
-   window
-   history
-   cookie
+   window 
    webstorage
-   same-origin
-   ajax
-   cors
-   indexeddb
-   notification
-   mobile
+
 

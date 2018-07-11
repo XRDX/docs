@@ -9,14 +9,8 @@ DOM 模型
 .. toctree::
    :maxdepth: 2
 
-   node  
    document  
    element  
    attribute  
-   text  
-   event  
-   event-type  
-   css  
-   image  
-   mutationobserver  
+   css
 

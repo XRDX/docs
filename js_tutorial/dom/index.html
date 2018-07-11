@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="DOM 模型概述" href="node.html" />
-    <link rel="prev" title="ECMAScript 6 介绍" href="../advanced/ecmascript6.html" /> 
+    <link rel="next" title="document 对象" href="document.html" />
+    <link rel="prev" title="严格模式" href="../advanced/strict.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,16 +89,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DOM 模型</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="node.html">DOM 模型概述</a></li>
 <li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
-<li class="toctree-l2"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html">事件模型</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html">事件种类</a></li>
 <li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
@@ -163,17 +157,6 @@
 <h1>DOM 模型<a class="headerlink" href="#dom" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="node.html">DOM 模型概述</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="node.html#">基本概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#node">Node 接口的属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#node">Node 接口的方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#nodelist">NodeList 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#htmlcollection">HTMLCollection 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#parentnode">ParentNode 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#childnode">ChildNode 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="node.html#">参考链接</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="document.html">document 对象</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="document.html#">概述</a></li>
 <li class="toctree-l2"><a class="reference internal" href="document.html#">属性</a></li>
@@ -193,57 +176,6 @@
 <li class="toctree-l2"><a class="reference internal" href="attribute.html#dataset">dataset 属性</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="text.html">Text 节点和 DocumentFragment 节点</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="text.html#text">Text 节点的概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="text.html#text">Text 节点的属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="text.html#text">Text 节点的方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="text.html#documentfragment">DocumentFragment 节点</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="event.html">事件模型</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="event.html#eventtarget">EventTarget 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#">监听函数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#this">this 的指向</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#">事件的传播</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#">事件的代理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#event">Event 对象概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#event">Event 对象的实例属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#event">Event 对象的实例方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#customevent">CustomEvent 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event.html#">参考链接</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="event-type.html">事件种类</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">鼠标事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#mouseevent">MouseEvent 接口概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#mouseevent">MouseEvent 接口的实例属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#mouseevent">MouseEvent 接口的实例方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#wheelevent">WheelEvent 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">键盘事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#keyboardevent">KeyboardEvent 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#keyboardevent">KeyboardEvent 的实例属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#keyboardevent">KeyboardEvent 的实例方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">进度事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#progressevent">ProgressEvent 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">拖拉事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#dragevent">DragEvent 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#datatransfer">DataTransfer 接口概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#datatransfer">DataTransfer 的实例属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#datatransfer">DataTransfer 的实例方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">触摸操作概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#touch">Touch 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#touchlist">TouchList 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#touchevent">TouchEvent 接口</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">触摸事件的种类</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">表单事件的种类</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">资源事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#session">session 历史事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">网页状态事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">窗口事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">剪贴板事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="event-type.html#">焦点事件</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="css.html">CSS操作</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="css.html#html-style">HTML 元素的 style 属性</a></li>
 <li class="toctree-l2"><a class="reference internal" href="css.html#cssstyledeclaration">CSSStyleDeclaration 接口</a></li>
@@ -260,27 +192,6 @@
 <li class="toctree-l2"><a class="reference internal" href="css.html#">参考链接</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="image.html">Image对象</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="image.html#">概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#">特性相关的属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-width-htmlimageelement-height">HTMLImageElement.width，HTMLImageElement.height</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-naturalwidth-htmlimageelement-naturalheight">HTMLImageElement.naturalWidth，HTMLImageElement.naturalHeight</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-complete">HTMLImageElement.complete</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-crossorigin">HTMLImageElement.crossOrigin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-referrerpolicy">HTMLImageElement.referrerPolicy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#htmlimageelement-x-htmlimageelement-y">HTMLImageElement.x，HTMLImageElement.y</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html#">事件属性</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mutationobserver.html">Mutation Observer API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#">概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#mutationobserver">MutationObserver 构造函数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#mutationobserver">MutationObserver 的实例方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#mutationrecord">MutationRecord 对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#">应用示例</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mutationobserver.html#">参考链接</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -293,10 +204,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="node.html" class="btn btn-neutral float-right" title="DOM 模型概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="document.html" class="btn btn-neutral float-right" title="document 对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../advanced/ecmascript6.html" class="btn btn-neutral" title="ECMAScript 6 介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../advanced/strict.html" class="btn btn-neutral" title="严格模式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
