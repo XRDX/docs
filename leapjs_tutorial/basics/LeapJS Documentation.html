@@ -1,0 +1,1656 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>乐学编程 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="LeapJS 宝典" href="../reference/index.html" />
+    <link rel="prev" title="完整文档" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">完整文档</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">乐学编程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">本书介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">开发环境</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ide">IDE介绍</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">基本绘图函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">基本形状</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">图片</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">样式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">文字</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">基本图形</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">坐标简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">矩形</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">圆</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">线条</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">多边形</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">三角形</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">图形样式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">线条和填充</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">颜色常量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rgb">RGB值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">透明度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rgba">RGBA值</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hsl">HSL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hsla">HSLA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">虚线</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">透明度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">叠加方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">渐变色</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">贴图与动画</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">图片</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">序列帧动画</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">音乐与音效</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">音乐</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">音效</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">事件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">鼠标事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">键盘事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">手势事件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">图形变换</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">平移</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">中心点与旋转</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">放大与缩小</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">斜切</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">碰撞</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">图像的碰撞</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">LeapJS 宝典</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/index.html">LeapJS 从入门到精通</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tests/index.html">测试题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../updates/index.html">参考书</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">完整文档</a> &raquo;</li>
+        
+      <li>乐学编程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/basics/LeapJS Documentation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>![logo](.\images\logo.png)</p>
+<div class="section" id="">
+<span id="id1"></span><h1>乐学编程<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>本书介绍<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><strong>本书的用户</strong></p>
+<p>本书针对没有编程知识的用户，采用项目制的方式来引导他们去一步步走进编程的大门。</p>
+<p>除了JavaScript基本语法外，本书更多的设计到了项目开发中的方方面面，从最基础的计算机图形，到贴图与动画，到项目开发流程，涉及到了编程领域的多个纬度。</p>
+<p><strong>学习环境</strong></p>
+<p>在学习过程中，添加了大量的实例。本书的所有例子都在<code class="docutils literal notranslate"><span class="pre">LeapLearner</span> <span class="pre">IDE</span></code>环境下测试通过，浏览器为<code class="docutils literal notranslate"><span class="pre">Chrome</span> <span class="pre">61.0.3163.100</span> <span class="pre">(64</span> <span class="pre">位)</span></code>。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>目录<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>[TOC]</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>开发环境<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>本课程可以在任意浏览器环境下进行，需要引入库文件。</p>
+<div class="section" id="ide">
+<span id="ide"></span><h3>IDE介绍<a class="headerlink" href="#ide" title="永久链接至标题">¶</a></h3>
+<p>下面是立乐IDE的一个截图，可以看见分成了2个区域，左边是展示区域，右边是代码输入区域。我们在代码输入区域将代码输入完成后，如果一切正常，点击运行按钮就可以看到运行结果了。</p>
+<p>![ide](.\images\ide.png)</p>
+<div class="section" id="">
+<span id="id5"></span><h4>功能说明<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">分享</span></code>: 点击后生成链接和二维码，可以通过手机扫描获取到项目展示信息。</p>
+<p><code class="docutils literal notranslate"><span class="pre">运行</span></code>: 点击后执行JavaScript代码。每次点击<code class="docutils literal notranslate"><span class="pre">运行</span></code>都会重新开始执行。</p>
+<p><code class="docutils literal notranslate"><span class="pre">文件</span></code>: 用于操作文件，可以新建一个文件，或者打开、保存已有的文件。</p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>基本绘图函数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>以下函数只执行绘制命令，不会创建对象，因此无法获得对应的属性</p>
+<div class="section" id="">
+<span id="id7"></span><h3>基本形状<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>说明：前面加*的参数表示可选参数，除color是字符串参数外，其他参数均为数值参数。</p>
+<p>| Code                                     | Shape                             |
+| ---------------------------------------- | --------------------------------- |
+| <code class="docutils literal notranslate"><span class="pre">rectangle(x,</span> <span class="pre">y,</span> <span class="pre">w,</span> <span class="pre">h,</span> <span class="pre">*color)</span></code><br />*color - 可选，颜色字符串 | <img alt="" src="../_images/basic_rectangle.png" /> |
+| <code class="docutils literal notranslate"><span class="pre">circle(x,</span> <span class="pre">y,</span> <span class="pre">r,</span> <span class="pre">*color)</span></code><br />          | <img alt="" src="../_images/basic_circle.png" />    |
+| <code class="docutils literal notranslate"><span class="pre">line(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2,</span> <span class="pre">*color)</span></code><br /><code class="docutils literal notranslate"><span class="pre">line(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2,</span> <span class="pre">*lineWidth,</span> <span class="pre">*color)</span></code> | <img alt="" src="../_images/basic_line.png" />      |
+| <code class="docutils literal notranslate"><span class="pre">point(x,</span> <span class="pre">y,</span> <span class="pre">*color)</span></code>                    | <img alt="" src="../_images/basic_point.png" />     |
+| <code class="docutils literal notranslate"><span class="pre">triangle(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2,</span> <span class="pre">x3,</span> <span class="pre">y3,</span> <span class="pre">*color)</span></code> | <img alt="" src="../_images/basic_triangle.png" />  |
+| <code class="docutils literal notranslate"><span class="pre">polygon(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2,</span> <span class="pre">x3,</span> <span class="pre">y3,</span> <span class="pre">...,</span> <span class="pre">*color)</span></code> | <img alt="" src="../_images/basic_polygon.png" />   |
+| <code class="docutils literal notranslate"><span class="pre">ellipse(x,</span> <span class="pre">y,</span> <span class="pre">rX,</span> <span class="pre">rY,</span> <span class="pre">*color)</span></code>          | <img alt="" src="../_images/basic_ellipse.png" />   |</p>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h3>图片<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>| Code                     | Result |
+| ------------------------ | ------ |
+| <code class="docutils literal notranslate"><span class="pre">image(src,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">w,</span> <span class="pre">h)</span></code> |        |</p>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h3>样式<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">fill(bool)</span></code>:设置是否填充图形</p>
+<p><code class="docutils literal notranslate"><span class="pre">background(color)</span></code> : 使用颜色直接绘制背景</p>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h3>文字<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">font(font)</span></code> : 设置文本大小和字体，文本颜色仍然通过<code class="docutils literal notranslate"><span class="pre">fill</span></code>来设置</p>
+<p><code class="docutils literal notranslate"><span class="pre">text(src,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">*size,</span> <span class="pre">*color)</span></code> : 绘制文本</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>基本图形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>基本图形是所有画面展示的基本单位，通过基本图形的组合，我们可以创造出许许多多丰富的图案，做出漂亮的动画。</p>
+<div class="section" id="">
+<span id="id12"></span><h3>坐标简介<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="section" id="">
+<span id="id13"></span><h4>坐标系统<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>为了定义空间的位置，数学家们发明了坐标的概念，在此至上发展出了庞大的几何学科。在计算机图形中，坐标系统更是不可或缺。</p>
+<p>我们将左上角的坐标定义为<code class="docutils literal notranslate"><span class="pre">(0,0)</span></code>，把水平轴为<code class="docutils literal notranslate"><span class="pre">x轴</span></code>，把垂直坐标定义为<code class="docutils literal notranslate"><span class="pre">y轴</span></code>。平面上的任意一个点，在<code class="docutils literal notranslate"><span class="pre">x轴</span></code>上的投影称之为该点的<code class="docutils literal notranslate"><span class="pre">x坐标</span></code>，同样，在<code class="docutils literal notranslate"><span class="pre">y轴</span></code>上的投影即<code class="docutils literal notranslate"><span class="pre">y坐标</span></code>。因此，整个坐标系看起来像是这个样子的。</p>
+<p>![pos_xy](.\images\pos_xy.png)</p>
+</div>
+<div class="section" id="">
+<span id="id14"></span><h4>屏幕坐标<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>只要确定了坐标点的值，我们就能很容易的确定坐标的位置了。比如点（250，150）在坐标轴上的位置，我们就可以很容易找出来了。</p>
+<p><img alt="" src="../_images/axis.png" /></p>
+<blockquote>
+<div><p>小知识：笛卡尔坐标系和网页坐标系</p>
+<p>和数学上常见的笛卡尔坐标系不同的是，网页坐标系的y轴正方向朝下。这是因为人类阅读习惯于从左到右，从上到下，在浏览器的定位系统中，根据这个习惯来定义坐标的位置，使得在网页设计时更为合理。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="">
+<span id="id15"></span><h3>矩形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>长方形和正方形，统称为矩形，在数学描述中，矩形是如下的图形：相邻的两边相互垂直，而不相邻的两边平行且长度相等。</p>
+<p>![rectangle](.\images\rectangle.png)</p>
+<p>要在画布上准确的描述一个矩形的位置和大小，我们需要以下属性</p>
+<ul class="simple">
+<li>矩形左上角的位置<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code></li>
+<li>矩形的宽度<code class="docutils literal notranslate"><span class="pre">width</span></code>和高度<code class="docutils literal notranslate"><span class="pre">height</span></code></li>
+</ul>
+<p>那么，矩形就可以用以下表达式来定义。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Rectangle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>只要我们指定矩形所有的属性值，就可以定义出矩形的位置和大小。在Canvas中，我们使用以下代码来创建一个矩形。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>第一行，我们定义了一个变量<code class="docutils literal notranslate"><span class="pre">rect</span></code>，代表了一个矩形，它的左上角顶点坐标是<code class="docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">10)</span></code>，宽度是100，高度是50。</p>
+<p>第二行，我们执行了<code class="docutils literal notranslate"><span class="pre">rect</span></code>的一个方法<code class="docutils literal notranslate"><span class="pre">draw()</span></code>，将这个矩形画在了画布上，点击<code class="docutils literal notranslate"><span class="pre">Run</span></code>就可以看到一下效果：</p>
+<p>![rect](.\images\rect.png)</p>
+<p>图中这个浅蓝色的方块就是我们的<code class="docutils literal notranslate"><span class="pre">rect</span></code>矩形。</p>
+<p>如果我们修改<code class="docutils literal notranslate"><span class="pre">rect</span></code>的属性值，再点击运行，就可以看到不同效果的矩形，快动手试一下吧。</p>
+<div class="section" id="">
+<span id="id16"></span><h4>改变矩形的属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>在定义<code class="docutils literal notranslate"><span class="pre">rect</span></code>后，我们可以通过<code class="docutils literal notranslate"><span class="pre">rect.x</span></code>来修改<code class="docutils literal notranslate"><span class="pre">rect</span></code>左上角顶点的x坐标</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>同样，修改<code class="docutils literal notranslate"><span class="pre">rect.y</span></code>，<code class="docutils literal notranslate"><span class="pre">rect.width</span></code>，<code class="docutils literal notranslate"><span class="pre">rect.height</span></code>也将会相应调整矩形的位置和形状。</p>
+<blockquote>
+<div><p>小知识：像素</p>
+<p>在计算机中，距离的单位往往是以像素作为单位的。1个像素即是显示器上的最基础一个发光原件，我们常说的分辨率就是指屏幕上发光原件的数量。</p>
+</div></blockquote>
+<p><strong>取值和赋值</strong></p>
+<p>属性值可以直接读取，使用点操作符(<code class="docutils literal notranslate"><span class="pre">.</span></code>)即可读取矩形的属性值。如果要修改矩形的属性值，则要使用赋值操作符(<code class="docutils literal notranslate"><span class="pre">=</span></code>)。我们来看下面这个例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">height</span> <span class="o">+</span> <span class="mi">50</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>注意第二行，我们先读取了矩形的高度(第二个<code class="docutils literal notranslate"><span class="pre">rect.height</span></code>)，然后将这个高度增加50，最后将新的值赋给了矩形(第一个<code class="docutils literal notranslate"><span class="pre">rect.height</span></code>)。最终，矩形的高度变为100，在我们的画布中显示出来的便是一个高度为100的矩形。</p>
+</div>
+<div class="section" id="">
+<span id="id17"></span><h4>画线和填充<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>对矩形来说，拥有四周的边和占据的面积这两个属性。我们在绘制的时候，可以选择只绘制四条边，或者只填充矩形的面积，分别使用<code class="docutils literal notranslate"><span class="pre">stroke</span></code>和<code class="docutils literal notranslate"><span class="pre">fill</span></code>方法来区分。如果需要同时绘制，可以直接使用<code class="docutils literal notranslate"><span class="pre">draw</span></code>方法。</p>
+<div class="section" id="">
+<span id="id18"></span><h5>实例：画线和填充<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p>在这个例子中，我们将使用不同的方式来绘制矩形，</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">styleStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+
+<span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">110</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">210</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><img alt="stroke" src="../_images/stroke.png" /></p>
+<p>矩形除了以上属性外，还有一些属性值和方法，所有矩形相关的属性和方法都列在下方。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id19"></span><h4>属性值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值           | 说明            |
+| ------------- | ------------- |
+| <code class="docutils literal notranslate"><span class="pre">x</span></code>           | 获取或设置左上角顶点的x值 |
+| <code class="docutils literal notranslate"><span class="pre">y</span></code>           | 获取或设置左上角顶点的y值 |
+| <code class="docutils literal notranslate"><span class="pre">width</span></code>       | 获取或者设置矩形的宽度   |
+| <code class="docutils literal notranslate"><span class="pre">height</span></code>      | 获取或者设置矩形的高度   |
+| <code class="docutils literal notranslate"><span class="pre">strokeStyle</span></code> | 获取或者设置矩形边的样式  |
+| <code class="docutils literal notranslate"><span class="pre">fillStyle</span></code>   | 获取或者设置矩形填充的样式 |
+| <code class="docutils literal notranslate"><span class="pre">lineWidth</span></code>   | 获取或者设置线条的宽度   |
+| ...           | 其他通用属性参照      |</p>
+<div class="section" id="">
+<span id="id20"></span><h5>实例：绘制绿色矩形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p>我们希望绘制一个绿色矩形，它的左上角顶点是（100，100），它的颜色是绿色，不需要画出矩形的边。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id21"></span><h4>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>我们注意到，在使用方法时，我们需要在方法的后面增加括号（）。这是告诉计算机，我们要执行这个动作了。矩形拥有了以下一些基本方法，有了这些方法，我们就可以按照我们的想法来使用矩形了。</p>
+<p>| 方法         | 用法                               |
+| ---------- | -------------------------------- |
+| <code class="docutils literal notranslate"><span class="pre">draw()</span></code>   | 将矩形画在画布上                         |
+| <code class="docutils literal notranslate"><span class="pre">fill()</span></code>   | 填充矩形，默认样式为rgba(255, 255, 0, 0.5) |
+| <code class="docutils literal notranslate"><span class="pre">stroke()</span></code> | 绘制矩形的四条边，默认样式为<code class="docutils literal notranslate"><span class="pre">#FFFF00</span></code>          |</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id22"></span><h3>圆<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>类似于矩形，创建一个圆也是非常简单的一件事情。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>和矩形一样，圆是一个封闭的图形。对圆而言，确定圆心和圆的半径，即可确定圆的位置和大小。</p>
+<p>![circle](.\images\circle.png)</p>
+<div class="section" id="">
+<span id="id23"></span><h4>属性值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值           | 说明           |
+| ------------- | ------------ |
+| <code class="docutils literal notranslate"><span class="pre">x</span></code>           | 获取或设置圆心的x值   |
+| <code class="docutils literal notranslate"><span class="pre">y</span></code>           | 获取或设置圆心的y值   |
+| <code class="docutils literal notranslate"><span class="pre">r</span></code>           | 获取或者设置圆的半径   |
+| <code class="docutils literal notranslate"><span class="pre">strokeStyle</span></code> | 获取或者设置圆周的样式  |
+| <code class="docutils literal notranslate"><span class="pre">fillStyle</span></code>   | 获取或者设置圆填充的样式 |
+| <code class="docutils literal notranslate"><span class="pre">lineWidth</span></code>   | 获取或者设置线条的宽度  |</p>
+<p>半径是圆特有的属性，是直径的一半。圆并没有宽度和高度，如果你想从圆的属性中找出高度和宽度，那你会非常失望的。</p>
+</div>
+<div class="section" id="">
+<span id="id24"></span><h4>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>圆的方法和矩形类似，按照绘制的内容进行区分。</p>
+<p>| 属性值      | 用法                                       |
+| -------- | ---------------------------------------- |
+| draw()   | 将圆画在画布上，包含圆周和内部                          |
+| fill()   | 仅填充圆，不绘制圆周，默认样式为&quot;rgba(255, 255, 0, 0.5)&quot; |
+| stroke() | 绘制圆周，不填充圆，默认样式为&quot;#FFFF00&quot;                 |</p>
+<div class="section" id="i">
+<span id="i"></span><h5>实例：绘制雪人I<a class="headerlink" href="#i" title="永久链接至标题">¶</a></h5>
+<p>我们先定义了一个函数<code class="docutils literal notranslate"><span class="pre">drawCircle</span></code>，它能直接修改圆的位置、半径、颜色，并将圆画出来。利用这个函数，我们可以快速的将雪人绘制出来。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">drawCircle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">){</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">r</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">c</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="nx">drawCircle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">);</span>
+<span class="nx">drawCircle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">);</span>
+<span class="nx">drawCircle</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">);</span>
+<span class="nx">drawCircle</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ii">
+<span id="ii"></span><h5>实例：绘制雪人II<a class="headerlink" href="#ii" title="永久链接至标题">¶</a></h5>
+<p>我们还可以使用另外一种方式，将雪人不同部位都定义好。我们定义了雪人的头，雪人的身体，雪人的眼睛。掌握坐标后，我们很容易就可以将这个雪人画出来了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">head</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+<span class="nx">head</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">body</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">eye</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">eye</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+
+<span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+<span class="nx">body</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="nx">head</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="nx">eye</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">eye</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">220</span><span class="p">;</span>
+<span class="nx">eye</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id25"></span><h3>点<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>数学上的点是一个没有面积的的图形，但是为了能在画布上显示出来，我们将点看作一个半径非常小的圆，因此在这里，点几乎可以使用所有圆的属性和方法。不同的是，在使用点的时候，你无需指定点的半径。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>因为点是继承与于圆，你可以使用所有圆的属性和方法。</p>
+<p><strong>继承</strong></p>
+<p>因为点是从圆继承的，所以圆的所有属性点都有，圆的所有方法点也都有。我们只要照着圆的方式使用点就可以啦。</p>
+<div class="section" id="">
+<span id="id26"></span><h4>实例：点点点<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>当鼠标在屏幕上移动时，点的位置都会被设置为鼠标所在的位置，并且将点绘制出来。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Point</span><span class="p">();</span>
+
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">p</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="nx">p</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="nx">p</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id27"></span><h4>属性值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值         | 说明           |
+| ----------- | ------------ |
+| <code class="docutils literal notranslate"><span class="pre">x</span></code>         | 获取或设置点的x值    |
+| <code class="docutils literal notranslate"><span class="pre">y</span></code>         | 获取或设置点的y值    |
+| <code class="docutils literal notranslate"><span class="pre">r</span></code>         | 获取或者设置点的大小   |
+| <code class="docutils literal notranslate"><span class="pre">fillStyle</span></code> | 获取或者设置点填充的样式 |</p>
+<p>注意：点没有<code class="docutils literal notranslate"><span class="pre">strokeStyle</span></code>属性，设置了也不会生效</p>
+</div>
+<div class="section" id="">
+<span id="id28"></span><h4>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值      | 用法              |
+| -------- | --------------- |
+| <code class="docutils literal notranslate"><span class="pre">draw()</span></code> | 将点画在画布上，默认样式为红色 |
+| <code class="docutils literal notranslate"><span class="pre">fill()</span></code> | 同<code class="docutils literal notranslate"><span class="pre">draw</span></code>         |</p>
+<p>注意的是，和圆不一样的是，点是没有stroke方法的。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id29"></span><h3>线条<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>两点确定一条线段，通过设置线条两点的位置，我们可以确定线条的起始位置和终止位置。在画布中，我们用下面的方式来定义一个线段。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Line</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>定义后，我们就获得了line这个对象，通过修改line的属性，我们就可以改变线条的位置、样式以及它的宽度。</p>
+<p>线条有比较多的属性值，修改线条的位置是一件非常容易出错的事情，要特别的小心。</p>
+<div class="section" id="">
+<span id="id30"></span><h4>属性值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值           | 说明             |
+| ------------- | -------------- |
+| <code class="docutils literal notranslate"><span class="pre">x1</span></code>          | 获取或设置第一个点的x值   |
+| <code class="docutils literal notranslate"><span class="pre">y1</span></code>          | 获取或设置第一个点的y值   |
+| <code class="docutils literal notranslate"><span class="pre">x2</span></code>          | 获取或设置第二个点的x值   |
+| <code class="docutils literal notranslate"><span class="pre">y2</span></code>          | 获取或设置第二个点的y值   |
+| <code class="docutils literal notranslate"><span class="pre">strokeStyle</span></code> | 获取或者设置线条的样式    |
+| <code class="docutils literal notranslate"><span class="pre">lineWidth</span></code>   | 获取或者设置线条的宽度    |
+| x             | 获得或者设置线条的中点x坐标 |
+| y             | 获取或者设置线条的中点y坐标 |</p>
+</div>
+<div class="section" id="">
+<span id="id31"></span><h4>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值        | 用法       |
+| ---------- | -------- |
+| <code class="docutils literal notranslate"><span class="pre">draw()</span></code>   | 将线条画在画布上 |
+| <code class="docutils literal notranslate"><span class="pre">stroke()</span></code> | 同<code class="docutils literal notranslate"><span class="pre">draw</span></code>  |</p>
+<p>因为线条是没有面积的，所有并没有fill方法的。</p>
+<div class="section" id="">
+<span id="id32"></span><h5>实例：线条<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p>首先，定义一个线条，从点<code class="docutils literal notranslate"><span class="pre">(100,</span> <span class="pre">100)</span></code>连接到点<code class="docutils literal notranslate"><span class="pre">(250,</span> <span class="pre">100)</span></code>，并在画布中绘制出来。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Line</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>第二步，将线条往下平移到200，即将线条两个点的坐标设置为200，再将线条的颜色改成红色，粗细设置为5个像素，再次在画布上绘制。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span><span class="p">.</span><span class="nx">y1</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">y2</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>最终效果图如下，仔细观察<code class="docutils literal notranslate"><span class="pre">output</span></code>中线条的粗细程度。</p>
+<p><img alt="line" src="../_images/line.png" /></p>
+<p>注意的是，和其他图形不一样的是，线条是没有面积的，因此是没有<code class="docutils literal notranslate"><span class="pre">fill</span></code>方法的。</p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id33"></span><h3>多边形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>除了以上简单图形外，还有许许多多的图形，如多边形就是其中的一类。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">polygon</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Polygon</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">x3</span><span class="p">,</span> <span class="nx">y3</span><span class="p">,</span> <span class="p">...);</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id34"></span><h4>属性值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值           | 说明           |
+| ------------- | ------------ |
+| <code class="docutils literal notranslate"><span class="pre">fillStyle</span></code>   | 获取或者设置点填充的样式 |
+| <code class="docutils literal notranslate"><span class="pre">strokeStyle</span></code> | 获取或者设置线条的样式  |
+| <code class="docutils literal notranslate"><span class="pre">lineWidth</span></code>   | 获取或者设置线条的宽度  |</p>
+<p>多边形的点是一个数组，通过<code class="docutils literal notranslate"><span class="pre">polygon.points</span></code>获取，每个元素都是一个点。因为多边形往往点数较多，这里不展开了。</p>
+</div>
+<div class="section" id="">
+<span id="id35"></span><h4>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>| 属性值        | 用法                |
+| ---------- | ----------------- |
+| <code class="docutils literal notranslate"><span class="pre">draw()</span></code>   | 将多边形画在画布上，默认样式为红色 |
+| <code class="docutils literal notranslate"><span class="pre">fill()</span></code>   | 将多边形画在画布上，仅填充内容   |
+| <code class="docutils literal notranslate"><span class="pre">stroke()</span></code> | 将圆画在画布上，包含圆周和内部   |</p>
+<p>多边形的绘制是依据点的顺序来的，不同的顺序绘制的多边形是不一样的。同时，绘制出来的多边形可能不是简单的凸多边形，这已经不再本书的讨论范围内了。有兴趣的同学可以去了解下多边形的分类，以及多边形的外边和内部的区分。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id36"></span><h3>三角形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">triangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Triangle</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">x3</span><span class="p">,</span> <span class="nx">y3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>三角形是多边形的一种特殊情况，即只有3条边的多边形。因此除了定义上，三角形和多边形具有一样的属性和方法。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id37"></span><h2>图形样式<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>图形一般包含边和填充，图形的样式也是由这两块共同组成。</p>
+<div class="section" id="">
+<span id="id38"></span><h3>线条和填充<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>图形的线条和填充分别由<code class="docutils literal notranslate"><span class="pre">strokeStyle</span></code>和<code class="docutils literal notranslate"><span class="pre">fillStyle</span></code>这两个属性来决定</p>
+</div>
+<div class="section" id="">
+<span id="id39"></span><h3>颜色常量<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">fillStyle</span></code>与<code class="docutils literal notranslate"><span class="pre">stokeStyle</span></code>可以设置为表示颜色的字符串常量，从而可以直接设置图形的颜色。</p>
+<p>一些常见的颜色的常量有aqua、black、blue、fuchsia、gray、green、lime、maroon、navy、olive、purple、red、silver、teal、white、yellow。</p>
+<div class="section" id="">
+<span id="id40"></span><h4>实例：设置矩形的颜色<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fill</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="style1" src="../_images/style1.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id41"></span><h4>实例：颜色指示板<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>在使用颜色时，有时候我们需要把它们都列出来，这样才能更准确的选择需要的颜色。那我们就来做一个颜色的指示板吧。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;aqua&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;fuchsia&quot;</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="s2">&quot;maroon&quot;</span><span class="p">,</span> <span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="s2">&quot;olive&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">,</span> <span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">crect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cname</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">28</span><span class="p">);</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nx">crect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="nx">cname</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="nx">crect</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+  <span class="nx">cname</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+  <span class="nx">crect</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">30</span><span class="p">;</span>
+  <span class="nx">cname</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>展示效果</p>
+<p>![color_const](.\images\color_const.png)</p>
+</div>
+</div>
+<div class="section" id="rgb">
+<span id="rgb"></span><h3>RGB值<a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h3>
+<p>如果用放大镜看显示器的屏幕，会发现屏幕的每个点都是由3个颜色组成，分别是</p>
+<ul class="simple">
+<li>Red, 红色</li>
+<li>Green，绿色</li>
+<li>Blue，蓝色</li>
+</ul>
+<p>而这3个颜色的首字母组合，即RGB，这也是RGB值的由来。在RGB值的组成中，每一个数字分布代表了每个颜色的强弱，0代表关闭，255代表最高。</p>
+<p>有了这3个基本的颜色，按照亮度的不同，就以组成各种个样的颜色。</p>
+<div class="section" id="">
+<span id="id42"></span><h4>实例：设置矩形边的颜色<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">RGB</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><img alt="storke" src="../_images/style2.png" /></p>
+<p>RGB的另外一种写法是“#FFFFFF&quot;，在这里，FFFFFF是一个16进制的数字，每两位代表了一种颜色的高低。<code class="docutils literal notranslate"><span class="pre">FF</span></code>代表了255，在16进制中，F代表了15，因此FF的计算方式是</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>15(F的十进制数值) * 16(16进制) + 15(F的十进制数值) = 255
+</pre></div>
+</div>
+<p>同样，如果将一个十进制的数字转为16进制，计算方式反过来即可，如<code class="docutils literal notranslate"><span class="pre">169</span></code>在16进制中表示为<code class="docutils literal notranslate"><span class="pre">A9</span></code></p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>169 ÷ 16 = 10 ... 9 (余数) = A9(16进制)
+</pre></div>
+</div>
+<blockquote>
+<div><p>补充知识：16进制</p>
+<p>在2进制中，我们用0, 1来代表不同的数值</p>
+<p>在10进制中，我们用0, 1, 2, 3, 4, 5, 6, 7, 8, 9来代表不同的数值</p>
+<p>在16进制中，我们用0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F来代表从小到大的数值</p>
+</div></blockquote>
+</div>
+<div class="section" id="">
+<span id="id43"></span><h4>进制转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>不同的进制可以通过计算来转换，比如</p>
+<p>在JavaScript中，可以用<code class="docutils literal notranslate"><span class="pre">parseInt</span></code>这个函数可以将不同进制的字符串转为数字，默认情况下，<code class="docutils literal notranslate"><span class="pre">parseInt</span></code>将一个字符串转为10进制的数字。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;1111&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">//=&gt; 15</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;15&#39;</span><span class="p">)</span>      <span class="c1">// =&gt; 15</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;15&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">//=&gt; 15</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;15&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>  <span class="c1">//=&gt; 22</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rgb">
+<span id="id44"></span><h4><strong>常见的RGB值</strong><a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h4>
+<p>下面列举了一些比较受欢迎的RGB值</p>
+<p>![favourite_rgp](.\images\favourite_rgp.png)</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id45"></span><h3>透明度<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>在生活中，关于透明度最常见的例子就是玻璃了，我们可以透过不一样颜色玻璃看到一个不一样颜色的世界。汽车玻璃拥有不同的透明度，在减弱光线的同时，仍能够看到玻璃后面的物体。如果我们将一个图形设置为一定的透明度，那么我们就可以看到图形后面的其他图形。</p>
+<p>透明度的数值从0到1，0代表完全透明，即什么都看不见，1代表全不透，是图像透明度的默认值。</p>
+<p>在Canvas中，图像的透明度用globalApha来表示，设置图形的globalAlpha值即可获得不同的透明度。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">globalAlpha</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id46"></span><h4>实例：做一个调色板<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">circle</span><span class="p">.</span><span class="nx">globalAlpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">;</span>
+
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#0000FF&quot;</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#00FF00&quot;</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">;</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>显示效果</p>
+<p>![alpha](.\images\alpha.png)</p>
+<p>思考：绘制图形时，顺序不一样，产生的图形是否会不一致，为什么？</p>
+</div>
+</div>
+<div class="section" id="rgba">
+<span id="rgba"></span><h3>RGBA值<a class="headerlink" href="#rgba" title="永久链接至标题">¶</a></h3>
+<p>RGBA值是RGB的扩充，在使用颜色时可以直接制定该颜色的Alpha值。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgba(255, 255, 0, 0,5)&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>前三位对应的是RGB值，第四位即透明度值</p>
+<p><strong>透明度还是RGBA值</strong></p>
+<p>设置透明度可以通过globalAlpha或者rgba值来设置，这两者都可以达到一样的效果，同时两者可以相互叠加。使用globalAlpha值能够快速获取以及修改到透明度值，所以一般情况下，我们建议使用globalAlpha这个属性。</p>
+<div class="section" id="">
+<span id="id47"></span><h4>实例：妙笔生花<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">randomInt</span><span class="p">(</span><span class="nx">n</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">n</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">randomRGBA</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">RGBA</span><span class="p">(</span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="nx">randomInt</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="nx">randomInt</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+  <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+  <span class="nx">circle</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+  <span class="nx">circle</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">randomRGBA</span><span class="p">();</span>
+  <span class="nx">circle</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>展示效果，但鼠标在画布上移动时，便会随机的绘制出各种图案来，步步生花。</p>
+<p><img alt="rgba" src="../_images/rgba.png" /></p>
+</div>
+</div>
+<div class="section" id="hsl">
+<span id="hsl"></span><h3>HSL<a class="headerlink" href="#hsl" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HSL</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/hsl.png" /></p>
+</div>
+<div class="section" id="hsla">
+<span id="hsla"></span><h3>HSLA<a class="headerlink" href="#hsla" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="">
+<span id="id48"></span><h3>虚线<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>图形的<code class="docutils literal notranslate"><span class="pre">setLineDash</span></code>方法可以用来设置虚线条，它接受一个数组对象，按照数组的顺序，轮流绘制线条的实部、虚部。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Line</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">setLineDash</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
+<span class="nx">line</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/lineDash.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id49"></span><h3>透明度<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>设置图形的<code class="docutils literal notranslate"><span class="pre">globalAlpha</span></code>可以改变图形的透明度，默认为1，设置区间：0~1。</p>
+</div>
+<div class="section" id="">
+<span id="id50"></span><h3>叠加方式<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>设置图形的<code class="docutils literal notranslate"><span class="pre">globalCompositeOperation</span></code>属性可以设定图像的叠加方式。机制比较复杂，不建议使用。</p>
+</div>
+<div class="section" id="">
+<span id="id51"></span><h3>渐变色<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>在上面的例子中，我们图形的颜色是单一的。而在实际生活中，颜色往往都不是均匀的。我们可以创建一个变化的颜色来实现这个效果。</p>
+<div class="section" id="">
+<span id="id52"></span><h4>实例：渐变色<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">grd</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;#FF0000&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;#00FF00&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">grd</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>渐变色效果</p>
+<p><img alt="rgba" src="../_images/gradient.png" /></p>
+<p>addColorStop是在图像的特定位置创建出制定的颜色，中间的变化则由计算机自动完成。</p>
+<p>通过添加更多的颜色，我们可以创建出更多特殊的渐变色。</p>
+<p>彩虹是难得一见的奇观，一般只有雨过天晴的时候才会出现，现在，我们就来创建一个彩虹出来。</p>
+</div>
+<div class="section" id="">
+<span id="id53"></span><h4>实例：彩虹<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">grd</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;lightblue&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;orange&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;yellow&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;cyan&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">6</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;purple&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;lightblue&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">sky</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+<span class="nx">sky</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">;</span>
+<span class="nx">sky</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">grd</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">180</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="mi">1</span><span class="p">){</span>
+  <span class="nx">rect</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="nx">rect</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>一条漂亮的彩虹出来啦</p>
+<p><img alt="rgba" src="../_images/rainbow.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id54"></span><h2>贴图与动画<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>在创作过程中，我们更多的会运用到很多色彩丰富的图片，而不仅仅是几何图形。在这一章节里，我们将学习怎么使用图片来创作。</p>
+<div class="section" id="">
+<span id="id55"></span><h3>图片<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>在网页上，图片一般被保存在服务器上，在需要的时候他们会被加载并显示在网页上。每个网络上的图片，都有一个url地址，这个地址告诉了浏览器该到哪里去获取这个地址。</p>
+<p>如下面就是一个图片的链接，如果你直接打开它，那么你就可以直接看到这张图片了。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>http://
+</pre></div>
+</div>
+<p>在Canvas中，我们定义了一个图片类Sprite，它需要5个参数来确定这个张图片。第一个是图片的url地址，后面4个参数和矩形一样，用来确定图片的位置和大小。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>例子：图片的绘制</p>
+<div class="section" id="">
+<span id="id56"></span><h4>加载<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>因为贴图需要一定的时间加载，所以需要重新执行运行才能成功看到图片显示出来。</p>
+<p>贴图资源的加载是有一定延迟的，而代码的执行非常的快，因此在代码执行前图片可能还未加载成功。我们增加了一个资源加载的函数<code class="docutils literal notranslate"><span class="pre">loadRssAndRun</span></code>，它能知道我们用了那些图片并且在项目代码执行前加载好资源。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sprite</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">sprite</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id57"></span><h3>序列帧动画<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>我们知道，动画是因为计算机快速绘制不同的图形而形成的。如果计算机快速更改的是同一个东西的不同时刻的图像，那么，就会让这个东西动起来了。</p>
+<p>下面是一张食人花的图，它一共有7个动作，从第一张图到最后一张图，我们发现食人花做了一个张开又合上的动作。下面我们就来看怎么让食人花动起来。</p>
+<p>![ani](.\images\ani.png)</p>
+<div class="section" id="">
+<span id="id58"></span><h4>定义<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>第一步，我们使用Animation这个类，和Sprite类似，Animation需要图片的地址和其他4个参数来确定图片以及位置。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">animation</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+<span class="nx">animation</span><span class="p">.</span><span class="nx">setFrame</span><span class="p">(</span><span class="nx">sx</span><span class="p">,</span> <span class="nx">sy</span><span class="p">,</span> <span class="nx">swidth</span><span class="p">,</span> <span class="nx">sheight</span><span class="p">,</span> <span class="nx">culumn</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>第二步，我们需要设置这个动画的各个参数，否则计算机将不知道怎么去播放这个动画。</p>
+<ul class="simple">
+<li>sx，sy: 动画左上角的偏移量</li>
+<li>swidth，sheight：每一个动画的宽度和高度</li>
+<li>culumn，row：动画的帧数在图片上的列数和行数</li>
+</ul>
+<div class="section" id="">
+<span id="id59"></span><h5>实例：动画介绍<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p>下面是一个动画的介绍课件，使用动画原理制作，展示了动画是如何制作出来的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">frameCount</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">row</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="nx">url</span><span class="o">+</span><span class="s2">&quot;animations/fire.png&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">width</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">fire</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">url</span><span class="o">+</span><span class="s2">&quot;animations/fire.png&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+
+<span class="nx">fire</span><span class="p">.</span><span class="nx">setFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="nx">frameCount</span><span class="p">,</span> <span class="nx">row</span><span class="p">);</span> 
+<span class="c1">// shiftX, shiftY, frameX, frameY, columns, rows    </span>
+<span class="nx">fire</span><span class="p">.</span><span class="nx">setSpeed</span><span class="p">(</span><span class="nx">speed</span><span class="p">);</span>       <span class="c1">// Animation frame speed</span>
+
+<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="nx">rect</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="o">++*</span><span class="nx">speed</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">rect</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    
+    <span class="nx">image</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">rect</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+    <span class="nx">fire</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id60"></span><h2>音乐与音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>好的项目离不开音效，合适的音效可以让一个项目发挥出200%的效果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">music</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;ddd.mp3&quot;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>属性和方法</p>
+<p>| 属性               | 作用            |      |
+| ---------------- | ------------- | ---- |
+| src              | 获取或者设置音乐链接地址  |      |
+| oncanplaythrough | 在音效加载结束后使用该方法 |      |
+|                  |               |      |</p>
+<div class="section" id="">
+<span id="id61"></span><h3>音乐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>背景音乐一般是长度较长的音乐，且需要循环播放。我们可以将音效的<code class="docutils literal notranslate"><span class="pre">loop</span></code>属性设置为<code class="docutils literal notranslate"><span class="pre">true</span></code>，这样只要播放一次就可以了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">music</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;ddd.mp3&quot;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">loop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id62"></span><h3>音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>无论是音乐还是音效，浏览器在加载时都需要耗费一定的时间，因此一般都是通过异步加载的。因此只有在加载结束后才能进行播放。一般通过<code class="docutils literal notranslate"><span class="pre">oncanplaythrough</span></code>函数来调用播放音效。</p>
+<p>如果是音效，我们可以在项目执行之前进行加载。本书不涉及到资源的管理和加载，如果有兴趣，可以去网上了解更多预加载的知识。</p>
+<div class="section" id="">
+<span id="id63"></span><h4>实例：色阶钢琴<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/Piano/&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;40-C.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;42-D.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;44-E.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;45-F.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;47-G.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;49-A.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;51-B.mp3&quot;</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">Key</span> <span class="o">=</span> <span class="nx">Rectangle</span><span class="p">;</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">//this.audio.currentTime = 0;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">urls</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Key</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">550</span><span class="o">/</span><span class="mi">7</span><span class="o">*</span><span class="nx">i</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="o">/</span><span class="mi">7</span><span class="p">);</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">RGB</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="nx">i</span><span class="p">,</span> <span class="mi">200</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">audio</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="nx">urls</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id64"></span><h2>事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id65"></span><h3>鼠标事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>事件驱动在JavaScript中是非常常见的一种程序设计模式，通过监测事件的发生，调用预定的函数，从而实现异步执行的效果。</p>
+<p>比如说，当鼠标在画布上移动时，鼠标的坐标值会随之而变，这就是一个简单的事件在驱动着坐标值不断的发生变化。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Mouse</span></code>的属性</p>
+<p>| 属性   | 描述                 |
+| ---- | ------------------ |
+| x    | 鼠标当前的x值，可以在画布左下角看到 |
+| y    | 鼠标当前的y值，可以在画布左下角看到 |</p>
+<p><strong>点击事件</strong></p>
+<p>当鼠标在画布上点击时，就会触发<code class="docutils literal notranslate"><span class="pre">click</span></code>事件，如果配置了<code class="docutils literal notranslate"><span class="pre">Mouse.click</span></code>函数，那么该函数就会执行。</p>
+<div class="section" id="">
+<span id="id66"></span><h4>实例：点击成图<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>这个项目的目标是创建一个空白的画布，当鼠标在画布上面点击时，就会在鼠标的位置绘制一个圆圈。</p>
+<p>第一步，我们需要创建一个圆，这里我们可以创建一个默认的圆图形。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>第二步，定义一个绘制圆的函数<code class="docutils literal notranslate"><span class="pre">drawEvent</span></code>，因为我们要将圆绘制在鼠标的位置，因此我们要将圆中心设置为鼠标的位置。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Mouse</span></code>对象，即鼠标，有两个属性<code class="docutils literal notranslate"><span class="pre">x</span></code>和<code class="docutils literal notranslate"><span class="pre">y</span></code>，他们会随着鼠标的移动而发生变化，因此我们只要直接使用这两个属性就可以了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">drawEvent</span><span class="p">(){</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>第三步，将函数绑定给click事件</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Mouse</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="nx">drawEvent</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>完整代码如下，我们用简单的9行代码，就完成了这个例子。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">drawEvent</span><span class="p">(){</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="nx">drawEvent</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>一般情况下，我们可以省略函数名，直接定义一个匿名函数，可以简单写成。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
+
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>点击画布，就会在画布上留下一个圆圈。</p>
+<p>![click](.\images\click.png)</p>
+</div>
+<div class="section" id="">
+<span id="id67"></span><h4>移动事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>当鼠标移动时，就会触发<code class="docutils literal notranslate"><span class="pre">move</span></code>事件。只要我们定义了<code class="docutils literal notranslate"><span class="pre">move</span></code>函数，那么该函数就会执行。</p>
+<div class="section" id="">
+<span id="id68"></span><h5>实例：写字板<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">Mouse</span></code>的事件</p>
+<p>手机上的事件</p>
+<p>如果应用需要在手机上运行，需要特别注意事件的区别。在手机上，没有鼠标的存在，只有点击屏幕后才有移动事件的触发。</p>
+<p>电脑：<code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Down</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Up/Click</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Down</span></code></p>
+<p>手机：<code class="docutils literal notranslate"><span class="pre">Down</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Up/Click</span></code></p>
+<p>所以为手机开发应用时，我们应该小心的使用这些事件的顺序</p>
+</div>
+<div class="section" id="">
+<span id="id69"></span><h5>实例：点击英雄<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p><strong>插入图片</strong></p>
+<p>第一步，我们定义两个图片，使用图片对象的<code class="docutils literal notranslate"><span class="pre">draw</span></code>方法将图片绘制在画布上。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://orjajlo36.bkt.clouddn.com/backgroundimage2.jpg&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://ou1htxdl4.bkt.clouddn.com/coin.png&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>点击执行，就可以将这两张图片绘制在画布上了。</p>
+<p><strong>行动起来</strong></p>
+<p>接下来，就是让物体开始运动起来了。画布上，我们每隔一段时间<code class="docutils literal notranslate"><span class="pre">(16.7ms)</span></code>将图形重新绘制一次，因为频率非常块，看起来就像是动起来一样。</p>
+<p>这里我们需要先定义一个<code class="docutils literal notranslate"><span class="pre">GameLoop</span></code>函数，它的作用是在每一帧里绘制图形，同时在下一帧中调用自己。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在<code class="docutils literal notranslate"><span class="pre">GameLoop</span></code>中，我们让物体的y值每次都增加一，以达到每次往下移动的效果。最后，我们用一个函数<code class="docutils literal notranslate"><span class="pre">loadRssAndRun(GameLoop);</span></code>来加载图片并且开始执行这个循环。</p>
+<p>完整代码如下：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://orjajlo36.bkt.clouddn.com/backgroundimage2.jpg&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://ou1htxdl4.bkt.clouddn.com/coin.png&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>点击事件</strong></p>
+<p>在点中物体时，我们需要让物体消失，然后刷新出一个新的物体。事实上，我们不用这么麻烦，把物体的坐标修改为0就可以了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>随机位置</strong></p>
+<p>每次都是固定的位置显然不好玩，让我们同时修改下物体的水平位置，使用一个随机的概念。<code class="docutils literal notranslate"><span class="pre">Math.random()</span></code>会产生一个0到1的随机数，乘以300，即随机生成一个0到300的随机数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>显示分数</strong></p>
+<p>接下来就是记录游戏的分数了。让我们新增一个变量<code class="docutils literal notranslate"><span class="pre">score</span></code>，初始值为0。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>数字是没法直接显示出来的，我们需要将数字转为字符串，利用JavaScript中字符串＋数字，自动将数字转为字符串的特性，我们可以实现数字的转换。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">scoreMsg</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">scoreMsg</span> <span class="o">=</span> <span class="s2">&quot;score:&quot;</span> <span class="o">+</span> <span class="nx">score</span><span class="p">;</span>
+  
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">scoreMsg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>当然，别忘了在成功点击物体时增加分数，否则分数就不会增加啦。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="nx">score</span><span class="o">++</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>完整代码如下</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://orjajlo36.bkt.clouddn.com/backgroundimage2.jpg&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://ou1htxdl4.bkt.clouddn.com/coin.png&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">scoreMsg</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">scoreMsg</span> <span class="o">=</span> <span class="s2">&quot;score:&quot;</span> <span class="o">+</span> <span class="nx">score</span><span class="p">;</span>
+  
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">scoreMsg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+
+<span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="nx">score</span><span class="o">++</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>播放声音</strong></p>
+<p>没有声音，再好的戏也出不来。让我们来增加两个声音，背景音乐和点击音效，这里增加了两个新的声音对象</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bgm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://oq2qlcey8.bkt.clouddn.com/bgm.mp3&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">clickSound</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">clickSound</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/audio/gold.mp3&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>背景音乐我们需要让它循环播放，因此设置<code class="docutils literal notranslate"><span class="pre">loop</span></code>属性为<code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bgm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://oq2qlcey8.bkt.clouddn.com/bgm.mp3&quot;</span><span class="p">;</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">loop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>而物体点击音效则是在点击的时候播放，因此我们把它加在点击时</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="nx">score</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">clickSound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>最终代码</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://orjajlo36.bkt.clouddn.com/backgroundimage2.jpg&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://ou1htxdl4.bkt.clouddn.com/coin.png&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">bgm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://oq2qlcey8.bkt.clouddn.com/bgm.mp3&quot;</span><span class="p">;</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">loop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">clickSound</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">clickSound</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/audio/gold.mp3&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">scoreMsg</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">scoreMsg</span> <span class="o">=</span> <span class="s2">&quot;score:&quot;</span> <span class="o">+</span> <span class="nx">score</span><span class="p">;</span>
+  
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">scoreMsg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+
+<span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="nx">score</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">clickSound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>代码重构</strong></p>
+<p>在进入下一章节前，我们先对我们的程序进行一个小小的重构。在改变速度这里，我们使用了这么一行代码</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>这里1代表的是速度，但是并不直观。所以我们定义一个变量<code class="docutils literal notranslate"><span class="pre">speed</span></code>来表达它。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">scoreMsg</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">...</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">speed</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>难度提升</strong></p>
+<p>接下来，就是我们对游戏的难度进行修改。我们在每一次分数增加的时候去提高物体掉落的速度，这样就能提高游戏难度了！</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="nx">score</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">speed</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">clickSound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>如果你觉得难度变化太大，你可以降低这个数值，让速度的增长变的慢一点。</p>
+<p><strong>游戏结束</strong></p>
+<p>游戏结束时，我们在屏幕上写上Game Over。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GameOver</span><span class="p">(){</span>
+    <span class="s1">&#39;Game Over&#39;</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>怎么判断游戏结束呢，先用一段伪代码来表示</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>如果物体超出了画布:
+    游戏结束
+其他情况下：
+    继续游戏循环
+</pre></div>
+</div>
+<p>在JavaScript中，就可以写成</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="p">...</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
+        <span class="nx">GameOver</span><span class="p">();</span>
+    <span class="k">else</span>
+        <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>重新开始</strong></p>
+<p>重新开始游戏循环前，我们要做这几件事情</p>
+<ul class="simple">
+<li>把分数清零</li>
+<li>把物体放回到最上方</li>
+<li>把速度变为最初的速度</li>
+</ul>
+<p>最后执行游戏循环。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GameStart</span><span class="p">(){</span>
+    <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">GameLoop</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>那什么时候触发游戏重新开始呢，当然是游戏结束的时候了。我们需要在游戏结束时添加一个按钮来激活它。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">retry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span> <span class="s2">&quot;http://osykyzwcn.bkt.clouddn.com/SHAYUx0001.png&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">retry</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="nx">GameStart</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">GameOver</span><span class="p">(){</span>
+    <span class="s2">&quot;Game Over&quot;</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">);</span>
+    <span class="nx">retry</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>    
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>当游戏结束的时候，这个按钮就会被绘制到画布上，点击就可以重新开始游戏啦。</p>
+<p><strong>最终代码</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://orjajlo36.bkt.clouddn.com/backgroundimage2.jpg&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://ou1htxdl4.bkt.clouddn.com/coin.png&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">bgm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://oq2qlcey8.bkt.clouddn.com/bgm.mp3&quot;</span><span class="p">;</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">loop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">bgm</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">sound</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">sound</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/audio/gold.mp3&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">hiscore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nx">item</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">score</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">speed</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="nx">sound</span><span class="p">.</span><span class="nx">currentTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">300</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">GameStart</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">GameLoop</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">GameLoop</span><span class="p">(){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">speed</span><span class="p">;</span>
+    
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    
+    <span class="kd">var</span> <span class="nx">scoreMsg</span> <span class="o">=</span> <span class="s2">&quot;Score: &quot;</span> <span class="o">+</span> <span class="nx">score</span><span class="p">;</span>
+    <span class="nx">scoreMsg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
+      <span class="nx">GameOver</span><span class="p">();</span>
+    <span class="k">else</span>
+      <span class="nx">nextFrame</span><span class="p">(</span><span class="nx">GameLoop</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">retry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span> <span class="s2">&quot;http://osykyzwcn.bkt.clouddn.com/SHAYUx0001.png&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">retry</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="nx">GameStart</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">GameOver</span><span class="p">(){</span>
+    <span class="s2">&quot;Game Over&quot;</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">);</span>
+    <span class="nx">retry</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>    
+<span class="p">}</span>
+
+<span class="nx">loadRssAndRun</span><span class="p">(</span><span class="nx">GameStart</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id70"></span><h3>键盘事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>和鼠标类似，键盘也会触发事件。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">down</span></code>：当按键被按下时触发</li>
+<li><code class="docutils literal notranslate"><span class="pre">up</span></code>：当按键松开时触发</li>
+<li><code class="docutils literal notranslate"><span class="pre">press：当按键被按下并且松开时触发</span></code></li>
+</ul>
+<p>方法一：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Key是一个对象，因此以上两种方式都可以实现对按键a的监听。</p>
+<p>一些特别的键名称</p>
+<p>| 按键    | 名称         | 备注       |
+| ----- | ---------- | -------- |
+| <code class="docutils literal notranslate"><span class="pre">↑</span></code>   | ArrowUp    | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">↓</span></code>   | ArrowDown  | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">←</span></code>   | ArrowLeft  | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">→</span></code>   | ArrowRight | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">Esc</span></code> | Escape     |          |
+| <code class="docutils literal notranslate"><span class="pre">空格</span></code>  | Space      |          |
+| <code class="docutils literal notranslate"><span class="pre">回车键</span></code> | Enter      |          |</p>
+<div class="section" id="">
+<span id="id71"></span><h4><strong>数字键</strong><a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>因为数字无法作为属性的名称，所有数字键只能使用以下方式进行调用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">].</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id72"></span><h3>手势事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>另外，手机上的键盘需要触发输入才能够显示，因此我们也要避免使用键盘输入。</p>
+<p><code class="docutils literal notranslate"><span class="pre">leapjs</span></code>包含了对手势的基本支持功能，在手机上，支持4个简单的滑动手势，上下左右，分别对应键盘的上下左右键。使用了这些按键的程序，在手机上可以使用滑动手势来控制。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowLeft</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;};</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowRight</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;};</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowUp</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;};</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowDown</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;};</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">main</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>在这个例子中，我们可以使用键盘的方向键来移动矩形的位置，也可以在手机上用移动手势来控制。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id73"></span><h2>图形变换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>所有的图形都可以在画布上按照一定的规律进行变换</p>
+<div class="section" id="">
+<span id="id74"></span><h3>平移<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>图形调用translate即可在画布上进行偏移。</p>
+<p>如果需要对线条、多变形进行移动时，就可以使用该方式，而不用</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">polygon</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Polygon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">polygon</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">polygon</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>组合图形的统一偏移</p>
+<p>用位移做一个窗口震动效果</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id75"></span><h3>中心点与旋转<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>图形在平面上进行旋转后可以得到不一样的效果。</p>
+<p>要明确旋转的位置，我们需要明确旋转的中心点和方向。默认情况下，我们将原点<code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code>设置为旋转的中心点。将顺时针方向的角度规定为正方向。</p>
+<p><img alt="degree" src="../_images/degree.png" /></p>
+<div class="section" id="">
+<span id="id76"></span><h4>实例：旋转的矩形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+<span class="nx">rect</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>可以看到，矩形以原点为中心旋转了10°。</p>
+<p><img alt="rotate" src="../_images/rotate.png" /></p>
+<p>那么，我们能不能让矩形以矩形的中心点进行旋转呢，当然可以啦，我们只要把矩形的旋转点设置在矩形的中心就可以了。</p>
+</div>
+<div class="section" id="ii">
+<span id="id77"></span><h4>实例：旋转的矩形II<a class="headerlink" href="#ii" title="永久链接至标题">¶</a></h4>
+<p>为了更明显的看出区别，这次我们把旋转的角度加大到30°，来看看会有怎么样的效果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+<span class="nx">rect</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Bingo! 矩形按照我们的想法旋转起来了。</p>
+<p><img alt="rotate2" src="../_images/rotate2.png" /></p>
+<p>大家可以想一想，如果旋转度数为负数会是怎么样的呢，旋转读数超过360度呢，又会是怎么样的，快来试一试吧。</p>
+</div>
+<div class="section" id="">
+<span id="id78"></span><h4>实例：时钟<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dashboard</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;http://ou1htxdl4.bkt.clouddn.com/clk/biaopan-01.png&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">h_line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Line</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">m_line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Line</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">s_line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Line</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+
+<span class="nx">s_line</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">m_line</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">h_line</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="nx">s_line</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">m_line</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">;</span>
+<span class="nx">h_line</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">;</span>
+
+<span class="c1">// 设定锚点（旋转中心点）</span>
+<span class="nx">s_line</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">m_line</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">h_line</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">h</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">s</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">h_degree</span><span class="p">,</span> <span class="nx">m_degree</span><span class="p">,</span> <span class="nx">s_degree</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">t</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">updateTime</span><span class="p">(){</span>
+  <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+  <span class="nx">h</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+  <span class="nx">m</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+  <span class="nx">s</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
+    
+  <span class="nx">h_degree</span> <span class="o">=</span> <span class="nx">h</span> <span class="o">*</span> <span class="mi">360</span> <span class="o">/</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="nx">m_degree</span> <span class="o">=</span> <span class="nx">m</span> <span class="o">*</span> <span class="mi">360</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
+  <span class="nx">s_degree</span> <span class="o">=</span> <span class="nx">s</span> <span class="o">*</span> <span class="mi">360</span> <span class="o">/</span> <span class="mi">60</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+  <span class="nx">updateTime</span><span class="p">();</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="nx">dashboard</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  
+  <span class="nx">h_line</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">h_degree</span><span class="p">);</span>
+  <span class="nx">m_line</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">m_degree</span><span class="p">);</span>
+  <span class="nx">s_line</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">s_degree</span><span class="p">);</span>
+    
+  <span class="nx">h_line</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">m_line</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">s_line</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">main</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id79"></span><h3>放大与缩小<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>我们可以改变矩形的宽高来改变矩形的大小，改变圆的半径来改变圆的大小。但是如果我们要改变其他图形的大小，就有点麻烦了。</p>
+<p>不过，我们可以通过修改图像的比例来达到这个效果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>同样的，放大缩小时是以坐标原点作为参考系的，我们可以通过设定锚点来修改。</p>
+</div>
+<div class="section" id="">
+<span id="id80"></span><h3>斜切<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>图像的变换都是通过矩形计算进行的，如果读者想要了解更多图形的变换的知识，欢迎点击一下链接学习更多知识。</p>
+<p><strong>平行多边形</strong></p>
+<p>利用斜切来定义一个平行多边形</p>
+<div class="section" id="">
+<span id="id81"></span><h4>实例：阴影的实现<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>如何让物体看起来更立体</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">shadow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="nx">shadow</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+<span class="nx">shadow</span><span class="p">.</span><span class="nx">skew</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">);</span>
+
+<span class="nx">shadow</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#cccccc&quot;</span><span class="p">;</span>
+
+<span class="nx">shadow</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="nx">item</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>效果如下：</p>
+<p>![skew](.\images\skew.png)</p>
+<p>实例</p>
+<p>翻页效果的实现</p>
+<p><strong>菱形</strong></p>
+<p>如何定义一个菱形</p>
+<p>##物理效果</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id82"></span><h3>碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>所有图形类都有一个方法collide，接受一个参数，必须是另外一个图形类实例，如果两个图形相互碰撞，那么返回碰撞点坐标。否则返回<code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">collide</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>坐标点是一个对象，因此可以直接使用if来判断是否发生碰撞。</p>
+<p>在图形进行旋转、翻转、平移后，碰撞仍可以进行判断。</p>
+</div>
+<div class="section" id="">
+<span id="id83"></span><h3>图像的碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>为了提高执行的效率，不提供像素级别的碰撞判断，图片的碰撞体积默认为图像宽高的0.8（80%），可以通过<code class="docutils literal notranslate"><span class="pre">setCollisionScale</span></code>来设定碰撞宽高的比例。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reference/index.html" class="btn btn-neutral float-right" title="LeapJS 宝典" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="完整文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
