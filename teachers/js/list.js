@@ -1,3 +1,5 @@
+var outLink = "http://in.leaplearner.com/file/sharing/";
+var inLink = "http://192.168.0.30/file/sharing/";
 var courseFiles = [
 	{
 		title: "1 连点成画", //课程标题
@@ -6,7 +8,7 @@ var courseFiles = [
 			PDF: "", 
 			MD: ""
 			},
-		handbook: "", //教师手册
+		handbook: "http://in.leaplearner.com/file/sharing/Gtz7vJWmx", //教师手册
 		video: "", //教学视频
 		ppt: "http://in.leaplearner.com/file/sharing/wLI6qg784", //教学课件
 		project: "dotStar", //成品链接
@@ -28,7 +30,7 @@ var courseFiles = [
 			PDF: "http://in.leaplearner.com/file/sharing/kJRsTy1nw", 
 			MD: "http://in.leaplearner.com/file/sharing/7NgtuGwq9"
 			},
-		handbook: "", //教师手册
+		handbook: "http://in.leaplearner.com/file/sharing/hVQX7SIYm", //教师手册
 		video: "", //教学视频
 		ppt: "http://in.leaplearner.com/file/sharing/URC9G6bhe", //教学课件
 		project: "face", //成品链接
@@ -45,15 +47,15 @@ var courseFiles = [
 	},
 	{
 		title: "3 创意绘画(2)", //课程标题
-		info: "",
+		info: "本节课要学习的是三角形、多边形和椭圆形对象的创建和使用，我们会用一个风车图案作为例子。",
 		preview: { //预习资料
 			PDF: "", 
-			MD: ""
+			MD: "http://192.168.0.30/file/sharing/zSpf3POHL"
 			},
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "", //教学课件
-		project: "", //成品链接
+		project: "windmill", //成品链接
 		rsc: {
 			img: [],
 			music: []
@@ -75,7 +77,7 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "", //教学课件
-		project: "", //成品链接
+		project: "windmillRotate", //成品链接
 		rsc: {
 			img: [],
 			music: []
