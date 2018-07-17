@@ -61,7 +61,7 @@ let header = `
           <a class="dropdown-item" href="physics.html">物理效果</a>
         </div>
       </li>
-      <a class="nav-link active" href="../js_tutorial/index.html">JS教程</a>
+      <a class="nav-link active" href="../JSTuturial/index.html">JS教程</a>
       <a class="nav-link active" href="projects.html">项目合辑</a>
       <a class="nav-link active" href="games.html">游戏合辑</a>
       <a class="nav-link active" href="ide.html">在线IDE</a>
