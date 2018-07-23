@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>键盘事件 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="图形变换" href="../transform/transform.html" />
+    <link rel="prev" title="事件" href="mouse.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">事件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mouse.html">事件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">键盘事件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#"><strong>数字键</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">手势事件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">事件</a> &raquo;</li>
+        
+      <li>键盘事件</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>键盘事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>和鼠标类似，键盘也会触发事件。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">down</span></code>：当按键被按下时触发</li>
+<li><code class="docutils literal notranslate"><span class="pre">up</span></code>：当按键松开时触发</li>
+<li><code class="docutils literal notranslate"><span class="pre">press：当按键被按下并且松开时触发</span></code></li>
+</ul>
+<p>方法一：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Key是一个对象，因此以上两种方式都可以实现对按键a的监听。</p>
+<p>一些特别的键名称</p>
+<p>| 按键    | 名称         | 备注       |
+| ----- | ---------- | -------- |
+| <code class="docutils literal notranslate"><span class="pre">↑</span></code>   | ArrowUp    | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">↓</span></code>   | ArrowDown  | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">←</span></code>   | ArrowLeft  | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">→</span></code>   | ArrowRight | 无press事件 |
+| <code class="docutils literal notranslate"><span class="pre">Esc</span></code> | Escape     |          |
+| <code class="docutils literal notranslate"><span class="pre">空格</span></code>  | Space      |          |
+| <code class="docutils literal notranslate"><span class="pre">回车键</span></code> | Enter      |          |</p>
+<div class="section" id="">
+<span id="id2"></span><h2><strong>数字键</strong><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>因为数字无法作为属性的名称，所有数字键只能使用以下方式进行调用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">].</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>手势事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>另外，手机上的键盘需要触发输入才能够显示，因此我们也要避免使用键盘输入。</p>
+<p><code class="docutils literal notranslate"><span class="pre">leapjs</span></code>包含了对手势的基本支持功能，在手机上，支持4个简单的滑动手势，上下左右，分别对应键盘的上下左右键。使用了这些按键的程序，在手机上可以使用滑动手势来控制。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowLeft</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;};</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowRight</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;};</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowUp</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;};</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">ArrowDown</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>  <span class="nx">rect</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;};</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">main</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在这个例子中，我们可以使用键盘的方向键来移动矩形的位置，也可以在手机上用移动手势来控制。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../transform/transform.html" class="btn btn-neutral float-right" title="图形变换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mouse.html" class="btn btn-neutral" title="事件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

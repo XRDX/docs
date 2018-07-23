@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>音乐与音效对象 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="事件" href="../events/index.html" />
+    <link rel="prev" title="音乐与音效" href="audio_methods.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">音乐与音效</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="audio_methods.html">音乐与音效</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">音乐与音效对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">音乐</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">音效</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">实例：色阶钢琴</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">音乐与音效</a> &raquo;</li>
+        
+      <li>音乐与音效对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>音乐与音效对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>好的项目离不开音效，合适的音效可以让一个项目发挥出200%的效果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">music</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;ddd.mp3&quot;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>属性和方法</p>
+<p>src
+获取或者设置音乐链接地址</p>
+<p>oncanplaythrough
+在音效加载结束后使用该方法</p>
+<div class="section" id="">
+<span id="id2"></span><h2>音乐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>背景音乐一般是长度较长的音乐，且需要循环播放。我们可以将音效的<code class="docutils literal notranslate"><span class="pre">loop</span></code>属性设置为<code class="docutils literal notranslate"><span class="pre">true</span></code>，这样只要播放一次就可以了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">music</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;ddd.mp3&quot;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">loop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>无论是音乐还是音效，浏览器在加载时都需要耗费一定的时间，因此一般都是通过异步加载的。因此只有在加载结束后才能进行播放。一般通过<code class="docutils literal notranslate"><span class="pre">oncanplaythrough</span></code>函数来调用播放音效。</p>
+<p>如果是音效，我们可以在项目执行之前进行加载。本书不涉及到资源的管理和加载，如果有兴趣，可以去网上了解更多预加载的知识。</p>
+<div class="section" id="">
+<span id="id4"></span><h3>实例：色阶钢琴<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/Piano/&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;40-C.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;42-D.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;44-E.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;45-F.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;47-G.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;49-A.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;51-B.mp3&quot;</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">Key</span> <span class="o">=</span> <span class="nx">Rectangle</span><span class="p">;</span>
+<span class="nx">Key</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">//this.audio.currentTime = 0;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">urls</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Key</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">550</span><span class="o">/</span><span class="mi">7</span><span class="o">*</span><span class="nx">i</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">550</span><span class="o">/</span><span class="mi">7</span><span class="p">);</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">RGB</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="nx">i</span><span class="p">,</span> <span class="mi">200</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">audio</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="nx">urls</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">key</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../events/index.html" class="btn btn-neutral float-right" title="事件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="audio_methods.html" class="btn btn-neutral" title="音乐与音效" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
