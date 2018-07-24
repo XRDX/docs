@@ -1,31 +1,31 @@
 var outLink = "http://in.leaplearner.com/file/sharing/";
-var inLink = "http://192.168.0.30/file/sharing/";
-var usedLink = inLink;
+// var inLink = "http://192.168.0.30/file/sharing/";
+var usedLink = outLink;
 var courseFiles = [
 	{
 		title: "1 连点成画", //课程标题
 		info: "本节课将用线段完成连点成画的任务，教学重点是坐标概念和线段的绘制，难点是理解坐标与位置的关系以及线段的定义和绘制两步法。",
 		preview: {PDF: "",MD: ""}, //预习资料
-		handbook: "", //教师手册
+		handbook: "bps46SGBc", //教师手册
 		video: "", //教学视频
 		ppt: "ZlblsdNB3", //教学课件
 		project: "dotStar", //成品链接
 		rsc: {img: [], music: []}, //资源链接
-		knowledge: {PDF: "", MD: ""}, //知识小结
+		knowledge: {PDF: "HVUKWab8e", MD: "VhaON1eDI"}, //知识小结
 		testlink: "http://cn.mikecrm.com/8gHFpc3", //答题链接
 		feedback: "本节课的我们主要学习了开发环境的基本操作、画布尺寸的设置以及线段的定义和绘制。" //课后反馈
 	},
 	{
 		title: "2 创意绘画(1)", //课程标题
 		info: "本节课将学习圆形对象和长方形对象的创建和绘制，并将用它们完成图像创作。",
-		preview: {PDF: "", MD: ""
+		preview: {PDF: "3k1o9vAcc", MD: "qtAibHN2r"
 			}, //预习资料
-		handbook: "", //教师手册
+		handbook: "xm4FsZhft", //教师手册
 		video: "", //教学视频
 		ppt: "JBZSJVJWe", //教学课件
 		project: "face", //成品链接
 		rsc: {img: [], music: []}, //资源链接
-		knowledge: {PDF: "", MD: ""
+		knowledge: {PDF: "kHkZv56Lt", MD: "ZKNfdbNj0"
 			},  //知识小结
 		testlink: "http://cn.mikecrm.com/ihVcbZU", //答题链接
 		feedback: "本节课我们学习了圆形和长方形的创建和绘制，同时我们学习了如何修改图形的样式，以及以不同的绘制方式绘制图形，这些知识都是在未来的项目中会经常接触到的。" //课后反馈
@@ -33,44 +33,44 @@ var courseFiles = [
 	{
 		title: "3 创意绘画(2)", //课程标题
 		info: "本节课要学习的是三角形、多边形和椭圆形对象的创建和使用，我们会用一个风车图案作为例子。",
-		preview: {PDF: "", MD: ""}, //预习资料
-		handbook: "", //教师手册
+		preview: {PDF: "8Bpqa3llw", MD: "NA6Pu13Gu"}, //预习资料
+		handbook: "HOHBHdpm8", //教师手册
 		video: "", //教学视频
 		ppt: "Qu2O5wZsQ", //教学课件
 		project: "windmill", //成品链接
 		rsc: {img: [], music: []}, //资源链接
-		knowledge: {PDF: "", MD: ""},  //知识小结
+		knowledge: {PDF: "5SrCal5NB", MD: "Fwo0LsPx1"},  //知识小结
 		testlink: "http://cn.mikecrm.com/MzEOvb1", //答题链接
 		feedback: "本节课我们学习了三种比较复杂的图形对象：三角形、多边形和椭圆形，通过这些图形对象，我们能够创作更加复杂和丰富的图形作品。" //课后反馈
 	},
 	{
 		title: "4 风车国度", //课程标题
 		info: "本节课我们将学习对象和类的概念，同时我们会学会使用对象的属性和方法，使用本节课的知识，可以让风车扇叶旋转一个角度。",
-		preview: {PDF: "", MD: ""}, //预习资料
+		preview: {PDF: "dWxTUjyr5", MD: "fXqF5VVkG"}, //预习资料
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "XWTQo1SpV", //教学课件
 		project: "windmillRotate", //成品链接
 		rsc: {img: [], music: []}, //资源链接
-		knowledge: {PDF: "", MD: ""},  //知识小结
+		knowledge: {PDF: "82K7oEWzi", MD: "VTuHWtW8X"},  //知识小结
 		testlink: "http://cn.mikecrm.com/YfjA25Y", //答题链接
 		feedback: "本节课我们学习了类和对象的概念，这两个概念在编程中非常重要，可以联系生活中的例子来理解。同时，我们学习了如何使用对象的属性和方法，完成更加丰富的图形功能。" //课后反馈
 	},
 	{
 		title: "5 旋转风车", //课程标题
 		info: "这节课的主要知识是变量和setInterval函数，在这节课中，我们将让之前做好的风车转动起来，完成旋转动画效果。",
-		preview: {PDF: "", MD: ""}, //预习资料
+		preview: {PDF: "XwoldP4V1", MD: "dCeo2SZwb"}, //预习资料
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "10dSdGbaK", //教学课件
 		project: "windmillRotating", //成品链接
 		rsc: {img: [], music: []}, //资源链接
-		knowledge: {PDF: "", MD: ""},  //知识小结
+		knowledge: {PDF: "lpposxxmk", MD: "T4cLHON1O"},  //知识小结
 		testlink: "http://cn.mikecrm.com/WPeQ6B8", //答题链接
 		feedback: "在这堂课中，我们了解了电影与动画的原理，并利用这种原理完成了动画效果。在完成动画效果的过程中，我们学习了变量和setInterval函数。在以后的项目中，我们将逐渐发现这两个知识点非常重要，会被反复使用，一定要牢牢掌握。" //课后反馈
 	},
 	{
-		title: "6 日出的秘密", //课程标题
+		title: "6 昼夜与四季", //课程标题
 		info: "",
 		preview: {PDF: "", MD: ""}, //预习资料
 		handbook: "", //教师手册
@@ -89,8 +89,18 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "P0k4kEgWy", //教学课件
-		project: "", //成品链接
-		rsc: {img: [], music: []}, //资源链接
+		project: "keyPiano", //成品链接
+		rsc: {
+			img: [], 
+			music: [
+			"https://rss.leaplearner.com/teachfiles/Media/do.mp3",
+			"https://rss.leaplearner.com/teachfiles/Media/re.mp3",
+			"https://rss.leaplearner.com/teachfiles/Media/mi.mp3",
+			"https://rss.leaplearner.com/teachfiles/Media/fa.mp3",
+			"https://rss.leaplearner.com/teachfiles/Media/so.mp3",
+			"https://rss.leaplearner.com/teachfiles/Media/la.mp3",
+			"https://rss.leaplearner.com/teachfiles/Media/si.mp3"
+			]}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
 		feedback: "" //课后反馈
@@ -101,8 +111,8 @@ var courseFiles = [
 		preview: {PDF: "", MD: ""}, //预习资料
 		handbook: "", //教师手册
 		video: "", //教学视频
-		ppt: "", //教学课件
-		project: "", //成品链接
+		ppt: "VaZrg8SJx", //教学课件
+		project: "tug_1", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
@@ -114,8 +124,8 @@ var courseFiles = [
 		preview: {PDF: "", MD: ""}, //预习资料
 		handbook: "", //教师手册
 		video: "", //教学视频
-		ppt: "", //教学课件
-		project: "", //成品链接
+		ppt: "DZapfc6D0", //教学课件
+		project: "tug_2", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
@@ -128,8 +138,14 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "JEgHg8A5e", //教学课件
-		project: "", //成品链接
-		rsc: {img: [], music: []}, //资源链接
+		project: "juggle_1", //成品链接
+		rsc: {
+			img: [
+			"http://ou1htxdl4.bkt.clouddn.com/qiuchang.jpg",
+			"http://ou1htxdl4.bkt.clouddn.com/football.png"
+			], 
+			music: []
+			}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
 		feedback: "" //课后反馈
@@ -141,8 +157,14 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "bDVoEKAdz", //教学课件
-		project: "", //成品链接
-		rsc: {img: [], music: []}, //资源链接
+		project: "juggle_2", //成品链接
+		rsc: {
+			img: [
+			"http://ou1htxdl4.bkt.clouddn.com/qiuchang.jpg",
+			"http://ou1htxdl4.bkt.clouddn.com/football.png"
+			], 
+			music: []
+			}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
 		feedback: "" //课后反馈
@@ -154,8 +176,14 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "GuqndAoGX", //教学课件
-		project: "", //成品链接
-		rsc: {img: [], music: []}, //资源链接
+		project: "juggle_3", //成品链接
+		rsc: {
+			img: [
+			"http://ou1htxdl4.bkt.clouddn.com/qiuchang.jpg",
+			"http://ou1htxdl4.bkt.clouddn.com/football.png"
+			], 
+			music: []
+			}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
 		feedback: "" //课后反馈
@@ -193,7 +221,7 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "rvsNR6ouX", //教学课件
-		project: "", //成品链接
+		project: "flyRace_1", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
@@ -206,7 +234,7 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "q3ZQaUHVa", //教学课件
-		project: "", //成品链接
+		project: "flyRace_2", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
@@ -219,7 +247,7 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "FnTLgNnn1", //教学课件
-		project: "", //成品链接
+		project: "flyRace_3", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
@@ -232,7 +260,7 @@ var courseFiles = [
 		handbook: "", //教师手册
 		video: "", //教学视频
 		ppt: "XDWmS7qbh", //教学课件
-		project: "", //成品链接
+		project: "flyRace_4", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
 		testlink: "", //答题链接
@@ -244,7 +272,7 @@ var courseFiles = [
 		preview: {PDF: "", MD: ""}, //预习资料
 		handbook: "", //教师手册
 		video: "", //教学视频
-		ppt: "", //教学课件
+		ppt: "5EVcl53dg", //教学课件
 		project: "", //成品链接
 		rsc: {img: [], music: []}, //资源链接
 		knowledge: {PDF: "", MD: ""},  //知识小结
@@ -830,15 +858,5 @@ function loadRsc() {
 		iTxt.innerText = "没有音乐资源";
 		musicBox.appendChild(iTxt);
 	}
-}
-function inNet() {
-	usedLink = inLink;
-	loadList();
-	alert("已切换为内网模式,请重新选择左侧课程列表以刷新链接");
-}
-function outNet() {
-	usedLink = outLink;
-	loadList();
-	alert("已切换为外链模式,请重新选择左侧课程列表以刷新链接");
 }
 
