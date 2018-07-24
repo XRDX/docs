@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>文字 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="样式填充 fill" href="fill.html" />
+    <link rel="prev" title="圆 circle" href="circle.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">绘图函数</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circle.html">圆 circle</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">文字</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#font">字体 font</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text">写字 text</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fill.html">样式填充 fill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="line.html">线段 line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">点 point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ellipse.html">椭圆 ellipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="triangle.html">三角形 triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html">多边形 polygon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">绘图函数</a> &raquo;</li>
+        
+      <li>文字</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>文字<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="font">
+<span id="font"></span><h2>字体 font<a class="headerlink" href="#font" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************</span>
+<span class="cm">font(fontName)</span>
+
+<span class="cm">设置字体</span>
+<span class="cm">* 字体名称：fontName</span>
+<span class="cm">/***************************************************************/</span>
+</pre></div>
+</div>
+<p>能够使用的字体是和系统相关的，在不同系统下常见字体如下：</p>
+<p>Windows</p>
+<ul class="simple">
+<li>​    黑体：SimHei</li>
+<li>​    宋体：SimSun</li>
+<li>​    新宋体：NSimSun</li>
+<li>​    仿宋：FangSong</li>
+<li>​    楷体：KaiTi</li>
+<li>​    仿宋GB2312：FangSongGB2312</li>
+<li>​    楷体GB2312：KaiTiGB2312</li>
+<li>​    微软雅黑：Microsoft YaHei</li>
+</ul>
+<p>Mac Os</p>
+<ul class="simple">
+<li>​    冬青黑体: Hiragino Sans GB （SNOW LEOPARD开始提供）</li>
+<li>​    华文细黑：STHeiti Light （又名STXihei）</li>
+<li>​    华文黑体：STHeiti</li>
+<li>​    华文楷体：STKaiti</li>
+<li>​    华文宋体：STSong</li>
+<li>​    华文仿宋：STFangsong</li>
+</ul>
+<p>如果安装了Microsoft Office软件，那么还可以使用以下字体</p>
+<ul class="simple">
+<li>​    隶书：LiSu</li>
+<li>​    幼圆：YouYuan</li>
+<li>​    华文细黑：STXihei</li>
+<li>​    华文楷体：STKaiti</li>
+<li>​    华文宋体：STSong</li>
+<li>​    华文中宋：STZhongsong</li>
+<li>​    华文仿宋：STFangsong</li>
+<li>​    方正舒体：FZShuTi</li>
+<li>​    方正姚体：FZYaoti</li>
+<li>​    华文彩云：STCaiyun</li>
+<li>​    华文琥珀：STHupo</li>
+<li>​    华文隶书：STLiti</li>
+<li>​    华文行楷：STXingkai</li>
+<li>​    华文新魏：STXinwei</li>
+</ul>
+<p>等宽字体：</p>
+<ul class="simple">
+<li>Consolas</li>
+</ul>
+</div>
+<div class="section" id="text">
+<span id="text"></span><h2>写字 text<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">text(src,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">*size,</span> <span class="pre">*color,</span> <span class="pre">*font)</span></code> : 绘制文本，同样，我们需要x、y来绘制文字的位置</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************</span>
+<span class="cm"> * text(string, x, y, *size, *color)</span>
+<span class="cm"> *</span>
+<span class="cm"> * 在画布上写字：</span>
+<span class="cm"> *</span>
+<span class="cm"> * 文字内容：string</span>
+<span class="cm"> * 文字左上角顶点位置为（x,y）</span>
+<span class="cm"> * 文字大小为size，可选参数，默认为20</span>
+<span class="cm"> * 文字颜色为为color，可选参数，默认为 &quot;orange&quot;</span>
+<span class="cm"> ***************************************************************/</span>
+</pre></div>
+</div>
+<p>我们来继续看一些写字例子：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+
+<span class="c1">// 使用不同的字体</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;Arial&quot;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">font</span><span class="o">=</span><span class="s2">&quot;Consolas&quot;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;你好，人类&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;STCaiyun&#39;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在这里，我们也能看到不同的字体表现出来的效果差异很大。</p>
+<p><img alt="text" src="../_images/text1.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fill.html" class="btn btn-neutral float-right" title="样式填充 fill" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="circle.html" class="btn btn-neutral" title="圆 circle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

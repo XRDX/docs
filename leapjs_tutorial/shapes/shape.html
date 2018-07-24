@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>基本图形对象 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="圆形 Circle" href="shapes.html" />
+    <link rel="prev" title="图形对象" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">图形对象</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">基本图形对象</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shape">基本图形对象 Shape</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html">圆形 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#point">点 Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#line">线段 Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#polygon">多边形 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#triangle">三角形 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#rectangle">矩形 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#ellipse">椭圆 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#">属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html#text">文本 <code class="docutils literal notranslate"><span class="pre">Text</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html">图像 <code class="docutils literal notranslate"><span class="pre">Sprite</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html">序列帧动画 Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">图形对象</a> &raquo;</li>
+        
+      <li>基本图形对象</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>基本图形对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>在基本绘图函数中，我们在画布上绘制除了许多图形，但是，如果我们想要对已经画出来的图形进行操作，那么上诉方法就无能为力了。我们需要创建图形对象来控制这些图形。</p>
+<div class="section" id="shape">
+<span id="shape"></span><h2>基本图形对象 Shape<a class="headerlink" href="#shape" title="永久链接至标题">¶</a></h2>
+<p>Shape 是所有图形对象的基础，也就是说，其他继承自Shape的图形都有Shape的属性和方法。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Shape</span> <span class="p">{</span>
+    <span class="nx">constructor</span> <span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h3>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<hr class="docutils" />
+<div class="section" id="transform">
+<span id="transform"></span><h4>形变 transform<a class="headerlink" href="#transform" title="永久链接至标题">¶</a></h4>
+<p>记录图形的位移、斜切、旋转属性，详见Transform一节</p>
+</div>
+<div class="section" id="click">
+<span id="click"></span><h4>点击事件 click<a class="headerlink" href="#click" title="永久链接至标题">¶</a></h4>
+<p>绑定点击事件后，当图形被鼠标点到，就会触发该事件</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<hr class="docutils" />
+<div class="section" id="stroke">
+<span id="stroke"></span><h4>描边 stroke<a class="headerlink" href="#stroke" title="永久链接至标题">¶</a></h4>
+<p>将图形对象的边框画出来</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">stroke</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fill">
+<span id="fill"></span><h4>填充 fill<a class="headerlink" href="#fill" title="永久链接至标题">¶</a></h4>
+<p>将图形填充</p>
+</div>
+<div class="section" id="draw">
+<span id="draw"></span><h4>画 draw<a class="headerlink" href="#draw" title="永久链接至标题">¶</a></h4>
+<p>将图形画在画布上，默认情况下，draw等于fill</p>
+</div>
+<div class="section" id="rotate-degree">
+<span id="rotate-degree"></span><h4>旋转rotate(degree)<a class="headerlink" href="#rotate-degree" title="永久链接至标题">¶</a></h4>
+<p>图形旋转一定的角度，以角度作为单位，360度为一圈</p>
+</div>
+<div class="section" id="translate-x-y">
+<span id="translate-x-y"></span><h4>平移 translate(x, y)<a class="headerlink" href="#translate-x-y" title="永久链接至标题">¶</a></h4>
+<p>将原始图形平移x、y个像素</p>
+</div>
+<div class="section" id="scale-x-y">
+<span id="scale-x-y"></span><h4>缩放 scale(x, y)<a class="headerlink" href="#scale-x-y" title="永久链接至标题">¶</a></h4>
+<p>将图形水平方向放大至原始大小的x倍，将垂直方向放大至原始大小的y倍。</p>
+</div>
+<div class="section" id="skew-x-y">
+<span id="skew-x-y"></span><h4>斜切 skew(x, y)<a class="headerlink" href="#skew-x-y" title="永久链接至标题">¶</a></h4>
+<p>将图形往x、y轴方向倾斜x、y比例，当x=1时，往x方向倾斜45度</p>
+<p>设置形变中心点 <code class="docutils literal notranslate"><span class="pre">setAnchor(x,</span> <span class="pre">y)</span></code></p>
+<p>设置形变的中心点，x、y为比率，当x=0.5， y=0.5时，中心点在图形中心点。</p>
+</div>
+<div class="section" id="getrealpoint-p">
+<span id="getrealpoint-p"></span><h4>获取真实坐标点 <code class="docutils literal notranslate"><span class="pre">getRealPoint(p)</span></code><a class="headerlink" href="#getrealpoint-p" title="永久链接至标题">¶</a></h4>
+<p>p：原始图形上的某个点，如 <code class="docutils literal notranslate"><span class="pre">{x:</span> <span class="pre">100,</span> <span class="pre">y:100}</span></code></p>
+<p>返回值：在画布上真实的坐标值 ，如 <code class="docutils literal notranslate"><span class="pre">{x:</span> <span class="pre">200,</span> <span class="pre">y:120}</span></code></p>
+</div>
+<div class="section" id="touched">
+<span id="touched"></span><h4>碰到鼠标 <code class="docutils literal notranslate"><span class="pre">touched()</span></code><a class="headerlink" href="#touched" title="永久链接至标题">¶</a></h4>
+<p>判断是否碰到鼠标</p>
+<p>返回值：<code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</div>
+<div class="section" id="collide-shape">
+<span id="collide-shape"></span><h4>碰撞<code class="docutils literal notranslate"><span class="pre">collide(shape)</span></code><a class="headerlink" href="#collide-shape" title="永久链接至标题">¶</a></h4>
+<p>判断图形是否碰到另一个图形</p>
+<p>返回值：<code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</div>
+<div class="section" id="clone">
+<span id="clone"></span><h4>克隆 <code class="docutils literal notranslate"><span class="pre">clone()</span></code><a class="headerlink" href="#clone" title="永久链接至标题">¶</a></h4>
+<p>返回一个完全相同的克隆体，深度复制所有的属性和方法。</p>
+<p>返回值：<code class="docutils literal notranslate"><span class="pre">shape</span></code></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shapes.html" class="btn btn-neutral float-right" title="圆形 Circle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="图形对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
