@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="stdlib 标准库" href="../stdlib/index.html" />
-    <link rel="prev" title="错误处理机制" href="error.html" /> 
+    <link rel="next" title="进阶语法" href="../advanced/index.html" />
+    <link rel="prev" title="运算符" href="operator.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,15 +86,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">基本语法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic.html">基本语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number.html">数值</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
 <li class="toctree-l2"><a class="reference internal" href="object.html">对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array.html">数组</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">编程风格</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">缩进</a></li>
@@ -111,17 +109,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#">相等和严格相等</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">语句的合并</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">自增和自减运算符</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#switch-case">switch...case 结构</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -542,60 +536,6 @@
 <p>改用<code class="docutils literal notranslate"><span class="pre">+=</span> <span class="pre">1</span></code>，代码变得更清晰了。</p>
 <p>建议自增（<code class="docutils literal notranslate"><span class="pre">++</span></code>）和自减（<code class="docutils literal notranslate"><span class="pre">--</span></code>）运算符尽量使用<code class="docutils literal notranslate"><span class="pre">+=</span></code>和<code class="docutils literal notranslate"><span class="pre">-=</span></code>代替。</p>
 </div>
-<div class="section" id="switch-case">
-<span id="switch-case"></span><h2>switch...case 结构<a class="headerlink" href="#switch-case" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">switch...case</span></code>结构要求，在每一个<code class="docutils literal notranslate"><span class="pre">case</span></code>的最后一行必须是<code class="docutils literal notranslate"><span class="pre">break</span></code>语句，否则会接着运行下一个<code class="docutils literal notranslate"><span class="pre">case</span></code>。这样不仅容易忘记，还会造成代码的冗长。</p>
-<p>而且，<code class="docutils literal notranslate"><span class="pre">switch...case</span></code>不使用大括号，不利于代码形式的统一。此外，这种结构类似于<code class="docutils literal notranslate"><span class="pre">goto</span></code>语句，容易造成程序流程的混乱，使得代码结构混乱不堪，不符合面向对象编程的原则。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">doAction</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="s1">&#39;hack&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="s1">&#39;hack&#39;</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="s1">&#39;slash&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="s1">&#39;slash&#39;</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="s1">&#39;run&#39;</span><span class="o">:</span>
-      <span class="k">return</span> <span class="s1">&#39;run&#39;</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Invalid action.&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>上面的代码建议改写成对象结构。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">doAction</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;hack&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="s1">&#39;hack&#39;</span><span class="p">;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;slash&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="s1">&#39;slash&#39;</span><span class="p">;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;run&#39;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="s1">&#39;run&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">actions</span><span class="p">[</span><span class="nx">action</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Invalid action.&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="nx">actions</span><span class="p">[</span><span class="nx">action</span><span class="p">]();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>因此，建议<code class="docutils literal notranslate"><span class="pre">switch...case</span></code>结构可以用对象结构代替。</p>
-</div>
-<div class="section" id="">
-<span id="id14"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Eric Elliott, Programming JavaScript Applications, <a class="reference external" href="http://chimera.labs.oreilly.com/books/1234000000262/ch02.html">Chapter 2. JavaScript Style Guide</a>, O'Reilly, 2013</li>
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2013/07/meta-style-guide.html">A meta style guide for JavaScript</a></li>
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2011/05/semicolon-insertion.html">Automatic semicolon insertion in JavaScript</a></li>
-<li>Rod Vagg, <a class="reference external" href="http://dailyjs.com/2012/04/19/semicolons/">JavaScript and Semicolons</a></li>
-</ul>
-</div>
 </div>
 
 
@@ -606,10 +546,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../stdlib/index.html" class="btn btn-neutral float-right" title="stdlib 标准库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../advanced/index.html" class="btn btn-neutral float-right" title="进阶语法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="error.html" class="btn btn-neutral" title="错误处理机制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="operator.html" class="btn btn-neutral" title="运算符" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

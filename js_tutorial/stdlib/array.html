@@ -85,10 +85,11 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Array 对象</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#">构造函数</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">静态方法</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#array-isarray">Array.isArray()</a></li>
 </ul>
@@ -112,7 +113,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#">链式使用</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="wrapper.html">包装对象</a></li>
@@ -120,16 +120,10 @@
 <li class="toctree-l2"><a class="reference internal" href="string.html">String对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -192,68 +186,7 @@
   <div class="section" id="array">
 <span id="array"></span><h1>Array 对象<a class="headerlink" href="#array" title="永久链接至标题">¶</a></h1>
 <div class="section" id="">
-<span id="id1"></span><h2>构造函数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Array</span></code>是 JavaScript 的原生对象，同时也是一个构造函数，可以用它生成新的数组。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 2</span>
-<span class="nx">arr</span> <span class="c1">// [ empty x 2 ]</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">Array</span></code>构造函数的参数<code class="docutils literal notranslate"><span class="pre">2</span></code>，表示生成一个两个成员的数组，每个位置都是空值。</p>
-<p>如果没有使用<code class="docutils literal notranslate"><span class="pre">new</span></code>，运行结果也是一样的。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="c1">// 等同于</span>
-<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Array</span></code>构造函数有一个很大的缺陷，就是不同的参数，会导致它的行为不一致。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 无参数时，返回一个空数组</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">()</span> <span class="c1">// []</span>
-
-<span class="c1">// 单个正整数参数，表示返回的新数组的长度</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// [ empty ]</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">// [ empty x 2 ]</span>
-
-<span class="c1">// 非正整数的数值作为参数，会报错</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mf">3.2</span><span class="p">)</span> <span class="c1">// RangeError: Invalid array length</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// RangeError: Invalid array length</span>
-
-<span class="c1">// 单个非数值（比如字符串、布尔值、对象等）作为参数，</span>
-<span class="c1">// 则该参数是返回的新数组的成员</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span> <span class="c1">// [&#39;abc&#39;]</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span> <span class="c1">// [Array[1]]</span>
-
-<span class="c1">// 多参数时，所有参数都是返回的新数组的成员</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// [1, 2]</span>
-<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="c1">// [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
-</pre></div>
-</div>
-<p>可以看到，<code class="docutils literal notranslate"><span class="pre">Array</span></code>作为构造函数，行为很不一致。因此，不建议使用它生成新数组，直接使用数组字面量是更好的做法。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
-</pre></div>
-</div>
-<p>注意，如果参数是一个正整数，返回数组的成员都是空位。虽然读取的时候返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>，但实际上该位置没有任何值。虽然可以取到<code class="docutils literal notranslate"><span class="pre">length</span></code>属性，但是取不到键名。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">];</span>
-
-<span class="nx">a</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-<span class="nx">b</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-
-<span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// undefined</span>
-<span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// undefined</span>
-
-<span class="mi">0</span> <span class="k">in</span> <span class="nx">a</span> <span class="c1">// false</span>
-<span class="mi">0</span> <span class="k">in</span> <span class="nx">b</span> <span class="c1">// true</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">a</span></code>是一个长度为3的空数组，<code class="docutils literal notranslate"><span class="pre">b</span></code>是一个三个成员都是<code class="docutils literal notranslate"><span class="pre">undefined</span></code>的数组。读取键值的时候，<code class="docutils literal notranslate"><span class="pre">a</span></code>和<code class="docutils literal notranslate"><span class="pre">b</span></code>都返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>，但是<code class="docutils literal notranslate"><span class="pre">a</span></code>的键位都是空的，<code class="docutils literal notranslate"><span class="pre">b</span></code>的键位是有值的。</p>
-</div>
-<div class="section" id="">
-<span id="id2"></span><h2>静态方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id1"></span><h2>静态方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="array-isarray">
 <span id="array-isarray"></span><h3>Array.isArray()<a class="headerlink" href="#array-isarray" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Array.isArray</span></code>方法返回一个布尔值，表示参数是否为数组。它可以弥补<code class="docutils literal notranslate"><span class="pre">typeof</span></code>运算符的不足。</p>
@@ -267,7 +200,7 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id2"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="valueof-tostring">
 <span id="valueof-tostring"></span><h3>valueOf()，toString()<a class="headerlink" href="#valueof-tostring" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法是一个所有对象都拥有的方法，表示对该对象求值。不同对象的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法不尽一致，数组的<code class="docutils literal notranslate"><span class="pre">valueOf</span></code>方法返回数组本身。</p>
@@ -806,7 +739,7 @@
 <p>这是因为这两个方法内部，使用严格相等运算符（<code class="docutils literal notranslate"><span class="pre">===</span></code>）进行比较，而<code class="docutils literal notranslate"><span class="pre">NaN</span></code>是唯一一个不等于自身的值。</p>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h3>链式使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id3"></span><h3>链式使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <p>上面这些数组方法之中，有不少返回的还是数组，所以可以链式使用。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;tom&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;tom@example.com&#39;</span><span class="p">},</span>
@@ -824,14 +757,7 @@
 <span class="c1">// &quot;tom@example.com&quot;</span>
 </pre></div>
 </div>
-<p>上面代码中，先产生一个所有 Email 地址组成的数组，然后再过滤出以<code class="docutils literal notranslate"><span class="pre">t</span></code>开头的 Email 地址。</p>
 </div>
-</div>
-<div class="section" id="">
-<span id="id5"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Nicolas Bevacqua, <a class="reference external" href="http://flippinawesome.org/2013/11/25/fun-with-javascript-native-array-functions/">Fun with JavaScript Native Array Functions</a></li>
-</ul>
 </div>
 </div>
 

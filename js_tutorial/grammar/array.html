@@ -86,7 +86,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">基本语法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic.html">基本语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number.html">数值</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
 <li class="toctree-l2"><a class="reference internal" href="object.html">对象</a></li>
@@ -96,23 +95,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#length">length 属性</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#in">in 运算符</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#for-in">for...in 循环和数组的遍历</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">数组的空位</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">类似数组的对象</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="style.html">编程风格</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -409,181 +402,6 @@
 <span class="c1">// blue</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="">
-<span id="id4"></span><h2>数组的空位<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<p>当数组的某个位置是空元素，即两个逗号之间没有任何值，我们称该数组存在空位（hole）。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-</pre></div>
-</div>
-<p>上面代码表明，数组的空位不影响<code class="docutils literal notranslate"><span class="pre">length</span></code>属性。</p>
-<p>需要注意的是，如果最后一个元素后面有逗号，并不会产生空位。也就是说，有没有这个逗号，结果都是一样的。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,];</span>
-
-<span class="nx">a</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-<span class="nx">a</span> <span class="c1">// [1, 2, 3]</span>
-</pre></div>
-</div>
-<p>上面代码中，数组最后一个成员后面有一个逗号，这不影响<code class="docutils literal notranslate"><span class="pre">length</span></code>属性的值，与没有这个逗号时效果一样。</p>
-<p>数组的空位是可以读取的，返回<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[,</span> <span class="p">,</span> <span class="p">,];</span>
-<span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// undefined</span>
-</pre></div>
-</div>
-<p>使用<code class="docutils literal notranslate"><span class="pre">delete</span></code>命令删除一个数组成员，会形成空位，并且不会影响<code class="docutils literal notranslate"><span class="pre">length</span></code>属性。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
-<span class="k">delete</span> <span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-
-<span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// undefined</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-</pre></div>
-</div>
-<p>上面代码用<code class="docutils literal notranslate"><span class="pre">delete</span></code>命令删除了数组的第二个元素，这个位置就形成了空位，但是对<code class="docutils literal notranslate"><span class="pre">length</span></code>属性没有影响。也就是说，<code class="docutils literal notranslate"><span class="pre">length</span></code>属性不过滤空位。所以，使用<code class="docutils literal notranslate"><span class="pre">length</span></code>属性进行数组遍历，一定要非常小心。</p>
-<p>数组的某个位置是空位，与某个位置是<code class="docutils literal notranslate"><span class="pre">undefined</span></code>，是不一样的。如果是空位，使用数组的<code class="docutils literal notranslate"><span class="pre">forEach</span></code>方法、<code class="docutils literal notranslate"><span class="pre">for...in</span></code>结构、以及<code class="docutils literal notranslate"><span class="pre">Object.keys</span></code>方法进行遍历，空位都会被跳过。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[,</span> <span class="p">,</span> <span class="p">,];</span>
-
-<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;. &#39;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
-<span class="p">})</span>
-<span class="c1">// 不产生任何输出</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 不产生任何输出</span>
-
-<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
-<span class="c1">// []</span>
-</pre></div>
-</div>
-<p>如果某个位置是<code class="docutils literal notranslate"><span class="pre">undefined</span></code>，遍历的时候就不会被跳过。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">];</span>
-
-<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;. &#39;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="c1">// 0. undefined</span>
-<span class="c1">// 1. undefined</span>
-<span class="c1">// 2. undefined</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 0</span>
-<span class="c1">// 1</span>
-<span class="c1">// 2</span>
-
-<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
-<span class="c1">// [&#39;0&#39;, &#39;1&#39;, &#39;2&#39;]</span>
-</pre></div>
-</div>
-<p>这就是说，空位就是数组没有这个元素，所以不会被遍历到，而<code class="docutils literal notranslate"><span class="pre">undefined</span></code>则表示数组有这个元素，值是<code class="docutils literal notranslate"><span class="pre">undefined</span></code>，所以遍历不会跳过。</p>
-</div>
-<div class="section" id="">
-<span id="id5"></span><h2>类似数组的对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<p>如果一个对象的所有键名都是正整数或零，并且有<code class="docutils literal notranslate"><span class="pre">length</span></code>属性，那么这个对象就很像数组，语法上称为“类似数组的对象”（array-like object）。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="mi">0</span><span class="o">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span>
-  <span class="mi">1</span><span class="o">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span>
-  <span class="mi">2</span><span class="o">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
-  <span class="nx">length</span><span class="o">:</span> <span class="mi">3</span>
-<span class="p">};</span>
-
-<span class="nx">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// &#39;a&#39;</span>
-<span class="nx">obj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// &#39;b&#39;</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span> <span class="c1">// TypeError: obj.push is not a function</span>
-</pre></div>
-</div>
-<p>上面代码中，对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>就是一个类似数组的对象。但是，“类似数组的对象”并不是数组，因为它们不具备数组特有的方法。对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>没有数组的<code class="docutils literal notranslate"><span class="pre">push</span></code>方法，使用该方法就会报错。</p>
-<p>“类似数组的对象”的根本特征，就是具有<code class="docutils literal notranslate"><span class="pre">length</span></code>属性。只要有<code class="docutils literal notranslate"><span class="pre">length</span></code>属性，就可以认为这个对象类似于数组。但是有一个问题，这种<code class="docutils literal notranslate"><span class="pre">length</span></code>属性不是动态值，不会随着成员的变化而变化。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">length</span><span class="o">:</span> <span class="mi">0</span>
-<span class="p">};</span>
-<span class="nx">obj</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span><span class="p">;</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 0</span>
-</pre></div>
-</div>
-<p>上面代码为对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>添加了一个数字键，但是<code class="docutils literal notranslate"><span class="pre">length</span></code>属性没变。这就说明了<code class="docutils literal notranslate"><span class="pre">obj</span></code>不是数组。</p>
-<p>典型的“类似数组的对象”是函数的<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象，以及大多数 DOM 元素集，还有字符串。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// arguments对象</span>
-<span class="kd">function</span> <span class="nx">args</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">arguments</span> <span class="p">}</span>
-<span class="kd">var</span> <span class="nx">arrayLike</span> <span class="o">=</span> <span class="nx">args</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">);</span>
-
-<span class="nx">arrayLike</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// &#39;a&#39;</span>
-<span class="nx">arrayLike</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 2</span>
-<span class="nx">arrayLike</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="c1">// false</span>
-
-<span class="c1">// DOM元素集</span>
-<span class="kd">var</span> <span class="nx">elts</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">);</span>
-<span class="nx">elts</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-<span class="nx">elts</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="c1">// false</span>
-
-<span class="c1">// 字符串</span>
-<span class="s1">&#39;abc&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// &#39;b&#39;</span>
-<span class="s1">&#39;abc&#39;</span><span class="p">.</span><span class="nx">length</span> <span class="c1">// 3</span>
-<span class="s1">&#39;abc&#39;</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="c1">// false</span>
-</pre></div>
-</div>
-<p>上面代码包含三个例子，它们都不是数组（<code class="docutils literal notranslate"><span class="pre">instanceof</span></code>运算符返回<code class="docutils literal notranslate"><span class="pre">false</span></code>），但是看上去都非常像数组。</p>
-<p>数组的<code class="docutils literal notranslate"><span class="pre">slice</span></code>方法可以将“类似数组的对象”变成真正的数组。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>除了转为真正的数组，“类似数组的对象”还有一个办法可以使用数组的方法，就是通过<code class="docutils literal notranslate"><span class="pre">call()</span></code>把数组的方法放到对象上面。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="s1">&#39; : &#39;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">,</span> <span class="nx">print</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">arrayLike</span></code>代表一个类似数组的对象，本来是不可以使用数组的<code class="docutils literal notranslate"><span class="pre">forEach()</span></code>方法的，但是通过<code class="docutils literal notranslate"><span class="pre">call()</span></code>，可以把<code class="docutils literal notranslate"><span class="pre">forEach()</span></code>嫁接到<code class="docutils literal notranslate"><span class="pre">arrayLike</span></code>上面调用。</p>
-<p>下面的例子就是通过这种方法，在<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象上面调用<code class="docutils literal notranslate"><span class="pre">forEach</span></code>方法。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// forEach 方法</span>
-<span class="kd">function</span> <span class="nx">logArgs</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;. &#39;</span> <span class="o">+</span> <span class="nx">elem</span><span class="p">);</span>
-  <span class="p">});</span>
-<span class="p">}</span>
-
-<span class="c1">// 等同于 for 循环</span>
-<span class="kd">function</span> <span class="nx">logArgs</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;. &#39;</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>字符串也是类似数组的对象，所以也可以用<code class="docutils literal notranslate"><span class="pre">Array.prototype.forEach.call</span></code>遍历。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chr</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="c1">// a</span>
-<span class="c1">// b</span>
-<span class="c1">// c</span>
-</pre></div>
-</div>
-<p>注意，这种方法比直接使用数组原生的<code class="docutils literal notranslate"><span class="pre">forEach</span></code>要慢，所以最好还是先将“类似数组的对象”转为真正的数组，然后再直接调用数组的<code class="docutils literal notranslate"><span class="pre">forEach</span></code>方法。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">);</span>
-<span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">chr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chr</span><span class="p">);</span>
-<span class="p">});</span>
-<span class="c1">// a</span>
-<span class="c1">// b</span>
-<span class="c1">// c</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="">
-<span id="id6"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2012/12/arrays.html">Arrays in JavaScript</a></li>
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2012/06/dense-arrays.html">JavaScript: sparse arrays vs. dense arrays</a></li>
-<li>Felix Bohm, <a class="reference external" href="http://net.tutsplus.com/tutorials/javascript-ajax/what-they-didnt-tell-you-about-es5s-array-extras/">What They Didn’t Tell You About ES5′s Array Extras</a></li>
-<li>Juriy Zaytsev, <a class="reference external" href="http://perfectionkills.com/how-ecmascript-5-still-does-not-allow-to-subclass-an-array/">How ECMAScript 5 still does not allow to subclass an array</a></li>
-</ul>
 </div>
 </div>
 

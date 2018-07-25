@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="运算符" href="operator.html" />
+    <link rel="next" title="数据类型" href="types.html" />
     <link rel="prev" title="数组" href="array.html" /> 
 
   
@@ -86,7 +86,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">基本语法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic.html">基本语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number.html">数值</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
 <li class="toctree-l2"><a class="reference internal" href="object.html">对象</a></li>
@@ -117,30 +116,22 @@
 <li class="toctree-l4"><a class="reference internal" href="#">概述</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#">参数的省略</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#">传递方式</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#">同名参数</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#arguments">arguments 对象</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#">函数的其他知识点</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#">闭包</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#iife">立即调用的函数表达式（IIFE）</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#eval">eval 命令</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="style.html">编程风格</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -468,22 +459,6 @@
 <span class="c1">// */}&quot;</span>
 </pre></div>
 </div>
-<p>利用这一点，可以变相实现多行字符串。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">multiline</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
-  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span><span class="cm">/*</span>
-<span class="cm">  这是一个</span>
-<span class="cm">  多行注释</span>
-<span class="cm">*/</span><span class="p">}</span>
-
-<span class="nx">multiline</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
-<span class="c1">// &quot; 这是一个</span>
-<span class="c1">//   多行注释&quot;</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="">
@@ -683,111 +658,11 @@
 </div>
 <p>上面代码中，在函数<code class="docutils literal notranslate"><span class="pre">f</span></code>内部，参数对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>被整个替换成另一个值。这时不会影响到原始值。这是因为，形式参数（<code class="docutils literal notranslate"><span class="pre">o</span></code>）的值实际是参数<code class="docutils literal notranslate"><span class="pre">obj</span></code>的地址，重新对<code class="docutils literal notranslate"><span class="pre">o</span></code>赋值导致<code class="docutils literal notranslate"><span class="pre">o</span></code>指向另一个地址，保存在原地址上的值当然不受影响。</p>
 </div>
-<div class="section" id="">
-<span id="id17"></span><h3>同名参数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
-<p>如果有同名的参数，则取最后出现的那个值。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// 2</span>
-</pre></div>
-</div>
-<p>上面代码中，函数<code class="docutils literal notranslate"><span class="pre">f</span></code>有两个参数，且参数名都是<code class="docutils literal notranslate"><span class="pre">a</span></code>。取值的时候，以后面的<code class="docutils literal notranslate"><span class="pre">a</span></code>为准，即使后面的<code class="docutils literal notranslate"><span class="pre">a</span></code>没有值或被省略，也是以其为准。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// undefined</span>
-</pre></div>
-</div>
-<p>调用函数<code class="docutils literal notranslate"><span class="pre">f</span></code>的时候，没有提供第二个参数，<code class="docutils literal notranslate"><span class="pre">a</span></code>的取值就变成了<code class="docutils literal notranslate"><span class="pre">undefined</span></code>。这时，如果要获得第一个<code class="docutils literal notranslate"><span class="pre">a</span></code>的值，可以使用<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 1</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="arguments">
-<span id="arguments"></span><h3>arguments 对象<a class="headerlink" href="#arguments" title="永久链接至标题">¶</a></h3>
-<p><strong>（1）定义</strong></p>
-<p>由于 JavaScript 允许函数有不定数目的参数，所以需要一种机制，可以在函数体内部读取所有参数。这就是<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象的由来。</p>
-<p><code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象包含了函数运行时的所有参数，<code class="docutils literal notranslate"><span class="pre">arguments[0]</span></code>就是第一个参数，<code class="docutils literal notranslate"><span class="pre">arguments[1]</span></code>就是第二个参数，以此类推。这个对象只有在函数体内部，才可以使用。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">one</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="c1">// 1</span>
-<span class="c1">// 2</span>
-<span class="c1">// 3</span>
-</pre></div>
-</div>
-<p>正常模式下，<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象可以在运行时修改。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// 5</span>
-</pre></div>
-</div>
-<p>上面代码中，函数<code class="docutils literal notranslate"><span class="pre">f</span></code>调用时传入的参数，在函数内部被修改成<code class="docutils literal notranslate"><span class="pre">3</span></code>和<code class="docutils literal notranslate"><span class="pre">2</span></code>。</p>
-<p>严格模式下，<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象是一个只读对象，修改它是无效的，但不会报错。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span> <span class="c1">// 开启严格模式</span>
-  <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 无效</span>
-  <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 无效</span>
-  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// 2</span>
-</pre></div>
-</div>
-<p>上面代码中，函数体内是严格模式，这时修改<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象就是无效的。</p>
-<p>通过<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象的<code class="docutils literal notranslate"><span class="pre">length</span></code>属性，可以判断函数调用时到底带几个参数。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// 3</span>
-<span class="nx">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// 1</span>
-<span class="nx">f</span><span class="p">()</span> <span class="c1">// 0</span>
-</pre></div>
-</div>
-<p><strong>（2）与数组的关系</strong></p>
-<p>需要注意的是，虽然<code class="docutils literal notranslate"><span class="pre">arguments</span></code>很像数组，但它是一个对象。数组专有的方法（比如<code class="docutils literal notranslate"><span class="pre">slice</span></code>和<code class="docutils literal notranslate"><span class="pre">forEach</span></code>），不能在<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象上直接使用。</p>
-<p>如果要让<code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象使用数组方法，真正的解决方法是将<code class="docutils literal notranslate"><span class="pre">arguments</span></code>转为真正的数组。下面是两种常用的转换方法：<code class="docutils literal notranslate"><span class="pre">slice</span></code>方法和逐一填入新数组。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
-
-<span class="c1">// 或者</span>
-<span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>（3）callee 属性</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">arguments</span></code>对象带有一个<code class="docutils literal notranslate"><span class="pre">callee</span></code>属性，返回它所对应的原函数。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span> <span class="o">===</span> <span class="nx">f</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">()</span> <span class="c1">// true</span>
-</pre></div>
-</div>
-<p>可以通过<code class="docutils literal notranslate"><span class="pre">arguments.callee</span></code>，达到调用函数自身的目的。这个属性在严格模式里面是禁用的，因此不建议使用。</p>
-</div>
 </div>
 <div class="section" id="">
-<span id="id18"></span><h2>函数的其他知识点<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id17"></span><h2>函数的其他知识点<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="">
-<span id="id19"></span><h3>闭包<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id18"></span><h3>闭包<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <p>闭包（closure）是 Javascript 语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。</p>
 <p>理解闭包，首先必须理解变量作用域。前面提到，JavaScript 有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">999</span><span class="p">;</span>
@@ -875,156 +750,6 @@
 <p>上面代码中，函数<code class="docutils literal notranslate"><span class="pre">Person</span></code>的内部变量<code class="docutils literal notranslate"><span class="pre">_age</span></code>，通过闭包<code class="docutils literal notranslate"><span class="pre">getAge</span></code>和<code class="docutils literal notranslate"><span class="pre">setAge</span></code>，变成了返回对象<code class="docutils literal notranslate"><span class="pre">p1</span></code>的私有变量。</p>
 <p>注意，外层函数每次运行，都会生成一个新的闭包，而这个闭包又会保留外层函数的内部变量，所以内存消耗很大。因此不能滥用闭包，否则会造成网页的性能问题。</p>
 </div>
-<div class="section" id="iife">
-<span id="iife"></span><h3>立即调用的函数表达式（IIFE）<a class="headerlink" href="#iife" title="永久链接至标题">¶</a></h3>
-<p>在 Javascript 中，圆括号<code class="docutils literal notranslate"><span class="pre">()</span></code>是一种运算符，跟在函数名之后，表示调用该函数。比如，<code class="docutils literal notranslate"><span class="pre">print()</span></code>就表示调用<code class="docutils literal notranslate"><span class="pre">print</span></code>函数。</p>
-<p>有时，我们需要在定义函数之后，立即调用该函数。这时，你不能在函数的定义之后加上圆括号，这会产生语法错误。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-<span class="c1">// SyntaxError: Unexpected token (</span>
-</pre></div>
-</div>
-<p>产生这个错误的原因是，<code class="docutils literal notranslate"><span class="pre">function</span></code>这个关键字即可以当作语句，也可以当作表达式。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 语句</span>
-<span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{}</span>
-
-<span class="c1">// 表达式</span>
-<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{}</span>
-</pre></div>
-</div>
-<p>为了避免解析上的歧义，JavaScript 引擎规定，如果<code class="docutils literal notranslate"><span class="pre">function</span></code>关键字出现在行首，一律解释成语句。因此，JavaScript引擎看到行首是<code class="docutils literal notranslate"><span class="pre">function</span></code>关键字之后，认为这一段都是函数的定义，不应该以圆括号结尾，所以就报错了。</p>
-<p>解决方法就是不要让<code class="docutils literal notranslate"><span class="pre">function</span></code>出现在行首，让引擎将其理解成一个表达式。最简单的处理，就是将其放在一个圆括号里面。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">}());</span>
-<span class="c1">// 或者</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">})();</span>
-</pre></div>
-</div>
-<p>上面两种写法都是以圆括号开头，引擎就会认为后面跟的是一个表示式，而不是函数定义语句，所以就避免了错误。这就叫做“立即调用的函数表达式”（Immediately-Invoked Function Expression），简称 IIFE。</p>
-<p>注意，上面两种写法最后的分号都是必须的。如果省略分号，遇到连着两个 IIFE，可能就会报错。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 报错</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">}())</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">}())</span>
-</pre></div>
-</div>
-<p>上面代码的两行之间没有分号，JavaScript 会将它们连在一起解释，将第二行解释为第一行的参数。</p>
-<p>推而广之，任何让解释器以表达式来处理函数定义的方法，都能产生同样的效果，比如下面三种写法。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span> <span class="k">return</span> <span class="mi">10</span><span class="p">;</span> <span class="p">}();</span>
-<span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-<span class="mi">0</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-</pre></div>
-</div>
-<p>甚至像下面这样写，也是可以的。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-<span class="o">~</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-<span class="o">-</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-<span class="o">+</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* code */</span> <span class="p">}();</span>
-</pre></div>
-</div>
-<p>通常情况下，只对匿名函数使用这种“立即执行的函数表达式”。它的目的有两个：一是不必为函数命名，避免了污染全局变量；二是 IIFE 内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 写法一</span>
-<span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">newData</span><span class="p">;</span>
-<span class="nx">processData</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
-<span class="nx">storeData</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
-
-<span class="c1">// 写法二</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">newData</span><span class="p">;</span>
-  <span class="nx">processData</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
-  <span class="nx">storeData</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
-<span class="p">}());</span>
-</pre></div>
-</div>
-<p>上面代码中，写法二比写法一更好，因为完全避免了污染全局变量。</p>
-</div>
-</div>
-<div class="section" id="eval">
-<span id="eval"></span><h2>eval 命令<a class="headerlink" href="#eval" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">eval</span></code>命令的作用是，将字符串当作语句执行。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;var a = 1;&#39;</span><span class="p">);</span>
-<span class="nx">a</span> <span class="c1">// 1</span>
-</pre></div>
-</div>
-<p>上面代码将字符串当作语句运行，生成了变量<code class="docutils literal notranslate"><span class="pre">a</span></code>。</p>
-<p>放在<code class="docutils literal notranslate"><span class="pre">eval</span></code>中的字符串，应该有独自存在的意义，不能用来与<code class="docutils literal notranslate"><span class="pre">eval</span></code>以外的命令配合使用。举例来说，下面的代码将会报错。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;return;&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">eval</span></code>没有自己的作用域，都在当前作用域内执行，因此可能会修改当前作用域的变量的值，造成安全问题。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;a = 2&#39;</span><span class="p">);</span>
-
-<span class="nx">a</span> <span class="c1">// 2</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">eval</span></code>命令修改了外部变量<code class="docutils literal notranslate"><span class="pre">a</span></code>的值。由于这个原因，<code class="docutils literal notranslate"><span class="pre">eval</span></code>有安全风险。</p>
-<p>为了防止这种风险，JavaScript 规定，如果使用严格模式，<code class="docutils literal notranslate"><span class="pre">eval</span></code>内部声明的变量，不会影响到外部作用域。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-  <span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;var foo = 123&#39;</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>  <span class="c1">// ReferenceError: foo is not defined</span>
-<span class="p">})()</span>
-</pre></div>
-</div>
-<p>上面代码中，函数<code class="docutils literal notranslate"><span class="pre">f</span></code>内部是严格模式，这时<code class="docutils literal notranslate"><span class="pre">eval</span></code>内部声明的<code class="docutils literal notranslate"><span class="pre">foo</span></code>变量，就不会影响到外部。</p>
-<p>不过，即使在严格模式下，<code class="docutils literal notranslate"><span class="pre">eval</span></code>依然可以读写当前作用域的变量。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;foo = 2&#39;</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>  <span class="c1">// 2</span>
-<span class="p">})()</span>
-</pre></div>
-</div>
-<p>上面代码中，严格模式下，<code class="docutils literal notranslate"><span class="pre">eval</span></code>内部还是改写了外部变量，可见安全风险依然存在。</p>
-<p>此外，<code class="docutils literal notranslate"><span class="pre">eval</span></code>的命令字符串不会得到 JavaScript 引擎的优化，运行速度较慢。这也是一个不应该使用它的理由。</p>
-<p>通常情况下，<code class="docutils literal notranslate"><span class="pre">eval</span></code>最常见的场合是解析 JSON 数据字符串，不过正确的做法应该是使用浏览器提供的<code class="docutils literal notranslate"><span class="pre">JSON.parse</span></code>方法。</p>
-<p>JavaScript 引擎内部，<code class="docutils literal notranslate"><span class="pre">eval</span></code>实际上是一个引用，默认调用一个内部方法。这使得<code class="docutils literal notranslate"><span class="pre">eval</span></code>的使用分成两种情况，一种是像上面这样的调用<code class="docutils literal notranslate"><span class="pre">eval(expression)</span></code>，这叫做“直接使用”，这种情况下<code class="docutils literal notranslate"><span class="pre">eval</span></code>的作用域就是当前作用域。除此之外的调用方法，都叫“间接调用”，此时<code class="docutils literal notranslate"><span class="pre">eval</span></code>的作用域总是全局作用域。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">;</span>
-  <span class="nx">e</span><span class="p">(</span><span class="s1">&#39;console.log(a)&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">f</span><span class="p">()</span> <span class="c1">// 1</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">eval</span></code>是间接调用，所以即使它是在函数中，它的作用域还是全局作用域，因此输出的<code class="docutils literal notranslate"><span class="pre">a</span></code>为全局变量。</p>
-<p><code class="docutils literal notranslate"><span class="pre">eval</span></code>的间接调用的形式五花八门，只要不是直接调用，都属于间接调用。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
-<span class="nb">window</span><span class="p">.</span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">eval</span><span class="p">)(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
-<span class="p">(</span><span class="nb">eval</span><span class="p">,</span> <span class="nb">eval</span><span class="p">)(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>上面这些形式都是<code class="docutils literal notranslate"><span class="pre">eval</span></code>的间接调用，因此它们的作用域都是全局作用域。</p>
-<p>与<code class="docutils literal notranslate"><span class="pre">eval</span></code>作用类似的还有<code class="docutils literal notranslate"><span class="pre">Function</span></code>构造函数。利用它生成一个函数，然后调用该函数，也能将字符串当作命令执行。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">jsonp</span> <span class="o">=</span> <span class="s1">&#39;foo({&quot;id&quot;: 42})&#39;</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nx">jsonp</span> <span class="p">);</span>
-<span class="c1">// 相当于定义了如下函数</span>
-<span class="c1">// function f(foo) {</span>
-<span class="c1">//   foo({&quot;id&quot;:42});</span>
-<span class="c1">// }</span>
-
-<span class="nx">f</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">json</span><span class="p">.</span><span class="nx">id</span> <span class="p">);</span> <span class="c1">// 42</span>
-<span class="p">})</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">jsonp</span></code>是一个字符串，<code class="docutils literal notranslate"><span class="pre">Function</span></code>构造函数将这个字符串，变成了函数体。调用该函数的时候，<code class="docutils literal notranslate"><span class="pre">jsonp</span></code>就会执行。这种写法的实质是将代码放到函数作用域执行，避免对全局作用域造成影响。</p>
-<p>不过，<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Function()</span></code>的写法也可以读写全局作用域，所以也是应该避免使用它。</p>
-</div>
-<div class="section" id="">
-<span id="id20"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Ben Alman, <a class="reference external" href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">Immediately-Invoked Function Expression (IIFE)</a></li>
-<li>Mark Daggett, <a class="reference external" href="http://markdaggett.com/blog/2013/02/15/functions-explained/">Functions Explained</a></li>
-<li>Juriy Zaytsev, <a class="reference external" href="http://kangax.github.com/nfe/">Named function expressions demystified</a></li>
-<li>Marco Rogers polotek, <a class="reference external" href="http://docs.nodejitsu.com/articles/javascript-conventions/what-is-the-arguments-object">What is the arguments object?</a></li>
-<li>Juriy Zaytsev, <a class="reference external" href="http://perfectionkills.com/global-eval-what-are-the-options/">Global eval. What are the options?</a></li>
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2014/01/eval.html">Evaluating JavaScript code via eval() and new Function()</a></li>
-</ul>
 </div>
 </div>
 
@@ -1036,7 +761,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="operator.html" class="btn btn-neutral float-right" title="运算符" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="types.html" class="btn btn-neutral float-right" title="数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="array.html" class="btn btn-neutral" title="数组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

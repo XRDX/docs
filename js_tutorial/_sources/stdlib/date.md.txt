@@ -465,7 +465,3 @@ d // Sun Jan 06 2013 06:00:00 GMT+0800 (CST)
 
 上面代码中，本地时区（东八时区）的1月6日0点0分，是 UTC 时区的前一天下午16点。设为 UTC 时区的22点以后，就变为本地时区的上午6点。
 
-## 参考链接
-
-- Rakhitha Nimesh，[Getting Started with the Date Object](http://jspro.com/raw-javascript/beginners-guide-to-javascript-date-and-time/)
-- Ilya Kantor, [Date/Time functions](http://javascript.info/tutorial/datetime-functions)

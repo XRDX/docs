@@ -85,6 +85,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">stdlib 标准库</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="object.html">Object对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array.html">Array 对象</a></li>
@@ -92,10 +94,6 @@
 <li class="toctree-l2"><a class="reference internal" href="number.html">Number对象</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">String对象</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">静态方法</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#string-fromcharcode">String.fromCharCode()</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#">实例属性</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#string-prototype-length">String.prototype.length</a></li>
 </ul>
@@ -113,24 +111,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#string-prototype-match">String.prototype.match()</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#string-prototype-search-string-prototype-replace">String.prototype.search()，String.prototype.replace()</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#string-prototype-split">String.prototype.split()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#string-prototype-localecompare">String.prototype.localeCompare()</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">Math对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="date.html">Date对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regexp.html">RegExp对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html">JSON对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="console.html">console对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html">属性描述对象</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -221,35 +211,7 @@
 <p>上面代码将布尔值<code class="docutils literal notranslate"><span class="pre">ture</span></code>和数值<code class="docutils literal notranslate"><span class="pre">5</span></code>，分别转换为字符串。</p>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h2>静态方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<div class="section" id="string-fromcharcode">
-<span id="string-fromcharcode"></span><h3>String.fromCharCode()<a class="headerlink" href="#string-fromcharcode" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">String</span></code>对象提供的静态方法（即定义在对象本身，而不是定义在对象实例的方法），主要是<code class="docutils literal notranslate"><span class="pre">String.fromCharCode()</span></code>。该方法的参数是一个或多个数值，代表 Unicode 码点，返回值是这些码点组成的字符串。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">()</span> <span class="c1">// &quot;&quot;</span>
-<span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span> <span class="c1">// &quot;a&quot;</span>
-<span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">111</span><span class="p">)</span>
-<span class="c1">// &quot;hello&quot;</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">String.fromCharCode</span></code>方法的参数为空，就返回空字符串；否则，返回参数对应的 Unicode 字符串。</p>
-<p>注意，该方法不支持 Unicode 码点大于<code class="docutils literal notranslate"><span class="pre">0xFFFF</span></code>的字符，即传入的参数不能大于<code class="docutils literal notranslate"><span class="pre">0xFFFF</span></code>（即十进制的 65535）。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mh">0x20BB7</span><span class="p">)</span>
-<span class="c1">// &quot;ஷ&quot;</span>
-<span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mh">0x20BB7</span><span class="p">)</span> <span class="o">===</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mh">0x0BB7</span><span class="p">)</span>
-<span class="c1">// true</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">String.fromCharCode</span></code>参数<code class="docutils literal notranslate"><span class="pre">0x20BB7</span></code>大于<code class="docutils literal notranslate"><span class="pre">0xFFFF</span></code>，导致返回结果出错。<code class="docutils literal notranslate"><span class="pre">0x20BB7</span></code>对应的字符是汉字<code class="docutils literal notranslate"><span class="pre">𠮷</span></code>，但是返回结果却是另一个字符（码点<code class="docutils literal notranslate"><span class="pre">0x0BB7</span></code>）。这是因为<code class="docutils literal notranslate"><span class="pre">String.fromCharCode</span></code>发现参数值大于<code class="docutils literal notranslate"><span class="pre">0xFFFF</span></code>，就会忽略多出的位（即忽略<code class="docutils literal notranslate"><span class="pre">0x20BB7</span></code>里面的<code class="docutils literal notranslate"><span class="pre">2</span></code>）。</p>
-<p>这种现象的根本原因在于，码点大于<code class="docutils literal notranslate"><span class="pre">0xFFFF</span></code>的字符占用四个字节，而 JavaScript 默认支持两个字节的字符。这种情况下，必须把<code class="docutils literal notranslate"><span class="pre">0x20BB7</span></code>拆成两个字符表示。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mh">0xD842</span><span class="p">,</span> <span class="mh">0xDFB7</span><span class="p">)</span>
-<span class="c1">// &quot;𠮷&quot;</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">0x20BB7</span></code>拆成两个字符<code class="docutils literal notranslate"><span class="pre">0xD842</span></code>和<code class="docutils literal notranslate"><span class="pre">0xDFB7</span></code>（即两个两字节字符，合成一个四字节字符），就能得到正确的结果。码点大于<code class="docutils literal notranslate"><span class="pre">0xFFFF</span></code>的字符的四字节表示法，由 UTF-16 编码方法决定。</p>
-</div>
-</div>
-<div class="section" id="">
-<span id="id3"></span><h2>实例属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id2"></span><h2>实例属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="string-prototype-length">
 <span id="string-prototype-length"></span><h3>String.prototype.length<a class="headerlink" href="#string-prototype-length" title="永久链接至标题">¶</a></h3>
 <p>字符串实例的<code class="docutils literal notranslate"><span class="pre">length</span></code>属性返回字符串的长度。</p>
@@ -259,7 +221,7 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id3"></span><h2>实例方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="string-prototype-charat">
 <span id="string-prototype-charat"></span><h3>String.prototype.charAt()<a class="headerlink" href="#string-prototype-charat" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">charAt</span></code>方法返回指定位置的字符，参数是从<code class="docutils literal notranslate"><span class="pre">0</span></code>开始编号的位置。</p>
@@ -492,36 +454,6 @@
 <p>上面代码中，<code class="docutils literal notranslate"><span class="pre">split</span></code>方法的第二个参数，决定了返回数组的成员数。</p>
 <p><code class="docutils literal notranslate"><span class="pre">split</span></code>方法还可以使用正则表达式作为参数，详见《正则表达式》一节。</p>
 </div>
-<div class="section" id="string-prototype-localecompare">
-<span id="string-prototype-localecompare"></span><h3>String.prototype.localeCompare()<a class="headerlink" href="#string-prototype-localecompare" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">localeCompare</span></code>方法用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;apple&#39;</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span> <span class="c1">// -1</span>
-<span class="s1">&#39;apple&#39;</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span> <span class="c1">// 0</span>
-</pre></div>
-</div>
-<p>该方法的最大特点，就是会考虑自然语言的顺序。举例来说，正常情况下，大写的英文字母小于小写字母。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;B&#39;</span> <span class="o">&gt;</span> <span class="s1">&#39;a&#39;</span> <span class="c1">// false</span>
-</pre></div>
-</div>
-<p>上面代码中，字母<code class="docutils literal notranslate"><span class="pre">B</span></code>小于字母<code class="docutils literal notranslate"><span class="pre">a</span></code>。因为 JavaScript 采用的是 Unicode 码点比较，<code class="docutils literal notranslate"><span class="pre">B</span></code>的码点是66，而<code class="docutils literal notranslate"><span class="pre">a</span></code>的码点是97。</p>
-<p>但是，<code class="docutils literal notranslate"><span class="pre">localeCompare</span></code>方法会考虑自然语言的排序情况，将<code class="docutils literal notranslate"><span class="pre">B</span></code>排在<code class="docutils literal notranslate"><span class="pre">a</span></code>的前面。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;B&#39;</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1">// 1</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">localeCompare</span></code>方法返回整数1，表示<code class="docutils literal notranslate"><span class="pre">B</span></code>较大。</p>
-<p><code class="docutils literal notranslate"><span class="pre">localeCompare</span></code>还可以有第二个参数，指定所使用的语言（默认是英语），然后根据该语言的规则进行比较。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;ä&#39;</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">)</span> <span class="c1">// -1</span>
-<span class="s1">&#39;ä&#39;</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;sv&#39;</span><span class="p">)</span> <span class="c1">// 1</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">de</span></code>表示德语，<code class="docutils literal notranslate"><span class="pre">sv</span></code>表示瑞典语。德语中，<code class="docutils literal notranslate"><span class="pre">ä</span></code>小于<code class="docutils literal notranslate"><span class="pre">z</span></code>，所以返回<code class="docutils literal notranslate"><span class="pre">-1</span></code>；瑞典语中，<code class="docutils literal notranslate"><span class="pre">ä</span></code>大于<code class="docutils literal notranslate"><span class="pre">z</span></code>，所以返回<code class="docutils literal notranslate"><span class="pre">1</span></code>。</p>
-</div>
-</div>
-<div class="section" id="">
-<span id="id5"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Ariya Hidayat, <a class="reference external" href="http://ariya.ofilabs.com/2014/02/javascript-string-substring-substr-slice.html">JavaScript String: substring, substr, slice</a></li>
-</ul>
 </div>
 </div>
 

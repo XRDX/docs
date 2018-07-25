@@ -11,8 +11,7 @@ JavaScript 教程
 
    introduction/index
    grammar/index
-   stdlib/index
-   oop/index
    advanced/index
    dom/index
-   bom/index
+   stdlib/index
+

@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="字符串" href="string.html" />
-    <link rel="prev" title="数据类型" href="types.html" /> 
+    <link rel="prev" title="基本语法" href="basic.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,7 +86,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">基本语法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic.html">基本语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">数值</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">概述</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#">整数和浮点数</a></li>
@@ -109,24 +108,20 @@
 <li class="toctree-l4"><a class="reference internal" href="#isfinite">isFinite()</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
 <li class="toctree-l2"><a class="reference internal" href="object.html">对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array.html">数组</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="style.html">编程风格</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -420,67 +415,6 @@
 <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span> <span class="c1">// Infinity</span>
 </pre></div>
 </div>
-<p>上面代码中，第一个场景是一个表达式的计算结果太大，超出了能够表示的范围，因此返回<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>。第二个场景是<code class="docutils literal notranslate"><span class="pre">0</span></code>除以<code class="docutils literal notranslate"><span class="pre">0</span></code>会得到<code class="docutils literal notranslate"><span class="pre">NaN</span></code>，而非0数值除以<code class="docutils literal notranslate"><span class="pre">0</span></code>，会返回<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>有正负之分，<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>表示正的无穷，<code class="docutils literal notranslate"><span class="pre">-Infinity</span></code>表示负的无穷。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">Infinity</span> <span class="o">===</span> <span class="o">-</span><span class="kc">Infinity</span> <span class="c1">// false</span>
-
-<span class="mi">1</span> <span class="o">/</span> <span class="o">-</span><span class="mi">0</span> <span class="c1">// -Infinity</span>
-<span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="o">-</span><span class="mi">0</span> <span class="c1">// Infinity</span>
-</pre></div>
-</div>
-<p>上面代码中，非零正数除以<code class="docutils literal notranslate"><span class="pre">-0</span></code>，会得到<code class="docutils literal notranslate"><span class="pre">-Infinity</span></code>，负数除以<code class="docutils literal notranslate"><span class="pre">-0</span></code>，会得到<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>。</p>
-<p>由于数值正向溢出（overflow）、负向溢出（underflow）和被<code class="docutils literal notranslate"><span class="pre">0</span></code>除，JavaScript 都不报错，而是返回<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>，所以单纯的数学运算几乎没有可能抛出错误。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>大于一切数值（除了<code class="docutils literal notranslate"><span class="pre">NaN</span></code>），<code class="docutils literal notranslate"><span class="pre">-Infinity</span></code>小于一切数值（除了<code class="docutils literal notranslate"><span class="pre">NaN</span></code>）。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">Infinity</span> <span class="o">&gt;</span> <span class="mi">1000</span> <span class="c1">// true</span>
-<span class="o">-</span><span class="kc">Infinity</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1000</span> <span class="c1">// true</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>与<code class="docutils literal notranslate"><span class="pre">NaN</span></code>比较，总是返回<code class="docutils literal notranslate"><span class="pre">false</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">Infinity</span> <span class="o">&gt;</span> <span class="kc">NaN</span> <span class="c1">// false</span>
-<span class="o">-</span><span class="kc">Infinity</span> <span class="o">&gt;</span> <span class="kc">NaN</span> <span class="c1">// false</span>
-
-<span class="kc">Infinity</span> <span class="o">&lt;</span> <span class="kc">NaN</span> <span class="c1">// false</span>
-<span class="o">-</span><span class="kc">Infinity</span> <span class="o">&lt;</span> <span class="kc">NaN</span> <span class="c1">// false</span>
-</pre></div>
-</div>
-<p><strong>（2）运算规则</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>的四则运算，符合无穷的数学计算规则。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">*</span> <span class="kc">Infinity</span> <span class="c1">// Infinity</span>
-<span class="mi">5</span> <span class="o">-</span> <span class="kc">Infinity</span> <span class="c1">// -Infinity</span>
-<span class="kc">Infinity</span> <span class="o">/</span> <span class="mi">5</span> <span class="c1">// Infinity</span>
-<span class="mi">5</span> <span class="o">/</span> <span class="kc">Infinity</span> <span class="c1">// 0</span>
-</pre></div>
-</div>
-<p>0乘以<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>，返回<code class="docutils literal notranslate"><span class="pre">NaN</span></code>；0除以<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>，返回<code class="docutils literal notranslate"><span class="pre">0</span></code>；<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>除以0，返回<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">*</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="mi">0</span> <span class="o">/</span> <span class="kc">Infinity</span> <span class="c1">// 0</span>
-<span class="kc">Infinity</span> <span class="o">/</span> <span class="mi">0</span> <span class="c1">// Infinity</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>加上或乘以<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>，返回的还是<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">Infinity</span> <span class="o">+</span> <span class="kc">Infinity</span> <span class="c1">// Infinity</span>
-<span class="kc">Infinity</span> <span class="o">*</span> <span class="kc">Infinity</span> <span class="c1">// Infinity</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>减去或除以<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>，得到<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">Infinity</span> <span class="o">-</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="kc">Infinity</span> <span class="o">/</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>与<code class="docutils literal notranslate"><span class="pre">null</span></code>计算时，<code class="docutils literal notranslate"><span class="pre">null</span></code>会转成0，等同于与<code class="docutils literal notranslate"><span class="pre">0</span></code>的计算。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">null</span> <span class="o">*</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="kc">null</span> <span class="o">/</span> <span class="kc">Infinity</span> <span class="c1">// 0</span>
-<span class="kc">Infinity</span> <span class="o">/</span> <span class="kc">null</span> <span class="c1">// Infinity</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Infinity</span></code>与<code class="docutils literal notranslate"><span class="pre">undefined</span></code>计算，返回的都是<code class="docutils literal notranslate"><span class="pre">NaN</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kc">undefined</span> <span class="o">+</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="kc">undefined</span> <span class="o">-</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="kc">undefined</span> <span class="o">*</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="kc">undefined</span> <span class="o">/</span> <span class="kc">Infinity</span> <span class="c1">// NaN</span>
-<span class="kc">Infinity</span> <span class="o">/</span> <span class="kc">undefined</span> <span class="c1">// NaN</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="">
@@ -691,13 +625,6 @@
 <p>除了<code class="docutils literal notranslate"><span class="pre">Infinity</span></code>、<code class="docutils literal notranslate"><span class="pre">-Infinity</span></code>、<code class="docutils literal notranslate"><span class="pre">NaN</span></code>和<code class="docutils literal notranslate"><span class="pre">undefined</span></code>这几个值会返回<code class="docutils literal notranslate"><span class="pre">false</span></code>，<code class="docutils literal notranslate"><span class="pre">isFinite</span></code>对于其他的数值都会返回<code class="docutils literal notranslate"><span class="pre">true</span></code>。</p>
 </div>
 </div>
-<div class="section" id="">
-<span id="id11"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Dr. Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2012/04/number-encoding.html">How numbers are encoded in JavaScript</a></li>
-<li>Humphry, <a class="reference external" href="http://blog.segmentfault.com/humphry/1190000000407658">JavaScript 中 Number 的一些表示上/下限</a></li>
-</ul>
-</div>
 </div>
 
 
@@ -711,7 +638,7 @@
         <a href="string.html" class="btn btn-neutral float-right" title="字符串" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="types.html" class="btn btn-neutral" title="数据类型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="basic.html" class="btn btn-neutral" title="基本语法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

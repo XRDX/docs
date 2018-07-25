@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="prototype 对象" href="prototype.html" />
-    <link rel="prev" title="构造函数与 new 命令" href="basic.html" /> 
+    <link rel="next" title="Class 的基本语法" href="class.html" />
+    <link rel="prev" title="定时器" href="timer.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,9 +85,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">面向对象编程</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basic.html">构造函数与 new 命令</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">进阶语法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timer.html">定时器</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">this 关键字</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">涵义</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">使用场合</a></li>
@@ -103,17 +103,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#function-prototype-bind">Function.prototype.bind()</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="prototype.html">prototype 对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="object.html">Object 对象的相关方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pattern.html">面向对象编程的模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html">Class 的基本语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html">Class 的继承</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
 </ul>
 
             
@@ -159,7 +156,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">面向对象编程</a> &raquo;</li>
+          <li><a href="index.html">进阶语法</a> &raquo;</li>
         
       <li>this 关键字</li>
     
@@ -859,14 +856,6 @@
 <p>上面代码的含义就是，将<code class="docutils literal notranslate"><span class="pre">Function.prototype.bind</span></code>方法绑定在<code class="docutils literal notranslate"><span class="pre">Function.prototype.call</span></code>上面，所以<code class="docutils literal notranslate"><span class="pre">bind</span></code>方法就可以直接使用，不需要在函数实例上使用。</p>
 </div>
 </div>
-<div class="section" id="">
-<span id="id8"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Jonathan Creamer, <a class="reference external" href="http://tech.pro/tutorial/1192/avoiding-the-this-problem-in-javascript">Avoiding the &quot;this&quot; problem in JavaScript</a></li>
-<li>Erik Kronberg, <a class="reference external" href="https://variadic.me/posts/2013-10-22-bind-call-and-apply-in-javascript.html">Bind, Call and Apply in JavaScript</a></li>
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2014/05/this.html">JavaScript’s this: how it works, where it can trip you up</a></li>
-</ul>
-</div>
 </div>
 
 
@@ -877,10 +866,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="prototype.html" class="btn btn-neutral float-right" title="prototype 对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="class.html" class="btn btn-neutral float-right" title="Class 的基本语法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="basic.html" class="btn btn-neutral" title="构造函数与 new 命令" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="timer.html" class="btn btn-neutral" title="定时器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

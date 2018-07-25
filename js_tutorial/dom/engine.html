@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="window对象" href="window.html" />
-    <link rel="prev" title="BOM 浏览器环境" href="index.html" /> 
+    <link rel="prev" title="CSS操作" href="css.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,11 +85,12 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">BOM 浏览器环境</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">浏览器环境</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">浏览器环境概述</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">代码嵌入网页的方法</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#script">script 元素嵌入代码</a></li>
@@ -119,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="webstorage.html">浏览器端数据储存机制</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
 </ul>
 
             
@@ -164,7 +166,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">BOM 浏览器环境</a> &raquo;</li>
+          <li><a href="index.html">浏览器环境</a> &raquo;</li>
         
       <li>浏览器环境概述</li>
     
@@ -269,7 +271,7 @@
 </div>
 <p>上面代码中，用户点击链接以后，会打开一个新文档，里面有当前时间。</p>
 <p>如果返回的不是字符串，那么浏览器不会新建文档，也不会跳转。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;javascript: console.log(new Date().toLocaleTimeString())&quot;&gt;点击&lt;/a&gt;
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript: console.log(new Date().toLocaleTimeString())&quot;</span><span class="p">&gt;</span>点击<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>上面代码中，用户点击链接后，网页不会跳转，只会在控制台显示当前时间。</p>
@@ -554,7 +556,7 @@
         <a href="window.html" class="btn btn-neutral float-right" title="window对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="BOM 浏览器环境" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="css.html" class="btn btn-neutral" title="CSS操作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

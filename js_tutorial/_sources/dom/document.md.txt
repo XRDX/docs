@@ -633,7 +633,7 @@ console.log(div.innerHTML)
 
 需要注意的是，该方法不对单引号和双引号转义，所以不能用来对 HTML 属性赋值。
 
-```html
+```javascript
 function escapeHtml(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));

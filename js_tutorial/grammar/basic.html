@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="数据类型" href="types.html" />
+    <link rel="next" title="数值" href="number.html" />
     <link rel="prev" title="基本语法" href="index.html" /> 
 
   
@@ -89,7 +89,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#">语句</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">变量</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#">概念</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#">变量提升</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#">标识符</a></li>
@@ -98,38 +97,30 @@
 <li class="toctree-l3"><a class="reference internal" href="#">条件语句</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#if">if 结构</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#if-else">if...else 结构</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#switch">switch结构</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#">三元运算符 ?:</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#">循环语句</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#while">while 循环</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#for">for 循环</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#do-while">do...while 循环</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#break-continue">break 语句和 continue 语句</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#label">标签（label）</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number.html">数值</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
 <li class="toctree-l2"><a class="reference internal" href="object.html">对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="array.html">数组</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="style.html">编程风格</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -204,11 +195,6 @@
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="p">;</span> <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>分号前面可以没有任何内容，JavaScript引擎将其视为空语句。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">;;;</span>
-</pre></div>
-</div>
-<p>上面的代码就表示3个空语句。</p>
 <p>表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
 <span class="s1">&#39;abc&#39;</span><span class="p">;</span>
@@ -278,24 +264,9 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="">
-<span id="id5"></span><h3>变量提升<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
-<p>JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>上面代码首先使用<code class="docutils literal notranslate"><span class="pre">console.log</span></code>方法，在控制台（console）显示变量<code class="docutils literal notranslate"><span class="pre">a</span></code>的值。这时变量<code class="docutils literal notranslate"><span class="pre">a</span></code>还没有声明和赋值，所以这是一种错误的做法，但是实际上不会报错。因为存在变量提升，真正运行的是下面的代码。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>最后的结果是显示<code class="docutils literal notranslate"><span class="pre">undefined</span></code>，表示变量<code class="docutils literal notranslate"><span class="pre">a</span></code>已声明，但还未赋值。</p>
-</div>
 </div>
 <div class="section" id="">
-<span id="id6"></span><h2>标识符<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id5"></span><h2>标识符<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以<code class="docutils literal notranslate"><span class="pre">a</span></code>和<code class="docutils literal notranslate"><span class="pre">A</span></code>是两个不同的标识符。</p>
 <p>标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。</p>
 <p>简单说，标识符命名规则如下。</p>
@@ -326,7 +297,7 @@
 <div>JavaScript有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。</div></blockquote>
 </div>
 <div class="section" id="">
-<span id="id7"></span><h2>注释<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id6"></span><h2>注释<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>源码中被 JavaScript 引擎忽略的部分就叫做注释，它的作用是对代码进行解释。Javascript 提供两种注释的写法：一种是单行注释，用<code class="docutils literal notranslate"><span class="pre">//</span></code>起头；另一种是多行注释，放在<code class="docutils literal notranslate"><span class="pre">/*</span></code>和<code class="docutils literal notranslate"><span class="pre">*/</span></code>之间。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 这是单行注释</span>
 
@@ -337,26 +308,9 @@
 <span class="cm">*/</span>
 </pre></div>
 </div>
-<p>此外，由于历史上 JavaScript 可以兼容 HTML 代码的注释，所以<code class="docutils literal notranslate"><span class="pre">&lt;!--</span></code>和<code class="docutils literal notranslate"><span class="pre">--&gt;</span></code>也被视为合法的单行注释。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">&lt;!--</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="o">--&gt;</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>上面代码中，只有<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code>会执行，其他的部分都被注释掉了。</p>
-<p>需要注意的是，<code class="docutils literal notranslate"><span class="pre">--&gt;</span></code>只有在行首，才会被当成单行注释，否则会当作正常的运算。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">countdown</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">n</span> <span class="o">--&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1">// 2</span>
-<span class="c1">// 1</span>
-<span class="c1">// 0</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">--&gt;</span> <span class="pre">0</span></code>实际上会当作<code class="docutils literal notranslate"><span class="pre">n--</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>，因此输出2、1、0。</p>
 </div>
 <div class="section" id="">
-<span id="id8"></span><h2>区块<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id7"></span><h2>区块<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>JavaScript 使用大括号，将多个相关的语句组合在一起，称为“区块”（block）。</p>
 <p>对于<code class="docutils literal notranslate"><span class="pre">var</span></code>命令来说，JavaScript 的区块不构成单独的作用域（scope）。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -369,7 +323,7 @@
 <p>上面代码在区块内部，使用<code class="docutils literal notranslate"><span class="pre">var</span></code>命令声明并赋值了变量<code class="docutils literal notranslate"><span class="pre">a</span></code>，然后在区块外部，变量<code class="docutils literal notranslate"><span class="pre">a</span></code>依然有效，区块对于<code class="docutils literal notranslate"><span class="pre">var</span></code>命令不构成单独的作用域，与不使用区块的情况没有任何区别。在 JavaScript 语言中，单独使用区块并不常见，区块往往用来构成其他更复杂的语法结构，比如<code class="docutils literal notranslate"><span class="pre">for</span></code>、<code class="docutils literal notranslate"><span class="pre">if</span></code>、<code class="docutils literal notranslate"><span class="pre">while</span></code>、<code class="docutils literal notranslate"><span class="pre">function</span></code>等。</p>
 </div>
 <div class="section" id="">
-<span id="id9"></span><h2>条件语句<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id8"></span><h2>条件语句<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>JavaScript 提供<code class="docutils literal notranslate"><span class="pre">if</span></code>结构和<code class="docutils literal notranslate"><span class="pre">switch</span></code>结构，完成条件判断，即只有满足预设的条件，才会执行相应的语句。</p>
 <div class="section" id="if">
 <span id="if"></span><h3>if 结构<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h3>
@@ -465,77 +419,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="switch">
-<span id="switch"></span><h3>switch结构<a class="headerlink" href="#switch" title="永久链接至标题">¶</a></h3>
-<p>多个<code class="docutils literal notranslate"><span class="pre">if...else</span></code>连在一起使用的时候，可以转为使用更方便的<code class="docutils literal notranslate"><span class="pre">switch</span></code>结构。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="nx">fruit</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="s2">&quot;banana&quot;</span><span class="o">:</span>
-    <span class="c1">// ...</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="s2">&quot;apple&quot;</span><span class="o">:</span>
-    <span class="c1">// ...</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>上面代码根据变量<code class="docutils literal notranslate"><span class="pre">fruit</span></code>的值，选择执行相应的<code class="docutils literal notranslate"><span class="pre">case</span></code>。如果所有<code class="docutils literal notranslate"><span class="pre">case</span></code>都不符合，则执行最后的<code class="docutils literal notranslate"><span class="pre">default</span></code>部分。需要注意的是，每个<code class="docutils literal notranslate"><span class="pre">case</span></code>代码块内部的<code class="docutils literal notranslate"><span class="pre">break</span></code>语句不能少，否则会接下去执行下一个<code class="docutils literal notranslate"><span class="pre">case</span></code>代码块，而不是跳出<code class="docutils literal notranslate"><span class="pre">switch</span></code>结构。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="k">switch</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 等于1&#39;</span><span class="p">);</span>
-  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 等于2&#39;</span><span class="p">);</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 等于其他值&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// x等于1</span>
-<span class="c1">// x等于2</span>
-<span class="c1">// x等于其他值</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">case</span></code>代码块之中没有<code class="docutils literal notranslate"><span class="pre">break</span></code>语句，导致不会跳出<code class="docutils literal notranslate"><span class="pre">switch</span></code>结构，而会一直执行下去。正确的写法是像下面这样。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 等于1&#39;</span><span class="p">);</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 等于2&#39;</span><span class="p">);</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 等于其他值&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">switch</span></code>语句部分和<code class="docutils literal notranslate"><span class="pre">case</span></code>语句部分，都可以使用表达式。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="nx">f</span><span class="p">();</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="nx">neverHappens</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>上面代码的<code class="docutils literal notranslate"><span class="pre">default</span></code>部分，是永远不会执行到的。</p>
-<p>需要注意的是，<code class="docutils literal notranslate"><span class="pre">switch</span></code>语句后面的表达式，与<code class="docutils literal notranslate"><span class="pre">case</span></code>语句后面的表示式比较运行结果时，采用的是严格相等运算符（<code class="docutils literal notranslate"><span class="pre">===</span></code>），而不是相等运算符（<code class="docutils literal notranslate"><span class="pre">==</span></code>），这意味着比较时不会发生类型转换。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="k">switch</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="kc">true</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 发生类型转换&#39;</span><span class="p">);</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;x 没有发生类型转换&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// x 没有发生类型转换</span>
-</pre></div>
-</div>
-<p>上面代码中，由于变量<code class="docutils literal notranslate"><span class="pre">x</span></code>没有发生类型转换，所以不会执行<code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">true</span></code>的情况。这表明，<code class="docutils literal notranslate"><span class="pre">switch</span></code>语句内部采用的是“严格相等运算符”，详细解释请参考《运算符》一节。</p>
-</div>
 <div class="section" id="">
-<span id="id10"></span><h3>三元运算符 ?:<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id9"></span><h3>三元运算符 ?:<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <p>JavaScript还有一个三元运算符（即该运算符需要三个运算子）<code class="docutils literal notranslate"><span class="pre">?:</span></code>，也可以用于逻辑判断。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nx">条件</span><span class="p">)</span> <span class="o">?</span> <span class="nx">表达式1</span> <span class="o">:</span> <span class="nx">表达式2</span>
 </pre></div>
@@ -571,7 +456,7 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id11"></span><h2>循环语句<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id10"></span><h2>循环语句<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>循环语句用于重复执行某个操作，它有多种形式。</p>
 <div class="section" id="while">
 <span id="while"></span><h3>while 循环<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h3>
@@ -654,31 +539,6 @@
 </div>
 <p>上面代码省略了<code class="docutils literal notranslate"><span class="pre">for</span></code>语句表达式的三个部分，结果就导致了一个无限循环。</p>
 </div>
-<div class="section" id="do-while">
-<span id="do-while"></span><h3>do...while 循环<a class="headerlink" href="#do-while" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">do...while</span></code>循环与<code class="docutils literal notranslate"><span class="pre">while</span></code>循环类似，唯一的区别就是先运行一次循环体，然后判断循环条件。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
-  <span class="nx">语句</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">条件</span><span class="p">);</span>
-
-<span class="c1">// 或者</span>
-<span class="k">do</span> <span class="p">{</span>
-  <span class="nx">语句</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">条件</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>不管条件是否为真，<code class="docutils literal notranslate"><span class="pre">do...while</span></code>循环至少运行一次，这是这种结构最大的特点。另外，<code class="docutils literal notranslate"><span class="pre">while</span></code>语句后面的分号注意不要省略。</p>
-<p>下面是一个例子。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="k">do</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-  <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">x</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="break-continue">
 <span id="break-continue"></span><h3>break 语句和 continue 语句<a class="headerlink" href="#break-continue" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code>语句和<code class="docutils literal notranslate"><span class="pre">continue</span></code>语句都具有跳转作用，可以让代码不按既有的顺序执行。</p>
@@ -719,54 +579,6 @@
 <p>上面代码只有在<code class="docutils literal notranslate"><span class="pre">i</span></code>为奇数时，才会输出<code class="docutils literal notranslate"><span class="pre">i</span></code>的值。如果<code class="docutils literal notranslate"><span class="pre">i</span></code>为偶数，则直接进入下一轮循环。</p>
 <p>如果存在多重循环，不带参数的<code class="docutils literal notranslate"><span class="pre">break</span></code>语句和<code class="docutils literal notranslate"><span class="pre">continue</span></code>语句都只针对最内层循环。</p>
 </div>
-<div class="section" id="label">
-<span id="label"></span><h3>标签（label）<a class="headerlink" href="#label" title="永久链接至标题">¶</a></h3>
-<p>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">label</span><span class="o">:</span>
-  <span class="nx">语句</span>
-</pre></div>
-</div>
-<p>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</p>
-<p>标签通常与<code class="docutils literal notranslate"><span class="pre">break</span></code>语句和<code class="docutils literal notranslate"><span class="pre">continue</span></code>语句配合使用，跳出特定的循环。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">top</span><span class="o">:</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">break</span> <span class="nx">top</span><span class="p">;</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i=&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;, j=&#39;</span> <span class="o">+</span> <span class="nx">j</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="c1">// i=0, j=0</span>
-<span class="c1">// i=0, j=1</span>
-<span class="c1">// i=0, j=2</span>
-<span class="c1">// i=1, j=0</span>
-</pre></div>
-</div>
-<p>上面代码为一个双重循环区块，<code class="docutils literal notranslate"><span class="pre">break</span></code>命令后面加上了<code class="docutils literal notranslate"><span class="pre">top</span></code>标签（注意，<code class="docutils literal notranslate"><span class="pre">top</span></code>不用加引号），满足条件时，直接跳出双层循环。如果<code class="docutils literal notranslate"><span class="pre">break</span></code>语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
-<p><code class="docutils literal notranslate"><span class="pre">continue</span></code>语句也可以与标签配合使用。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">top</span><span class="o">:</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">continue</span> <span class="nx">top</span><span class="p">;</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i=&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;, j=&#39;</span> <span class="o">+</span> <span class="nx">j</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="c1">// i=0, j=0</span>
-<span class="c1">// i=0, j=1</span>
-<span class="c1">// i=0, j=2</span>
-<span class="c1">// i=1, j=0</span>
-<span class="c1">// i=2, j=0</span>
-<span class="c1">// i=2, j=1</span>
-<span class="c1">// i=2, j=2</span>
-</pre></div>
-</div>
-<p>上面代码中，<code class="docutils literal notranslate"><span class="pre">continue</span></code>命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果<code class="docutils literal notranslate"><span class="pre">continue</span></code>语句后面不使用标签，则只能进入下一轮的内层循环。</p>
-</div>
-</div>
-<div class="section" id="">
-<span id="id12"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2011/10/javascript-overview.html">A quick overview of JavaScript</a></li>
-</ul>
 </div>
 </div>
 
@@ -778,7 +590,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="types.html" class="btn btn-neutral float-right" title="数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="number.html" class="btn btn-neutral float-right" title="数值" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="基本语法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

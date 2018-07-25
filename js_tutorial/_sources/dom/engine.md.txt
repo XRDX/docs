@@ -116,7 +116,7 @@ URL 支持`javascript:`协议，即在 URL 的位置写入代码，使用这个 
 
 如果返回的不是字符串，那么浏览器不会新建文档，也不会跳转。
 
-```javascript
+```html
 <a href="javascript: console.log(new Date().toLocaleTimeString())">点击</a>
 ```
 

@@ -383,11 +383,3 @@ JSON.parse('{"a": 1, "b": 2}', f)
 ```
 
 上面代码中，`JSON.parse`的第二个参数是一个函数，如果键名是`a`，该函数会将键值加上10。
-
-## 参考链接
-
-- MDN, [Using native JSON](https://developer.mozilla.org/en-US/docs/Using_native_JSON)
-- MDN, [JSON.parse](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON/parse)
-- Dr. Axel Rauschmayer, [JavaScript’s JSON API](http://www.2ality.com/2011/08/json-api.html)
-- Jim Cowart, [What You Might Not Know About JSON.stringify()](http://freshbrewedcode.com/jimcowart/2013/01/29/what-you-might-not-know-about-json-stringify/)
-- Marco Rogers polotek, [What is JSON?](http://docs.nodejitsu.com/articles/javascript-conventions/what-is-json)

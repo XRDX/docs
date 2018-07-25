@@ -36,41 +36,6 @@ String(5) // "5"
 
 上面代码将布尔值`ture`和数值`5`，分别转换为字符串。
 
-## 静态方法
-
-### String.fromCharCode()
-
-`String`对象提供的静态方法（即定义在对象本身，而不是定义在对象实例的方法），主要是`String.fromCharCode()`。该方法的参数是一个或多个数值，代表 Unicode 码点，返回值是这些码点组成的字符串。
-
-```javascript
-String.fromCharCode() // ""
-String.fromCharCode(97) // "a"
-String.fromCharCode(104, 101, 108, 108, 111)
-// "hello"
-```
-
-上面代码中，`String.fromCharCode`方法的参数为空，就返回空字符串；否则，返回参数对应的 Unicode 字符串。
-
-注意，该方法不支持 Unicode 码点大于`0xFFFF`的字符，即传入的参数不能大于`0xFFFF`（即十进制的 65535）。
-
-```javascript
-String.fromCharCode(0x20BB7)
-// "ஷ"
-String.fromCharCode(0x20BB7) === String.fromCharCode(0x0BB7)
-// true
-```
-
-上面代码中，`String.fromCharCode`参数`0x20BB7`大于`0xFFFF`，导致返回结果出错。`0x20BB7`对应的字符是汉字`𠮷`，但是返回结果却是另一个字符（码点`0x0BB7`）。这是因为`String.fromCharCode`发现参数值大于`0xFFFF`，就会忽略多出的位（即忽略`0x20BB7`里面的`2`）。
-
-这种现象的根本原因在于，码点大于`0xFFFF`的字符占用四个字节，而 JavaScript 默认支持两个字节的字符。这种情况下，必须把`0x20BB7`拆成两个字符表示。
-
-```javascript
-String.fromCharCode(0xD842, 0xDFB7)
-// "𠮷"
-```
-
-上面代码中，`0x20BB7`拆成两个字符`0xD842`和`0xDFB7`（即两个两字节字符，合成一个四字节字符），就能得到正确的结果。码点大于`0xFFFF`的字符的四字节表示法，由 UTF-16 编码方法决定。
-
 ## 实例属性
 
 ### String.prototype.length
@@ -391,40 +356,3 @@ matches.input // "cat, bat, sat, fat"
 
 `split`方法还可以使用正则表达式作为参数，详见《正则表达式》一节。
 
-### String.prototype.localeCompare()
-
-`localeCompare`方法用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。
-
-```javascript
-'apple'.localeCompare('banana') // -1
-'apple'.localeCompare('apple') // 0
-```
-
-该方法的最大特点，就是会考虑自然语言的顺序。举例来说，正常情况下，大写的英文字母小于小写字母。
-
-```javascript
-'B' > 'a' // false
-```
-
-上面代码中，字母`B`小于字母`a`。因为 JavaScript 采用的是 Unicode 码点比较，`B`的码点是66，而`a`的码点是97。
-
-但是，`localeCompare`方法会考虑自然语言的排序情况，将`B`排在`a`的前面。
-
-```javascript
-'B'.localeCompare('a') // 1
-```
-
-上面代码中，`localeCompare`方法返回整数1，表示`B`较大。
-
-`localeCompare`还可以有第二个参数，指定所使用的语言（默认是英语），然后根据该语言的规则进行比较。
-
-```javascript
-'ä'.localeCompare('z', 'de') // -1
-'ä'.localeCompare('z', 'sv') // 1
-```
-
-上面代码中，`de`表示德语，`sv`表示瑞典语。德语中，`ä`小于`z`，所以返回`-1`；瑞典语中，`ä`大于`z`，所以返回`1`。
-
-## 参考链接
-
-- Ariya Hidayat, [JavaScript String: substring, substr, slice](http://ariya.ofilabs.com/2014/02/javascript-string-substring-substr-slice.html)

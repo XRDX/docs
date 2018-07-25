@@ -3,11 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-语法专题
+进阶语法
 =======================================
 
 .. toctree::
    :maxdepth: 2
 
+   conversion
    timer 
-   strict
+   this
+   class
+   class-extends
+   

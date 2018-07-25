@@ -296,89 +296,6 @@ Math.pow(2, 1024)
 1 / 0 // Infinity
 ```
 
-上面代码中，第一个场景是一个表达式的计算结果太大，超出了能够表示的范围，因此返回`Infinity`。第二个场景是`0`除以`0`会得到`NaN`，而非0数值除以`0`，会返回`Infinity`。
-
-`Infinity`有正负之分，`Infinity`表示正的无穷，`-Infinity`表示负的无穷。
-
-```javascript
-Infinity === -Infinity // false
-
-1 / -0 // -Infinity
--1 / -0 // Infinity
-```
-
-上面代码中，非零正数除以`-0`，会得到`-Infinity`，负数除以`-0`，会得到`Infinity`。
-
-由于数值正向溢出（overflow）、负向溢出（underflow）和被`0`除，JavaScript 都不报错，而是返回`Infinity`，所以单纯的数学运算几乎没有可能抛出错误。
-
-`Infinity`大于一切数值（除了`NaN`），`-Infinity`小于一切数值（除了`NaN`）。
-
-```javascript
-Infinity > 1000 // true
--Infinity < -1000 // true
-```
-
-`Infinity`与`NaN`比较，总是返回`false`。
-
-```javascript
-Infinity > NaN // false
--Infinity > NaN // false
-
-Infinity < NaN // false
--Infinity < NaN // false
-```
-
-**（2）运算规则**
-
-`Infinity`的四则运算，符合无穷的数学计算规则。
-
-```javascript
-5 * Infinity // Infinity
-5 - Infinity // -Infinity
-Infinity / 5 // Infinity
-5 / Infinity // 0
-```
-
-0乘以`Infinity`，返回`NaN`；0除以`Infinity`，返回`0`；`Infinity`除以0，返回`Infinity`。
-
-```javascript
-0 * Infinity // NaN
-0 / Infinity // 0
-Infinity / 0 // Infinity
-```
-
-`Infinity`加上或乘以`Infinity`，返回的还是`Infinity`。
-
-```javascript
-Infinity + Infinity // Infinity
-Infinity * Infinity // Infinity
-```
-
-`Infinity`减去或除以`Infinity`，得到`NaN`。
-
-```javascript
-Infinity - Infinity // NaN
-Infinity / Infinity // NaN
-```
-
-`Infinity`与`null`计算时，`null`会转成0，等同于与`0`的计算。
-
-```javascript
-null * Infinity // NaN
-null / Infinity // 0
-Infinity / null // Infinity
-```
-
-`Infinity`与`undefined`计算，返回的都是`NaN`。
-
-```javascript
-undefined + Infinity // NaN
-undefined - Infinity // NaN
-undefined * Infinity // NaN
-undefined / Infinity // NaN
-Infinity / undefined // NaN
-```
-
 ## 与数值相关的全局方法
 
 ### parseInt()
@@ -647,8 +564,3 @@ isFinite(-1) // true
 ```
 
 除了`Infinity`、`-Infinity`、`NaN`和`undefined`这几个值会返回`false`，`isFinite`对于其他的数值都会返回`true`。
-
-## 参考链接
-
-- Dr. Axel Rauschmayer, [How numbers are encoded in JavaScript](http://www.2ality.com/2012/04/number-encoding.html)
-- Humphry, [JavaScript 中 Number 的一些表示上/下限](http://blog.segmentfault.com/humphry/1190000000407658)

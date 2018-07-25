@@ -86,7 +86,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">基本语法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basic.html">基本语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="number.html">数值</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">字符串</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">对象</a><ul>
@@ -106,23 +105,18 @@
 <li class="toctree-l4"><a class="reference internal" href="#for-in">for...in 循环</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#with">with 语句</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">参考链接</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="array.html">数组</a></li>
 <li class="toctree-l2"><a class="reference internal" href="function.html">函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">数据类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operator.html">运算符</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error.html">错误处理机制</a></li>
 <li class="toctree-l2"><a class="reference internal" href="style.html">编程风格</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
 </ul>
 
             
@@ -527,78 +521,6 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="with">
-<span id="with"></span><h2>with 语句<a class="headerlink" href="#with" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">with</span></code>语句的格式如下：</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">with</span> <span class="p">(</span><span class="nx">对象</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">语句</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>它的作用是操作同一个对象的多个属性时，提供一些书写的方便。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// 例一</span>
-<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">p1</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nx">p2</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-<span class="p">};</span>
-<span class="kd">with</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">p1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="nx">p2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">// 等同于</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">p1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">p2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="c1">// 例二</span>
-<span class="kd">with</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">href</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">style</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 等同于</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">links</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">href</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">links</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">title</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">links</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">style</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>注意，如果<code class="docutils literal notranslate"><span class="pre">with</span></code>区块内部有变量的赋值操作，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="kd">with</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">p1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="nx">p2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">obj</span><span class="p">.</span><span class="nx">p1</span> <span class="c1">// undefined</span>
-<span class="nx">p1</span> <span class="c1">// 4</span>
-</pre></div>
-</div>
-<p>上面代码中，对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>并没有<code class="docutils literal notranslate"><span class="pre">p1</span></code>属性，对<code class="docutils literal notranslate"><span class="pre">p1</span></code>赋值等于创造了一个全局变量<code class="docutils literal notranslate"><span class="pre">p1</span></code>。正确的写法应该是，先定义对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>的属性<code class="docutils literal notranslate"><span class="pre">p1</span></code>，然后在<code class="docutils literal notranslate"><span class="pre">with</span></code>区块内操作它。</p>
-<p>这是因为<code class="docutils literal notranslate"><span class="pre">with</span></code>区块没有改变作用域，它的内部依然是当前作用域。这造成了<code class="docutils literal notranslate"><span class="pre">with</span></code>语句的一个很大的弊病，就是绑定对象不明确。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">with</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>单纯从上面的代码块，根本无法判断<code class="docutils literal notranslate"><span class="pre">x</span></code>到底是全局变量，还是对象<code class="docutils literal notranslate"><span class="pre">obj</span></code>的一个属性。这非常不利于代码的除错和模块化，编译器也无法对这段代码进行优化，只能留到运行时判断，这就拖慢了运行速度。因此，建议不要使用<code class="docutils literal notranslate"><span class="pre">with</span></code>语句，可以考虑用一个临时变量代替<code class="docutils literal notranslate"><span class="pre">with</span></code>。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">with</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">obj3</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span> <span class="o">+</span> <span class="nx">p2</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// 可以写成</span>
-<span class="kd">var</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">obj1</span><span class="p">.</span><span class="nx">obj2</span><span class="p">.</span><span class="nx">obj3</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">temp</span><span class="p">.</span><span class="nx">p1</span> <span class="o">+</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">p2</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="">
-<span id="id11"></span><h2>参考链接<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li>Dr. Axel Rauschmayer，<a class="reference external" href="http://www.2ality.com/2012/10/javascript-properties.html">Object properties in JavaScript</a></li>
-<li>Lakshan Perera, <a class="reference external" href="http://www.laktek.com/2012/12/29/revisiting-javascript-objects/">Revisiting JavaScript Objects</a></li>
-<li>Angus Croll, <a class="reference external" href="http://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/">The Secret Life of JavaScript Primitives</a>i</li>
-<li>Dr. Axel Rauschmayer, <a class="reference external" href="http://www.2ality.com/2011/06/with-statement.html">JavaScript’s with statement and why it’s deprecated</a></li>
-</ul>
 </div>
 </div>
 

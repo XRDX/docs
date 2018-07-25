@@ -10,15 +10,11 @@
    :maxdepth: 2
 
    basic
-   types 
    number 
    string 
    object 
    array 
-   function 
+   function
+   types
    operator
-   conversion 
-   error
    style
-
-

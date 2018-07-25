@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DOM 模型 &mdash; JS 教程 beta 文档</title>
+  <title>浏览器环境 &mdash; JS 教程 beta 文档</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="document 对象" href="document.html" />
-    <link rel="prev" title="严格模式" href="../advanced/strict.html" /> 
+    <link rel="prev" title="Class 的继承" href="../advanced/class-extends.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,17 +85,18 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DOM 模型</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">浏览器环境</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="document.html">document 对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html">浏览器环境概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">window对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html">浏览器端数据储存机制</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
 </ul>
 
             
@@ -141,7 +142,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>DOM 模型</li>
+      <li>浏览器环境</li>
     
     
 
@@ -153,8 +154,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dom">
-<h1>DOM 模型<a class="headerlink" href="#dom" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="id1">
+<h1>浏览器环境<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="document.html">document 对象</a><ul>
@@ -192,6 +193,33 @@
 <li class="toctree-l2"><a class="reference internal" href="css.html#">参考链接</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="engine.html">浏览器环境概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="engine.html#">代码嵌入网页的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html#script">script 元素</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html#">浏览器的组成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window对象</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="window.html#">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#window">window 对象的属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#screen">Screen 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#navigator">Navigator 对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#window">window对象的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#">多窗口操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#url">URL的编码/解码方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#alert-prompt-confirm">alert()，prompt()，confirm()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html#">参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webstorage.html">浏览器端数据储存机制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html#">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html#">属性和方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html#storage">storage 事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html#">参考链接</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -207,7 +235,7 @@
         <a href="document.html" class="btn btn-neutral float-right" title="document 对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../advanced/strict.html" class="btn btn-neutral" title="严格模式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../advanced/class-extends.html" class="btn btn-neutral" title="Class 的继承" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

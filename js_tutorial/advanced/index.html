@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>语法专题 &mdash; JS 教程 beta 文档</title>
+  <title>进阶语法 &mdash; JS 教程 beta 文档</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="定时器" href="timer.html" />
-    <link rel="prev" title="面向对象编程的模式" href="../oop/pattern.html" /> 
+    <link rel="next" title="数据类型转换" href="conversion.html" />
+    <link rel="prev" title="编程风格" href="../grammar/style.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,15 +85,16 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">语法专题</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">进阶语法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversion.html">数据类型转换</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timer.html">定时器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html">严格模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="this.html">this 关键字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html">Class 的基本语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html">Class 的继承</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">DOM 模型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dom/index.html">浏览器环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
 </ul>
 
             
@@ -139,7 +140,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>语法专题</li>
+      <li>进阶语法</li>
     
     
 
@@ -152,9 +153,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>语法专题<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>进阶语法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="conversion.html">数据类型转换</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversion.html#">强制转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion.html#">自动转换</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="timer.html">定时器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="timer.html#settimeout">setTimeout()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timer.html#setinterval">setInterval()</a></li>
@@ -165,14 +171,37 @@
 <li class="toctree-l2"><a class="reference internal" href="timer.html#">参考链接</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="strict.html">严格模式</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#">设计目的</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#">启用方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#">显式报错</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#">增强的安全措施</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#">静态绑定</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#javascript">向下一个版本的 JavaScript 过渡</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strict.html#">参考链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="this.html">this 关键字</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="this.html#">涵义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="this.html#">使用场合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="this.html#">使用注意点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="this.html#this">绑定 this 的方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Class 的基本语法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#">严格模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#constructor">constructor 方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#">类的实例对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#class">Class 表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#">不存在变量提升</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#">私有方法和私有属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#this">this 的指向</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#name">name 属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#class-getter-setter">Class 的取值函数（getter）和存值函数（setter）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#class-generator">Class 的 Generator 方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#class">Class 的静态方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#class">Class 的静态属性和实例属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#new-target">new.target 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class-extends.html">Class 的继承</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html#">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html#object-getprototypeof">Object.getPrototypeOf()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html#super">super 关键字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html#prototype-proto">类的 prototype 属性和__proto__属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html#">原生构造函数的继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-extends.html#mixin">Mixin 模式的实现</a></li>
 </ul>
 </li>
 </ul>
@@ -187,10 +216,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="timer.html" class="btn btn-neutral float-right" title="定时器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="conversion.html" class="btn btn-neutral float-right" title="数据类型转换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../oop/pattern.html" class="btn btn-neutral" title="面向对象编程的模式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../grammar/style.html" class="btn btn-neutral" title="编程风格" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

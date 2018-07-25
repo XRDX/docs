@@ -236,8 +236,3 @@ if ({}) {
 ```
 
 更多关于数据类型转换的介绍，参见《数据类型转换》一章。
-
-## 参考链接
-
-- Axel Rauschmayer, [Improving the JavaScript typeof operator](http://www.2ality.com/2011/11/improving-typeof.html)
-- Axel Rauschmayer, [Categorizing values in JavaScript](http://www.2ality.com/2013/01/categorizing-values.html)

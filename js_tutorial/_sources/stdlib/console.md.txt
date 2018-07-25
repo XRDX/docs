@@ -481,12 +481,3 @@ for(var i = 0; i < 5; i++){
 ```
 
 上面代码打印出0，1，2以后，就会暂停，自动打开源码界面，等待进一步处理。
-
-## 参考链接
-
-- Chrome Developer Tools, [Using the Console](https://developers.google.com/chrome-developer-tools/docs/console)
-- Matt West, [Mastering The Developer Tools Console](http://blog.teamtreehouse.com/mastering-developer-tools-console)
-- Firebug Wiki, [Console API](https://getfirebug.com/wiki/index.php/Console_API)
-- Axel Rauschmayer, [The JavaScript console API](http://www.2ality.com/2013/10/console-api.html)
-- Marius Schulz, [Advanced JavaScript Debugging with console.table()](http://blog.mariusschulz.com/2013/11/13/advanced-javascript-debugging-with-consoletable)
-- Google Developer, [Command Line API Reference](https://developers.google.com/chrome-developer-tools/docs/commandline-api)

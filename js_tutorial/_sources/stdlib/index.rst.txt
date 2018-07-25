@@ -15,10 +15,6 @@ stdlib 标准库
    number   
    string   
    math   
-   date   
-   regexp   
+   date
    json   
-   console   
-   attributes   
-
-
+   console

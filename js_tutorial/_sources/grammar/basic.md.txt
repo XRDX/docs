@@ -20,14 +20,6 @@ var a = 1 + 3;
 var a = 1 + 3 ; var b = 'abc';
 ```
 
-分号前面可以没有任何内容，JavaScript引擎将其视为空语句。
-
-```javascript
-;;;
-```
-
-上面的代码就表示3个空语句。
-
 表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。
 
 ```javascript
@@ -122,25 +114,6 @@ var x;
 x = 2;
 ```
 
-### 变量提升
-
-JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。
-
-```javascript
-console.log(a);
-var a = 1;
-```
-
-上面代码首先使用`console.log`方法，在控制台（console）显示变量`a`的值。这时变量`a`还没有声明和赋值，所以这是一种错误的做法，但是实际上不会报错。因为存在变量提升，真正运行的是下面的代码。
-
-```javascript
-var a;
-console.log(a);
-a = 1;
-```
-
-最后的结果是显示`undefined`，表示变量`a`已声明，但还未赋值。
-
 ## 标识符
 
 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以`a`和`A`是两个不同的标识符。
@@ -192,29 +165,6 @@ var 临时变量 = 1;
  注释
 */
 ```
-
-此外，由于历史上 JavaScript 可以兼容 HTML 代码的注释，所以`<!--`和`-->`也被视为合法的单行注释。
-
-```javascript
-x = 1; <!-- x = 2;
---> x = 3;
-```
-
-上面代码中，只有`x = 1`会执行，其他的部分都被注释掉了。
-
-需要注意的是，`-->`只有在行首，才会被当成单行注释，否则会当作正常的运算。
-
-```javascript
-function countdown(n) {
-  while (n --> 0) console.log(n);
-}
-countdown(3)
-// 2
-// 1
-// 0
-```
-
-上面代码中，`n --> 0`实际上会当作`n-- > 0`，因此输出2、1、0。
 
 ## 区块
 
@@ -352,86 +302,6 @@ if (m !== 1) {
 }
 // world
 ```
-
-### switch结构
-
-多个`if...else`连在一起使用的时候，可以转为使用更方便的`switch`结构。
-
-```javascript
-switch (fruit) {
-  case "banana":
-    // ...
-    break;
-  case "apple":
-    // ...
-    break;
-  default:
-    // ...
-}
-```
-
-上面代码根据变量`fruit`的值，选择执行相应的`case`。如果所有`case`都不符合，则执行最后的`default`部分。需要注意的是，每个`case`代码块内部的`break`语句不能少，否则会接下去执行下一个`case`代码块，而不是跳出`switch`结构。
-
-```javascript
-var x = 1;
-
-switch (x) {
-  case 1:
-    console.log('x 等于1');
-  case 2:
-    console.log('x 等于2');
-  default:
-    console.log('x 等于其他值');
-}
-// x等于1
-// x等于2
-// x等于其他值
-```
-
-上面代码中，`case`代码块之中没有`break`语句，导致不会跳出`switch`结构，而会一直执行下去。正确的写法是像下面这样。
-
-```javascript
-switch (x) {
-  case 1:
-    console.log('x 等于1');
-    break;
-  case 2:
-    console.log('x 等于2');
-    break;
-  default:
-    console.log('x 等于其他值');
-}
-```
-
-`switch`语句部分和`case`语句部分，都可以使用表达式。
-
-```javascript
-switch(1 + 3) {
-  case 2 + 2:
-    f();
-    break;
-  default:
-    neverHappens();
-}
-```
-
-上面代码的`default`部分，是永远不会执行到的。
-
-需要注意的是，`switch`语句后面的表达式，与`case`语句后面的表示式比较运行结果时，采用的是严格相等运算符（`===`），而不是相等运算符（`==`），这意味着比较时不会发生类型转换。
-
-```javascript
-var x = 1;
-
-switch (x) {
-  case true:
-    console.log('x 发生类型转换');
-  default:
-    console.log('x 没有发生类型转换');
-}
-// x 没有发生类型转换
-```
-
-上面代码中，由于变量`x`没有发生类型转换，所以不会执行`case true`的情况。这表明，`switch`语句内部采用的是“严格相等运算符”，详细解释请参考《运算符》一节。
 
 ### 三元运算符 ?:
 
@@ -580,35 +450,6 @@ for ( ; ; ){
 
 上面代码省略了`for`语句表达式的三个部分，结果就导致了一个无限循环。
 
-### do...while 循环
-
-`do...while`循环与`while`循环类似，唯一的区别就是先运行一次循环体，然后判断循环条件。
-
-```javascript
-do
-  语句
-while (条件);
-
-// 或者
-do {
-  语句
-} while (条件);
-```
-
-不管条件是否为真，`do...while`循环至少运行一次，这是这种结构最大的特点。另外，`while`语句后面的分号注意不要省略。
-
-下面是一个例子。
-
-```javascript
-var x = 3;
-var i = 0;
-
-do {
-  console.log(i);
-  i++;
-} while(i < x);
-```
-
 ### break 语句和 continue 语句
 
 `break`语句和`continue`语句都具有跳转作用，可以让代码不按既有的顺序执行。
@@ -658,58 +499,4 @@ while (i < 100){
 上面代码只有在`i`为奇数时，才会输出`i`的值。如果`i`为偶数，则直接进入下一轮循环。
 
 如果存在多重循环，不带参数的`break`语句和`continue`语句都只针对最内层循环。
-
-### 标签（label）
-
-JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。
-
-```javascript
-label:
-  语句
-```
-
-标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。
-
-标签通常与`break`语句和`continue`语句配合使用，跳出特定的循环。
-
-```javascript
-top:
-  for (var i = 0; i < 3; i++){
-    for (var j = 0; j < 3; j++){
-      if (i === 1 && j === 1) break top;
-      console.log('i=' + i + ', j=' + j);
-    }
-  }
-// i=0, j=0
-// i=0, j=1
-// i=0, j=2
-// i=1, j=0
-```
-
-上面代码为一个双重循环区块，`break`命令后面加上了`top`标签（注意，`top`不用加引号），满足条件时，直接跳出双层循环。如果`break`语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。
-
-`continue`语句也可以与标签配合使用。
-
-```javascript
-top:
-  for (var i = 0; i < 3; i++){
-    for (var j = 0; j < 3; j++){
-      if (i === 1 && j === 1) continue top;
-      console.log('i=' + i + ', j=' + j);
-    }
-  }
-// i=0, j=0
-// i=0, j=1
-// i=0, j=2
-// i=1, j=0
-// i=2, j=0
-// i=2, j=1
-// i=2, j=2
-```
-
-上面代码中，`continue`命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果`continue`语句后面不使用标签，则只能进入下一轮的内层循环。
-
-## 参考链接
-
-- Axel Rauschmayer, [A quick overview of JavaScript](http://www.2ality.com/2011/10/javascript-overview.html)
 

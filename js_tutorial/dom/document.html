@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Element对象" href="element.html" />
-    <link rel="prev" title="DOM 模型" href="index.html" /> 
+    <link rel="prev" title="浏览器环境" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,10 +85,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">导论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">基本语法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../oop/index.html">面向对象编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">语法专题</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">DOM 模型</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">进阶语法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">浏览器环境</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">document 对象</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">概述</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">属性</a><ul>
@@ -130,9 +128,12 @@
 <li class="toctree-l2"><a class="reference internal" href="element.html">Element对象</a></li>
 <li class="toctree-l2"><a class="reference internal" href="attribute.html">属性的操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="css.html">CSS操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="engine.html">浏览器环境概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">window对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webstorage.html">浏览器端数据储存机制</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../bom/index.html">BOM 浏览器环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stdlib/index.html">stdlib 标准库</a></li>
 </ul>
 
             
@@ -178,7 +179,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">DOM 模型</a> &raquo;</li>
+          <li><a href="index.html">浏览器环境</a> &raquo;</li>
         
       <li>document 对象</li>
     
@@ -669,17 +670,17 @@ hello
 </div>
 <p>上面代码中，<code class="docutils literal notranslate"><span class="pre">createTextNode</span></code>方法对大于号和小于号进行转义，从而保证即使用户输入的内容包含恶意代码，也能正确显示。</p>
 <p>需要注意的是，该方法不对单引号和双引号转义，所以不能用来对 HTML 属性赋值。</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>function escapeHtml(str) {
-  var div = document.createElement(&#39;div&#39;);
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">escapeHtml</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+  <span class="nx">div</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="p">};</span>
 
-var userWebsite = &#39;&quot; onmouseover=&quot;alert(\&#39;derp\&#39;)&quot; &quot;&#39;;
-var profileLink = &#39;&lt;a href=&quot;&#39; + escapeHtml(userWebsite) + &#39;&quot;&gt;Bob&lt;/a&gt;&#39;;
-var div = document.getElementById(&#39;target&#39;);
-div.innerHTML = profileLink;
-// &lt;a href=&quot;&quot; onmouseover=&quot;alert(&#39;derp&#39;)&quot; &quot;&quot;&gt;Bob&lt;/a&gt;
+<span class="kd">var</span> <span class="nx">userWebsite</span> <span class="o">=</span> <span class="s1">&#39;&quot; onmouseover=&quot;alert(\&#39;derp\&#39;)&quot; &quot;&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">profileLink</span> <span class="o">=</span> <span class="s1">&#39;&lt;a href=&quot;&#39;</span> <span class="o">+</span> <span class="nx">escapeHtml</span><span class="p">(</span><span class="nx">userWebsite</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&gt;Bob&lt;/a&gt;&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">profileLink</span><span class="p">;</span>
+<span class="c1">// &lt;a href=&quot;&quot; onmouseover=&quot;alert(&#39;derp&#39;)&quot; &quot;&quot;&gt;Bob&lt;/a&gt;</span>
 </pre></div>
 </div>
 <p>上面代码中，由于<code class="docutils literal notranslate"><span class="pre">createTextNode</span></code>方法不转义双引号，导致<code class="docutils literal notranslate"><span class="pre">onmouseover</span></code>方法被注入了代码。</p>
@@ -875,7 +876,7 @@ div.innerHTML = profileLink;
         <a href="element.html" class="btn btn-neutral float-right" title="Element对象" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="DOM 模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="浏览器环境" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
