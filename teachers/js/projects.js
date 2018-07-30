@@ -49,6 +49,46 @@ function loadProject() {
   loadFile("projects/" + pj.name + "/Lesson1.js");
 }
 
+function loadPj() {
+  let pjID = GetRequest()["pName"];
+  ace.require("ace/ext/language_tools");
+  JSEditor = ace.edit("code");
+  JSEditor.setOptions({
+    mode: "ace/mode/javascript",
+    theme: '',
+    enableLiveAutocompletion: true,//智能补全  
+    fontFamily: 'Courier New',
+    fontSize: 16,
+    showPrintMargin: false,
+    useSoftTabs: true,
+    navigateWithinSoftTabs: true,
+    wrapBehavioursEnabled: true,
+    autoScrollEditorIntoView: true,
+    wrap: true,
+  });
+  // var pj = JS2Projects[pjID];
+  // var new_li;
+  // $("#projectName").text(pj.name);
+  // $("#times").text("课时数：" + pj.times);
+  // $("#difficulty").text("难度：" + pj.difficulty);
+  // $("#info").text(pj.info);
+  // $("#material").attr("href", pj.material);
+  // $("#coverImg").attr("src", pj.coverImg);
+  // for (let i = 1; i <= pj.times; i++) {
+  //   $("#lessons").append('<li style="margin-top:15px; margin-right:5px;"><a data-toggle="tab" href="projects/' + pj.name + '/Lesson' + i + '.js">Lesson ' + i + '</a></li>');
+  // }
+  // $(function () {
+  //   $('li a').click(function (e) {
+  //     var link = $(this).attr('href')
+  //     if(link.slice(-2) === 'js'){
+  //       e.preventDefault()
+  //       loadFile(link)
+  //     }
+  //   })
+  // })
+  loadFile("games/" + pjID + ".js");
+}
+
 function iframeHtml () {
   var html = ''
   var text = JSEditor.getValue();
@@ -102,6 +142,7 @@ function submit () {
 }
 
 function loadFile (file) {
+  // alert(file);
   $.ajax({
     type: 'get',
     url: file,
@@ -112,6 +153,7 @@ function loadFile (file) {
       submit()
     }
   })
+
 }
 
 function GetRequest() {   
