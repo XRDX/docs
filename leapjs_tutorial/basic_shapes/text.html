@@ -84,16 +84,31 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">绘图函数</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本图形</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="circle.html">圆 circle</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">文字</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#font">字体 font</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#text">写字 text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text">文本显示 text</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#text">写字 text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#font">字体 font</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-lines">多行文字 Multi-lines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#align">文字对齐 Align</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">左右对齐</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">上下对齐</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">文字长度测量</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#text">文本对象 <code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auto-line-break">自动换行 Auto line break</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#"></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fill.html">样式填充 fill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="line.html">线段 line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="point.html">点 point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ellipse.html">椭圆 ellipse</a></li>
@@ -101,10 +116,12 @@
 <li class="toctree-l2"><a class="reference internal" href="polygon.html">多边形 polygon</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
@@ -152,7 +169,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">绘图函数</a> &raquo;</li>
+          <li><a href="index.html">基本图形</a> &raquo;</li>
         
       <li>文字</li>
     
@@ -168,8 +185,41 @@
             
   <div class="section" id="">
 <span id="id1"></span><h1>文字<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="text">
+<span id="text"></span><h2>文本显示 text<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
+<div class="section" id="text">
+<span id="id2"></span><h3>写字 text<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">text(src,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">*size,</span> <span class="pre">*color,</span> <span class="pre">*font)</span></code> : 绘制文本，同样，我们需要x、y来绘制文字的位置</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************</span>
+<span class="cm"> * text(string, x, y, *size, *color)</span>
+<span class="cm"> *</span>
+<span class="cm"> * 在画布上写字：</span>
+<span class="cm"> *</span>
+<span class="cm"> * 文字内容：string</span>
+<span class="cm"> * 文字左上角顶点位置为（x,y）</span>
+<span class="cm"> * 文字大小为size，可选参数，默认为20</span>
+<span class="cm"> * 文字颜色为为color，可选参数，默认为 &quot;orange&quot;</span>
+<span class="cm"> ***************************************************************/</span>
+</pre></div>
+</div>
+<p>我们来继续看一些写字例子：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+
+<span class="c1">// 使用不同的字体</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;Arial&quot;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">font</span><span class="o">=</span><span class="s2">&quot;Consolas&quot;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;你好，人类&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;STCaiyun&#39;</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在这里，我们也能看到不同的字体表现出来的效果差异很大。</p>
+<p><img alt="text" src="../_images/text.png" /></p>
+</div>
 <div class="section" id="font">
-<span id="font"></span><h2>字体 font<a class="headerlink" href="#font" title="永久链接至标题">¶</a></h2>
+<span id="font"></span><h3>字体 font<a class="headerlink" href="#font" title="永久链接至标题">¶</a></h3>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************</span>
 <span class="cm">font(fontName)</span>
 
@@ -221,36 +271,182 @@
 <li>Consolas</li>
 </ul>
 </div>
-<div class="section" id="text">
-<span id="text"></span><h2>写字 text<a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">text(src,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">*size,</span> <span class="pre">*color,</span> <span class="pre">*font)</span></code> : 绘制文本，同样，我们需要x、y来绘制文字的位置</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************</span>
-<span class="cm"> * text(string, x, y, *size, *color)</span>
-<span class="cm"> *</span>
-<span class="cm"> * 在画布上写字：</span>
-<span class="cm"> *</span>
-<span class="cm"> * 文字内容：string</span>
-<span class="cm"> * 文字左上角顶点位置为（x,y）</span>
-<span class="cm"> * 文字大小为size，可选参数，默认为20</span>
-<span class="cm"> * 文字颜色为为color，可选参数，默认为 &quot;orange&quot;</span>
-<span class="cm"> ***************************************************************/</span>
-</pre></div>
-</div>
-<p>我们来继续看一些写字例子：</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<div class="section" id="multi-lines">
+<span id="multi-lines"></span><h3>多行文字 Multi-lines<a class="headerlink" href="#multi-lines" title="永久链接至标题">¶</a></h3>
+<p>可以通过重新定义<code class="docutils literal notranslate"><span class="pre">text</span></code>方法，让<code class="docutils literal notranslate"><span class="pre">text</span></code>支持<code class="docutils literal notranslate"><span class="pre">\n</span></code>作为分隔符，实现分行效果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">oldtext</span> <span class="o">=</span> <span class="nx">text</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">color</span><span class="p">){</span>
+    <span class="nx">src</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;\n&quot;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
+        <span class="nx">oldtext</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
+        <span class="nx">y</span> <span class="o">+=</span> <span class="nx">size</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
 
-<span class="c1">// 使用不同的字体</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;Arial&quot;</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">font</span><span class="o">=</span><span class="s2">&quot;Consolas&quot;</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;你好，人类&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;STCaiyun&#39;</span><span class="p">);</span>
-<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hello\nWord\n!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>在这里，我们也能看到不同的字体表现出来的效果差异很大。</p>
-<p><img alt="text" src="../_images/text1.png" /></p>
+<p><img alt="multiLine" src="../_images/multiLine.png" /></p>
+<p>注意，这里<code class="docutils literal notranslate"><span class="pre">text</span></code>方法只能用变量的方式进行重新定义。</p>
+</div>
+</div>
+<div class="section" id="align">
+<span id="align"></span><h2>文字对齐 Align<a class="headerlink" href="#align" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id3"></span><h3>左右对齐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>定义和用法
+ctx.textAlign 属性根据锚点，设置或返回文本内容的当前对齐方式。</p>
+<p>通常，文本会从指定位置开始，不过，如果您设置为 textAlign=&quot;right&quot; 并将文本放置到位置 150，那么会在位置 150 结束。</p>
+<p>提示：使用 text() 或 text.draw() 方法在实际地在画布上绘制并定位文本。</p>
+<p>默认值：    start
+JavaScript 语法：ctx.textAlign=&quot;center|end|left|right|start&quot;;</p>
+<p>属性值
+值       描述
+start   默认。文本在指定的位置开始。
+end     文本在指定的位置结束。
+center  文本的中心被放置在指定的位置。
+left    文本左对齐。
+right   文本右对齐。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+
+<span class="c1">// 显示不同的 textAlign 值</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;textAlign=start&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span><span class="o">=</span><span class="s2">&quot;end&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;textAlign=end&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;textAlign=left&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;textAlign=center&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;textAlign=right&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">140</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="textAlign" src="../_images/textAlign.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>上下对齐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>定义和用法
+textBaseline 属性设置或返回在绘制文本时的当前文本基线。</p>
+<p>下面的图示演示了 textBaseline 属性支持的各种基线：</p>
+<p>文本基线图示
+注释：text() 或 text.draw() 方法在画布上定位文本时，将使用指定的 textBaseline 值。</p>
+<p>默认值：    top
+ctx.textBaseline=&quot;alphabetic|top|hanging|middle|ideographic|bottom&quot;;</p>
+<p>属性值
+值           描述
+alphabetic  文本基线是普通的字母基线。
+top         文本基线是 em 方框的顶端。。
+hanging     文本基线是悬挂基线。
+middle      文本基线是 em 方框的正中。
+ideographic 文本基线是表意基线。
+bottom      文本基线是 em 方框的底端。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">395</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Top&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Bottom&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span><span class="o">=</span><span class="s2">&quot;middle&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Middle&quot;</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span><span class="o">=</span><span class="s2">&quot;alphabetic&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Alphabetic&quot;</span><span class="p">,</span><span class="mi">190</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span><span class="o">=</span><span class="s2">&quot;hanging&quot;</span><span class="p">;</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Hanging&quot;</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="textBaseline" src="../_images/textBaseline.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>文字长度测量<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>定义和用法
+measureText() 方法返回包含一个对象，该对象包含以像素计的指定字体宽度。</p>
+<p>提示：如果您需要在文本向画布输出之前，就了解文本的宽度，那么请使用该方法。</p>
+<p>ctx.measureText(text).width;</p>
+<p>参数值
+参数  描述
+text    要测量的文本。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+
+<span class="kd">let</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+
+<span class="nx">text</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s2">&quot;20px Arial&quot;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">msg</span><span class="p">).</span><span class="nx">width</span><span class="p">;</span>
+
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="o">+</span><span class="nx">len</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="measureText" src="../_images/measureText.png" /></p>
+</div>
+</div>
+<div class="section" id="text">
+<span id="id6"></span><h2>文本对象 <code class="docutils literal notranslate"><span class="pre">Text</span></code><a class="headerlink" href="#text" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Text</span> <span class="kr">extends</span> <span class="nx">Rectangle</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;LeapLearner&#39;</span><span class="p">,</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="nx">font</span> <span class="o">=</span> <span class="s1">&#39;Arial&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="section" id="src">
+<span id="src"></span><h4>文本内容 <code class="docutils literal notranslate"><span class="pre">src</span></code><a class="headerlink" href="#src" title="永久链接至标题">¶</a></h4>
+<p>获取或者设置文本的内容</p>
+</div>
+<div class="section" id="size">
+<span id="size"></span><h4>字体大小 <code class="docutils literal notranslate"><span class="pre">size</span></code><a class="headerlink" href="#size" title="永久链接至标题">¶</a></h4>
+<p>获取或者设置文本字体大小</p>
+</div>
+<div class="section" id="font">
+<span id="id8"></span><h4>字体 <code class="docutils literal notranslate"><span class="pre">font</span></code><a class="headerlink" href="#font" title="永久链接至标题">¶</a></h4>
+<p>获取或者设置文本字体</p>
+</div>
+</div>
+<div class="section" id="auto-line-break">
+<span id="auto-line-break"></span><h3>自动换行 Auto line break<a class="headerlink" href="#auto-line-break" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Let us code the future</span>
+<span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s2">&quot;LeapLearnerLeapLearnerLeapLearnerLeapLearnerLeapLearnerLeapLearnerLeapLearnerLeapLearner&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+<span class="nx">Text</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">print</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">width</span><span class="o">=</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span>
+    <span class="kd">let</span> <span class="nx">src</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+    
+    <span class="nx">text</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">-</span> <span class="nx">text</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">width</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+       <span class="nx">width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+    <span class="p">}</span> 
+    <span class="k">while</span><span class="p">(</span><span class="nx">src</span><span class="p">){</span>
+        <span class="nx">text</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">src</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="nx">text</span><span class="p">.</span><span class="nx">src</span> <span class="o">+=</span> <span class="nx">src</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">width</span> <span class="o">&lt;</span> <span class="nx">width</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">src</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">text</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+            <span class="nx">text</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">h</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">src</span> <span class="o">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="nx">title</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="autoWarp" src="../_images/autoWarp.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h3><a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+</div>
 </div>
 </div>
 

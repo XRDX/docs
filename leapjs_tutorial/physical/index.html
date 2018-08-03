@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>碰撞 &mdash; LeapJS 教程 beta 文档</title>
+  <title>物理效果 &mdash; LeapJS 教程 beta 文档</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="碰撞" href="collision.html" />
+    <link rel="next" title="加速度" href="gravity.html" />
     <link rel="prev" title="图形变换" href="../transform/transform.html" /> 
 
   
@@ -84,13 +84,17 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">碰撞</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="collision.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">物理效果</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gravity.html">加速度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html">边界碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#">碰撞</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collision.html#">图像的碰撞</a></li>
 </ul>
 </li>
@@ -140,7 +144,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>碰撞</li>
+      <li>物理效果</li>
     
     
 
@@ -153,10 +157,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>碰撞<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>物理效果<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="collision.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gravity.html">加速度</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">边界碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html#">碰撞</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#">长方形的碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#">圆的碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision.html#collide">通用碰撞方法 collide</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="collision.html#">图像的碰撞</a></li>
 </ul>
 </div>
@@ -170,7 +181,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="collision.html" class="btn btn-neutral float-right" title="碰撞" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gravity.html" class="btn btn-neutral float-right" title="加速度" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../transform/transform.html" class="btn btn-neutral" title="图形变换" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

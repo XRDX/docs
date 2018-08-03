@@ -84,12 +84,18 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">绘图函数</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本图形</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">圆 circle</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">圆 circle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#circle">绘制方法 <code class="docutils literal notranslate"><span class="pre">circle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circle">圆形对象 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">属性值</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="text.html">文字</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fill.html">样式填充 fill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="line.html">线段 line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="point.html">点 point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ellipse.html">椭圆 ellipse</a></li>
@@ -97,11 +103,13 @@
 <li class="toctree-l2"><a class="reference internal" href="polygon.html">多边形 polygon</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
 
@@ -148,7 +156,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">绘图函数</a> &raquo;</li>
+          <li><a href="index.html">基本图形</a> &raquo;</li>
         
       <li>圆 circle</li>
     
@@ -164,6 +172,36 @@
             
   <div class="section" id="circle">
 <span id="circle"></span><h1>圆 circle<a class="headerlink" href="#circle" title="永久链接至标题">¶</a></h1>
+<p>在开始介绍圆之前，让我们来制作一个简单的彩虹图画。如果你成功的按下面的步骤一步步的完成，那么最终的效果图应该是这样的效果：</p>
+<p>第1步：我们将画布调整为400 x 400大小，并将画布填满<code class="docutils literal notranslate"><span class="pre">lightblue</span></code>颜色</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+<span class="nx">rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>第2步：画下第一个圆</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>第3步：按照顺序，一步步的将其他圆补齐：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="s2">&quot;cyan&quot;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>第4步，我们用一个和天空颜色一样的圆将现在的圆挖空</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">circle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>最后一步，改变画布的高度，也就是调整第一行的代码，让我们只能看到彩虹的上半部分。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// line 1</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="circle">
+<span id="id1"></span><h2>绘制方法 <code class="docutils literal notranslate"><span class="pre">circle</span></code><a class="headerlink" href="#circle" title="永久链接至标题">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
 <span class="cm">/**************************</span>
 <span class="cm">  x - x坐标</span>
@@ -188,7 +226,55 @@
 </pre></div>
 </div>
 <p>运行效果：</p>
-<p><img alt="circle" src="../_images/circle1.png" /></p>
+<p><img alt="circle" src="../_images/circle.png" /></p>
+</div>
+<div class="section" id="circle">
+<span id="id2"></span><h2>圆形对象 <code class="docutils literal notranslate"><span class="pre">Circle</span></code><a class="headerlink" href="#circle" title="永久链接至标题">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span>
+
+<span class="cm">/***************************************************************</span>
+<span class="cm">圆类</span>
+<span class="cm">x, y:       圆的圆心位置</span>
+<span class="cm">radius:     圆的半径</span>
+<span class="cm">***************************************************************/</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>属性值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="section" id="x-y">
+<span id="x-y"></span><h4>坐标值 <code class="docutils literal notranslate"><span class="pre">x</span></code>,<code class="docutils literal notranslate"><span class="pre">y</span></code><a class="headerlink" href="#x-y" title="永久链接至标题">¶</a></h4>
+<p>圆心的坐标值</p>
+</div>
+<div class="section" id="r-radius">
+<span id="r-radius"></span><h4>半径 <code class="docutils literal notranslate"><span class="pre">r</span></code> / <code class="docutils literal notranslate"><span class="pre">radius</span></code><a class="headerlink" href="#r-radius" title="永久链接至标题">¶</a></h4>
+<p>等价属性，可以任意使用其中一个</p>
+<p>例子</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span> <span class="c1">// x, y, rX, rY</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span><span class="p">;</span>
+
+<span class="nx">c</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+<span class="nx">c</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">c</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span> <span class="c1">// both radius or r works</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">shadowColor</span> <span class="o">=</span> <span class="s1">&#39;pink&#39;</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>运行效果</p>
+<p><img alt="circle2" src="../_images/circle2.png" /></p>
+</div>
+</div>
+</div>
 </div>
 
 

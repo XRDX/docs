@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="点 point" href="point.html" />
-    <link rel="prev" title="图片 image" href="image.html" /> 
+    <link rel="prev" title="样式填充 fill" href="fill.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -84,23 +84,28 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">绘图函数</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本图形</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="circle.html">圆 circle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="text.html">文字</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fill.html">样式填充 fill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">线段 line</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">线段 line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">线段模拟长方形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line">线段对象 <code class="docutils literal notranslate"><span class="pre">Line</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="point.html">点 point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ellipse.html">椭圆 ellipse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="triangle.html">三角形 triangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polygon.html">多边形 polygon</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
@@ -148,7 +153,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">绘图函数</a> &raquo;</li>
+          <li><a href="index.html">基本图形</a> &raquo;</li>
         
       <li>线段 line</li>
     
@@ -164,6 +169,8 @@
             
   <div class="section" id="line">
 <span id="line"></span><h1>线段 line<a class="headerlink" href="#line" title="永久链接至标题">¶</a></h1>
+<p>用直尺把两点连接起来，就得到一条线段。线段长就是这两点间的距离。 在连接两点的所有线中，线段最短。简称为<strong>两点之间线段最短</strong>。</p>
+<p>只要确定线段的两个定点的位置，就可以确定一条线段的位置。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="o">*</span><span class="nx">lineWidth</span><span class="p">,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
 <span class="cm">/**************************</span>
 <span class="cm">  x1 - 起点x坐标</span>
@@ -174,6 +181,23 @@
 <span class="cm">  color - 颜色，默认为orange</span>
 <span class="cm">**************************/</span>
 </pre></div>
+</div>
+<p>如果我们想要实现更多复杂的效果，那么我们就需要使用Line对象，详见Line章节。</p>
+<div class="section" id="">
+<span id="id1"></span><h2>线段模拟长方形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>当我们把线宽设置的非常大，比如100时，线段看起来就像是一个长方形，我们可以用线段来模拟长方形。</p>
+<p><strong>例子：Adidas</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="line">
+<span id="id2"></span><h2>线段对象 <code class="docutils literal notranslate"><span class="pre">Line</span></code><a class="headerlink" href="#line" title="永久链接至标题">¶</a></h2>
+<p>属性值</p>
+<p>坐标点 <code class="docutils literal notranslate"><span class="pre">x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2</span></code></p>
+<p>各个点的坐标值</p>
+<p>坐标<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code></p>
+<p>获取或者设置线段的中心点</p>
 </div>
 </div>
 
@@ -188,7 +212,7 @@
         <a href="point.html" class="btn btn-neutral float-right" title="点 point" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="image.html" class="btn btn-neutral" title="图片 image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="fill.html" class="btn btn-neutral" title="样式填充 fill" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

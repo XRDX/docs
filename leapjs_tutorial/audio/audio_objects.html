@@ -84,22 +84,27 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">音乐与音效</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="audio_methods.html">音乐与音效</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">音乐与音效对象</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#">音乐</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#">音效</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#">实例：色阶钢琴</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">属性和方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src">src</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#currenttime">currentTime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oncanplaythrough">oncanplaythrough</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#">音乐</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">音效</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
@@ -163,20 +168,51 @@
             
   <div class="section" id="">
 <span id="id1"></span><h1>音乐与音效对象<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
-<p>好的项目离不开音效，合适的音效可以让一个项目发挥出200%的效果。</p>
+<p>好的项目离不开音效，合适的音效可以让一个项目发挥出200%的效果。前面的play和pause方法只能控制音乐音效的暂停和开始，如果要对音乐音效进行更多的控制，那么就要创建一个音效对象来控制了。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">music</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
-<span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;ddd.mp3&quot;</span>
+<span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;https://rss.leaplearner.com/a/16/gameBG.mp3&quot;</span>
 <span class="nx">music</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>属性和方法</p>
-<p>src
-获取或者设置音乐链接地址</p>
-<p>oncanplaythrough
-在音效加载结束后使用该方法</p>
 <div class="section" id="">
-<span id="id2"></span><h2>音乐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<p>背景音乐一般是长度较长的音乐，且需要循环播放。我们可以将音效的<code class="docutils literal notranslate"><span class="pre">loop</span></code>属性设置为<code class="docutils literal notranslate"><span class="pre">true</span></code>，这样只要播放一次就可以了。</p>
+<span id="id2"></span><h2>属性和方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="src">
+<span id="src"></span><h3>src<a class="headerlink" href="#src" title="永久链接至标题">¶</a></h3>
+<p>定义和用法：设置或返回音频元素的当前来源</p>
+<p>可能的值：</p>
+<ul class="simple">
+<li>绝对 URL - 指向另一个网站（比如src = &quot;https://rss.leaplearner.com/a/16/gameBG.mp3&quot;）</li>
+<li>相对 URL - 指向网站内的某个文件（比如 src=&quot;/data/movie.ogg&quot;）</li>
+</ul>
+<p>使用绝对URL，可以使用任意的音效资源，避免发布在不同网址时同步资源。</p>
+<p>返回值：</p>
+<ul class="simple">
+<li>字符串值 - 当前的音频来源。</li>
+</ul>
+</div>
+<div class="section" id="currenttime">
+<span id="currenttime"></span><h3>currentTime<a class="headerlink" href="#currenttime" title="永久链接至标题">¶</a></h3>
+<p>定义和用法：currentTime 属性设置或返回音频/视频播放的当前位置（以秒计）。当设置该属性时，播放会跳跃到指定的位置。</p>
+</div>
+<div class="section" id="oncanplaythrough">
+<span id="oncanplaythrough"></span><h3>oncanplaythrough<a class="headerlink" href="#oncanplaythrough" title="永久链接至标题">¶</a></h3>
+<p>当浏览器预计能够在不停下来进行缓冲的情况下持续播放指定的音频/视频时，会发生 canplaythrough 事件。</p>
+<p>当音频/视频处于加载过程中时，会依次发生以下事件：</p>
+<ul class="simple">
+<li>loadstart</li>
+<li>durationchange</li>
+<li>loadedmetadata</li>
+<li>loadeddata</li>
+<li>progress</li>
+<li>canplay</li>
+<li>canplaythrough</li>
+</ul>
+<p>大部分情况下，我们只要使用该方法就可以了。它可以保证音效是处于可以播放的状态。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>音乐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>背景音乐一般是长度较长的音乐，且需要循环播放。默认情况下，音乐播放结束后不会重复播放。我们可以将音效的<code class="docutils literal notranslate"><span class="pre">loop</span></code>属性设置为true，这样只要播放结束，这个音乐就会重复播放。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">music</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">();</span>
 <span class="nx">music</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;ddd.mp3&quot;</span>
 <span class="nx">music</span><span class="p">.</span><span class="nx">loop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -185,18 +221,17 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h2>音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id4"></span><h2>音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>无论是音乐还是音效，浏览器在加载时都需要耗费一定的时间，因此一般都是通过异步加载的。因此只有在加载结束后才能进行播放。一般通过<code class="docutils literal notranslate"><span class="pre">oncanplaythrough</span></code>函数来调用播放音效。</p>
 <p>如果是音效，我们可以在项目执行之前进行加载。本书不涉及到资源的管理和加载，如果有兴趣，可以去网上了解更多预加载的知识。</p>
-<div class="section" id="">
-<span id="id4"></span><h3>实例：色阶钢琴<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p><strong>实例：色阶钢琴</strong></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://llcs-1252287760.cossh.myqcloud.com/Piano/&quot;</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;40-C.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;42-D.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;44-E.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;45-F.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;47-G.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;49-A.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;51-B.mp3&quot;</span><span class="p">];</span>
 
 <span class="kd">var</span> <span class="nx">Key</span> <span class="o">=</span> <span class="nx">Rectangle</span><span class="p">;</span>
 <span class="nx">Key</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="c1">//this.audio.currentTime = 0;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">currentTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
 <span class="p">};</span>
 
@@ -208,7 +243,6 @@
     <span class="nx">key</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>

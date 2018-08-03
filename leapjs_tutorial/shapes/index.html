@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>图形对象 &mdash; LeapJS 教程 beta 文档</title>
+  <title>图片和动画 &mdash; LeapJS 教程 beta 文档</title>
   
 
   
@@ -84,25 +84,19 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">图形对象</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">图片和动画</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="shape.html">基本图形对象</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html">圆形 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#point">点 Point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#line">线段 Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#polygon">多边形 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#triangle">三角形 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#rectangle">矩形 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#ellipse">椭圆 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#">属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#text">文本 <code class="docutils literal notranslate"><span class="pre">Text</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sprite.html">图像 <code class="docutils literal notranslate"><span class="pre">Sprite</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html">序列帧动画 Animation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
@@ -150,7 +144,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>图形对象</li>
+      <li>图片和动画</li>
     
     
 
@@ -163,28 +157,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>图形对象<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>图片和动画<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="shape.html">基本图形对象</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="shape.html#shape">基本图形对象 Shape</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html">圆形 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#">属性值</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#point">点 Point</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#line">线段 Line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#polygon">多边形 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#triangle">三角形 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#rectangle">矩形 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#ellipse">椭圆 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#">属性</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shapes.html#text">文本 <code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#">属性</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">图片 image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sprite.html">图像 <code class="docutils literal notranslate"><span class="pre">Sprite</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sprite.html#">属性</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sprite.html#">方法</a></li>

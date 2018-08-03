@@ -84,13 +84,16 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">音乐与音效</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">音乐与音效</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#">音乐</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">音乐和音效</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#play">播放 play</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pause">暂停播放pause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pause">暂停播放 pause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">支持的音效列表</a></li>
 </ul>
 </li>
 </ul>
@@ -98,9 +101,9 @@
 <li class="toctree-l2"><a class="reference internal" href="audio_objects.html">音乐与音效对象</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
 
@@ -164,20 +167,88 @@
   <div class="section" id="">
 <span id="id1"></span><h1>音乐与音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
 <div class="section" id="">
-<span id="id2"></span><h2>音乐<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<p>在编辑环境中，我们同样提供了一系列的音乐音效</p>
+<span id="id2"></span><h2>音乐和音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>音乐一般至一段特定旋律的声音，比如一段曲子，一首歌。而音效则往往是一段声音的片段，比如敲击的声音，提示音等等，一般时间较短。</p>
+<p>LeapJS提供了一系列的音乐音效的方法，用于控制音效的播放。在编辑环境中，提供了一系列的音效和音乐，可以直接使用。</p>
+<p><img alt="libs" src="../_images/libs.png" /></p>
+<p>将鼠标移到各个音效上，等待片刻，即可试听各个音效。在项目中，选取合适的音乐和音效，可以让项目表现力提升不少。如果是音乐项目，那么音乐和音效更是不可或缺的内容了。</p>
 <div class="section" id="play">
 <span id="play"></span><h3>播放 play<a class="headerlink" href="#play" title="永久链接至标题">¶</a></h3>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span>
+<p>如果只是简单的想要播放一段音乐或者音效，那么使用play(src)就可以了，src是音乐的链接地址，以后后面都带有音乐的格式。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="o">*</span><span class="nx">loop</span><span class="p">);</span>
 <span class="c1">// src: 音乐链接地址</span>
+<span class="c1">// loop: 可选， 是否重复播放，默认为false</span>
 </pre></div>
 </div>
+<p><strong>实例：播放一段音乐</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span><span class="p">(</span><span class="s2">&quot;https://rss.leaplearner.com/a/16/gameBG.mp3&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>如果想让一段音乐重复播放，我们只要在play方法后增加一个参数true就可以了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>实例：重复播放一个音效</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span><span class="p">(</span><span class="s2">&quot;https://rss.leaplearner.com/a/1/ansRight.mp3&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>如果音乐已经在播放了，那么再次使用play方法只会继续播放当前音乐，效果和使用一次play是相同的。</p>
 </div>
 <div class="section" id="pause">
-<span id="pause"></span><h3>暂停播放pause<a class="headerlink" href="#pause" title="永久链接至标题">¶</a></h3>
+<span id="pause"></span><h3>暂停播放 pause<a class="headerlink" href="#pause" title="永久链接至标题">¶</a></h3>
+<p>不管音效是在播放阶段还是重复播放，都可以使用pause暂停音效的播放</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">pause</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span>
 <span class="c1">// src: 音乐链接地址</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>支持的音效列表<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>只要是浏览器支持的音乐音效，都可以使用以上方法进行操作。不同浏览器及不同系统对音乐音效的格式支持情况不一致。为了项目能够在所有平台上都顺利运行，我们应该选取一些常用的音乐格式。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th><strong>音频格式</strong></th>
+<th><strong>Chrome</strong></th>
+<th><strong>Firefox</strong></th>
+<th><strong>IE9</strong></th>
+<th><strong>Opera</strong></th>
+<th><strong>Safari</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OGG</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>MP3</td>
+<td>支持</td>
+<td>不支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>WAV</td>
+<td>不支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+</tbody>
+</table><p>一般提供ogg和mp3格式，就可以支持所有主流浏览器了。</p>
+<div class="section" id="">
+<span id="id4"></span><h4>音频格式知识普及<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p><strong>Ogg：</strong>全称应该是OGGVobis(oggVorbis)是一种新的音频压缩格式，类似于MP3等的音乐格式。Ogg是完全免费、开放和没有专利限制的。OggVorbis文件的扩展名是.OGG。Ogg文件格式可以不断地进行大小和音质的改良，而不影响旧有的编码器或播放器。</p>
+<p><strong>MP3：</strong>是一种音频压缩技术，其全称是动态影像专家压缩标准音频层面3（Moving Picture Experts Group Audio Layer III），简称为MP3。它被设计用来大幅度地降低音频数据量。利用 MPEG Audio Layer 3 的技术，将音乐以1:10 甚至 1:12 的压缩率，压缩成容量较小的文件，而对于大多数用户来说重放的音质与最初的不压缩音频相比没有明显的下降。</p>
+<p><strong>WAV：</strong>为微软公司(Microsoft)开发的一种声音文件格式，它符合RIFF(Resource Interchange File Format)文件规范，用于保存Windows平台的音频信息资源，被Windows平台及其应用程序所广泛支持，该格式也支持MSADPCM，CCITT A LAW等多种压缩运算法，支持多种音频数字，取样频率和声道，标准格式化的WAV文件和CD格式一样，也是44.1K的取样频率，16位量化数字，因此在声音文件质量和CD相差无几！</p>
+<p>各种关联：wav格式音质最好，但是文件体积较大。mp3压缩率较高，普及率高，音质相比wav要差。ogg与mp3在相同位速率(Bit Rate)编码的情况下，ogg体积更小，并且ogg是免费的不用交专利费。</p>
 </div>
 </div>
 </div>

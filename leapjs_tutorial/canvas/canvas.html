@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>画布 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="音乐与音效" href="../audio/index.html" />
+    <link rel="prev" title="画布" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">画布</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">画布</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">属性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#width">宽度 width</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#height">高度 height</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">清理画布</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showaxis">显示坐标轴 showAxis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">阴影效果</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">平移</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">画布</a> &raquo;</li>
+        
+      <li>画布</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>画布<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>canvas是H5的一个模块，用于绘制图像。</p>
+<div class="section" id="">
+<span id="id2"></span><h2>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="width">
+<span id="width"></span><h3>宽度 width<a class="headerlink" href="#width" title="永久链接至标题">¶</a></h3>
+<p>返回画布的宽度</p>
+</div>
+<div class="section" id="height">
+<span id="height"></span><h3>高度 height<a class="headerlink" href="#height" title="永久链接至标题">¶</a></h3>
+<p>返回或者设置画布的高度</p>
+<p>绘制背景时，我们</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id4"></span><h3>清理画布<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>canvas.clear()</p>
+<div class="admonition note">
+<p class="first admonition-title">图形监听事件</p>
+<p class="last">canvas.clear同时也会清理所有的图形监听事件。</p>
+</div></div>
+<div class="section" id="showaxis">
+<span id="showaxis"></span><h3>显示坐标轴 showAxis<a class="headerlink" href="#showaxis" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>显示画布的坐标轴，显示的宽度为画布宽度 * 2，显示的高度为画布高度 * 2，中心点为原点。默认情况下，我们只能看到右下区间的内容。</p>
+<p>canvas.showAxis()</p>
+<p>resize(width, height)</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">||</span> <span class="mi">450</span> <span class="c1">// borders size</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span> <span class="o">||</span> <span class="mi">600</span> <span class="c1">// p, height</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">;</span>
+  
+<span class="c1">// 设置文字默认对齐方式：顶部对齐</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span> <span class="o">=</span> <span class="s1">&#39;top&#39;</span>
+
+<span class="c1">// 设置默认阴影</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOpen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>阴影效果<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>canvas.shadow(open=true)</p>
+<p>设置是否开启阴影，默认为开启，通过设置为false来关闭默认的阴影效果。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">shadow</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Its a note! in markdown!</p>
+</div><p>形变 transform</p>
+<p>canvas.transform = new Transform()</p>
+<p>canvas.scale (x, y)</p>
+<p>canvas.rotate (degree)</p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>平移<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>canvas._translate (x, y)</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../audio/index.html" class="btn btn-neutral float-right" title="音乐与音效" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="画布" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

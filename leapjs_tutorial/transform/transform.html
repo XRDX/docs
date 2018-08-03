@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="碰撞" href="../physical/index.html" />
-    <link rel="prev" title="键盘事件" href="../events/keyboard.html" /> 
+    <link rel="prev" title="图形变换" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -84,14 +84,20 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">图形变换</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#">平移</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#">放大与缩小</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#">斜切</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">图形变换</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">图形变换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">平移</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">缩放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">旋转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">斜切</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
@@ -141,6 +147,8 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="index.html">图形变换</a> &raquo;</li>
+        
       <li>图形变换</li>
     
     
@@ -155,24 +163,49 @@
             
   <div class="section" id="">
 <span id="id1"></span><h1>图形变换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
-<p>所有的图形都可以在画布上按照一定的规律进行变换</p>
+<p>所有的图形都可以在画布上按照一定的规律进行变换。形变包括平移、缩放、旋转，通过这几种变换，可以从简单的图形变化出各种图形。</p>
 <div class="section" id="">
 <span id="id2"></span><h2>平移<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="nx">circle</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<p>除了使用x，y对图形对象进行移动外，还可以使用平移的方式进行。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+<span class="nx">circle</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
 <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>图形调用translate即可在画布上进行偏移。</p>
-<p>如果需要对线条、多变形进行移动时，就可以使用该方式，而不用</p>
+<p>在没有改变circle的坐标前提下，我们把circle的位置改变了。</p>
+<p>![circle](C:\Data\leapjs\docs\images\transform\circle.png)</p>
+<p><strong>实例：走路</strong></p>
+<p>我们可以用平移来模拟角色在移动时候的晃动，比我们直接去计算坐标要方便的多。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">role</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;https://r.leaplearner.com/i/robot1.png&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+<span class="nx">role</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Swing</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+
+<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">role</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">role</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>这里，new Swing(-5, 5, 1)是创建了一个随时间变化的数值，这个数值从-5到5之间变化，间隔1秒，详细见常用数值方法一章。</p>
+<p>图形调用translate即可在画布上进行偏移，同时不会影响到图形的移动。</p>
+<p><strong>实例：多边形的移动</strong></p>
+<p>如果需要对线条、多变形进行移动时，就可以使用该方式，而不用去改变每个点的位置。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">polygon</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Polygon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">polygon</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
 <span class="nx">polygon</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="nx">polygon</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h2>放大与缩小<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id3"></span><h2>缩放<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>缩放包括缩小和放大，都是对图形在某个方向上的形变。最形象的说法就是：拉长或者压扁。</p>
 <p>我们可以改变矩形的宽高来改变矩形的大小，改变圆的半径来改变圆的大小。但是如果我们要改变其他图形的大小，就有点麻烦了。</p>
 <p>不过，我们可以通过修改图像的比例来达到这个效果。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
@@ -181,7 +214,10 @@
 <p>同样的，放大缩小时是以坐标原点作为参考系的，我们可以通过设定锚点来修改。</p>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h2>斜切<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id4"></span><h2>旋转<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>斜切<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>图像的变换都是通过矩形计算进行的，如果读者想要了解更多图形变换的知识，可以在专门的网站上学习更多知识。</p>
 <p><strong>平行多边形</strong></p>
 <p>利用斜切来定义一个平行多边形</p>
@@ -199,7 +235,7 @@
         <a href="../physical/index.html" class="btn btn-neutral float-right" title="碰撞" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../events/keyboard.html" class="btn btn-neutral" title="键盘事件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="图形变换" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
