@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="音乐与音效" href="../audio/index.html" />
+    <link rel="next" title="画笔" href="context.html" />
     <link rel="prev" title="画布" href="index.html" /> 
 
   
@@ -89,6 +89,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">画布</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">画布</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">属性速查</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">方法速查</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">属性</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#width">宽度 width</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#height">高度 height</a></li>
@@ -97,18 +99,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#">方法</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#">清理画布</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#showaxis">显示坐标轴 showAxis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#">阴影效果</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#">平移</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resize-width-height">重置画布 resize(width, height)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shadow">阴影效果 shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform">形变 transform</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">画笔</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
 
@@ -171,36 +175,114 @@
             
   <div class="section" id="">
 <span id="id1"></span><h1>画布<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
-<p>canvas是H5的一个模块，用于绘制图像。</p>
+<p>canvas是H5的一个模块，用于绘制图像。在LeapJS中，所有绘制相关的功能都是基于canvas开发的。除了2d项目，canvas还支持3d绘制，不在我们的讨论范围内。</p>
 <div class="section" id="">
-<span id="id2"></span><h2>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id2"></span><h2>属性速查<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>canvas.width</td>
+<td>获取或者设置画布的宽度</td>
+</tr>
+<tr>
+<td>canvas.height</td>
+<td>获取或者设置画布的高度</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id3"></span><h2>方法速查<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>canvas.clear()</td>
+<td>清理画布上所有的内容</td>
+</tr>
+<tr>
+<td>canvas.showAxis()</td>
+<td>显示画布坐标</td>
+</tr>
+<tr>
+<td>canvas.resize(w, h)</td>
+<td>改变画布的宽度和高度</td>
+</tr>
+<tr>
+<td>canvas.shadow(false)</td>
+<td>设置是否开启全局阴影</td>
+</tr>
+<tr>
+<td>canvas.rotate(degree)</td>
+<td>旋转画布内坐标</td>
+</tr>
+<tr>
+<td>canvas.scale(w, h)</td>
+<td>缩放画布内坐标</td>
+</tr>
+<tr>
+<td>canvas._translate(x, y)</td>
+<td>平移画布内坐标</td>
+</tr>
+<tr>
+<td>canvas.getContext("2d")</td>
+<td>返回ctx，详见context一章</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id4"></span><h2>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="width">
 <span id="width"></span><h3>宽度 width<a class="headerlink" href="#width" title="永久链接至标题">¶</a></h3>
-<p>返回画布的宽度</p>
+<p>获取或者设置画布的宽度，默认情况下，画布的宽度为450</p>
 </div>
 <div class="section" id="height">
 <span id="height"></span><h3>高度 height<a class="headerlink" href="#height" title="永久链接至标题">¶</a></h3>
-<p>返回或者设置画布的高度</p>
-<p>绘制背景时，我们</p>
+<p>返回或者设置画布的高度，默认情况下，画布的高度为550</p>
+<p>绘制背景时，我们可以利用这两个属性，来让图片铺满整个画布。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;....jpg&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+<span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
 </div>
+<p>利用画布宽度和高度来判断物体是否移到屏幕外</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">role</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">role</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="c1">// role is out of the canvas</span>
+</pre></div>
+</div>
+<div class="admonition warning  ">
+<p class="first admonition-title">设置高度和宽度</p>
+<p class="last">建议使用resize方法来改变画布的大小，使用属性改变画布会丢失已经初始化的画布属性</p>
+</div></div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h2>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id5"></span><h2>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <div class="section" id="">
-<span id="id4"></span><h3>清理画布<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id6"></span><h3>清理画布<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <p>canvas.clear()</p>
+<p>清理画布上的所有图形，让画布重新变为空白。</p>
 <div class="admonition note">
 <p class="first admonition-title">图形监听事件</p>
 <p class="last">canvas.clear同时也会清理所有的图形监听事件。</p>
 </div></div>
 <div class="section" id="showaxis">
 <span id="showaxis"></span><h3>显示坐标轴 showAxis<a class="headerlink" href="#showaxis" title="永久链接至标题">¶</a></h3>
+<p>canvas.showAxis()</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>显示画布的坐标轴，显示的宽度为画布宽度 * 2，显示的高度为画布高度 * 2，中心点为原点。默认情况下，我们只能看到右下区间的内容。</p>
-<p>canvas.showAxis()</p>
-<p>resize(width, height)</p>
+<p>显示画布的坐标轴，显示的宽度为画布宽度 * 2，显示的高度为画布高度 * 2，中心点为原点。默认情况下，我们只能看到右下区间的坐标轴。当我们移动坐标系时，我们可以看到不同位置的坐标轴。</p>
+</div>
+<div class="section" id="resize-width-height">
+<span id="resize-width-height"></span><h3>重置画布 resize(width, height)<a class="headerlink" href="#resize-width-height" title="永久链接至标题">¶</a></h3>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span> <span class="o">||</span> <span class="mi">450</span> <span class="c1">// borders size</span>
 <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span> <span class="o">||</span> <span class="mi">600</span> <span class="c1">// p, height</span>
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">;</span>
@@ -215,25 +297,73 @@
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOpen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>重置画布时，画布上的所有内容都会消失，画笔的属性也会被重置，所以一般只在最初状态下进行画布的重置。</p>
 </div>
-<div class="section" id="">
-<span id="id5"></span><h3>阴影效果<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="section" id="shadow">
+<span id="shadow"></span><h3>阴影效果 shadow<a class="headerlink" href="#shadow" title="永久链接至标题">¶</a></h3>
 <p>canvas.shadow(open=true)</p>
-<p>设置是否开启阴影，默认为开启，通过设置为false来关闭默认的阴影效果。</p>
+<p>设置是否开启全局阴影，默认为开启，通过设置为false来关闭默认的阴影效果。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">shadow</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Its a note! in markdown!</p>
-</div><p>形变 transform</p>
-<p>canvas.transform = new Transform()</p>
-<p>canvas.scale (x, y)</p>
+</div>
+<div class="section" id="transform">
+<span id="transform"></span><h3>形变 transform<a class="headerlink" href="#transform" title="永久链接至标题">¶</a></h3>
+<p>画布的形变是由Transform类来记录的，通过改变transform属性值，可以直接对canvas的形变属性进行操作。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Transform</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>一般情况下，通过下面的方法对画布进行形变。</p>
+<div class="section" id="rotate">
+<span id="rotate"></span><h4>旋转 rotate<a class="headerlink" href="#rotate" title="永久链接至标题">¶</a></h4>
 <p>canvas.rotate (degree)</p>
+<p>将画布围绕原点顺势正旋转一定的角度，角度单位为（°），这里degree表示以初始坐标为参考。多次使用rotate，以最后一次为准。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+
+<span class="nx">rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>当画布旋转后，画布上的所有元素都会随之转动。可以看到，原来的正方形已经跟着画布旋转了45度。</p>
+<p><img alt="rotate" src="../_images/rotate.png" /></p>
+</div>
+<div class="section" id="scale">
+<span id="scale"></span><h4>缩放 scale<a class="headerlink" href="#scale" title="永久链接至标题">¶</a></h4>
+<p>canvas.scale(w, h)</p>
+<p>将画布以原点为锚点，对坐标系进行缩放，默认情况下w为1，h为1。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+
+<span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>可以看到，将x坐标进行放大后，原来的正方形变为了长方形，图形上的所有点的x坐标都被拉长了</p>
+<p><img alt="scale" src="../_images/scale.png" /></p>
+</div>
+<div class="section" id="translate">
+<span id="translate"></span><h4>平移 translate<a class="headerlink" href="#translate" title="永久链接至标题">¶</a></h4>
+<p>canvas._translate (x, y)</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">_translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+
+<span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>平移将整个坐标系往x、y方向进行呢移动。注意，这个方法名前面使用了下划线_translate，这是因为translate已经被浏览器占用了。</p>
+<p><img alt="translate" src="../_images/translate.png" /></p>
+<p><strong>例子：震动效果</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>每次点击画布，都可以让画布上的所有内容震动</p>
 </div>
 <div class="section" id="">
-<span id="id6"></span><h3>平移<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
-<p>canvas._translate (x, y)</p>
+<span id="id7"></span><h4>画布的形变和图形的形变<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>画布的形变和图形的形变有相同点也有不同点，在不同时候我们需要选择合适的形变来达到我们的目的。</p>
+</div>
 </div>
 </div>
 </div>
@@ -246,7 +376,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../audio/index.html" class="btn btn-neutral float-right" title="音乐与音效" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="context.html" class="btn btn-neutral float-right" title="画笔" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="画布" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

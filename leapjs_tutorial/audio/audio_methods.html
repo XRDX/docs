@@ -90,6 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">音乐与音效</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">音乐与音效</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">内容概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">音乐和音效</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#play">播放 play</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pause">暂停播放 pause</a></li>
@@ -167,7 +168,27 @@
   <div class="section" id="">
 <span id="id1"></span><h1>音乐与音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
 <div class="section" id="">
-<span id="id2"></span><h2>音乐和音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id2"></span><h2>内容概要<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>play(src, *loop);</td>
+<td>播放一首音乐，loop为true时循环播放</td>
+</tr>
+<tr>
+<td>pause(src);</td>
+<td>暂停音乐的播放</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id3"></span><h2>音乐和音效<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>音乐一般至一段特定旋律的声音，比如一段曲子，一首歌。而音效则往往是一段声音的片段，比如敲击的声音，提示音等等，一般时间较短。</p>
 <p>LeapJS提供了一系列的音乐音效的方法，用于控制音效的播放。在编辑环境中，提供了一系列的音效和音乐，可以直接使用。</p>
 <p><img alt="libs" src="../_images/libs.png" /></p>
@@ -203,7 +224,7 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h3>支持的音效列表<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id4"></span><h3>支持的音效列表<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <p>只要是浏览器支持的音乐音效，都可以使用以上方法进行操作。不同浏览器及不同系统对音乐音效的格式支持情况不一致。为了项目能够在所有平台上都顺利运行，我们应该选取一些常用的音乐格式。</p>
 <table border="1" class="docutils">
 <thead>
@@ -244,7 +265,7 @@
 </tbody>
 </table><p>一般提供ogg和mp3格式，就可以支持所有主流浏览器了。</p>
 <div class="section" id="">
-<span id="id4"></span><h4>音频格式知识普及<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<span id="id5"></span><h4>音频格式知识普及<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
 <p><strong>Ogg：</strong>全称应该是OGGVobis(oggVorbis)是一种新的音频压缩格式，类似于MP3等的音乐格式。Ogg是完全免费、开放和没有专利限制的。OggVorbis文件的扩展名是.OGG。Ogg文件格式可以不断地进行大小和音质的改良，而不影响旧有的编码器或播放器。</p>
 <p><strong>MP3：</strong>是一种音频压缩技术，其全称是动态影像专家压缩标准音频层面3（Moving Picture Experts Group Audio Layer III），简称为MP3。它被设计用来大幅度地降低音频数据量。利用 MPEG Audio Layer 3 的技术，将音乐以1:10 甚至 1:12 的压缩率，压缩成容量较小的文件，而对于大多数用户来说重放的音质与最初的不压缩音频相比没有明显的下降。</p>
 <p><strong>WAV：</strong>为微软公司(Microsoft)开发的一种声音文件格式，它符合RIFF(Resource Interchange File Format)文件规范，用于保存Windows平台的音频信息资源，被Windows平台及其应用程序所广泛支持，该格式也支持MSADPCM，CCITT A LAW等多种压缩运算法，支持多种音频数字，取样频率和声道，标准格式化的WAV文件和CD格式一样，也是44.1K的取样频率，16位量化数字，因此在声音文件质量和CD相差无几！</p>

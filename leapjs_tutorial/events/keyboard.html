@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="图形变换" href="../transform/index.html" />
-    <link rel="prev" title="事件" href="mouse.html" /> 
+    <link rel="prev" title="鼠标" href="mouse.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -90,10 +90,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">事件处理</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="mouse.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html">鼠标</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">键盘</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">概览</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">键盘状态</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">键盘事件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">按键键名</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">特殊键名称</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#"><strong>数字键</strong></a></li>
 </ul>
 </li>
@@ -168,7 +171,50 @@
   <div class="section" id="">
 <span id="id1"></span><h1>键盘<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
 <div class="section" id="">
-<span id="id2"></span><h2>键盘状态<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id2"></span><h2>概览<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pressed</td>
+<td>某个键是否被按下中</td>
+<td>Key['a'].pressed</td>
+</tr>
+</tbody>
+</table><table border="1" class="docutils">
+<thead>
+<tr>
+<th>键盘事件</th>
+<th>描述</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>press</td>
+<td>当键盘上某个键被按下时触发</td>
+<td>Key['a'].press</td>
+</tr>
+<tr>
+<td>down</td>
+<td>当按键被按下时触发</td>
+<td>Key['a'].down</td>
+</tr>
+<tr>
+<td>up</td>
+<td>当按键松开时触发</td>
+<td>Key['a'].up</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id3"></span><h2>键盘状态<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>当键盘上<code class="docutils literal notranslate"><span class="pre">a键</span></code>被按下时，以下属性值会变为<code class="docutils literal notranslate"><span class="pre">true</span></code>，当<code class="docutils literal notranslate"><span class="pre">a键</span></code>松开时，以下属性值又变为<code class="docutils literal notranslate"><span class="pre">false</span></code>值。在进行条件判断时，可以利用这一特性进行判断。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">].</span><span class="nx">pressed</span> <span class="c1">// true/false</span>
 </pre></div>
@@ -186,12 +232,12 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h2>键盘事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id4"></span><h2>键盘事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>和鼠标类似，键盘也会触发事件。</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">down</span></code>：当按键被按下时触发</li>
 <li><code class="docutils literal notranslate"><span class="pre">up</span></code>：当按键松开时触发</li>
-<li><code class="docutils literal notranslate"><span class="pre">press：当按键被按下并且松开时触发</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">press</span></code>：当按键被按下并且松开时触发</li>
 </ul>
 <p>方法一：</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
@@ -207,7 +253,32 @@
 </div>
 <p>当定义了以上方法后，只要我们按下a键，就会在控制台输出a字。</p>
 <p>Key是一个对象，因此以上两种方式都可以实现对按键a的监听。</p>
-<p>一些特别的键名称</p>
+<div class="section" id="">
+<span id="id5"></span><h3>按键键名<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>按键</th>
+<th>键名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a ~ z</td>
+<td>a ~ z</td>
+</tr>
+<tr>
+<td>0 ~ 9</td>
+<td>0 ~ 9</td>
+</tr>
+<tr>
+<td>!@#$%^&amp;*()_+-=,./&lt;&gt;?|\;:\'"</td>
+<td>!@#$%^&amp;*()_+-=,./&lt;&gt;?|\;:\'"</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id6"></span><h3>特殊键名称<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -253,8 +324,9 @@
 <td></td>
 </tr>
 </tbody>
-</table><div class="section" id="">
-<span id="id4"></span><h3><strong>数字键</strong><a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+</table></div>
+<div class="section" id="">
+<span id="id7"></span><h3><strong>数字键</strong><a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 <p>因为数字无法作为属性的名称，所有数字键只能使用以下方式进行调用。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Key</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">].</span><span class="nx">press</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
 </pre></div>
@@ -262,7 +334,7 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id5"></span><h2>状态还是事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id8"></span><h2>状态还是事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>当我们需要用键盘来控制项目时，有上述两种方式，那什么时候用状态判断的方式，什么时候用事件的方式呢？</p>
 <p>正如这两个方式的名称，当我们需要表达<code class="docutils literal notranslate"><span class="pre">状态变化</span></code>时，我们选择使用状态，比如，控制一个角色的移动，我们希望当左键按下的时候（状态），角色往左移动，这就是一个状态的切换，从静止到往左移动，那么这里就适合用状态来进行判断。</p>
 <p><strong>例子：使用状态来移动</strong></p>
@@ -300,7 +372,7 @@
 <p><img alt="keyEvent" src="../_images/keyEvent.gif" /></p>
 </div>
 <div class="section" id="">
-<span id="id6"></span><h2>手势事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id9"></span><h2>手势事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>另外，手机上的键盘需要触发输入才能够显示，因此我们也要避免使用键盘输入。</p>
 <p><code class="docutils literal notranslate"><span class="pre">leapjs</span></code>包含了对手势的基本支持功能，在手机上，支持4个简单的滑动手势，上下左右，分别对应键盘的上下左右键。使用了这些按键的程序，在手机上可以使用滑动手势来控制。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
@@ -319,7 +391,10 @@
 </pre></div>
 </div>
 <p>在这个例子中，我们可以使用键盘的方向键来移动矩形的位置，也可以在手机上用移动手势来控制。</p>
-</div>
+<div class="admonition note">
+<p class="first admonition-title">支持的手势事件</p>
+<p class="last">注意，只有例子中的4个按键支持手势转换，且只支持down事件</p>
+</div></div>
 </div>
 
 
@@ -333,7 +408,7 @@
         <a href="../transform/index.html" class="btn btn-neutral float-right" title="图形变换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mouse.html" class="btn btn-neutral" title="事件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mouse.html" class="btn btn-neutral" title="鼠标" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

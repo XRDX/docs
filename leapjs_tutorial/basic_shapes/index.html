@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="长方形 rectangle" href="rectangle.html" />
-    <link rel="prev" title="简介" href="../introduction/brief.html" /> 
+    <link rel="next" title="圆 circle" href="circle.html" />
+    <link rel="prev" title="第一个小程序" href="../introduction/firstProgram.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,15 +85,11 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">基本图形</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="circle.html">圆 circle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="text.html">文字</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fill.html">样式填充 fill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="line.html">线段 line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="point.html">点 point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ellipse.html">椭圆 ellipse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="triangle.html">三角形 triangle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="polygon.html">多边形 polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_shapes.html">其他图形</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
@@ -166,14 +162,16 @@
 <p>以下函数会在画布上绘制出相应的图形。通过使用基本绘图函数，我们可以组合出任意我们想要的图形。</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="circle.html">圆 circle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circle.html#">绘制彩虹</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circle.html#circle">绘制方法 <code class="docutils literal notranslate"><span class="pre">circle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="circle.html#circle">圆形对象 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rectangle.html">长方形 rectangle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rectangle.html#rectangle">绘图函数 rectangle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rectangle.html#rectangle">矩形对象 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="circle.html">圆 circle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="circle.html#circle">绘制方法 <code class="docutils literal notranslate"><span class="pre">circle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="circle.html#circle">圆形对象 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rectangle.html#fill">样式填充 fill</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="text.html">文字</a><ul>
@@ -182,31 +180,17 @@
 <li class="toctree-l2"><a class="reference internal" href="text.html#text">文本对象 <code class="docutils literal notranslate"><span class="pre">Text</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="fill.html">样式填充 fill</a></li>
-<li class="toctree-l1"><a class="reference internal" href="line.html">线段 line</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="line.html#">线段模拟长方形</a></li>
-<li class="toctree-l2"><a class="reference internal" href="line.html#line">线段对象 <code class="docutils literal notranslate"><span class="pre">Line</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">图片 image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="image.html#">内容概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html#image">绘图函数 image</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="point.html">点 point</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="point.html#point">绘制方法 point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="point.html#point">点对象 Point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="point.html#"></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ellipse.html">椭圆 ellipse</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ellipse.html#">绘制方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ellipse.html#ellipse">椭圆对象 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="triangle.html">三角形 triangle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="triangle.html#">绘制方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="triangle.html#triangle">三角形对象 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="polygon.html">多边形 polygon</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="polygon.html#">简单绘制</a></li>
-<li class="toctree-l2"><a class="reference internal" href="polygon.html#polygon">多边形对象 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_shapes.html">其他图形</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="other_shapes.html#point">点 point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_shapes.html#line">线段 line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_shapes.html#triangle">三角形 triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_shapes.html#polygon">多边形 polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other_shapes.html#ellipse">椭圆 ellipse</a></li>
 </ul>
 </li>
 </ul>
@@ -221,10 +205,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rectangle.html" class="btn btn-neutral float-right" title="长方形 rectangle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="circle.html" class="btn btn-neutral float-right" title="圆 circle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../introduction/brief.html" class="btn btn-neutral" title="简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../introduction/firstProgram.html" class="btn btn-neutral" title="第一个小程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
