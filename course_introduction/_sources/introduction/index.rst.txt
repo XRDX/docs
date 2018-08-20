@@ -10,5 +10,4 @@
    :maxdepth: 2
 
    introduction
-   csta
    LeapLearner

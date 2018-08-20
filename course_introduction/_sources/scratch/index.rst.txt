@@ -9,5 +9,6 @@ Scratch课程
 .. toctree::
    :maxdepth: 2
 
+   what_is_scratch
    why_scratch
    scratch_L0

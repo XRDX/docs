@@ -1,4 +1,4 @@
-## 关于信息学
+## 关于信息学奥赛
 
 信息学（Informatics）一词在很多场合是计算机科学（Computer Science）的代称。在中国大陆地区，特别是中学阶段主要指计算机科学中关注“计算机理论与算法（Theory and Algorithms）”的子领域。
 

@@ -9,11 +9,8 @@ Python课程
 .. toctree::
    :maxdepth: 2
 
+   what_is_python
    why_python
-   ref_python
    python_L1
    python_L2
    python_L3
-   ref_kebiao
-   ref_ncre
-   ref_zhejiang
