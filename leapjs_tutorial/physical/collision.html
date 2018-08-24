@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>碰撞 &mdash; LeapJS 教程 beta 文档</title>
+  <title>边界碰撞 &mdash; LeapJS 教程 beta 文档</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="项目列表" href="../projects/index.html" />
-    <link rel="prev" title="碰撞" href="index.html" /> 
+    <link rel="prev" title="加速度" href="gravity.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -84,14 +84,31 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">碰撞</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">物理效果</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gravity.html">加速度</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">边界碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">碰撞</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">长方形的碰撞</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">圆的碰撞</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collide">通用碰撞方法 collide</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#">图像的碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">碰撞延伸</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mit">最小平移向量（MIT）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">碰撞性能优化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#broad-phase">粗略阶段（Broad Phase）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#narrow-phase">精细阶段（Narrow Phase）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">最后</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
@@ -140,9 +157,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">碰撞</a> &raquo;</li>
+          <li><a href="index.html">物理效果</a> &raquo;</li>
         
-      <li>碰撞</li>
+      <li>边界碰撞</li>
     
     
 
@@ -154,19 +171,79 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>##物理效果</p>
+  <p>##碰撞</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shape.collide(otherShape);</td>
+<td>判断一个图形是否与另一个图形发生碰撞。</td>
+</tr>
+</tbody>
+</table><p>在现今的游戏中，碰撞检测可以说是一个基础的不能再基础的技术。它关乎能否正确判断玩家的攻击有没有击中目标，判断玩家有没有踩在地板上，判断某两个物体有没有碰撞在一起，进而衍生出其它的各种行为。</p>
+<p>而碰撞检测是建立在碰撞体上的。碰撞体是对一个物体“边界”的确切描述，它描述了每个需要进行碰撞检测的物体的边界，并依靠数学方法判断这些边界是否相交，进而产生碰撞检测的结果。</p>
+<p>在电子游戏发展早期，碰撞体和实际的轮廓之间还存在着巨大的差异，只是能够概括其大概的边界而已。尽管现在我们有许多丰富的手段来让我们的碰撞体尽可能的接近真实的外形，但多数情况下并不会这么做——归根结底，这么做没给游戏的真实程度带来什么太大的提升，反而还糟蹋了游戏的运行速度。</p>
 <div class="section" id="">
-<span id="id1"></span><h1>碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
-<p>所有图形类都有一个方法collide，接受一个参数，必须是另外一个图形类实例，如果两个图形相互碰撞，那么返回碰撞点坐标。否则返回<code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<span id="id1"></span><h1>边界碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>最简单的要数位置碰撞了，一个小球从高度掉下来后，怎么让小球停在某个特定的位置呢？只要我们队小球的坐标进行判断，就可以控制小球停止。同样，我们如果想让小球反弹回去，也是易如反掌。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id3"></span><h2>长方形的碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>圆的碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>如何判断两个圆是否发生碰撞呢，我们先找到两个圆碰撞的临界点。可以看出，当两个圆的圆心距离等于半径只和时，两个圆相切。那么，只要圆心距离小于半径之和，两个圆就发生碰撞了。</p>
+</div>
+<div class="section" id="collide">
+<span id="collide"></span><h2>通用碰撞方法 collide<a class="headerlink" href="#collide" title="永久链接至标题">¶</a></h2>
+<p>虽然我们能够完成上述图形的碰撞检测，但是一旦图形变的复杂，比如长方形和圆，三角形之间，图片之间的碰撞就需要用到更多的计算。</p>
+<p>在LeapJS中，所有图形类都有一个方法collide，接受一个参数，必须是另外一个图形类实例，如果两个图形相互碰撞，那么返回碰撞点坐标。否则返回<code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">collide</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>坐标点是一个对象，因此可以直接使用if来判断是否发生碰撞。</p>
 <p>在图形进行旋转、翻转、平移后，碰撞仍可以进行判断。</p>
+<p>复杂图形的碰撞有多种方式可以用于判断，如需了解，可以在网上找到更多相关知识。</p>
+</div>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h1>图像的碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<span id="id5"></span><h1>图像的碰撞<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
 <p>为了提高执行的效率，不提供像素级别的碰撞判断，图片的碰撞体积默认为图像宽高的0.8（80%），可以通过<code class="docutils literal notranslate"><span class="pre">setCollisionScale</span></code>来设定碰撞宽高的比例。</p>
+<p>方法：</p>
+<p>setCollisionScale(scaleX, scaleY)</p>
+<p>scaleX为1时，即碰撞体积等同于图像的外接长方形。当scaleX为0.5时，在水平方向是，碰撞体积仅为外接长方形的一半。</p>
+<p>默认情况下，图片外围都有一些空白或者透明的位置，因此我们默认scaleX和scaleY为 0.8，如果在项目制作过程中发现默认属性不足以正确展现碰撞效果，那么就可以通过setCollisionScale方法来改变碰撞长方形。</p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h1>碰撞延伸<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="mit">
+<span id="mit"></span><h2>最小平移向量（MIT）<a class="headerlink" href="#mit" title="永久链接至标题">¶</a></h2>
+<p>通常来说，如果碰撞之后，相撞的双方依然存在，那么就需要将两者分开。分开之后，可以使原来相撞的两物体彼此弹开，也可以让他们黏在一起，还可以根据具体需要来实现其他行为。不过首先要做的是，还是将两者分开，这就需要用到最小平移向量（Minimum Translation Vector, MIT）。</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>碰撞性能优化<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>若每个周期都需要对全部物体进行两两判断，会造成浪费（因为有些物体分布在不同区域，根本不会发生碰撞）。所以，大部分游戏都会将碰撞分为两个阶段：粗略和精细（broad/narrow）。</p>
+</div>
+<div class="section" id="broad-phase">
+<span id="broad-phase"></span><h2>粗略阶段（Broad Phase）<a class="headerlink" href="#broad-phase" title="永久链接至标题">¶</a></h2>
+<p>Broad phase 能为你提供有可能碰撞的实体列表。这可通过一些特殊的数据结构实现，它们能为你提供信息：实体存在哪里和哪些实体在其周围。这些数据结构可以是：四叉树（Quad Trees）、R树（R-Trees）或空间哈希映射（Spatial Hashmap）等。</p>
+<p>读者若感兴趣，可以自行查阅相关信息。</p>
+</div>
+<div class="section" id="narrow-phase">
+<span id="narrow-phase"></span><h2>精细阶段（Narrow Phase）<a class="headerlink" href="#narrow-phase" title="永久链接至标题">¶</a></h2>
+<p>当你有了较小的实体列表，你可以利用精细阶段的算法（如上述讲述的碰撞算法）得到一个确切的答案（是否发生碰撞）。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h1>最后<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>碰撞检测有多种，选择合适最重要。</p>
 </div>
 
 
@@ -180,7 +257,7 @@
         <a href="../projects/index.html" class="btn btn-neutral float-right" title="项目列表" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="碰撞" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gravity.html" class="btn btn-neutral" title="加速度" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

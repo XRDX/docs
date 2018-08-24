@@ -1,0 +1,631 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>画笔 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="音乐与音效" href="../audio/index.html" />
+    <link rel="prev" title="画布" href="canvas.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">画布</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="canvas.html">画布</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">画笔</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">属性和方法速查</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">线条样式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">矩形</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">路径</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">转换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">文本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">图像绘制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">像素操作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">合成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">其他</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">画布</a> &raquo;</li>
+        
+      <li>画笔</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>画笔<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>所有画布上的资源都是由“画笔”绘制出来的，在canvas中，画笔称之为context，它的缩写为ctx，可以通过以下获得，在LeapJS环境下，ctx作为默认全局变量已经存在，可以直接使用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>属性和方法速查<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id5"></span><h3>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fillStyle</td>
+<td>设置或返回用于填充绘画的颜色、渐变或模式</td>
+</tr>
+<tr>
+<td>strokeStyle</td>
+<td>设置或返回用于笔触的颜色、渐变或模式</td>
+</tr>
+<tr>
+<td>shadowColor</td>
+<td>设置或返回用于阴影的颜色</td>
+</tr>
+<tr>
+<td>shadowBlur</td>
+<td>设置或返回用于阴影的模糊级别</td>
+</tr>
+<tr>
+<td>shadowOffsetX</td>
+<td>设置或返回阴影距形状的水平距离</td>
+</tr>
+<tr>
+<td>shadowOffsetY</td>
+<td>设置或返回阴影距形状的垂直距离</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id6"></span><h3>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>createLinearGradient()</td>
+<td>创建线性渐变（用在画布内容上）</td>
+</tr>
+<tr>
+<td>createPattern()</td>
+<td>在指定的方向上重复指定的元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_createradialgradient.asp">createRadialGradient()</a></td>
+<td>创建放射状/环形的渐变（用在画布内容上）</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_addcolorstop.asp">addColorStop()</a></td>
+<td>规定渐变对象中的颜色和停止位置</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id7"></span><h3>线条样式<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_linecap.asp">lineCap</a></td>
+<td>设置或返回线条的结束端点样式</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_linejoin.asp">lineJoin</a></td>
+<td>设置或返回两条线相交时，所创建的拐角类型</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_linewidth.asp">lineWidth</a></td>
+<td>设置或返回当前的线条宽度</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_miterlimit.asp">miterLimit</a></td>
+<td>设置或返回最大斜接长度</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id8"></span><h3>矩形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_rect.asp">rect()</a></td>
+<td>创建矩形</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_fillrect.asp">fillRect()</a></td>
+<td>绘制“被填充”的矩形</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_strokerect.asp">strokeRect()</a></td>
+<td>绘制矩形（无填充）</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_clearrect.asp">clearRect()</a></td>
+<td>在给定的矩形内清除指定的像素</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id9"></span><h3>路径<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_fill.asp">fill()</a></td>
+<td>填充当前绘图（路径）</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_stroke.asp">stroke()</a></td>
+<td>绘制已定义的路径</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_beginpath.asp">beginPath()</a></td>
+<td>起始一条路径，或重置当前路径</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_moveto.asp">moveTo()</a></td>
+<td>把路径移动到画布中的指定点，不创建线条</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_closepath.asp">closePath()</a></td>
+<td>创建从当前点回到起始点的路径</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_lineto.asp">lineTo()</a></td>
+<td>添加一个新点，然后在画布中创建从该点到最后指定点的线条</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_clip.asp">clip()</a></td>
+<td>从原始画布剪切任意形状和尺寸的区域</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_quadraticcurveto.asp">quadraticCurveTo()</a></td>
+<td>创建二次贝塞尔曲线</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_beziercurveto.asp">bezierCurveTo()</a></td>
+<td>创建三次方贝塞尔曲线</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_arc.asp">arc()</a></td>
+<td>创建弧/曲线（用于创建圆形或部分圆）</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_arcto.asp">arcTo()</a></td>
+<td>创建两切线之间的弧/曲线</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_ispointinpath.asp">isPointInPath()</a></td>
+<td>如果指定的点位于当前路径中，则返回 true，否则返回 false</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id10"></span><h3>转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_scale.asp">scale()</a></td>
+<td>缩放当前绘图至更大或更小</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_rotate.asp">rotate()</a></td>
+<td>旋转当前绘图</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_translate.asp">translate()</a></td>
+<td>重新映射画布上的 (0,0) 位置</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_transform.asp">transform()</a></td>
+<td>替换绘图的当前转换矩阵</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_settransform.asp">setTransform()</a></td>
+<td>将当前转换重置为单位矩阵。然后运行 transform()</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id11"></span><h3>文本<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_font.asp">font</a></td>
+<td>设置或返回文本内容的当前字体属性</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_textalign.asp">textAlign</a></td>
+<td>设置或返回文本内容的当前对齐方式</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_textbaseline.asp">textBaseline</a></td>
+<td>设置或返回在绘制文本时使用的当前文本基线</td>
+</tr>
+</tbody>
+</table><table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_filltext.asp">fillText()</a></td>
+<td>在画布上绘制“被填充的”文本</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_stroketext.asp">strokeText()</a></td>
+<td>在画布上绘制文本（无填充）</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_measuretext.asp">measureText()</a></td>
+<td>返回包含指定文本宽度的对象</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id12"></span><h3>图像绘制<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_drawimage.asp">drawImage()</a></td>
+<td>向画布上绘制图像、画布或视频</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id13"></span><h3>像素操作<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_imagedata_width.asp">width</a></td>
+<td>返回 ImageData 对象的宽度</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_imagedata_height.asp">height</a></td>
+<td>返回 ImageData 对象的高度</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_imagedata_data.asp">data</a></td>
+<td>返回一个对象，其包含指定的 ImageData 对象的图像数据</td>
+</tr>
+</tbody>
+</table><table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_createimagedata.asp">createImageData()</a></td>
+<td>创建新的、空白的 ImageData 对象</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_getimagedata.asp">getImageData()</a></td>
+<td>返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_putimagedata.asp">putImageData()</a></td>
+<td>把图像数据（从指定的 ImageData 对象）放回画布上</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id14"></span><h3>合成<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_globalalpha.asp">globalAlpha</a></td>
+<td>设置或返回绘图的当前 alpha 或透明值</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/tags/canvas_globalcompositeoperation.asp">globalCompositeOperation</a></td>
+<td>设置或返回新图像如何绘制到已有的图像上</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id15"></span><h3>其他<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>save()</td>
+<td>保存当前环境的状态</td>
+</tr>
+<tr>
+<td>restore()</td>
+<td>返回之前保存过的路径状态和属性</td>
+</tr>
+<tr>
+<td>createEvent()</td>
+<td></td>
+</tr>
+<tr>
+<td>getContext()</td>
+<td></td>
+</tr>
+<tr>
+<td>toDataURL()</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../audio/index.html" class="btn btn-neutral float-right" title="音乐与音效" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="canvas.html" class="btn btn-neutral" title="画布" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

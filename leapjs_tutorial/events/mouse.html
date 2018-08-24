@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>事件 &mdash; LeapJS 教程 beta 文档</title>
+  <title>鼠标 &mdash; LeapJS 教程 beta 文档</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="键盘事件" href="keyboard.html" />
-    <link rel="prev" title="事件" href="index.html" /> 
+    <link rel="next" title="键盘" href="keyboard.html" />
+    <link rel="prev" title="事件处理" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -84,24 +84,31 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图形对象</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">事件</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">事件</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">事件处理</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">鼠标</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mouse">Mouse 属性值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mouse">Mouse 事件</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">鼠标事件</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#">实例：点击成图</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#">移动事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#click">点击事件 click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#move">移动事件 move</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#down">按下事件 down</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#up">松开事件 up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">鼠标右键</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">滚轮事件</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="keyboard.html">键盘事件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keyboard.html#">手势事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard.html">键盘</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
 
@@ -148,9 +155,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">事件</a> &raquo;</li>
+          <li><a href="index.html">事件处理</a> &raquo;</li>
         
-      <li>事件</li>
+      <li>鼠标</li>
     
     
 
@@ -163,19 +170,66 @@
            <div itemprop="articleBody">
             
   <div class="section" id="">
-<span id="id1"></span><h1>事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
-<div class="section" id="">
-<span id="id2"></span><h2>鼠标事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<span id="id1"></span><h1>鼠标<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
 <p>事件驱动在JavaScript中是非常常见的一种程序设计模式，通过监测事件的发生，调用预定的函数，从而实现异步执行的效果。</p>
 <p>比如说，当鼠标在画布上移动时，鼠标的坐标值会随之而变，这就是一个简单的事件在驱动着坐标值不断的发生变化。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Mouse</span></code>的属性</p>
-<p>属性
-x    鼠标当前的x值，可以在画布左下角看到
-y    鼠标当前的y值，可以在画布左下角看到</p>
-<p><strong>点击事件</strong></p>
+<div class="section" id="mouse">
+<span id="mouse"></span><h2>Mouse 属性值<a class="headerlink" href="#mouse" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Mouse</span></code>的属性值</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>鼠标当前的x值，可以在画布左下角看到</td>
+</tr>
+<tr>
+<td>y</td>
+<td>鼠标当前的y值，可以在画布左下角看到</td>
+</tr>
+</tbody>
+</table><p>鼠标的x、y值都是只读属性，无法通过代码去更改。</p>
+</div>
+<div class="section" id="mouse">
+<span id="id2"></span><h2>Mouse 事件<a class="headerlink" href="#mouse" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>click</td>
+<td>当鼠标点击时触发</td>
+</tr>
+<tr>
+<td>move</td>
+<td>当鼠标移动时触发</td>
+</tr>
+<tr>
+<td>down</td>
+<td>当鼠标按下时触发</td>
+</tr>
+<tr>
+<td>up</td>
+<td>当鼠标松开时触发</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="">
+<span id="id3"></span><h2>鼠标事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="click">
+<span id="click"></span><h3>点击事件 click<a class="headerlink" href="#click" title="永久链接至标题">¶</a></h3>
 <p>当鼠标在画布上点击时，就会触发<code class="docutils literal notranslate"><span class="pre">click</span></code>事件，如果配置了<code class="docutils literal notranslate"><span class="pre">Mouse.click</span></code>函数，那么该函数就会执行。</p>
 <div class="section" id="">
-<span id="id3"></span><h3>实例：点击成图<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id4"></span><h4>实例：点击成图<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
 <p>这个项目的目标是创建一个空白的画布，当鼠标在画布上面点击时，就会在鼠标的位置绘制一个圆圈。</p>
 <p>第一步，我们需要创建一个圆，这里我们可以创建一个默认的圆图形。</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">();</span>
@@ -217,20 +271,41 @@ y    鼠标当前的y值，可以在画布左下角看到</p>
 </pre></div>
 </div>
 <p>点击画布，就会在画布上留下一个圆圈。</p>
-<p><img alt="click" src="../_images/click.png" /></p>
 </div>
-<div class="section" id="">
-<span id="id4"></span><h3>移动事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="move">
+<span id="move"></span><h3>移动事件 move<a class="headerlink" href="#move" title="永久链接至标题">¶</a></h3>
 <p>当鼠标移动时，就会触发<code class="docutils literal notranslate"><span class="pre">move</span></code>事件。只要我们定义了<code class="docutils literal notranslate"><span class="pre">move</span></code>函数，那么该函数就会执行。</p>
 <div class="section" id="">
 <span id="id5"></span><h4>实例：写字板<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">Mouse</span></code>的事件</p>
 <p>手机上的事件</p>
-<p>如果应用需要在手机上运行，需要特别注意事件的区别。在手机上，没有鼠标的存在，只有点击屏幕后才有移动事件的触发。</p>
-<p>电脑：<code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Down</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Up/Click</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Down</span></code></p>
+<p>如果应用需要在手机上运行，需要特别注意事件在手机和电脑上的区别。在手机上，没有鼠标的存在，只有点击屏幕后才有移动事件的触发。</p>
+<p>电脑：<code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Down</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Up/Click</span></code></p>
 <p>手机：<code class="docutils literal notranslate"><span class="pre">Down</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Move</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Up/Click</span></code></p>
 <p>所以为手机开发应用时，我们应该小心的使用这些事件的顺序</p>
 </div>
+</div>
+<div class="section" id="down">
+<span id="down"></span><h3>按下事件 down<a class="headerlink" href="#down" title="永久链接至标题">¶</a></h3>
+<p>Mouse.down 当鼠标左键被按下时触发该事件</p>
+<p>用法</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="up">
+<span id="up"></span><h3>松开事件 up<a class="headerlink" href="#up" title="永久链接至标题">¶</a></h3>
+<p>Mouse.up 当鼠标的左键松开时触发该事件，经常配合Mouse.down使用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>鼠标右键<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>滚轮事件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
 </div>
@@ -243,10 +318,10 @@ y    鼠标当前的y值，可以在画布左下角看到</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="keyboard.html" class="btn btn-neutral float-right" title="键盘事件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="keyboard.html" class="btn btn-neutral float-right" title="键盘" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="事件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="事件处理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

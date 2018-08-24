@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>其他图形 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="图片和动画" href="../shapes/index.html" />
+    <link rel="prev" title="图片 image" href="image.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">基本图形</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="circle.html">圆 circle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rectangle.html">长方形 rectangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">其他图形</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#point">点 point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#point">绘制方法 point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#point">点对象 Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#"></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#line">线段 line</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">线段模拟长方形</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#line">线段对象 <code class="docutils literal notranslate"><span class="pre">Line</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#triangle">三角形 triangle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">绘制方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#triangle">三角形对象 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#polygon">多边形 polygon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">简单绘制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polygon">多边形对象 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ellipse">椭圆 ellipse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">绘制方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ellipse">椭圆对象 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">基本图形</a> &raquo;</li>
+        
+      <li>其他图形</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>其他图形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="point">
+<span id="point"></span><h2>点 point<a class="headerlink" href="#point" title="永久链接至标题">¶</a></h2>
+<div class="section" id="point">
+<span id="id2"></span><h3>绘制方法 point<a class="headerlink" href="#point" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">point</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
+<span class="cm">/**************************</span>
+<span class="cm">  x - 点x坐标</span>
+<span class="cm">  y - 点y坐标</span>
+<span class="cm">  color - 颜色，默认为orange</span>
+<span class="cm">**************************/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="point">
+<span id="id3"></span><h3>点对象 Point<a class="headerlink" href="#point" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Point</span> <span class="kr">extends</span> <span class="nx">Circle</span> <span class="p">{</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3><a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="line">
+<span id="line"></span><h2>线段 line<a class="headerlink" href="#line" title="永久链接至标题">¶</a></h2>
+<p>用直尺把两点连接起来，就得到一条线段。线段长就是这两点间的距离。 在连接两点的所有线中，线段最短。简称为<strong>两点之间线段最短</strong>。</p>
+<p>只要确定线段的两个定点的位置，就可以确定一条线段的位置。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="o">*</span><span class="nx">lineWidth</span><span class="p">,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
+<span class="cm">/**************************</span>
+<span class="cm">  x1 - 起点x坐标</span>
+<span class="cm">  y1 - 起点y坐标</span>
+<span class="cm">  x2 - 终点x坐标</span>
+<span class="cm">  y2 - 终点y坐标</span>
+<span class="cm">  lineWidth - 线宽，默认为1</span>
+<span class="cm">  color - 颜色，默认为orange</span>
+<span class="cm">**************************/</span>
+</pre></div>
+</div>
+<p>如果我们想要实现更多复杂的效果，那么我们就需要使用Line对象，详见Line章节。</p>
+<div class="section" id="">
+<span id="id5"></span><h3>线段模拟长方形<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>当我们把线宽设置的非常大，比如100时，线段看起来就像是一个长方形，我们可以用线段来模拟长方形。</p>
+<p><strong>例子：Adidas</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">line</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="line">
+<span id="id6"></span><h3>线段对象 <code class="docutils literal notranslate"><span class="pre">Line</span></code><a class="headerlink" href="#line" title="永久链接至标题">¶</a></h3>
+<p>属性值</p>
+<p>坐标点 <code class="docutils literal notranslate"><span class="pre">x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2</span></code></p>
+<p>各个点的坐标值</p>
+<p>坐标<code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code></p>
+<p>获取或者设置线段的中心点</p>
+</div>
+</div>
+<div class="section" id="triangle">
+<span id="triangle"></span><h2>三角形 triangle<a class="headerlink" href="#triangle" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id7"></span><h3>绘制方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">triangle</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">x3</span><span class="p">,</span> <span class="nx">y3</span><span class="p">,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>代码举例：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="nx">triangle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">triangle</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+
+<span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">triangle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">triangle</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="triangle" src="../_images/triangle.png" /></p>
+</div>
+<div class="section" id="triangle">
+<span id="id8"></span><h3>三角形对象 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code><a class="headerlink" href="#triangle" title="永久链接至标题">¶</a></h3>
+<p>实际上，在LeapJS中，三角形是多边形的特殊实现。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Triangle</span> <span class="o">=</span> <span class="nx">Polygon</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="polygon">
+<span id="polygon"></span><h2>多边形 polygon<a class="headerlink" href="#polygon" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id9"></span><h3>简单绘制<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">polygon</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">x3</span><span class="p">,</span> <span class="nx">y3</span><span class="p">,</span> <span class="p">...,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
+<span class="cm">/**************************</span>
+<span class="cm">  x1, y1 - 第一个点的坐标</span>
+<span class="cm">  x2, y2 - 第二个点的坐标</span>
+<span class="cm">  ...</span>
+<span class="cm">  至少需要3个点，按照点的顺序连接起来</span>
+<span class="cm">**************************/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="polygon">
+<span id="id10"></span><h3>多边形对象 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code><a class="headerlink" href="#polygon" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Polygon</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">x3</span><span class="p">,</span> <span class="nx">y3</span><span class="p">,</span> <span class="p">...){}</span>
+              
+<span class="cm">/***************************************************************</span>
+
+<span class="cm">多边形类</span>
+<span class="cm">x1, y1:     多边形第一个点的位置</span>
+<span class="cm">x2, y2:     多边形第二个点的位置</span>
+<span class="cm">x3, y3:     多边形第三个点的位置</span>
+<span class="cm">...</span>
+
+<span class="cm">注意：polygon的点记录在在triangle.points中</span>
+
+<span class="cm">polygon.points: {x1, y1, ... }</span>
+
+<span class="cm">***************************************************************/</span>
+</pre></div>
+</div>
+<p>坐标 <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code></p>
+<p>获取或者设置多边形的中心点</p>
+<p><strong>实例：五角星</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">poly</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Polygon</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span><span class="p">;</span>
+
+<span class="nx">poly</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+
+<span class="nx">poly</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">150</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">poly</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">150</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span> <span class="c1">// both radius or r works</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">shadowColor</span> <span class="o">=</span> <span class="s1">&#39;pink&#39;</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">poly</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>运行效果:</p>
+<p><img alt="polygon2" src="../_images/polygon2.png" /></p>
+</div>
+</div>
+<div class="section" id="ellipse">
+<span id="ellipse"></span><h2>椭圆 ellipse<a class="headerlink" href="#ellipse" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id11"></span><h3>绘制方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>椭圆看起来就像是一个被压扁的圆，因此它有2个半径，一个数水平方向的半径radiuX，一个是垂直方向的半径radiuY。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ellipse</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">xRadius</span><span class="p">,</span> <span class="nx">yRadius</span><span class="p">,</span> <span class="o">*</span><span class="nx">color</span><span class="p">)</span>
+<span class="cm">/***************************************************************</span>
+<span class="cm">在画布上画出一个椭圆：</span>
+
+<span class="cm">* 椭圆的圆心位置为（x,y）</span>
+<span class="cm">* 椭圆水平方向的半径为xRadius</span>
+<span class="cm">* 椭圆垂直方向的半径为yRadius</span>
+<span class="cm">* 颜色为为color，可选参数，默认为 &quot;orange&quot;</span>
+<span class="cm">***************************************************************/</span>
+</pre></div>
+</div>
+<p>同样的，我们可以用ellipse来在画布上画出椭圆</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="nx">ellipse</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="nx">ellipse</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">);</span>
+<span class="nx">ellipse</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+
+<span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">ellipse</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="nx">ellipse</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">);</span>
+<span class="nx">ellipse</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>你能不能在图中找对每行代码对应的椭圆呢？</p>
+<p><img alt="ellipse" src="../_images/ellipse.png" /></p>
+</div>
+<div class="section" id="ellipse">
+<span id="id12"></span><h3>椭圆对象 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code><a class="headerlink" href="#ellipse" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Ellipse</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">radiusX</span><span class="p">,</span> <span class="nx">radiusY</span><span class="p">)</span> 
+<span class="cm">/***************************************************************</span>
+<span class="cm">椭圆类</span>
+<span class="cm">x, y:       椭圆的圆心位置</span>
+<span class="cm">radiusX:    椭圆的水平半径</span>
+<span class="cm">radiusY:    椭圆的垂直半径</span>
+<span class="cm">***************************************************************/</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h4>属性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>圆心位置 <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y</span></code></p>
+<p>水平轴半径 <code class="docutils literal notranslate"><span class="pre">rX</span></code>, <code class="docutils literal notranslate"><span class="pre">radiusX</span></code></p>
+<p>垂直轴半径<code class="docutils literal notranslate"><span class="pre">rY</span></code>, <code class="docutils literal notranslate"><span class="pre">raduisY</span></code></p>
+</div>
+<div class="section" id="">
+<span id="id14"></span><h4>方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h4>
+<p>draw</p>
+<p>例子</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ellipse</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">// x, y, rX, rY</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span><span class="p">;</span>
+
+<span class="nx">e</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+<span class="nx">e</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">rX</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+
+<span class="nx">e</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">radiusY</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span> <span class="c1">// both radiusY or rY works</span>
+
+<span class="nx">e</span><span class="p">.</span><span class="nx">shadowColor</span> <span class="o">=</span> <span class="s1">&#39;pink&#39;</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>运行效果</p>
+<p><img alt="ellipse2" src="../_images/ellipse2.png" /></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../shapes/index.html" class="btn btn-neutral float-right" title="图片和动画" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="image.html" class="btn btn-neutral" title="图片 image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

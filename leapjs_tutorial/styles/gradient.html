@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>渐变色 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="画布" href="../canvas/index.html" />
+    <link rel="prev" title="透明度" href="transparent.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">样式</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="style.html">图形样式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="color.html">颜色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shadow.html">图像阴影</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lineStyle.html">线条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transparent.html">透明度</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">渐变色</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lineargardient">线性渐变 LinearGardient()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radialgradient">放射渐变 RadialGradient</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">样式</a> &raquo;</li>
+        
+      <li>渐变色</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>渐变色<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>在上面的例子中，我们图形的颜色是单一的。而在实际生活中，颜色往往都不是均匀的。我们可以创建一个变化的颜色来实现这个效果。</p>
+<div class="section" id="lineargardient">
+<span id="lineargardient"></span><h2>线性渐变 LinearGardient()<a class="headerlink" href="#lineargardient" title="永久链接至标题">¶</a></h2>
+<p>定义和用法
+createLinearGradient() 方法创建线性的渐变对象。</p>
+<p>渐变可用于填充矩形、圆形、线条、文本等等。</p>
+<p>提示：请使用该对象作为 strokeStyle 或 fillStyle 属性的值。</p>
+<p>提示：请使用 addColorStop() 方法规定不同的颜色，以及在 gradient 对象中的何处定位颜色。</p>
+<p>JavaScript 语法：
+ctx.createLinearGradient(x0,y0,x1,y1);</p>
+<p>参数值
+参数  描述
+x0  渐变开始点的 x 坐标
+y0  渐变开始点的 y 坐标
+x1  渐变结束点的 x 坐标
+y1  渐变结束点的 y 坐标</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">grd</span><span class="o">=</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">270</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+
+<span class="nx">rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">grd</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="linearGradient" src="../_images/linearGradient.png" /></p>
+</div>
+<div class="section" id="radialgradient">
+<span id="radialgradient"></span><h2>放射渐变 RadialGradient<a class="headerlink" href="#radialgradient" title="永久链接至标题">¶</a></h2>
+<p>定义和用法
+createLinearGradient() 方法创建放射状/圆形渐变对象。</p>
+<p>渐变可用于填充矩形、圆形、线条、文本等等。</p>
+<p>提示：请使用该对象作为 strokeStyle 或 fillStyle 属性的值。</p>
+<p>提示：请使用 addColorStop() 方法规定不同的颜色，以及在 gradient 对象中的何处定位颜色。</p>
+<p>JavaScript 语法：
+ctx.createRadialGradient(x0,y0,r0,x1,y1,r1);</p>
+<p>参数值
+参数  描述
+x0  渐变的开始圆的 x 坐标
+y0  渐变的开始圆的 y 坐标
+r0  开始圆的半径
+x1  渐变的结束圆的 x 坐标
+y1  渐变的结束圆的 y 坐标
+r1  结束圆的半径</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">grd</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createRadialGradient</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;yellow&quot;</span><span class="p">);</span>
+
+<span class="nx">circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">grd</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="RadialGradient" src="../_images/RadialGradient.png" /></p>
+<p><strong>实例：渐变色</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">grd</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;#FF0000&quot;</span><span class="p">);</span>
+<span class="nx">grd</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;#00FF00&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">grd</span><span class="p">;</span>
+<span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>渐变色效果</p>
+<p><img alt="rgba" src="styles\../images/gradient.png" /></p>
+<p>addColorStop是在图像的特定位置创建出制定的颜色，中间的变化则由计算机自动完成。</p>
+<p>通过添加更多的颜色，我们可以创建出更多特殊的渐变色。</p>
+<p>彩虹是难得一见的奇观，一般只有雨过天晴的时候才会出现，现在，我们就来用渐变色创建一个彩虹出来。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../canvas/index.html" class="btn btn-neutral float-right" title="画布" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transparent.html" class="btn btn-neutral" title="透明度" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="圆形 Circle" href="shapes.html" />
-    <link rel="prev" title="图形对象" href="index.html" /> 
+    <link rel="next" title="图片 image" href="image.html" />
+    <link rel="prev" title="图片和动画" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -84,8 +84,8 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">绘图函数</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">图形对象</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">图片和动画</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">基本图形对象</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shape">基本图形对象 Shape</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#">属性</a></li>
@@ -94,23 +94,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html">圆形 <code class="docutils literal notranslate"><span class="pre">Circle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#point">点 Point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#line">线段 Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#polygon">多边形 <code class="docutils literal notranslate"><span class="pre">Polygon</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#triangle">三角形 <code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#rectangle">矩形 <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#ellipse">椭圆 <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#">属性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapes.html#text">文本 <code class="docutils literal notranslate"><span class="pre">Text</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">图片 image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sprite.html">图像 <code class="docutils literal notranslate"><span class="pre">Sprite</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="animation.html">序列帧动画 Animation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">图形变换</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">碰撞</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
 </ul>
 
@@ -157,7 +151,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">图形对象</a> &raquo;</li>
+          <li><a href="index.html">图片和动画</a> &raquo;</li>
         
       <li>基本图形对象</li>
     
@@ -215,7 +209,47 @@
 </div>
 <div class="section" id="rotate-degree">
 <span id="rotate-degree"></span><h4>旋转rotate(degree)<a class="headerlink" href="#rotate-degree" title="永久链接至标题">¶</a></h4>
-<p>图形旋转一定的角度，以角度作为单位，360度为一圈</p>
+<p>图形旋转的三要素是旋转中心点、方向和度数</p>
+<p>默认旋转中心点为图形中心点，可以通过shape.setAnchor来修改旋转中心点</p>
+<p>参数：
+degree：     角度，单位为°，360度为一圈
+无碰撞：    false</p>
+<div class="section" id="">
+<span id="id4"></span><h5>旋转中心点的选择<a class="headerlink" href="#" title="永久链接至标题">¶</a></h5>
+<p>shape.setAnchor(x, y)
+设置图形的旋转中心点，x、y为坐标值，默认为图形的中心点</p>
+<p>shape.setAnchorRate(x, y)
+设置图形的旋转中心点，x、y为比率，默认为0.5, 0.5，即中心点</p>
+<p>上述2个方法只能生效一个，后续方法会覆盖之前的方法</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rectOrange</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rectRed</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rectGreen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">);</span>
+
+<span class="nx">rectGreen</span><span class="p">.</span><span class="nx">setAnchor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nx">rectRed</span><span class="p">.</span><span class="nx">setAnchorRate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// 把鼠标移过去查看效果</span>
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">rectOrange</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">i</span><span class="o">++</span><span class="p">);</span>
+    <span class="nx">rectRed</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nx">rectGreen</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">rectOrange</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">rectRed</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">rectGreen</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>当鼠标在画布上移动时，各个正方形就会以不同的中心点进行移动。</p>
+<p><img alt="rotate" src="../_images/rotate1.png" /></p>
+</div>
 </div>
 <div class="section" id="translate-x-y">
 <span id="translate-x-y"></span><h4>平移 translate(x, y)<a class="headerlink" href="#translate-x-y" title="永久链接至标题">¶</a></h4>
@@ -243,13 +277,57 @@
 </div>
 <div class="section" id="collide-shape">
 <span id="collide-shape"></span><h4>碰撞<code class="docutils literal notranslate"><span class="pre">collide(shape)</span></code><a class="headerlink" href="#collide-shape" title="永久链接至标题">¶</a></h4>
-<p>判断图形是否碰到另一个图形</p>
-<p>返回值：<code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p>判断图形是否碰到另一个图形。</p>
+<p>返回值：
+如果发生碰撞：     {x, y} 某个碰撞点的坐标
+无碰撞：    false</p>
+<p><strong>例子：圆和长方形的碰撞</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">rect</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">collide</span><span class="p">(</span><span class="nx">rect</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">p</span><span class="p">){</span>
+        <span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">y</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="clone">
 <span id="clone"></span><h4>克隆 <code class="docutils literal notranslate"><span class="pre">clone()</span></code><a class="headerlink" href="#clone" title="永久链接至标题">¶</a></h4>
-<p>返回一个完全相同的克隆体，深度复制所有的属性和方法。</p>
+<p>返回一个完全相同的克隆体，深度复制所有的属性和方法。返回一个shape的克隆体，拥有shape所有的属性，该克隆体拥有独立的属性空间</p>
 <p>返回值：<code class="docutils literal notranslate"><span class="pre">shape</span></code></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;https://llcs-1252287760.cossh.myqcloud.com/&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bird</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">url</span><span class="o">+</span><span class="s2">&quot;animations/bird.png&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="nx">bird</span><span class="p">.</span><span class="nx">setFrame</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// shiftX, shiftY, frameX, frameY, columns, rows</span>
+
+<span class="kd">var</span> <span class="nx">bird2</span> <span class="o">=</span> <span class="nx">bird</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span>
+
+<span class="nx">bird2</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="nx">bird2</span><span class="p">.</span><span class="nx">setSpeed</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bird</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">bird2</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">main</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在画布上，我们可以看到2只速度不同的飞翔小鸟。</p>
+<p><img alt="clone" src="../_images/clone.png" /></p>
 </div>
 </div>
 </div>
@@ -263,10 +341,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="shapes.html" class="btn btn-neutral float-right" title="圆形 Circle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="image.html" class="btn btn-neutral float-right" title="图片 image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="图形对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="图片和动画" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>颜色 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="图像阴影" href="shadow.html" />
+    <link rel="prev" title="图形样式" href="style.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">样式</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="style.html">图形样式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">颜色</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">颜色常量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">颜色常量速查</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">十六进制颜色值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rgb">RGB值</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rgba">RGBA值</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hsl">HSL 颜色值</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hslrgb">HSL和RGB的换算</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hsla">HSLA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shadow.html">图像阴影</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lineStyle.html">线条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transparent.html">透明度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradient.html">渐变色</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">项目列表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">样式</a> &raquo;</li>
+        
+      <li>颜色</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>颜色<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>在网页中可以用以下方法来规定 CSS 中的颜色，不同颜色的表示法只是为了便于我们运用和理解，他们之间大多可以相互转换。</p>
+<ul class="simple">
+<li>颜色常量</li>
+<li>十六进制颜色值</li>
+<li>RGB 颜色</li>
+<li>RGBA 颜色</li>
+<li>HSL 颜色</li>
+<li>HSLA 颜色</li>
+</ul>
+<div class="section" id="">
+<span id="id2"></span><h2>颜色常量<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>我们最习惯的便是用英语单词来表示颜色，比如<code class="docutils literal notranslate"><span class="pre">&quot;red&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;blue&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;white&quot;</span></code>，在使用和阅读的过程中，颜色常量是最方便的一种方式。</p>
+<p>一些常见的颜色的常量有aqua、black、blue、fuchsia、gray、green、lime、maroon、navy、olive、purple、red、silver、teal、white、yellow。</p>
+<p>在JS中，颜色常量用一个字符串来表示，所以表示<code class="docutils literal notranslate"><span class="pre">绿色</span></code>要用字符串<code class="docutils literal notranslate"><span class="pre">&quot;green&quot;</span></code>来表示。颜色常量字符串不区分大小写，<code class="docutils literal notranslate"><span class="pre">&quot;Green&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;green&quot;</span></code>和<code class="docutils literal notranslate"><span class="pre">&quot;GREEN&quot;</span></code>都是合理的颜色字符串常量，不过为了规范起见，我们建议大家全部使用小写。</p>
+<p><strong>实例：绘制一个红色的矩形</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>这里，函数rectangle中最后一个参数即表示颜色常量。一般情况下，如有这个颜色常量JS不支持，那么等同于使用了黑色效果。如果你在使用的过程中发现图形变为黑色了，那么很有可能是单词拼写错误导致的。</p>
+<div class="section" id="">
+<span id="id3"></span><h3>颜色常量速查<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<table>
+<tbody><tr>
+<th style="width:25%"></th>
+<th style="width:25%"></th>
+<th style="width:25%"></th>
+<th style="width:25%"></th>
+</tr><tr>
+<td style="background-color:AliceBlue">AliceBlue</td>
+<td style="background-color:AntiqueWhite">AntiqueWhite</td>
+<td style="background-color:Aqua">Aqua</td>
+<td style="background-color:Aquamarine">Aquamarine</td>
+</tr><td style="background-color:Azure">Azure</td>
+<td style="background-color:Beige">Beige</td>
+<td style="background-color:Bisque">Bisque</td>
+<td style="background-color:Black">Black</td>
+</tr><tr>
+<td style="background-color:BlanchedAlmond">BlanchedAlmond</td>
+<td style="background-color:Blue">Blue</td>
+<td style="background-color:BlueViolet">BlueViolet</td>
+<td style="background-color:Brown">Brown</td>
+</tr><tr>
+<td style="background-color:BurlyWood">BurlyWood</td>
+<td style="background-color:CadetBlue">CadetBlue</td>
+<td style="background-color:Chartreuse">Chartreuse</td>
+<td style="background-color:Chocolate">Chocolate</td>
+</tr><tr>
+<td style="background-color:Coral">Coral</td>
+<td style="background-color:CornflowerBlue">CornflowerBlue</td>
+<td style="background-color:Cornsilk">Cornsilk</td>
+<td style="background-color:Crimson">Crimson</td>
+</tr><tr>
+<td style="background-color:Cyan">Cyan</td>
+<td style="background-color:DarkBlue">DarkBlue</td>
+<td style="background-color:DarkCyan">DarkCyan</td>
+<td style="background-color:DarkGoldenRod">DarkGoldenRod</td>
+</tr><tr>
+<td style="background-color:DarkGray">DarkGray</td>
+<td style="background-color:DarkGreen">DarkGreen</td>
+<td style="background-color:DarkKhaki">DarkKhaki</td>
+<td style="background-color:DarkMagenta">DarkMagenta</td>
+</tr><tr>
+<td style="background-color:DarkOliveGreen">DarkOliveGreen</td>
+<td style="background-color:Darkorange">Darkorange</td>
+<td style="background-color:DarkOrchid">DarkOrchid</td>
+<td style="background-color:DarkRed">DarkRed</td>
+</tr><tr>
+<td style="background-color:DarkSalmon">DarkSalmon</td>
+<td style="background-color:DarkSeaGreen">DarkSeaGreen</td>
+<td style="background-color:DarkSlateBlue">DarkSlateBlue</td>
+<td style="background-color:DarkSlateGray">DarkSlateGray</td>
+</tr><tr>
+<td style="background-color:DarkTurquoise">DarkTurquoise</td>
+<td style="background-color:DarkViolet">DarkViolet</td>
+<td style="background-color:DeepPink">DeepPink</td>
+<td style="background-color:DeepSkyBlue">DeepSkyBlue</td>
+</tr><tr>
+<td style="background-color:DimGray">DimGray</td>
+<td style="background-color:DodgerBlue">DodgerBlue</td>
+<td style="background-color:Feldspar">Feldspar</td>
+<td style="background-color:FireBrick">FireBrick</td>
+</tr><tr>
+<td style="background-color:FloralWhite">FloralWhite</td>
+<td style="background-color:ForestGreen">ForestGreen</td>
+<td style="background-color:Fuchsia">Fuchsia</td>
+<td style="background-color:Gainsboro">Gainsboro</td>
+</tr><tr>
+<td style="background-color:GhostWhite">GhostWhite</td>
+<td style="background-color:Gold">Gold</td>
+<td style="background-color:GoldenRod">GoldenRod</td>
+<td style="background-color:Gray">Gray</td>
+</tr><tr>
+<td style="background-color:Green">Green</td>
+<td style="background-color:GreenYellow">GreenYellow</td>
+<td style="background-color:HoneyDew">HoneyDew</td>
+<td style="background-color:HotPink">HotPink</td>
+</tr><tr>
+<td style="background-color:IndianRed ">IndianRed </td>
+<td style="background-color:Indigo ">Indigo </td>
+<td style="background-color:Ivory">Ivory</td>
+<td style="background-color:Khaki">Khaki</td>
+</tr><tr>
+<td style="background-color:Lavender">Lavender</td>
+<td style="background-color:LavenderBlush">LavenderBlush</td>
+<td style="background-color:LawnGreen">LawnGreen</td>
+<td style="background-color:LemonChiffon">LemonChiffon</td>
+</tr><tr>
+<td style="background-color:LightBlue">LightBlue</td>
+<td style="background-color:LightCoral">LightCoral</td>
+<td style="background-color:LightCyan">LightCyan</td>
+<td style="background-color:LightGoldenRodYellow">LightGoldenRodYellow</td>
+</tr><tr>
+<td style="background-color:LightGrey">LightGrey</td>
+<td style="background-color:LightGreen">LightGreen</td>
+<td style="background-color:LightPink">LightPink</td>
+<td style="background-color:LightSalmon">LightSalmon</td>
+</tr><tr>
+<td style="background-color:LightSeaGreen">LightSeaGreen</td>
+<td style="background-color:LightSkyBlue">LightSkyBlue</td>
+<td style="background-color:LightSlateBlue">LightSlateBlue</td>
+<td style="background-color:LightSlateGray">LightSlateGray</td>
+</tr><tr>
+<td style="background-color:LightSteelBlue">LightSteelBlue</td>
+<td style="background-color:LightYellow">LightYellow</td>
+<td style="background-color:Lime">Lime</td>
+<td style="background-color:LimeGreen">LimeGreen</td>
+</tr><tr>
+<td style="background-color:Linen">Linen</td>
+<td style="background-color:Magenta">Magenta</td>
+<td style="background-color:Maroon">Maroon</td>
+<td style="background-color:MediumAquaMarine">MediumAquaMarine</td>
+</tr><tr>
+<td style="background-color:MediumBlue">MediumBlue</td>
+<td style="background-color:MediumOrchid">MediumOrchid</td>
+<td style="background-color:MediumPurple">MediumPurple</td>
+<td style="background-color:MediumSeaGreen">MediumSeaGreen</td>
+</tr><tr>
+<td style="background-color:MediumSlateBlue">MediumSlateBlue</td>
+<td style="background-color:MediumSpringGreen">MediumSpringGreen</td>
+<td style="background-color:MediumTurquoise">MediumTurquoise</td>
+<td style="background-color:MediumVioletRed">MediumVioletRed</td>
+</tr><tr>
+<td style="background-color:MidnightBlue">MidnightBlue</td>
+<td style="background-color:MintCream">MintCream</td>
+<td style="background-color:MistyRose">MistyRose</td>
+<td style="background-color:Moccasin">Moccasin</td>
+</tr><tr>
+<td style="background-color:NavajoWhite">NavajoWhite</td>
+<td style="background-color:Navy">Navy</td>
+<td style="background-color:OldLace">OldLace</td>
+<td style="background-color:Olive">Olive</td>
+</tr><tr>
+<td style="background-color:OliveDrab">OliveDrab</td>
+<td style="background-color:Orange">Orange</td>
+<td style="background-color:OrangeRed">OrangeRed</td>
+<td style="background-color:Orchid">Orchid</td>
+</tr><tr>
+<td style="background-color:PaleGoldenRod">PaleGoldenRod</td>
+<td style="background-color:PaleGreen">PaleGreen</td>
+<td style="background-color:PaleTurquoise">PaleTurquoise</td>
+<td style="background-color:PaleVioletRed">PaleVioletRed</td>
+</tr><tr>
+<td style="background-color:PapayaWhip">PapayaWhip</td>
+<td style="background-color:PeachPuff">PeachPuff</td>
+<td style="background-color:Peru">Peru</td>
+<td style="background-color:Pink">Pink</td>
+</tr><tr>
+<td style="background-color:Plum">Plum</td>
+<td style="background-color:PowderBlue">PowderBlue</td>
+<td style="background-color:Purple">Purple</td>
+<td style="background-color:Red">Red</td>
+</tr><tr>
+<td style="background-color:RosyBrown">RosyBrown</td>
+<td style="background-color:RoyalBlue">RoyalBlue</td>
+<td style="background-color:SaddleBrown">SaddleBrown</td>
+<td style="background-color:Salmon">Salmon</td>
+</tr><tr>
+<td style="background-color:SandyBrown">SandyBrown</td>
+<td style="background-color:SeaGreen">SeaGreen</td>
+<td style="background-color:SeaShell">SeaShell</td>
+<td style="background-color:Sienna">Sienna</td>
+</tr><tr>
+<td style="background-color:Silver">Silver</td>
+<td style="background-color:SkyBlue">SkyBlue</td>
+<td style="background-color:SlateBlue">SlateBlue</td>
+<td style="background-color:SlateGray">SlateGray</td>
+</tr><tr>
+<td style="background-color:Snow">Snow</td>
+<td style="background-color:SpringGreen">SpringGreen</td>
+<td style="background-color:SteelBlue">SteelBlue</td>
+<td style="background-color:Tan">Tan</td>
+</tr><tr>
+<td style="background-color:Teal">Teal</td>
+<td style="background-color:Thistle">Thistle</td>
+<td style="background-color:Tomato">Tomato</td>
+<td style="background-color:Turquoise">Turquoise</td>
+</tr><tr>
+<td style="background-color:Violet">Violet</td>
+<td style="background-color:VioletRed">VioletRed</td>
+<td style="background-color:Wheat">Wheat</td>
+<td style="background-color:White">White</td>
+</tr><tr>
+<td style="background-color:WhiteSmoke">WhiteSmoke</td>
+<td style="background-color:Yellow">Yellow</td>
+<td style="background-color:YellowGreen ">YellowGreen </td>
+</tr></tbody></table></div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>十六进制颜色值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>随着显示屏的发展，目前大部分显示屏都已经支持几万以上（65535种）的颜色，我们的词汇已经无法表达出来所有的颜色。</p>
+<p>十六进制颜色是这样规定的：#RRGGBB，其中的 RR（红色）、GG（绿色）、BB（蓝色）十六进制整数规定了颜色的成分。所有值必须介于 0 与 FF 之间。</p>
+<p>举例说，#0000ff 值显示为蓝色，这是因为蓝色成分被设置为最高值（ff），而其他成分被设置为 0。</p>
+</div>
+<div class="section" id="rgb">
+<span id="rgb"></span><h2>RGB值<a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h2>
+<p>如果用放大镜看显示器的屏幕，会发现屏幕的每个点都是由3个颜色组成，分别是</p>
+<ul class="simple">
+<li>Red, 红色</li>
+<li>Green，绿色</li>
+<li>Blue，蓝色</li>
+</ul>
+<p>而这3个颜色的首字母组合，即RGB，这也是RGB值的由来。在RGB值的组成中，每一个数字分布代表了每个颜色的强弱，0代表关闭，255代表最高。</p>
+<p>有了这3个基本的颜色，按照亮度的不同，就以组成各种个样的颜色。</p>
+<p>RGB(red, green, blue);</p>
+<p>颜色RGB表示法</p>
+<ul class="simple">
+<li>red: 红色的值，从0~255，数值越大，红色值越高</li>
+<li>green: 绿色的值，从0~255，数值越大，绿色值越高</li>
+<li>blue: 蓝色的值，从0~255，数值越大，蓝色值越高</li>
+</ul>
+<div class="section" id="rgba">
+<span id="rgba"></span><h3>RGBA值<a class="headerlink" href="#rgba" title="永久链接至标题">¶</a></h3>
+<p>RGBA 颜色值得到以下浏览器的支持：IE9+、Firefox 3+、Chrome、Safari 以及 Opera 10+。</p>
+<p>RGBA 颜色值是 RGB 颜色值的扩展，带有一个 alpha 通道 - 它规定了对象的不透明度。</p>
+<p>RGBA 颜色值是这样规定的：rgba(red, green, blue, alpha)。alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgba(255, 255, 0, 0,5)&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>前三位对应的是RGB值，第四位即透明度值</p>
+<p>RGBA(red, green, blue, alpha);</p>
+<p>颜色RGBA表示法</p>
+<ul class="simple">
+<li>red: 红色的值，从0~255，数值越大，红色值越高</li>
+<li>green: 绿色的值，从0~255，数值越大，绿色值越高</li>
+<li>blue: 蓝色的值，从0~255，数值越大，蓝色值越高</li>
+<li>alpha: 透明度，从0~1，0为全透明</li>
+<li></li>
+</ul>
+</div>
+</div>
+<div class="section" id="hsl">
+<span id="hsl"></span><h2>HSL 颜色值<a class="headerlink" href="#hsl" title="永久链接至标题">¶</a></h2>
+<p>HSL 颜色
+HSL 颜色值得到以下浏览器的支持：IE9+、Firefox、Chrome、Safari 以及 Opera 10+。</p>
+<p>HSL 指的是 hue（色调）、saturation（饱和度）、lightness（亮度） - 表示颜色柱面坐标表示法。</p>
+<p>HSL 颜色值是这样规定的：hsl(hue, saturation, lightness)。</p>
+<p>Hue 是色盘上的度数（从 0 到 360） - 0 (或 360) 是红色，120 是绿色，240 是蓝色。Saturation 是百分比值；0% 意味着灰色，而 100% 是全彩。Lightness 同样是百分比值；0% 是黑色，100% 是白色。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HSL</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="styles\../images/hsl.png" /></p>
+<div class="section" id="hslrgb">
+<span id="hslrgb"></span><h3>HSL和RGB的换算<a class="headerlink" href="#hslrgb" title="永久链接至标题">¶</a></h3>
+<p>HSL和RGB都是用于处理颜色，他们之间可以相互进行换算。</p>
+</div>
+<div class="section" id="hsla">
+<span id="hsla"></span><h3>HSLA<a class="headerlink" href="#hsla" title="永久链接至标题">¶</a></h3>
+<p>HSLA 颜色
+HSLA 颜色值得到以下浏览器的支持：IE9+、Firefox 3+、Chrome、Safari 以及 Opera 10+。</p>
+<p>HSLA 颜色值是 HSL 颜色值的扩展，带有一个 alpha 通道 - 它规定了对象的不透明度。</p>
+<p>HSLA 颜色值是这样规定的：hsla(hue, saturation, lightness, alpha)，其中的 alpha 参数定义不透明度。alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shadow.html" class="btn btn-neutral float-right" title="图像阴影" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="style.html" class="btn btn-neutral" title="图形样式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
