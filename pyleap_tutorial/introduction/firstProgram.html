@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第一个小程序 &mdash; pyleap 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="可用方法" href="../basics/index.html" />
+    <link rel="prev" title="pyleap简介" href="brief.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyleap 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">pyleap 简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">课程概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="brief.html">pyleap简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">第一个小程序</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">目标：从零开始制作一个接球小游戏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">了解我们的画布</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">我们创建一个小球出来</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">让小球动起来</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">点击小球让小球回到上方</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">添加分数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">可用方法</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyleap 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">pyleap 简介</a> &raquo;</li>
+        
+      <li>第一个小程序</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>第一个小程序<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>让我们开始开发我们的第一个小程序，一个接球的小游戏。在开发这个小游戏时，你可能对其中很多概念都不懂，不要担心，按照提示步骤一步步去做，你会发现这一切是多么的简单！</p>
+<div class="section" id="">
+<span id="id2"></span><h2>目标：从零开始制作一个接球小游戏<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>游戏规则很简单，让小球从上方掉落，每次点中小球，分数加1，让小球从上方随机掉落。</p>
+<p><img alt="firstGame" src="../_images/firstGame.gif" /></p>
+<div class="section" id="">
+<span id="id3"></span><h3>了解我们的画布<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>新建一个项目，修改项目默认代码，在<code class="docutils literal notranslate"><span class="pre">draw(dt)</span></code>(第4行)函数下添加以下代码，然后点击运行按钮，顺利的话，你就可以看到画布上显示出了坐标。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">def</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">dt</span><span class="p">)</span><span class="o">:</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="axis" src="../_images/axis.png" /></p>
+<div class="admonition error ">
+<p class="first admonition-title">代码书写注意事项</p><p>在Python中，缩进是非常重要的，一般是4个空格，任何缩进上的错误都将导致代码无法运行</p><p>单词必须拼写正确，不能多一个字母，也不能少一个字母，最重要的是，字母的大小写不能写错。</p><p class="last">必须是英文符号，特别是点`.`和括号`()`，计算机只能识别英文符号，而不能识别中文符号。</p></div><p>图中的坐标系也称之为笛卡尔坐标系，在数学中被广泛运用，坐标左下角是原点，往右是x轴正方向，往上是y轴正方向。窗口中的点都和坐标一一对应，由此，我们可以使用数字来确定窗口中任意图形的位置。</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>我们创建一个小球出来<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>创建一个小球，名字为<code class="docutils literal notranslate"><span class="pre">ball</span></code>，小球的中心坐标点为<code class="docutils literal notranslate"><span class="pre">(300,</span> <span class="pre">200)</span></code>，大小为<code class="docutils literal notranslate"><span class="pre">25</span></code>，在pyleap中，圆对象叫做<code class="docutils literal notranslate"><span class="pre">Circle</span></code>，我们一般用首字母大写来表示一类对象。定义圆的x坐标为300，y坐标为200，半径r为25。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果我们按照x、y、r的顺序来表示Circle的参数，那么就可以省略掉参数的标注，可以直接写成下述方式。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在第3行，我们创建了一个ball对象，代表了右侧的这个小球。</p>
+<p>第4行，我们用draw函数中，我们使用小球的draw方法，将这个小球画在了画布上。</p>
+<p><img alt="game2" src="../_images/game2.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>让小球动起来<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>为了让小球动起来，我们需要重复做这么一个操作：</p>
+<ol class="simple">
+<li>把画布清空</li>
+<li>把小球往下移动一段距离</li>
+<li>把小球画在画布上</li>
+<li>每隔一段时间执行以上1-3步代码</li>
+</ol>
+<p>当我们非常快的完成1-3步时，同时不停的重复以上步骤，我们就能感觉小球在画布上动起来了！当然，我们需要让计算机帮我们做这么一件事情。</p>
+<p><strong>后面的内容还未更新^ ^</strong></p>
+<p>定义一个函数，执行以上1-3步骤功能，每次执行这个函数，就会执行1-3步。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>最后用run方法，每隔一段时间执行这个函数。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">run</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>我们可以看到，小球动起来了，但是画布的坐标也不见了。这是因为我们在清理完画布之后，没有再把坐标画出来。那么，在清理画布后，重新将坐标显示出来就可以了。那么，到这一步，代码就变为下面的代码。我们不再需要第一行的<code class="docutils literal notranslate"><span class="pre">canvas.showAxis()</span></code>，因为我们已经在后续的步骤中重复执行这个函数了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="game2" src="../_images/game2.gif" /></p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>点击小球让小球回到上方<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>完成小球的移动后，小球会一直往下移动，最终离开画布，重新运行才能再次看到小球。我们希望点击小球的时候能让小球回到上方。为此，我们为小球的点击添加一个函数，这个函数的功能是，让小球的y位置回到100。在代码的最后添加几个新的代码行，并将下面的代码写进去。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ball</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>再次运行，点击小球，小球就可以回到100的位置了。接着，为这个函数添加第二个功能，让小球的x位置随机出现在100到300的位置。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">ball</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition tip ">
+<p class="first admonition-title">修改原来的函数</p><p>在原来的函数基础上，添加新的代码，无需重复写这些代码哦</p></div><p>最终，完整的代码和运行效果应该如下图所示，快看你的作品是不是完成了呢？</p>
+<p><img alt="game3" src="../_images/game3.gif" /></p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>添加分数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>最后一步，为我们的游戏添加一个分数。按照以下步骤，参照最终代码，相信你一定可以完成的！</p>
+<ol class="simple">
+<li>添加一个变量score用来记录分数，默认为0分<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">score</span> <span class="pre">=</span> <span class="pre">0;</span></code></li>
+<li>每次成功点击时，增加1分，<code class="docutils literal notranslate"><span class="pre">score</span> <span class="pre">+=</span> <span class="pre">1;</span></code></li>
+<li>最后，将分数画在画布上，<code class="docutils literal notranslate"><span class="pre">text(score,</span> <span class="pre">150,</span> <span class="pre">150,</span> <span class="pre">30)</span></code></li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">showAxis</span><span class="p">();</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">text</span><span class="p">(</span><span class="nx">score</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+
+<span class="nx">ball</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="nx">score</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../basics/index.html" class="btn btn-neutral float-right" title="可用方法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="brief.html" class="btn btn-neutral" title="pyleap简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
