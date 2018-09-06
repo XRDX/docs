@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>作品展示</title>
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://llcs-1252287760.cossh.myqcloud.com/style/style.css">
+<script src="https://llcs-1252287760.cossh.myqcloud.com/js/jquery-1.11.0.min.js"></script>
+<script src="https://llcs-1252287760.cossh.myqcloud.com/js/parallax.min.js"></script>
+<script src="https://llcs-1252287760.cossh.myqcloud.com/js/vue.js"></script>
+
+<div id="app">
+<section id="title">
+<div>
+<h1>{{ title }}</h1>
+</section>
+<section id="scene" data-pointer-events="true" data-friction-x="0.1" data-friction-y="0.1">
+<div class="layer main" data-depth="1.0">
+<div v-for="(item, i) in items" class="col">
+<a v-bind:href="autoUrl(i)" target="_blank">
+<div class="hover">
+<div class="pad align-bottom">
+<h2>{{ item.title }}</h2>
+</div>
+</div>
+<div class="bg-img" v-bind:style="autoStyle(i)" ></div>
+</a>
+</div>
+</div>
+</section>
+</div>
+
+<script type="text/javascript">
+// hide "View Code"
+// width 100%
+$(document).ready(function(){
+    $('#show', window.parent.document).css("width", "100%");
+    $('#show', window.parent.document).css("height", "100%");
+    $('#btnEdit', window.parent.document).hide();
+    $('body').css("background-image","url(https://rss.leaplearner.com/Image/Bgs/mainBg.png)");
+    
+    var scene = document.getElementById('scene');
+    var parallax = new Parallax(scene);
+});
+
+var app = new Vue({
+    el: '#app',
+    methods:{
+        autoUrl: function (index) {
+            var item = this.items[index];
+            return item.url ? item.url : 'https://code.leaplearner.com/show.html?v='+ item.id;
+        },
+        autoStyle: function (index) {
+            var item = this.items[index];
+            return 'background-image:url('
+            + (item.image ? item.image : ('https://rss.leaplearner.com/workimg/production/'+ item.id + '.jpg'))
+            + ')';
+        }
+    },
+    data: {
+        title: "学员作品集合",
+        items: [
+            
+            { title: "学识大冒险(刘佩卿)", id: 37966, url: "https://code.leaplearner.com/view/37966/18"},
+            { title: "TODOLIST(华子昂)", id: 33933},
+            { title: "小区监控系统(季易诚)", id: 39938},
+            { title: "英语连词成句(季震庭)", id: 39490},
+            { title: "pikachu phoneway(张子栋)", id: 39276},
+            { title: "劳模当家(张家齐)", id: 36559},
+            { title: "找不同(张怡蘅)", id: 37242},
+            { title: "Junk Jack(徐润之)", id: 39485},
+        ]
+    }
+})
+</script>
+</body>
+</html>
