@@ -12,3 +12,4 @@
    noip_score
    noip_reward
    noip_advantage
+   ccf_csp
