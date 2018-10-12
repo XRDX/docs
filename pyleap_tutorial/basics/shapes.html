@@ -91,11 +91,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#">矩形</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">线段</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#">文字</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">椭圆</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="window.html">窗口</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mouse.html">鼠标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keys.html">按键</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collision.html">碰撞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform.html">形变</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">音效对象</a></li>
 </ul>
 </li>
@@ -164,13 +167,14 @@
 <span id="shape"></span><h2>基本图形类 Shape<a class="headerlink" href="#shape" title="永久链接至标题">¶</a></h2>
 <p>所有图形都继承与Shape，Shape拥有以下两个主要的属性</p>
 <ol class="simple">
-<li>Collision，主要用于检测碰撞以及点击事件</li>
-<li>Transform，用于图形的变换处理</li>
+<li>Collision，主要用于检测碰撞以及点击事件，详见Collision一节</li>
+<li>Transform，用于图形的变换处理，详见Transform一节</li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">CollisionMixin</span><span class="p">,</span> <span class="n">TransformMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; 默认参数</span>
 <span class="sd">    颜色 color: &quot;orange&quot;</span>
-<span class="sd">    线条粗细 line_width： 1</span>
+<span class="sd">    线条粗细 line_width： 1 (1~10，最大值为10)</span>
+<span class="sd">    透明度 opacity: 1 (0~1，默认为1，表示不透明，0为全透明)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
   
     <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -245,6 +249,17 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">):</span>
                  
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>椭圆<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ellipse</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; 基本图形：椭圆 Ellipse </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">r_x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">r_y</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">):</span>
+       
 </pre></div>
 </div>
 </div>
