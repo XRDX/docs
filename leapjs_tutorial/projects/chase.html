@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>大逃杀 &mdash; LeapJS 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Examples" href="example.html" />
+    <link rel="prev" title="按钮" href="button.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LeapJS 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">LeapJS 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_shapes/index.html">基本图形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shapes/index.html">图片和动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../styles/index.html">样式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canvas/index.html">画布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio/index.html">音乐与音效</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">事件处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/index.html">图形变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical/index.html">物理效果</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">项目列表</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="button.html">按钮</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">大逃杀</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">游戏规则</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">素材列表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lib">lib</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">显示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">玩家移动</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">限制移动速度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">用鼠标进行精细控制</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">怪物</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">敌人的移动</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">测试敌人移动</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">怪物们</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">移动和绘制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">不停增加的怪物</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">游戏逻辑</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">游戏开始和结束</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">结束条件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">显示分数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LeapJS 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">项目列表</a> &raquo;</li>
+        
+      <li>大逃杀</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>大逃杀<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>游戏规则<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>用鼠标控制你的角色，避免碰到其他角色，看你能坚持多久.</p>
+<p><img alt="game" src="../_images/game.gif" /></p>
+<p>我们假设你已经对基本的图像绘制、鼠标控制有所了解，后面的内容将不详细介绍这部分知识。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>素材列表<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>这个游戏使用到的素材很少，只有背景（bg）、玩家（player）和怪物（monster），我们可以随意选取我们喜欢的风格。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span> <span class="mi">450</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">bg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;https://rss.leaplearner.com/Image/Bgs/circuitrybg1.png&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">monster</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;https://rss.leaplearner.com/Image/Role/CircleFace.png&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sprite</span><span class="p">(</span><span class="s2">&quot;https://rss.leaplearner.com/Image/Role/Alien2.png&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>这里直接使用了canvas.width, canvas.height作为背景的大小，可以避免修改画面大小时还要去修改背景图片的大小。</p>
+<p>别忘了在第一行设定画布的宽度和高度。</p>
+<div class="section" id="lib">
+<span id="lib"></span><h3>lib<a class="headerlink" href="#lib" title="永久链接至标题">¶</a></h3>
+<p>游戏中使用到了run和stop方法，我们需要使用最新的库文件，v1.0以上</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://r.leaplearner.com/teachfiles/Text/leap.min.v1.0.js&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>显示<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>为了看到效果，我们写一个绘制循环函数，将上述资源绘制上去。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">monster</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">draw</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>一起顺利的话，应该看到如下画面：</p>
+<p><img alt="draw" src="../_images/draw.png" /></p>
+<p>当然，所有元素都是不能动的。</p>
+<p>项目链接：https://code.leaplearner.com/view/61849/1</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>玩家移动<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>为了统一管理移动功能，我们将为player新建一个update方法</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">player</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">// code here</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">monster</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>最简单的，用鼠标来控制主角的移动</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">player</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">player</span><span class="p">.</span><span class="nx">w</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">player</span><span class="p">.</span><span class="nx">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>使用  player.w 和 player.h 来避免使用“魔法数字”。</p>
+<p>项目链接：https://code.leaplearner.com/view/61849/2</p>
+<div class="section" id="">
+<span id="id6"></span><h3>限制移动速度<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>但是呢，这个移动太快了，如果是在这个游戏里，过快的移动速度回大大降低游戏的趣味性，因此我们要限制player的移动速度。</p>
+<p>在每个update时，让player向鼠标的方向移动固定的距离。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">player</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                   <span class="c1">// player 的速度</span>
+<span class="nx">player</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">player</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">player</span><span class="p">.</span><span class="nx">w</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="c1">// player中心点位置 cx 、 cy</span>
+    <span class="kd">let</span> <span class="nx">cy</span> <span class="o">=</span> <span class="nx">player</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">player</span><span class="p">.</span><span class="nx">h</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">cx</span><span class="p">;</span>          <span class="c1">// player中心点位置和鼠标的位置差异 dx 、dy</span>
+    <span class="kd">let</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nx">Mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">cy</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">dx</span><span class="o">*</span><span class="nx">dx</span> <span class="o">+</span> <span class="nx">dy</span><span class="o">*</span><span class="nx">dy</span><span class="p">);</span> <span class="c1">// 直线距离</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span> <span class="nx">r</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>                    <span class="c1">// 距离太小对后续计算影响较大，设定一个最小值</span>
+    
+    <span class="nx">player</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">dx</span><span class="o">/</span><span class="nx">r</span> <span class="o">*</span> <span class="nx">player</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>    <span class="c1">// 每个update移动5个像素，分解在x、y方向上</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">dy</span><span class="o">/</span><span class="nx">r</span> <span class="o">*</span> <span class="nx">player</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这一段需要详细讲解，没有一定基础理解不了(￣^￣)。</p>
+<p><img alt="dir" src="../_images/dir.jpg" /></p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>用鼠标进行精细控制<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>在实际操作中，我们希望点下鼠标的时候才让player移动。定义一个属性player.move来控制player是否移动。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">down</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span> <span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="p">};</span>
+<span class="nx">Mouse</span><span class="p">.</span><span class="nx">up</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span> <span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">&amp;&amp;</span> <span class="nx">player</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>  <span class="c1">// if(player.move) player.update() 的酷炫写法</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">monster</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h2>怪物<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id9"></span><h3>敌人的移动<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>有了上面的经验，我们很容易就可以写出来：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">monster</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c1">// monster优势在数量，不在速度</span>
+<span class="nx">monster</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">player</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">player</span><span class="p">.</span><span class="nx">w</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">ty</span> <span class="o">=</span> <span class="nx">player</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">player</span><span class="p">.</span><span class="nx">h</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">cx</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">w</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">cy</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">h</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">tx</span> <span class="o">-</span> <span class="nx">cx</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nx">ty</span> <span class="o">-</span> <span class="nx">cy</span><span class="p">;</span>
+    
+    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">dx</span><span class="o">*</span><span class="nx">dx</span> <span class="o">+</span> <span class="nx">dy</span><span class="o">*</span><span class="nx">dy</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span> <span class="nx">r</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">dx</span><span class="o">/</span><span class="nx">r</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">dy</span><span class="o">/</span><span class="nx">r</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">speed</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>注意，这个用的全是this，而非monster，因为我们打算出现一大堆的怪物，每个怪物都有自己（this）的移动逻辑，所有monster的update方法中，必须要绑定在自己（this）身上。</p>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h3>测试敌人移动<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">&amp;&amp;</span> <span class="nx">player</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>  <span class="c1">// if(player.move) player.update() 的酷炫写法</span>
+    <span class="nx">monster</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">monster</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>一切顺利的话，就可以看到以下的场景了</p>
+<p><img alt="move" src="../_images/move.gif" /></p>
+<p>项目链接：https://code.leaplearner.com/view/61849/3</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>怪物们<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id12"></span><h3>移动和绘制<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>在我们游戏中，不仅仅只有一个怪物，所有我们需要一个数组monsters来存储所有的怪物。同时，给monsters添加2个方法update 和draw。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">monsters</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">monsters</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">monster</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">monster</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="nx">monsters</span><span class="p">.</span><span class="nx">draw</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">monster</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">monster</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>修改draw函数，使用monsters来代替monster</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">&amp;&amp;</span> <span class="nx">player</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>  <span class="c1">// if(player.move) player.update() 的酷炫写法</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>monsters拥有了update和draw方法，但是因为monsters还是个空的数组，所以现在我们看不到任何的怪物出现在画布上。</p>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h3>不停增加的怪物<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>怪物是慢慢添加的，我们增加一个方法addMonster来往monsters中添加怪物，同时用setInterval来不停的添加怪物。记的控制时间间隔，间隔时间太短了会导致短时间内非常多的怪物生成。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">addMonster</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">newMonster</span> <span class="o">=</span> <span class="nx">monster</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span> <span class="c1">// 复制一个monster</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newMonster</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">addMonster</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// 每1000毫秒（1秒）添加一个怪物</span>
+</pre></div>
+</div>
+<p>clone() 方法会克隆一个新的monster，我们要让怪物初始出现在四周，而不是固定的位置，因此每次都要随机一个位置。但是这个随机位置又不能是画布上的任意一点，否则一开始怪物就追上了我们的玩家。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">addMonster</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">newMonster</span> <span class="o">=</span> <span class="nx">monster</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span> <span class="c1">// 复制一个monster</span>
+
+    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="o">&lt;</span><span class="mf">0.25</span><span class="p">){</span>                     <span class="c1">// 25% 的概率从左侧出现</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">){</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>    <span class="c1">// 25% 的概率右侧出现</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="o">&lt;</span><span class="mf">0.75</span><span class="p">){</span>                  <span class="c1">// 25% 的概率上方出现</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span><span class="p">{</span>                             <span class="c1">// 25% 的概率下方出现</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+        <span class="nx">newMonster</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="nx">newMonster</span><span class="p">.</span><span class="nx">speed</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>  <span class="c1">// 随机的速度</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newMonster</span><span class="p">);</span>
+<span class="p">}</span>    
+</pre></div>
+</div>
+<p>测试这个程序，你会发现到后面所有的怪物都会集中到一个点上，因为他们的速度是一致的，因此，在生成怪物时，还需要给他们一个随机的速度。</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id14"></span><h2>游戏逻辑<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id15"></span><h3>游戏开始和结束<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>定义两个函数，分布在游戏开始和结束的时候调用。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">GameStart</span><span class="p">(){</span>
+    <span class="k">while</span><span class="p">(</span><span class="nx">monsters</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">monsters</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="nx">run</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">retry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s2">&quot;Retry&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">retry</span><span class="p">.</span><span class="nx">click</span> <span class="o">=</span> <span class="nx">GameStart</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">GameOver</span><span class="p">(){</span>
+    <span class="nx">stop</span><span class="p">(</span><span class="nx">draw</span><span class="p">);</span>
+    <span class="nx">retry</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>当游戏开始时，调用GameStart()，将所有怪物清除掉，这里还可以使用slice方法，开始draw方法。</p>
+<p>当游戏结束时，调用GameOver()，停止draw方法，绘制retry文字。retry上绑定一个事件，游戏开始。</p>
+<p>因为有了自定义的GameStart函数，那么我们就直接调用GameStart()，不在使用setIntelval来开始游戏。</p>
+<p><strong>注意：删除<code class="docutils literal notranslate"><span class="pre">setIntelval(draw,</span> <span class="pre">20)</span></code></strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// setInterval(drwa, 20);</span>
+<span class="nx">GameStart</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id16"></span><h3>结束条件<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>当任意一只怪物碰到玩家时，游戏就应该结束。我们直接在update方法中添加就可以了。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">monsters</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">monster</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">monster</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">monster</span><span class="p">.</span><span class="nx">collide</span><span class="p">(</span><span class="nx">player</span><span class="p">)){</span>
+            <span class="nx">GameOver</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id17"></span><h2>显示分数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>分数就是monsters的长度，所有在绘制函数中添加显示函数即可</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">(){</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+    <span class="nx">bg</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+    <span class="nx">player</span><span class="p">.</span><span class="nx">move</span> <span class="o">&amp;&amp;</span> <span class="nx">player</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>  <span class="c1">// if(player.move) player.update() 的酷炫写法</span>
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+    
+    <span class="nx">monsters</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">player</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="nx">text</span><span class="p">(</span><span class="nx">monsters</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>项目链接：https://code.leaplearner.com/view/61849/4</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="example.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="button.html" class="btn btn-neutral" title="按钮" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

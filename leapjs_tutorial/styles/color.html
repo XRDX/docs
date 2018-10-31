@@ -89,20 +89,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">样式</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="style.html">图形样式</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">颜色</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#">颜色常量</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#">颜色常量速查</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#">十六进制颜色值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">颜色常量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hex">十六进制颜色值 HEX</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rgb">RGB值</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#rgba">RGBA值</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#hsl">HSL 颜色值</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#hslrgb">HSL和RGB的换算</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hslrgb">HSL和RGB的比较</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hsla">HSLA</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#">颜色常量速查</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="shadow.html">图像阴影</a></li>
@@ -181,7 +179,7 @@
 <p>在网页中可以用以下方法来规定 CSS 中的颜色，不同颜色的表示法只是为了便于我们运用和理解，他们之间大多可以相互转换。</p>
 <ul class="simple">
 <li>颜色常量</li>
-<li>十六进制颜色值</li>
+<li>十六进制颜色值 (HEX)</li>
 <li>RGB 颜色</li>
 <li>RGBA 颜色</li>
 <li>HSL 颜色</li>
@@ -197,8 +195,110 @@
 </pre></div>
 </div>
 <p>这里，函数rectangle中最后一个参数即表示颜色常量。一般情况下，如有这个颜色常量JS不支持，那么等同于使用了黑色效果。如果你在使用的过程中发现图形变为黑色了，那么很有可能是单词拼写错误导致的。</p>
+</div>
+<div class="section" id="hex">
+<span id="hex"></span><h2>十六进制颜色值 HEX<a class="headerlink" href="#hex" title="永久链接至标题">¶</a></h2>
+<p>随着显示屏的发展，目前大部分显示屏都已经支持几万以上（65535种）的颜色，我们的词汇已经无法表达出来所有的颜色。</p>
+<p>十六进制颜色是这样规定的：#RRGGBB，其中的 RR（红色）、GG（绿色）、BB（蓝色）十六进制整数规定了颜色的成分。所有值必须介于 0 与 FF 之间。</p>
+<p>举例说，#0000ff 值显示为蓝色，这是因为蓝色成分被设置为最高值（ff），而其他成分被设置为 0。</p>
+</div>
+<div class="section" id="rgb">
+<span id="rgb"></span><h2>RGB值<a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h2>
+<p>如果用放大镜看显示器的屏幕，会发现屏幕的每个点都是由3个颜色组成，分别是</p>
+<ul class="simple">
+<li>Red, 红色</li>
+<li>Green，绿色</li>
+<li>Blue，蓝色</li>
+</ul>
+<p>而这3个颜色的首字母组合，即RGB，这也是RGB值的由来。在RGB值的组成中，每一个数字分布代表了每个颜色的强弱，0代表关闭，255代表最高。</p>
+<p>有了这3个基本的颜色，按照亮度的不同，就以组成各种个样的颜色。一些常见颜色的RGB值。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>颜色</th>
+<th>RGB值</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>红色 Red</td>
+<td>RGB(255, 0, 0)</td>
+<td></td>
+</tr>
+<tr>
+<td>黄色 Yellow</td>
+<td>RGB(255,255,0)</td>
+<td>红色光和绿色光组成了黄色光</td>
+</tr>
+<tr>
+<td>橙色 Orange</td>
+<td>RGB(255, 165, 0)</td>
+<td>红色光和黄色光组成了橙色光</td>
+</tr>
+</tbody>
+</table><div class="admonition warning  ">
+<p class="first admonition-title">光线组合和色彩组合</p>
+<p class="last">注意，上面提到的颜色组合，都是对应光线的组合，色彩的组合和光线组合的结果是不一样的。不同的光线组合在一起成为了白色，而不同色彩混在一起，只会变成一片灰色</p>
+</div><p><strong>颜色RGB表示法</strong></p>
+<p>RGB(red, green, blue);</p>
+<ul class="simple">
+<li>red: 红色的值，从0~255，数值越大，红色光值越强</li>
+<li>green: 绿色的值，从0~255，数值越大，绿色光值越强</li>
+<li>blue: 蓝色的值，从0~255，数值越大，蓝色光值越强</li>
+</ul>
+<p>HEX颜色值和RGB值表示法，除了进制上的不同，其他方面是相同的的</p>
+<div class="section" id="rgba">
+<span id="rgba"></span><h3>RGBA值<a class="headerlink" href="#rgba" title="永久链接至标题">¶</a></h3>
+<p>RGBA 颜色值得到以下浏览器的支持：IE9+、Firefox 3+、Chrome、Safari 以及 Opera 10+。</p>
+<p>RGBA 颜色值是 RGB 颜色值的扩展，带有一个 alpha 通道 - 它规定了对象的不透明度。</p>
+<p>RGBA 颜色值是这样规定的：rgba(red, green, blue, alpha)。alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgba(255, 255, 0, 0,5)&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>前三位对应的是RGB值，第四位即透明度值</p>
+<p><strong>颜色RGBA表示法</strong></p>
+<p>RGBA(red, green, blue, alpha);</p>
+<ul class="simple">
+<li>red: 红色的值，从0~255，数值越大，红色光值越强</li>
+<li>green: 绿色的值，从0~255，数值越大，绿色光值越强</li>
+<li>blue: 蓝色的值，从0~255，数值越大，蓝色光值越强</li>
+<li>alpha: 透明度，浮点数，从0~1，0为全透明</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">HEX的透明度</p>
+<p class="last">HEX颜色表示法，用第7-8位来代表颜色的透明度。如#FF880000表示全透明，而#FF880080则表示半透明</p>
+</div></div>
+</div>
+<div class="section" id="hsl">
+<span id="hsl"></span><h2>HSL 颜色值<a class="headerlink" href="#hsl" title="永久链接至标题">¶</a></h2>
+<p>HSL同样使用了3个分量来描述色彩，与RGB使用的三色光不同，HSL色彩的表述方式是：H(hue)色相，S(saturation)饱和度，以及L(lightness)亮度。听起来一样复杂？稍后你就会发现，与“反人类”的RGB模型相比，HSL是多么的友好。</p>
+<p>HSL的H(hue)分量，代表的是人眼所能感知的颜色范围，这些颜色分布在一个平面的色相环上，取值范围是0°到360°的圆心角，每个角度可以代表一种颜色。色相值的意义在于，我们可以在不改变光感的情况下，通过旋转色相环来改变颜色。在实际应用中，我们需要记住色相环上的六大主色，用作基本参照：360°/0°红、60°黄、120°绿、180°青、240°蓝、300°洋红，它们在色相环上按照60°圆心角的间隔排列，如下图：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HSL</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span> <span class="c1">// 红色</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/hsl1.png" /></p>
+<p>HSL的S(saturation)分量，指的是色彩的饱和度，它用0%至100%的值描述了相同色相、明度下色彩纯度的变化。数值越大，颜色中的灰色越少，颜色越鲜艳，呈现一种从理性(灰度)到感性(纯色)的变化，如下图</p>
+<p><img alt="L" src="../_images/hsl_l.png" /></p>
+<p>HSL的L(lightness)分量，指的是色彩的明度，作用是控制色彩的明暗变化。它同样使用了0%至100%的取值范围。数值越小，色彩越暗，越接近于黑色；数值越大，色彩越亮，越接近于白色。</p>
+<p><img alt="L" src="../_images/hsl_l.png" /></p>
+<div class="section" id="hslrgb">
+<span id="hslrgb"></span><h3>HSL和RGB的比较<a class="headerlink" href="#hslrgb" title="永久链接至标题">¶</a></h3>
+<p>HSL和RGB都是颜色的表示法，他们表现出来的颜色是相同的。</p>
+<p>在使用HSL调色的过程中，我们并不需要打开拾色器，也不需要了解复杂的色光混合原理，这是一个自然的、感性的、易于理解的过程。</p>
+<p>我们对色彩的认识往往是这样的：“这是什么颜色？深浅如何？明暗如何？”，这种认识是基于人类的主体感官而形成的，并不是基于反射光的物理性质。与RGB色彩模型相比，HSL色彩模型对色彩的表述方式非常友好，非常符合人类对色彩的感知习惯。</p>
+<p>HSL色彩模型诞生于上个世纪，已经在很多领域被广泛应用。但不同的色彩模型有着不同的适用场景，就GUI设计领域来说，对HSL色彩模型的合理应用能让色彩处理的工作更加人性化，有助于建立和谐的人机交互关系，提升产品体验。当你在RGB的异度空间中苦苦挣扎的时候，不妨换一种思维方式。也许HSL就是为你解决问题的关键。</p>
+</div>
+<div class="section" id="hsla">
+<span id="hsla"></span><h3>HSLA<a class="headerlink" href="#hsla" title="永久链接至标题">¶</a></h3>
+<p>HSLA 颜色
+HSLA 颜色值得到以下浏览器的支持：IE9+、Firefox 3+、Chrome、Safari 以及 Opera 10+。</p>
+<p>HSLA 颜色值是 HSL 颜色值的扩展，带有一个 alpha 通道 - 它规定了对象的不透明度。</p>
+<p>HSLA 颜色值是这样规定的：hsla(hue, saturation, lightness, alpha)，其中的 alpha 参数定义不透明度。alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p>
+</div>
+</div>
 <div class="section" id="">
-<span id="id3"></span><h3>颜色常量速查<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<span id="id3"></span><h2>颜色常量速查<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <table>
 <tbody><tr>
 <th style="width:25%"></th>
@@ -384,73 +484,6 @@
 <td style="background-color:Yellow">Yellow</td>
 <td style="background-color:YellowGreen ">YellowGreen </td>
 </tr></tbody></table></div>
-</div>
-<div class="section" id="">
-<span id="id4"></span><h2>十六进制颜色值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
-<p>随着显示屏的发展，目前大部分显示屏都已经支持几万以上（65535种）的颜色，我们的词汇已经无法表达出来所有的颜色。</p>
-<p>十六进制颜色是这样规定的：#RRGGBB，其中的 RR（红色）、GG（绿色）、BB（蓝色）十六进制整数规定了颜色的成分。所有值必须介于 0 与 FF 之间。</p>
-<p>举例说，#0000ff 值显示为蓝色，这是因为蓝色成分被设置为最高值（ff），而其他成分被设置为 0。</p>
-</div>
-<div class="section" id="rgb">
-<span id="rgb"></span><h2>RGB值<a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h2>
-<p>如果用放大镜看显示器的屏幕，会发现屏幕的每个点都是由3个颜色组成，分别是</p>
-<ul class="simple">
-<li>Red, 红色</li>
-<li>Green，绿色</li>
-<li>Blue，蓝色</li>
-</ul>
-<p>而这3个颜色的首字母组合，即RGB，这也是RGB值的由来。在RGB值的组成中，每一个数字分布代表了每个颜色的强弱，0代表关闭，255代表最高。</p>
-<p>有了这3个基本的颜色，按照亮度的不同，就以组成各种个样的颜色。</p>
-<p>RGB(red, green, blue);</p>
-<p>颜色RGB表示法</p>
-<ul class="simple">
-<li>red: 红色的值，从0~255，数值越大，红色值越高</li>
-<li>green: 绿色的值，从0~255，数值越大，绿色值越高</li>
-<li>blue: 蓝色的值，从0~255，数值越大，蓝色值越高</li>
-</ul>
-<div class="section" id="rgba">
-<span id="rgba"></span><h3>RGBA值<a class="headerlink" href="#rgba" title="永久链接至标题">¶</a></h3>
-<p>RGBA 颜色值得到以下浏览器的支持：IE9+、Firefox 3+、Chrome、Safari 以及 Opera 10+。</p>
-<p>RGBA 颜色值是 RGB 颜色值的扩展，带有一个 alpha 通道 - 它规定了对象的不透明度。</p>
-<p>RGBA 颜色值是这样规定的：rgba(red, green, blue, alpha)。alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">rect</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgba(255, 255, 0, 0,5)&quot;</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>前三位对应的是RGB值，第四位即透明度值</p>
-<p>RGBA(red, green, blue, alpha);</p>
-<p>颜色RGBA表示法</p>
-<ul class="simple">
-<li>red: 红色的值，从0~255，数值越大，红色值越高</li>
-<li>green: 绿色的值，从0~255，数值越大，绿色值越高</li>
-<li>blue: 蓝色的值，从0~255，数值越大，蓝色值越高</li>
-<li>alpha: 透明度，从0~1，0为全透明</li>
-<li></li>
-</ul>
-</div>
-</div>
-<div class="section" id="hsl">
-<span id="hsl"></span><h2>HSL 颜色值<a class="headerlink" href="#hsl" title="永久链接至标题">¶</a></h2>
-<p>HSL 颜色
-HSL 颜色值得到以下浏览器的支持：IE9+、Firefox、Chrome、Safari 以及 Opera 10+。</p>
-<p>HSL 指的是 hue（色调）、saturation（饱和度）、lightness（亮度） - 表示颜色柱面坐标表示法。</p>
-<p>HSL 颜色值是这样规定的：hsl(hue, saturation, lightness)。</p>
-<p>Hue 是色盘上的度数（从 0 到 360） - 0 (或 360) 是红色，120 是绿色，240 是蓝色。Saturation 是百分比值；0% 意味着灰色，而 100% 是全彩。Lightness 同样是百分比值；0% 是黑色，100% 是白色。</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HSL</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><img alt="" src="styles\../images/hsl.png" /></p>
-<div class="section" id="hslrgb">
-<span id="hslrgb"></span><h3>HSL和RGB的换算<a class="headerlink" href="#hslrgb" title="永久链接至标题">¶</a></h3>
-<p>HSL和RGB都是用于处理颜色，他们之间可以相互进行换算。</p>
-</div>
-<div class="section" id="hsla">
-<span id="hsla"></span><h3>HSLA<a class="headerlink" href="#hsla" title="永久链接至标题">¶</a></h3>
-<p>HSLA 颜色
-HSLA 颜色值得到以下浏览器的支持：IE9+、Firefox 3+、Chrome、Safari 以及 Opera 10+。</p>
-<p>HSLA 颜色值是 HSL 颜色值的扩展，带有一个 alpha 通道 - 它规定了对象的不透明度。</p>
-<p>HSLA 颜色值是这样规定的：hsla(hue, saturation, lightness, alpha)，其中的 alpha 参数定义不透明度。alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p>
-</div>
-</div>
 </div>
 
 
