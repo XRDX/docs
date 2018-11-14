@@ -1,122 +1,414 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--[if IE 7 ]>    <html class= "ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class= "ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class= "ie9"> <![endif]-->
+<!--[if lt IE 9]>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
 <head>
-<meta charset="utf-8" />
-<style>
-.main_div {
-	width:70%;
-	height:780px;
-	background-color: #DEDEDE;
-	margin:0px auto;
-	padding-top:0px;
-}
-.class_ul {
-	list-style: none;
-	padding:0;
-	margin:0;
-}	 
-.class_list {
-	
-}
-.block {
-	list-style: none;
-	width: 44%;
-	height: 120px;
-	line-height: 120px;
-	margin-top:30px;
-	margin-left:4%;
-	float:left;	
-	background-color: #FF9001;
-	text-align:center;
-	color: white;
-	font-size: 30px;
-	text-decoration:none;
-	border-radius:5px;
-}
 
-.block90 {
-	width: 92%;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-.nav	{
-	height:70px;
-	line-height: 70px;
-	background-color: #FF9001;
-	padding:0;
-	margin:0;
+<title>立乐课程</title>
 
-}
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.quicksand.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"> </script>
+<script type="text/javascript" src="js/hoverIntent.js"> </script>
+<script type="text/javascript" src="js/superfish.js"> </script>
+<script type="text/javascript" src="js/supersubs.js"> </script>
+<script type="text/javascript" src="js/custom.js"> </script>
+<script type="text/javascript" src="js/scrolltopcontrol.js"> </script>
 
-.nav_box {
-	margin:0px auto;
-	width:70%;
-}
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$("#form").val();
 
-#logo	{
-	width:134px;
-	height:70px;
-	background-image: url(http://ou1htxdl4.bkt.clouddn.com/logo1.png);
-	float:left;
-}
+    });
+</script>
 
-.nav_menu	{
-	list-style: none;
-	float:right;
-}
-.nav_li {
-	float:right;
-	margin-left:30px;
-	height:70px;
-	line-height: 40px;
-}
-.nav_text {
-	font-size: 18px;
-	color: white;
-	text-decoration: none;
-}
-</style>
+<!-- END OF SCRIPT FOR FORM -->
+
+<!--Mobile Fix for header-->
+<script type="text/javascript">
+    $(document).ready(function(){
+
+    	$('.trigger').bind('touchstart', function(){
+        $('ul#.social').addClass('thover');
+        return false;
+    }).bind('touchend', function(){
+        $(this).removeClass('thover');
+    });
+    	$('.searchtrigger').bind('touchstart', function(){
+        $('ul#search').addClass('thover');
+        return false;
+    }).bind('touchend', function(){
+        $(this).removeClass('thover');
+    });
+    });
+</script>
+<!--End Mobile Script-->
+<!-- Menu to Select Setting -->
+<script type="text/javascript">
+    // DOM ready
+    $(document).ready(function(){
+
+    // Create the dropdown base
+    $("<select />").appendTo("#top_menu");
+
+    // Create default option "Go to..."
+    $("<option />", {
+     "selected": "selected",
+     "value"   : "",
+     "text"    : "Menu Selection..."
+    }).appendTo("#top_menu select");
+
+    // Populate dropdown with menu items
+    $("#top_menu a").each(function() {
+    var el = $(this);
+    $("<option />", {
+       "value"   : el.attr("href"),
+       "text"    : el.text()
+    }).appendTo("#top_menu select");
+    });
+
+    // To make dropdown actually work
+    // To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+    $("#top_menu select").change(function() {
+    window.location = $(this).find("option:selected").val();
+    });
+
+    });
+</script>
+
+<!-- *************************************************************************
+*********************   THIS IS THE SOCIAL JS    **************************
+************************************************************************** -->
+
+<!--[if lt IE 10]>
+<script type="text/javascript">
+$(document).ready(function(){
+			$('ul.social').hover(function(){
+				$(this).animate({width: "180px"}, {duration:1000, queue:false});
+			}, function(){
+				$(this).animate({width: "30px"}, {duration:1000, queue:false});
+			});
+				});
+                
+                $('div#search').hover(function(){
+				$(this).animate({width: "180px"}, {duration:1000, queue:false});
+			}, function(){
+				$(this).animate({width: "34px"}, {duration:1000, queue:false});
+			});
+				});
+</script>
+<![endif]--> 
 </head>
-<body style="margin:0; padding:0;">
-<div class="nav">
-	<div class="nav_box">
-		<a href="./index.html"><div id="logo" ></div></a>
-		<ul class="nav_menu">
-            <li class="nav_li">
-                <a class="nav_text" href="./train.html">培训资料</a>
-            </li>
-			<li class="nav_li">
-                <a class="nav_text" href="./download.html">软件下载</a>
-			</li>
-			<li class="nav_li">
-				<a class="nav_text" href="pages/methods.html">知识库</a>
-			</li>
-			<li class="nav_li">
-                <a class="nav_text" href="./students_projects.html">学生作品</a>
-			</li>
-            <li class="nav_li">
-                <a class="nav_text" href="./examples.html">课程举例</a>
-            </li>
-		</ul>
-	</div>
-</div>
-<div style="height:50px; width:70%; margin:0px auto; line-height:50px; text-align: left; font-size: 20px;">全部课程</div>
-<div class="main_div">
-    <ul class="class_ul">
-		<a class="block block90" href="./demo_list.html">体验课</a>
 
-        <a class="block" href="http://in.leaplearner.com/file" target="_blank">视频上传</a>
-        <a class="block" href="http://in.leaplearner.com/video" target="_blank">在线视频</a>
+<body>
+<!-- Start of toggleMe -->
+<div id="toggleMe" style="display:none; overflow:hidden; height:40px;">
 
-        <a class="block" href="./js_tutorial/index.html">JavaScript 教程</a>
-        <a class="block" href="./leapjs_tutorial/index.html">LeapJS 教程</a>
+    <!-- Start of header -->
+    <div id="header">
+    <p>立乐课程页面更新啦，赶紧来体验一下吧！</p>
+    </div><!-- End of header -->
 
-        <a class="block" href="https://study.163.com/course/introduction/1004106037.htm" traget="_blank">Python 教程</a>
-        <a class="block" href="./pyleap_tutorial/index.html">pyleap 教程</a>
+</div><!-- End of toggleMe -->
 
-        <a class="block" href="./lv1_list.html">Level 1</a>
-        <a class="block" href="./teachers/index.html">Level 2</a>
+<!-- This is the button that opens and closes the toggle box at the top of the page -->
+<a href="javascript:;" onmousedown="toggleSlide('toggleMe');" class="tog"><img src="img/close_tab.png" height="36" width="39" alt="toggle me" /></a>
+
+<!-- Start of social bar wrapper -->
+<div id="social_bar_wrapper">
+    
+    <!-- Start of social_bar -->
+    <div id="social_bar">
+    
+    <ul id="social">
+      <li class="trigger"></li>
+      <!-- Start of google -->
+      
+      <li class="google"> <a href="http://leaplearner.com" target="_blank"><img src="img/google1.png" width="30" height="30" alt="google" /></a> </li>
+      <!-- Start of facebook -->
+      
+      <li class="facebook"> <a href="http://code.leaplearner.com" target="_blank"><img src="img/facebook1.png" width="30" height="30" alt="facebook" /></a> </li>
+      <!-- Start of twitter -->
     </ul>
-</div>
+        
+    </div><!-- End of social bar -->
+
+</div><!-- End of social bar wrapper -->
+
+<!-- Start of menu wrapper -->
+<div id="menu_wrapper">
+
+	<!-- Start of logo menu wrapper -->
+    <div id="logo_menu_wrapper">
+    
+        <!-- Start of top logo -->
+        <div id="top_logo">
+        <a href="index.html"><img src="img/logo.png" height="45" width="100" alt="top logo" /></a>
+        </div><!-- End of top logo -->
+    
+		<!-- Start of top menu -->
+        <div id="top_menu">
+            <ul class="sf-menu">
+            
+                <li><a href="#">主页<span>关注最新消息</span></a></li>              
+                <li><a class="active" href="#">课程<span>立乐编程课程</span></a></li>
+                <li><a href="#"><b>资料</b><span>各种信息</span></a>
+                	<ul>
+                    	<li><a target="_blank" href="./examples.html">课程举例</a></li>
+                    	<li><a target="_blank" href="./students_projects.html">学生作品</a></li>
+                        <li><a target="_blank" href="./pages/methods.html">知识库</a></li>
+                        <li><a target="_blank" href="./download.html">软件下载</a></li>
+                        <li><a target="_blank" href="./train.html">培训资料</a></li>
+                    </ul> 
+                </li>
+                <li><a href="#"><b>视频</b><span>随时回看</span></a>
+                    <ul>
+                        <li><a target="_blank" href="http://in.leaplearner.com/file">视频上传</a></li>
+                        <li><a target="_blank" href="http://in.leaplearner.com/video">视频观看</a></li>
+                    </ul> 
+                </li>
+            </ul>
+
+		</div><!-- End of top menu --> 
+        <div class="clear"></div>        
+    
+    </div><!-- End of logo menu wrapper -->
+
+</div><!-- End of menu wrapper -->
+
+<!-- Start of slider wrapper -->
+<div id="slider_wrapper">
+
+	<!-- Start of breadcrumb wrapper -->
+    <div id="breadcrumb_wrapper">
+
+        <h1>立乐编程课程</h1>
+            <!-- Start of breadcrumb -->
+            <div id="breadcrumb">
+                <!-- Start of breadcrumb ul -->
+                <ul>
+                    <li><a href="index.html">主页</a></li>
+                    <li>&#8250;&nbsp; 立乐编程课程</li>
+                </ul><!-- End of breadcrumb ul -->
+            </div><!-- End of breadcrumb -->
+	</div><!-- End of breadcrumb wrapper -->
+</div><!-- End of slider wrapper -->
+
+<!-- Start of wrapper -->
+<div id="wrapper">
+
+	<!-- Start of intro section -->
+    <div class="intro_section">
+    
+        <!-- Start of filter -->
+        <ul id="filter">
+                    
+            <li class="segment-1 selected-1 active"><a data-value="all" href="#">所有课程</a></li>
+            <li class="segment-31"><a data-value="term-31" href="#">体验课</a></li>
+            <li class="segment-32"><a data-value="term-32" href="#">Scratch</a></span></li>
+            <li class="segment-33"><a data-value="term-33" href="#">Python</a></span></li>
+            <li class="segment-34"><a data-value="term-34" href="#">JavaScript</a></li>
+             <!-- <li class="segment-39"><a data-value="term-39" href="#">其他资料</a></li> -->
+
+        </ul><!-- End of filter -->
+                
+        <!-- Start of portfolio bg -->
+        <div id="portfolio-bg" class="clearfix">
+                
+            <!-- Start of image grid -->
+            <ul class="image-grid grid clearfix">
+                
+                <li class="term-31" data-id="id-11">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/demo.jpg" alt="Demo" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>体验课</h5>
+                        <h6>针对全年龄学员设计</h6>
+                        <a target="_blank" href="./demo_list.html" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="./demo_list.html">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-32" data-id="id-21">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/scratch.jpg" alt="Scratch" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>Scratch课程（L0）</h5>
+                        <h6>针对K-2学员设计</h6>
+                        <a target="_blank" href="http://in.leaplearner.com/file/sharing/md5tvDHK1" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="http://in.leaplearner.com/file/sharing/md5tvDHK1">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-33" data-id="id-33">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/python3.jpg" alt="Python L3" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>Python课程（L3）</h5>
+                        <h6>针对7-9年级学员设计</h6>
+                        <a target="_blank" href="http://in.leaplearner.com/file/sharing/PKTB63fRi" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="http://in.leaplearner.com/file/sharing/PKTB63fRi">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-34" data-id="id-41">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/javascript1.jpg" alt="JavaScript L1" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>JavaScript（L1）</h5>
+                        <h6>针对3-4年级学员设计</h6>
+                        <a target="_blank" href="http://in.leaplearner.com/file/sharing/NIyiZI462" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="http://in.leaplearner.com/file/sharing/NIyiZI462">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-34" data-id="id-42">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/javascript2.jpg" alt="JavaScript L2" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>JavaScript（L2）</h5>
+                        <h6>针对5-6年级学员设计</h6>
+                        <a target="_blank" href="http://in.leaplearner.com/file/sharing/528xWFXOs" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="http://in.leaplearner.com/file/sharing/528xWFXOs">&raquo; 查看详情</a></span>
+                </li>
+
+               <li class="term-33" data-id="id-334">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/pyleap.jpg" alt="Python L3" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>pyleap 教程</h5>
+                        <h6>pyleap游戏开发指南</h6>
+                        <a target="_blank" href="./pyleap_tutorial/index.html" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="./pyleap_tutorial/index.html">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-34" data-id="id-346">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/js_tutorial.jpg" alt="JavaScript L2" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>JavaScript 教程</h5>
+                        <h6>基础语法教学</h6>
+                        <a target="_blank" href="./js_tutorial/index.html" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="./js_tutorial/index.html">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-34" data-id="id-347">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/leapjs.jpg" alt="JavaScript L2" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>LeapJS 教程</h5>
+                        <h6>游戏开发指南</h6>
+                        <a target="_blank" href="./leapjs_tutorial/index.html" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="./leapjs_tutorial/index.html">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-34" data-id="id-348">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/js_lv1.jpg" alt="JavaScript L2" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>JavaScript L1</h5>
+                        <h6>老师使用</h6>
+                        <a target="_blank" href="./lv1_list.html" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="./lv1_list.html">&raquo; 查看详情</a></span>
+                </li>
+
+                <li class="term-34" data-id="id-349">
+                    <div class="view view-first"><!-- Start of view container -->
+                        <img src="img/js_lv2.jpg" alt="JavaScript L2" width="305" height="227"/>
+                        <div class="mask"><!-- Start of mask -->
+                        <h5>JavaScript L2</h5>
+                        <h6>老师使用</h6>
+                        <a target="_blank" href="./teachers/index.html" class="info">View Details</a> 
+                        </div><!-- End of mask -->
+                    </div><!-- end of view container -->
+                    <span class="tiny"><a target="_blank" href="./teachers/index.html">&raquo; 查看详情</a></span>
+                </li>
+
+            </ul><!-- End of image grid -->
+        </div><!-- End of portfolio bg -->
+    </div><!-- End of intro section --> 
+</div><!-- End of wrapper -->
+
+<div class="clear"></div>
+
+<!-- Start of footer wrapper -->
+<div id="footer_wrapper">
+
+	<!-- Start of footer -->
+    <div id="footer">
+
+        <!-- Start of footer widget -->
+        <div id="footer_widget">
+        
+        <a href="#"><img src="img/footer_logo.png" height="45" width="100" alt="bottom logo" /></a>
+        
+        <p>全球首家以色列和中国合资的青少儿编程公司，独立开发前沿的教育平台，致力于培养全世界范围内6-18岁学生的自学能力、创新创造能力、解决问题能力以及21世纪所需要的其他技能，使用PBL（Problem Based Learning）教学模式，最大程度激发每个孩子的学习潜能，让孩子赢得未来。</p>
+        
+        </div><!-- End of footer widget -->
+        
+        <!-- Start of footer right -->
+        <div class="footer_right">
+
+        <h5>联系我们</h5>
+        <ul>
+        <li>电话：400 688 8220</li>
+        <li>工作时间：9:00 ~ 21:00</li>
+        <li>上海市普陀区祁连山南路2891弄100号</li>
+        <li>盛源科技园D幢4楼</li>
+        </ul>
+         
+         <!--
+         <h5>Ordered List</h5>
+         
+         <ol>
+         <li><a href="#">Aenean lacinia bibendum</a></li>
+         <li>Aenean lacinia bibendum</li>
+         </ol>
+        -->
+
+        </div><!-- End of footer right -->
+    </div><!-- End of footer -->
+<div class="clear"></div>
+</div><!-- End of footer wrapper -->
+
+<!-- Start of bottom footer wrapper -->
+<div id="bottom_footer_wrapper">
+
+	<!-- Start of bottom footer -->
+    <div id="bottom_footer">
+    <img src="img/logo_emblem.png" height="27" width="39" alt="bottom logo emblem" />
+    <p><a href="http://www.miitbeian.gov.cn">Copyright 2017版权所有：立乐教育科技（上海）有限公司 沪ICP备17004184号</a></p>
+    </div><!-- End of bottom footer -->
+
+</div><!-- End of bottom footer wrapper -->
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120390508-1"></script>
 <script>
