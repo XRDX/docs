@@ -3481,7 +3481,7 @@ ul#social li a{
 		}
 		
 	.featured_image_portfolio {
-		background-image:url("../img/feat_img_shadow3.png");
+		background-image:url("../img/feat_img_shadow.png");
 		background-position:72px 160px;
 		background-repeat:no-repeat;
 		height:184px;
@@ -3496,7 +3496,7 @@ ul#social li a{
 		}
 		
 	.image-grid.grid li {
-		background-image:url("../img/feat_img_shadow3.png");
+		background-image:url("../img/feat_img_shadow.png");
 		background-position:57px 140px;
 		background-repeat:no-repeat;
 		height:auto;
@@ -3741,7 +3741,7 @@ ul#social li a{
 		}
 		
 	.featured_image_portfolio {
-		background-image:url("../img/feat_img_shadow3.png");
+		background-image:url("../img/feat_img_shadow.png");
 		background-position:-14px 95px;
 		background-repeat:no-repeat;
 		height:118px;
@@ -3805,7 +3805,7 @@ ul#social li a{
 @media only screen and (max-width: 320px) {
 
 	.featured_image_portfolio {
-		background-image:url("../img/feat_img_shadow3.png");
+		background-image:url("../img/feat_img_shadow.png");
 		background-position:-55px 55px;
 		background-repeat:no-repeat;
 		height:85px;

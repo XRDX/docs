@@ -883,22 +883,3 @@ extraWidth:  1     // extra width can ensure lines don't sometimes turn over
 			 // not display:none when measuring. Call before initialising 
 			 // containing tabs for same reason. 
 }); 
-
-/**************************************************************************
-   ******************   THIS IS THE TWITTER JS      ********************
-***************************************************************************/
-
-$(document).ready(function(){
-$(".tweet").tweet({
-	username: "@twsjonathan",
-	join_text: "auto",
-	avatar_size: 47,
-	count: 2,
-	auto_join_text_default: "we said,", 
-	auto_join_text_ed: "we",
-	auto_join_text_ing: "we were",
-	auto_join_text_reply: "we replied to",
-	auto_join_text_url: "we were checking out",
-	loading_text: "loading tweets..."
-});
-});
