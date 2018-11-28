@@ -9,6 +9,7 @@ Welcome to LeapLearner's documentation!
 .. toctree::
    :maxdepth: 2
    
+   Linux/index
    tools/index
 
 
