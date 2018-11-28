@@ -83,19 +83,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十三章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十三章 多线程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1.html">线程与进程</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">多线程编程</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#">1、线程的创建</a></li>
@@ -109,7 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3.html">进程</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -158,7 +158,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第十三章</a> &raquo;</li>
+          <li><a href="index.html">第十三章 多线程</a> &raquo;</li>
         
       <li>多线程编程</li>
     
@@ -200,13 +200,11 @@
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 
-
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;thread {}, @number: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Start main threading&quot;</span><span class="p">)</span>
@@ -218,7 +216,6 @@
         <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;End Main threading&quot;</span><span class="p">)</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
@@ -258,13 +255,11 @@ thread Thread-1, @number: 4
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 
-
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;thread {}, @number: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Start main threading&quot;</span><span class="p">)</span>
@@ -280,7 +275,6 @@ thread Thread-1, @number: 4
         <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;End Main threading&quot;</span><span class="p">)</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
@@ -340,7 +334,6 @@ End Main threading
 
 <span class="kn">import</span> <span class="nn">threading</span><span class="o">,</span> <span class="nn">time</span>
 
-
 <span class="k">class</span> <span class="nc">Consumer</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="c1"># 初始化</span>
@@ -363,7 +356,6 @@ End Main threading
         <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 等待收货&#39;</span><span class="p">)</span>
 
-
 <span class="k">class</span> <span class="nc">Producer</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Producer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -384,9 +376,8 @@ End Main threading
         <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 发货商品&#39;</span><span class="p">)</span>
 
-
 <span class="n">cond</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">()</span>
-<span class="n">consumer</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;买家（两点水）&#39;</span><span class="p">)</span>
+<span class="n">consumer</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;买家（妮娜）&#39;</span><span class="p">)</span>
 <span class="n">producer</span> <span class="o">=</span> <span class="n">Producer</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;卖家（三点水）&#39;</span><span class="p">)</span>
 <span class="n">consumer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">producer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -394,12 +385,12 @@ End Main threading
 </pre></div>
 </div>
 <p>输出的结果如下：</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>买家（两点水）: 我这两件商品一起买，可以便宜点吗
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>买家（妮娜）: 我这两件商品一起买，可以便宜点吗
 卖家（三点水）: 可以的，你提交订单吧
-买家（两点水）: 我已经提交订单了，你修改下价格
+买家（妮娜）: 我已经提交订单了，你修改下价格
 卖家（三点水）: 好了，已经修改了
-买家（两点水）: 收到，我支付成功了
-买家（两点水）: 等待收货
+买家（妮娜）: 收到，我支付成功了
+买家（妮娜）: 等待收货
 卖家（三点水）: 嗯，收款成功，马上给你发货
 卖家（三点水）: 发货商品
 </pre></div>
@@ -415,20 +406,17 @@ End Main threading
 
 <span class="n">isRead</span> <span class="o">=</span> <span class="bp">True</span>
 
-
 <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
     <span class="c1"># 写数据进程</span>
-    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="s1">&#39;三点水&#39;</span><span class="p">,</span> <span class="s1">&#39;四点水&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span> <span class="s1">&#39;三点水&#39;</span><span class="p">,</span> <span class="s1">&#39;四点水&#39;</span><span class="p">]:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;写进 Queue 的值为：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
         <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
     <span class="c1"># 读取数据进程</span>
     <span class="k">while</span> <span class="n">isRead</span><span class="p">:</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;从 Queue 读取的值为：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
@@ -439,9 +427,9 @@ End Main threading
 </pre></div>
 </div>
 <p>输出的结果如下：</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>写进 Queue 的值为：两点水
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>写进 Queue 的值为：妮娜
 写进 Queue 的值为：三点水
-从 Queue 读取的值为：两点水
+从 Queue 读取的值为：妮娜
 写进 Queue 的值为：四点水
 从 Queue 读取的值为：三点水
 从 Queue 读取的值为：四点水
@@ -465,7 +453,6 @@ End Main threading
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">threading</span>
-
 
 <span class="k">class</span> <span class="nc">mThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threadname</span><span class="p">):</span>

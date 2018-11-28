@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="第十四章" href="../python14/index.html" />
+    <link rel="next" title="第十四章 正则表达式" href="../python14/index.html" />
     <link rel="prev" title="多线程编程" href="2.html" /> 
 
   
@@ -83,19 +83,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十三章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十三章 多线程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1.html">线程与进程</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2.html">多线程编程</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">进程</a><ul>
@@ -109,7 +109,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -158,7 +158,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第十三章</a> &raquo;</li>
+          <li><a href="index.html">第十三章 多线程</a> &raquo;</li>
         
       <li>进程</li>
     
@@ -192,17 +192,15 @@
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-
 <span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;【start】&#39;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;【end】&#39;</span><span class="p">)</span>
 
-
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;两点水1&#39;</span><span class="p">))</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;两点水2&#39;</span><span class="p">))</span>
-    <span class="n">p3</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;两点水3&#39;</span><span class="p">))</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;妮娜1&#39;</span><span class="p">))</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;妮娜2&#39;</span><span class="p">))</span>
+    <span class="n">p3</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;妮娜3&#39;</span><span class="p">))</span>
 
     <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
     <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -226,7 +224,6 @@
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-
 <span class="k">class</span> <span class="nc">ClockProcess</span><span class="p">(</span><span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
         <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -238,7 +235,6 @@
             <span class="k">print</span><span class="p">(</span><span class="s2">&quot;当前时间: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">ClockProcess</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -257,12 +253,10 @@
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-
 <span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">interval</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;工作开始时间：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;工作结果时间：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
@@ -283,12 +277,10 @@
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-
 <span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">interval</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;工作开始时间：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;工作结果时间：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
@@ -311,12 +303,10 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-
 <span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">interval</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;工作开始时间：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;工作结果时间：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()))</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
@@ -343,14 +333,12 @@
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">random</span>
 
-
 <span class="k">def</span> <span class="nf">long_time_task</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;进程的名称：{0} ；进程的PID: {1} &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;进程 {0} 运行了 {1} 秒&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)))</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;主进程的 PID：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
@@ -397,15 +385,13 @@
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Queue</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">random</span>
 
-
 <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
     <span class="c1"># 写数据进程</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;写进程的PID:{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
-    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="s1">&#39;三点水&#39;</span><span class="p">,</span> <span class="s1">&#39;四点水&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span> <span class="s1">&#39;三点水&#39;</span><span class="p">,</span> <span class="s1">&#39;四点水&#39;</span><span class="p">]:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;写进 Queue 的值为：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
         <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
-
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
     <span class="c1"># 读取数据进程</span>
@@ -413,7 +399,6 @@
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;从 Queue 读取的值为：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
-
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># 父进程创建 Queue，并传给各个子进程</span>
@@ -434,8 +419,8 @@
 <p>输出的结果为：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span>读进程的PID:13208
 写进程的PID:10864
-写进 Queue 的值为：两点水
-从 Queue 读取的值为：两点水
+写进 Queue 的值为：妮娜
+从 Queue 读取的值为：妮娜
 写进 Queue 的值为：三点水
 从 Queue 读取的值为：三点水
 写进 Queue 的值为：四点水
@@ -453,7 +438,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../python14/index.html" class="btn btn-neutral float-right" title="第十四章" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../python14/index.html" class="btn btn-neutral float-right" title="第十四章 正则表达式" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="2.html" class="btn btn-neutral" title="多线程编程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

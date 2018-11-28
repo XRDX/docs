@@ -83,11 +83,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第五章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第五章 条件和循环</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="If.html">一、条件语句</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">二、循环语句</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#while">1、While 循环语句</a></li>
@@ -98,15 +98,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Example.html">三、条件语句和循环语句综合实例</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -155,7 +155,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第五章</a> &raquo;</li>
+          <li><a href="index.html">第五章 条件和循环</a> &raquo;</li>
         
       <li>二、循环语句</li>
     
@@ -175,12 +175,28 @@
 <p>循环语句的一般形式如下：</p>
 <p><img alt="python循环语句" src="http://upload-images.jianshu.io/upload_images/2136918-eaaae2fbfec3330f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>Python 提供了 for 循环和 while 循环，当然还有一些控制循环的语句：</p>
-<p>|循环控制语句|描述|
-|------|------|
-|break|在语句块执行过程中终止循环，并且跳出整个循环|
-|continue|在语句块执行过程中终止当前循环，跳出该次循环，执行下一次循环|
-|pass|pass 是空语句，是为了保持程序结构的完整性|</p>
-<div class="section" id="while">
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>循环控制语句</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>break</td>
+<td>在语句块执行过程中终止循环，并且跳出整个循环</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>在语句块执行过程中终止当前循环，跳出该次循环，执行下一次循环</td>
+</tr>
+<tr>
+<td>pass</td>
+<td>pass 是空语句，是为了保持程序结构的完整性</td>
+</tr>
+</tbody>
+</table><div class="section" id="while">
 <span id="while"></span><h2>1、While 循环语句<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -257,7 +273,7 @@
 </pre></div>
 </div>
 <p>实例：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Hello 两点水&#39;</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Hello 妮娜&#39;</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
 </pre></div>
 </div>

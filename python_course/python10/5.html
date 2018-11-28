@@ -83,16 +83,16 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十章 魔法方法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 的 Magic Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2.html">二、构造(<code class="docutils literal notranslate"><span class="pre">__new__</span></code>)和初始化(<code class="docutils literal notranslate"><span class="pre">__init__</span></code>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.html">三、属性的访问控制</a></li>
@@ -101,10 +101,10 @@
 <li class="toctree-l2"><a class="reference internal" href="6.html">六、运算符相关的魔术方法</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -153,7 +153,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第十章</a> &raquo;</li>
+          <li><a href="index.html">第十章 魔法方法</a> &raquo;</li>
         
       <li>五、自定义容器（Container）</li>
     
@@ -172,17 +172,48 @@
 <p>经过之前编章的介绍，我们知道在 Python 中，常见的容器类型有: dict, tuple, list, string。其中也提到过可容器和不可变容器的概念。其中 tuple, string 是不可变容器，dict, list 是可变容器。   可变容器和不可变容器的区别在于，不可变容器一旦赋值后，不可对其中的某个元素进行修改。当然具体的介绍，可以看回之前的文章，有图文介绍。</p>
 <p>那么这里先提出一个问题，这些数据结构就够我们开发使用吗？不够的时候，或者说有些特殊的需求不能单单只使用这些基本的容器解决的时候，该怎么办呢？</p>
 <p>这个时候就需要自定义容器了，那么具体我们该怎么做呢？</p>
-<p>|功能|说明|
-|------|------|
-|自定义不可变容器类型|需要定义 <code class="docutils literal notranslate"><span class="pre">__len__</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> 方法|
-|自定义可变类型容器|在不可变容器类型的基础上增加定义 <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__delitem__</span></code> |
-|自定义的数据类型需要迭代|需定义 <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> |
-|返回自定义容器的长度|需实现 <code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code> |
-|自定义容器可以调用 <code class="docutils literal notranslate"><span class="pre">self[key]</span></code> ，如果 key 类型错误，抛出TypeError ，如果没法返回key对应的数值时,该方法应该抛出ValueError|需要实现 <code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code>|
-|当执行    <code class="docutils literal notranslate"><span class="pre">self[key]</span> <span class="pre">=</span> <span class="pre">value</span></code> 时|调用是 <code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">value)</span></code>这个方法|
-|当执行 <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">self[key]</span></code> 方法 |其实调用的方法是 <code class="docutils literal notranslate"><span class="pre">__delitem__(self,</span> <span class="pre">key)</span></code>|
-|当你想你的容器可以执行 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">container:</span></code> 或者使用 <code class="docutils literal notranslate"><span class="pre">iter(container)</span></code> 时|需要实现 <code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code> ，该方法返回的是一个迭代器|</p>
-<p>来看一下使用上面魔术方法实现 Haskell 语言中的一个数据结构：</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自定义不可变容器类型</td>
+<td>需要定义 <code>__len__</code> 和 <code>__getitem__</code> 方法</td>
+</tr>
+<tr>
+<td>自定义可变类型容器</td>
+<td>在不可变容器类型的基础上增加定义 <code>__setitem__</code> 和 <code>__delitem__</code></td>
+</tr>
+<tr>
+<td>自定义的数据类型需要迭代</td>
+<td>需定义 <code>__iter__</code></td>
+</tr>
+<tr>
+<td>返回自定义容器的长度</td>
+<td>需实现 <code>__len__(self)</code></td>
+</tr>
+<tr>
+<td>自定义容器可以调用 <code>self[key]</code> ，如果 key 类型错误，抛出TypeError ，如果没法返回key对应的数值时,该方法应该抛出ValueError</td>
+<td>需要实现 <code>__getitem__(self, key)</code></td>
+</tr>
+<tr>
+<td>当执行    <code>self[key] = value</code> 时</td>
+<td>调用是 <code>__setitem__(self, key, value)</code>这个方法</td>
+</tr>
+<tr>
+<td>当执行 <code>del self[key]</code> 方法</td>
+<td>其实调用的方法是 <code>__delitem__(self, key)</code></td>
+</tr>
+<tr>
+<td>当你想你的容器可以执行 <code>for x in container:</code> 或者使用 <code>iter(container)</code> 时</td>
+<td>需要实现 <code>__iter__(self)</code> ，该方法返回的是一个迭代器</td>
+</tr>
+</tbody>
+</table><p>来看一下使用上面魔术方法实现 Haskell 语言中的一个数据结构：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 

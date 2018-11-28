@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="二、tuple（元组）" href="tuple.html" />
-    <link rel="prev" title="第三章" href="index.html" /> 
+    <link rel="prev" title="第三章 列表和元组" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -83,9 +83,9 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第三章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第三章 列表和元组</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">一、List（列表）</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#list">1、创建 List（列表）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list">2、访问 List（列表）中的值</a></li>
@@ -99,17 +99,17 @@
 <li class="toctree-l2"><a class="reference internal" href="tuple.html">二、tuple（元组）</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -158,7 +158,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第三章</a> &raquo;</li>
+          <li><a href="index.html">第三章 列表和元组</a> &raquo;</li>
         
       <li>一、List（列表）</li>
     
@@ -178,14 +178,14 @@
 <div class="section" id="list">
 <span id="id1"></span><h2>1、创建 List（列表）<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
 <p>创建一个列表，只要把逗号分隔的不同的数据项使用方括号括起来即可,且列表的数据项不需要具有相同的类型</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span><span class="s1">&#39;twowter&#39;</span><span class="p">,</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="list">
 <span id="id2"></span><h2>2、访问 List（列表）中的值<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
 <p>使用下标索引来访问列表中的值，同样你也可以使用方括号的形式截取字符</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span><span class="s1">&#39;twowter&#39;</span><span class="p">,</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
 <span class="c1"># 通过索引来访问列表</span>
 <span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="c1"># 通过方括号的形式来截取列表中的数据</span>
@@ -198,7 +198,7 @@
 <div class="section" id="list">
 <span id="id3"></span><h2>3、更新 List（列表）<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
 <p>可以通过索引对列表的数据项进行修改或更新，也可以使用 append() 方法来添加列表项。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span><span class="s1">&#39;twowter&#39;</span><span class="p">,</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
 <span class="c1"># 通过索引对列表的数据项进行修改或更新</span>
 <span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">456</span>
@@ -214,7 +214,7 @@
 <div class="section" id="list">
 <span id="id4"></span><h2>4、删除 List（列表）<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
 <p>使用 del 语句来删除列表的的元素</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span><span class="s1">&#39;twowter&#39;</span><span class="p">,</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
 <span class="c1"># 使用 del 语句来删除列表的的元素</span>
 <span class="k">del</span> <span class="n">list1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -222,37 +222,110 @@
 </pre></div>
 </div>
 <p>输出的结果:</p>
-<p><img alt="删除 List（列表）" src="http://upload-images.jianshu.io/upload_images/2136918-e761bf56f583089f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 </div>
 <div class="section" id="list">
 <span id="id5"></span><h2>5、List（列表）运算符<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
 <p>列表对 + 和 * 的操作符与字符串相似。+ 号用于组合列表，* 号用于重复列表。</p>
-<p>|Python 表达式|结果|描述|
-|-----------|-----|-----|
-|len([1, 2, 3])|3|计算元素个数|
-|[1, 2, 3] + [4, 5, 6]| [1, 2, 3, 4, 5, 6]| 组合|
-|['Hi!'] * 4|['Hi!', 'Hi!', 'Hi!', 'Hi!']|复制|
-|3 in [1, 2, 3]|True|元素是否存在于列表中|
-|for x in [1, 2, 3]: print x,|1 2 3|迭代|</p>
-</div>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Python 表达式</th>
+<th>结果</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>len([1, 2, 3])</td>
+<td>3</td>
+<td>计算元素个数</td>
+</tr>
+<tr>
+<td>[1, 2, 3] + [4, 5, 6]</td>
+<td>[1, 2, 3, 4, 5, 6]</td>
+<td>组合</td>
+</tr>
+<tr>
+<td>['Hi!'] * 4</td>
+<td>['Hi!', 'Hi!', 'Hi!', 'Hi!']</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>3 in [1, 2, 3]</td>
+<td>True</td>
+<td>元素是否存在于列表中</td>
+</tr>
+<tr>
+<td>for x in [1, 2, 3]: print x,</td>
+<td>1 2 3</td>
+<td>迭代</td>
+</tr>
+</tbody>
+</table></div>
 <div class="section" id="list">
 <span id="id6"></span><h2>6、List （列表）函数&amp;方法<a class="headerlink" href="#list" title="永久链接至标题">¶</a></h2>
-<p>|函数&amp;方法|描述|
-|----|----|
-|cmp(list1, list2)|比较两个列表的元素|
-|len(list)|列表元素个数|
-|max(list)|返回列表元素最大值|
-|min(list)|返回列表元素最小值|
-|list(seq)|将元组转换为列表|
-|list.append(obj)|在列表末尾添加新的对象|
-|list.count(obj)|统计某个元素在列表中出现的次数|
-|list.extend(seq)|在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）|
-|list.index(obj)|从列表中找出某个值第一个匹配项的索引位置|
-|list.insert(index, obj)|将对象插入列表|
-|list.pop(obj=list[-1])|移除列表中的一个元素（默认最后一个元素），并且返回该元素的值|
-|list.reverse()|反向列表中元素|
-|list.sort([func])|对原列表进行排序|</p>
-</div>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>函数&amp;方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmp(list1, list2)</td>
+<td>比较两个列表的元素</td>
+</tr>
+<tr>
+<td>len(list)</td>
+<td>列表元素个数</td>
+</tr>
+<tr>
+<td>max(list)</td>
+<td>返回列表元素最大值</td>
+</tr>
+<tr>
+<td>min(list)</td>
+<td>返回列表元素最小值</td>
+</tr>
+<tr>
+<td>list(seq)</td>
+<td>将元组转换为列表</td>
+</tr>
+<tr>
+<td>list.append(obj)</td>
+<td>在列表末尾添加新的对象</td>
+</tr>
+<tr>
+<td>list.count(obj)</td>
+<td>统计某个元素在列表中出现的次数</td>
+</tr>
+<tr>
+<td>list.extend(seq)</td>
+<td>在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）</td>
+</tr>
+<tr>
+<td>list.index(obj)</td>
+<td>从列表中找出某个值第一个匹配项的索引位置</td>
+</tr>
+<tr>
+<td>list.insert(index, obj)</td>
+<td>将对象插入列表</td>
+</tr>
+<tr>
+<td>list.pop(obj=list[-1])</td>
+<td>移除列表中的一个元素（默认最后一个元素），并且返回该元素的值</td>
+</tr>
+<tr>
+<td>list.reverse()</td>
+<td>反向列表中元素</td>
+</tr>
+<tr>
+<td>list.sort([func])</td>
+<td>对原列表进行排序</td>
+</tr>
+</tbody>
+</table></div>
 <div class="section" id="">
 <span id="id7"></span><h2>7、实例<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>最后通过一个例子来熟悉了解 List 的操作</p>
@@ -261,7 +334,7 @@
 <span class="c1">#-----------------------list的使用----------------------------------</span>
 
 <span class="c1"># 1.一个产品，需要列出产品的用户，这时候就可以使用一个 list 来表示</span>
-<span class="n">user</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">]</span>
+<span class="n">user</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;1.产品用户&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
@@ -290,13 +363,13 @@
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">6.删除末尾用户&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
-<span class="c1"># 7.过了一段时间，用户“liangdianshui”不玩这个产品，删除了账号</span>
+<span class="c1"># 7.过了一段时间，用户“shengfang”不玩这个产品，删除了账号</span>
 <span class="c1"># 因此需要要删除指定位置的元素，用pop(i)方法，其中i是索引位置</span>
 <span class="n">user</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">7.删除指定位置的list元素&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
-<span class="c1"># 8.用户“两点水”想修改自己的昵称了</span>
+<span class="c1"># 8.用户“妮娜”想修改自己的昵称了</span>
 <span class="n">user</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;三点水&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">8.把某个元素替换成别的元素&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
@@ -304,13 +377,12 @@
 <span class="c1"># 9.单单保存用户昵称好像不够好，最好把账号也放进去</span>
 <span class="c1"># 这里账号是整数类型，跟昵称的字符串类型不同，不过 list 里面的元素的数据类型是可以不同的</span>
 <span class="c1"># 而且 list 元素也可以是另一个 list</span>
-<span class="n">newUser</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;VIP用户&#39;</span><span class="p">,</span><span class="mi">11111</span><span class="p">],[</span><span class="s1">&#39;twowater&#39;</span><span class="p">,</span><span class="mi">22222</span><span class="p">],[</span><span class="s1">&#39;三点水&#39;</span><span class="p">,</span><span class="mi">33333</span><span class="p">]]</span>
+<span class="n">newUser</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;VIP用户&#39;</span><span class="p">,</span><span class="mi">11111</span><span class="p">],[</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="mi">22222</span><span class="p">],[</span><span class="s1">&#39;三点水&#39;</span><span class="p">,</span><span class="mi">33333</span><span class="p">]]</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">9.不同元素类型的list数据&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">newUser</span><span class="p">)</span>
 
 </pre></div>
 </div>
-<p><img alt="list的使用" src="http://upload-images.jianshu.io/upload_images/2136918-65d31cae9f8bb34d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 </div>
 </div>
 
@@ -325,7 +397,7 @@
         <a href="tuple.html" class="btn btn-neutral float-right" title="二、tuple（元组）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="第三章" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="第三章 列表和元组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

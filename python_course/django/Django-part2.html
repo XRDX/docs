@@ -82,20 +82,20 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Django</a><ul class="current">
@@ -499,14 +499,36 @@
 <div class="section" id="">
 <span id="id6"></span><h2>模型操作摘要<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
 <p>下面的表格是我们在本章节中学到的方法和操作。代码示例使用 <strong>Board</strong> 模型作为参考示例。大写的 <strong>Board</strong> 代表类，小写的 <strong>board</strong> 是指 <strong>Board</strong> 的实例对象。</p>
-<p>| 描述 | 代码示例 |
-| --- | --- |
-| 创建一个对象并没有保存 | <code class="docutils literal notranslate"><span class="pre">board</span> <span class="pre">=</span> <span class="pre">Board()</span></code> |
-| 保存一个对象（创建或更新） | <code class="docutils literal notranslate"><span class="pre">board.save()</span></code> |
-| 在数据库中创建并保存一个对象 | <code class="docutils literal notranslate"><span class="pre">Board.objects.create(name='...',</span> <span class="pre">description='...')</span></code> |
-| 列出所有对象 | <code class="docutils literal notranslate"><span class="pre">Board.objects.all()</span></code> |
-| 获取由字段标识的单个对象 | <code class="docutils literal notranslate"><span class="pre">Board.objects.get(id=1)</span></code> |</p>
-<p>在下一节中，我们将开始编写视图并在 HTML 页面中显示我们的版块页面。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>描述</th>
+<th>代码示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建一个对象并没有保存</td>
+<td><code>board = Board()</code></td>
+</tr>
+<tr>
+<td>保存一个对象（创建或更新）</td>
+<td><code>board.save()</code></td>
+</tr>
+<tr>
+<td>在数据库中创建并保存一个对象</td>
+<td><code>Board.objects.create(name='...', description='...')</code></td>
+</tr>
+<tr>
+<td>列出所有对象</td>
+<td><code>Board.objects.all()</code></td>
+</tr>
+<tr>
+<td>获取由字段标识的单个对象</td>
+<td><code>Board.objects.get(id=1)</code></td>
+</tr>
+</tbody>
+</table><p>在下一节中，我们将开始编写视图并在 HTML 页面中显示我们的版块页面。</p>
 </div>
 </div>
 <hr class="docutils" />

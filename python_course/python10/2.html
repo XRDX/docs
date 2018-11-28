@@ -83,16 +83,16 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十章 魔法方法</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 的 Magic Method</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">二、构造(<code class="docutils literal notranslate"><span class="pre">__new__</span></code>)和初始化(<code class="docutils literal notranslate"><span class="pre">__init__</span></code>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3.html">三、属性的访问控制</a></li>
@@ -101,10 +101,10 @@
 <li class="toctree-l2"><a class="reference internal" href="6.html">六、运算符相关的魔术方法</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -153,7 +153,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第十章</a> &raquo;</li>
+          <li><a href="index.html">第十章 魔法方法</a> &raquo;</li>
         
       <li>二、构造(<code class="docutils literal notranslate"><span class="pre">__new__</span></code>)和初始化(<code class="docutils literal notranslate"><span class="pre">__init__</span></code>)</li>
     
@@ -178,7 +178,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span><span class="p">;</span>
 
-<span class="n">user</span><span class="o">=</span><span class="n">User</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">user</span><span class="o">=</span><span class="n">User</span><span class="p">(</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>实际上，创建一个类的过程是分为两步的，一步是创建类的对象，还有一步就是对类进行初始化。<code class="docutils literal notranslate"><span class="pre">__new__</span></code> 是用来创建类并返回这个类的实例, 而<code class="docutils literal notranslate"><span class="pre">__init__</span></code> 只是将传入的参数来初始化该实例.<code class="docutils literal notranslate"><span class="pre">__new__</span></code> 在创建一个实例的过程中必定会被调用,但 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 就不一定，比如通过pickle.load 的方式反序列化一个实例时就不会调用 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 方法。</p>
@@ -201,14 +201,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
 
-
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">usr</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+    <span class="n">usr</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>看看输出的结果：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span>调用了 def __new__ 方法
-(&#39;两点水&#39;, 23)
+(&#39;妮娜&#39;, 23)
 调用了 def __init__ 方法
 </pre></div>
 </div>

@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Virtualenv" href="Mac.html" />
+    <link rel="next" title="Python代码规范" href="../codeSpecification/index.html" />
     <link rel="prev" title="Python 闭包2" href="closure2.html" /> 
 
   
@@ -83,29 +83,28 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Python高级用法</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="yield.html">问题</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yield.html#">回答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yield.html">yield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="closure1.html">Python 闭包1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="closure2.html">Python 闭包2</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#virtualenvwrapper">Virtualenvwrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mac.html">Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mac.html#virtualenvwrapper">virtualenvwrapper</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">virtualenv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#virtualenvwrapper">Virtualenvwrapper</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
@@ -212,9 +211,8 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="p">[</span><span class="n">套件名称</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
 <div class="section" id="virtualenvwrapper">
-<span id="virtualenvwrapper"></span><h1>Virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="永久链接至标题">¶</a></h1>
+<span id="virtualenvwrapper"></span><h2>Virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="永久链接至标题">¶</a></h2>
 <p>Virtualenvwrapper 是一个虚拟环境管理工具，它能够管理创建的虚拟环境的位置，并能够方便地查看虚拟环境的名称以及切换到指定的虚拟环境。</p>
 <p><strong>安装（确保virtualenv已经安装）</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenvwrapper</span>
@@ -253,6 +251,7 @@
 </pre></div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -262,7 +261,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Mac.html" class="btn btn-neutral float-right" title="Virtualenv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../codeSpecification/index.html" class="btn btn-neutral float-right" title="Python代码规范" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="closure2.html" class="btn btn-neutral" title="Python 闭包2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

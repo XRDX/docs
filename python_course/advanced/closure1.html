@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Python 闭包2" href="closure2.html" />
-    <link rel="prev" title="问题" href="yield.html" /> 
+    <link rel="prev" title="yield" href="yield.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -83,29 +83,25 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Python高级用法</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="yield.html">问题</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yield.html#">回答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yield.html">yield</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Python 闭包1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="closure2.html">Python 闭包2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtualenv.html#virtualenvwrapper">Virtualenvwrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mac.html">Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mac.html#virtualenvwrapper">virtualenvwrapper</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
@@ -194,7 +190,6 @@
 <p>我们可以使用 <code class="docutils literal notranslate"><span class="pre">global</span></code> 关键字,具体修改如下：</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
 
-
 <span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
     <span class="k">global</span>  <span class="n">time</span>
     <span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="nb">min</span>
@@ -215,7 +210,6 @@
 <p>这时候我们使用闭包来解决一下，先直接看代码：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
 
-
 <span class="k">def</span> <span class="nf">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
         <span class="n">nonlocal</span>  <span class="n">time</span>
@@ -223,7 +217,6 @@
         <span class="k">return</span> <span class="n">time</span>
 
     <span class="k">return</span> <span class="n">insert_time</span>
-
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
@@ -248,7 +241,6 @@
 <p>我们打印出来体验一下：</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
 
-
 <span class="k">def</span> <span class="nf">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
         <span class="n">nonlocal</span>  <span class="n">time</span>
@@ -256,7 +248,6 @@
         <span class="k">return</span> <span class="n">time</span>
 
     <span class="k">return</span> <span class="n">insert_time</span>
-
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">)</span>
@@ -280,8 +271,6 @@
 </div>
 <p>从打印结果可见，传进来的值一直存储在闭包的 cell_contents 中,因此，这也就是闭包的最大特点，可以将父函数的变量与其内部定义的函数绑定。就算生成闭包的父函数已经释放了，闭包仍然存在。</p>
 <p>闭包的过程其实好比类（父函数）生成实例（闭包），不同的是父函数只在调用时执行，执行完毕后其环境就会释放，而类则在文件执行时创建，一般程序执行完毕后作用域才释放，因此对一些需要重用的功能且不足以定义为类的行为，使用闭包会比使用类占用更少的资源，且更轻巧灵活。</p>
-<p>欢迎打开微信扫一扫，关注微信公众号：</p>
-<p><img alt="微信公众号" src="http://twowater.com.cn/images/20171204192251900.gif" /></p>
 </div>
 
 
@@ -295,7 +284,7 @@
         <a href="closure2.html" class="btn btn-neutral float-right" title="Python 闭包2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="yield.html" class="btn btn-neutral" title="问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="yield.html" class="btn btn-neutral" title="yield" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

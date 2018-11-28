@@ -29,7 +29,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="二、set" href="Set.html" />
-    <link rel="prev" title="第四章" href="index.html" /> 
+    <link rel="prev" title="第四章 字典和Set" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -83,10 +83,10 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第四章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第四章 字典和Set</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">一、字典(Dictionary)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dict">1、dict （字典）的创建</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dict">2、访问 dict （字典）</a></li>
@@ -99,16 +99,16 @@
 <li class="toctree-l2"><a class="reference internal" href="Set.html">二、set</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -157,7 +157,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第四章</a> &raquo;</li>
+          <li><a href="index.html">第四章 字典和Set</a> &raquo;</li>
         
       <li>一、字典(Dictionary)</li>
     
@@ -174,16 +174,16 @@
   <div class="section" id="dictionary">
 <span id="dictionary"></span><h1>一、字典(Dictionary)<a class="headerlink" href="#dictionary" title="永久链接至标题">¶</a></h1>
 <p>经过之前的学习，我们可以知道 list 和 tuple 可以用来表示有序集合，之前我们那个例子是用 list 来存储了用户的昵称</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>如果我们需要把用户的账号也记录进去呢？</p>
 <p>用 list 可以这样子解决：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">,</span><span class="s1">&#39;111111&#39;</span><span class="p">],[</span><span class="s1">&#39;twowater&#39;</span><span class="p">,</span><span class="s1">&#39;222222&#39;</span><span class="p">],[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span><span class="s1">&#39;333333&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;shengfang&#39;</span><span class="p">,</span><span class="s1">&#39;111111&#39;</span><span class="p">],[</span><span class="s1">&#39;nina&#39;</span><span class="p">,</span><span class="s1">&#39;222222&#39;</span><span class="p">],[</span><span class="s1">&#39;妮娜&#39;</span><span class="p">,</span><span class="s1">&#39;333333&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 <p>可是这样表示也不方便，而且很难根据昵称找到对应的昵称，且 list 越长，耗时越长；这时候就可以用 dict （字典）来表示了，Python 内置了 字典（dict），dict 全称dictionary，相当于 JAVA 中的 map，使用键-值（key-value）存储，具有极快的查找速度。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <div class="section" id="dict">
@@ -195,7 +195,7 @@
 </div>
 <p>注意：键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的。</p>
 <p>创建 dict（字典）实例：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 <span class="n">dict2</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;abc&#39;</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span><span class="mi">1234</span><span class="p">:</span><span class="s1">&#39;abc&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -203,13 +203,13 @@
 <div class="section" id="dict">
 <span id="id1"></span><h2>2、访问 dict （字典）<a class="headerlink" href="#dict" title="永久链接至标题">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#-*-coding:utf-8-*-</span>
-<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 
 </pre></div>
 </div>
 <p>输出的结果：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>这里需要注意的一点是：如果字典中没有这个键，是会报错的。</p>
@@ -218,20 +218,20 @@
 <span id="id2"></span><h2>3、修改 dict （字典）<a class="headerlink" href="#dict" title="永久链接至标题">¶</a></h2>
 <p>向字典添加新内容的方法是增加新的键/值对，修改或删除已有键/值对</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#-*-coding:utf-8-*-</span>
-<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 <span class="c1"># 新增一个键值对</span>
 <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;jack&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;444444&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 <span class="c1"># 修改键值对</span>
-<span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;555555&#39;</span>
+<span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;shengfang&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;555555&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>输出的结果：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
-<span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">}</span>
-<span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;555555&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;555555&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -240,10 +240,10 @@
 <p>通过 <code class="docutils literal notranslate"><span class="pre">del</span></code> 可以删除 dict （字典）中的某个元素，也能删除 dict （字典）</p>
 <p>通过调用 <code class="docutils literal notranslate"><span class="pre">clear()</span></code> 方法可以清除字典中的所有元素</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#-*-coding:utf-8-*-</span>
-<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 <span class="c1"># 通过 key 值，删除对应的元素</span>
-<span class="k">del</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;twowater&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;nina&#39;</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 <span class="c1"># 删除字典中的所有元素</span>
 <span class="n">dict1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -253,8 +253,8 @@
 </pre></div>
 </div>
 <p>输出的结果：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
-<span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 <span class="p">{}</span>
 </pre></div>
 </div>
@@ -264,25 +264,25 @@
 <p>(1) dict （字典）是不允许一个键创建两次的，但是在创建 dict （字典）的时候如果出现了一个键值赋予了两次，会以最后一次赋予的值为准</p>
 <p>例如：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#-*-coding:utf-8-*-</span>
-<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;两点水&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;444444&#39;</span><span class="p">}</span>
+<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,</span><span class="s1">&#39;妮娜&#39;</span><span class="p">:</span><span class="s1">&#39;333333&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;444444&#39;</span><span class="p">}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;twowater&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;nina&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>输出的结果：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">,</span> <span class="s1">&#39;妮娜&#39;</span><span class="p">:</span> <span class="s1">&#39;333333&#39;</span><span class="p">}</span>
 <span class="mi">444444</span>
 </pre></div>
 </div>
 <p>(2) dict （字典）键必须不可变，可是键可以用数字，字符串或元组充当，但是就是不能使用列表</p>
 <p>例如：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#-*-coding:utf-8-*-</span>
-<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="mi">123</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,(</span><span class="mi">123</span><span class="p">,</span><span class="s1">&#39;tom&#39;</span><span class="p">):</span><span class="s1">&#39;333333&#39;</span><span class="p">,</span><span class="s1">&#39;twowater&#39;</span><span class="p">:</span><span class="s1">&#39;444444&#39;</span><span class="p">}</span>
+<span class="n">dict1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span><span class="s1">&#39;111111&#39;</span> <span class="p">,</span><span class="mi">123</span><span class="p">:</span><span class="s1">&#39;222222&#39;</span> <span class="p">,(</span><span class="mi">123</span><span class="p">,</span><span class="s1">&#39;tom&#39;</span><span class="p">):</span><span class="s1">&#39;333333&#39;</span><span class="p">,</span><span class="s1">&#39;nina&#39;</span><span class="p">:</span><span class="s1">&#39;444444&#39;</span><span class="p">}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>输出结果：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;liangdianshui&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="mi">123</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;tom&#39;</span><span class="p">):</span> <span class="s1">&#39;333333&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;shengfang&#39;</span><span class="p">:</span> <span class="s1">&#39;111111&#39;</span><span class="p">,</span> <span class="mi">123</span><span class="p">:</span> <span class="s1">&#39;222222&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;tom&#39;</span><span class="p">):</span> <span class="s1">&#39;333333&#39;</span><span class="p">,</span> <span class="s1">&#39;nina&#39;</span><span class="p">:</span> <span class="s1">&#39;444444&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>(3) dict 内部存放的顺序和 key 放入的顺序是没有任何关系</p>
@@ -299,18 +299,52 @@
 </div>
 <div class="section" id="dict">
 <span id="id5"></span><h2>6、dict （字典） 的函数和方法<a class="headerlink" href="#dict" title="永久链接至标题">¶</a></h2>
-<p>|方法和函数|描述|
-|---------|--------|
-|cmp(dict1, dict2)|比较两个字典元素|
-|len(dict)|计算字典元素个数|
-|str(dict)|输出字典可打印的字符串表示|
-|type(variable)|返回输入的变量类型，如果变量是字典就返回字典类型|
-|dict.clear()|删除字典内所有元素|
-|dict.copy()|返回一个字典的浅复制|
-|dict.values()|以列表返回字典中的所有值|
-|popitem()|随机返回并删除字典中的一对键和值|
-|dict.items()|以列表返回可遍历的(键, 值) 元组数组|</p>
-</div>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法和函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmp(dict1, dict2)</td>
+<td>比较两个字典元素</td>
+</tr>
+<tr>
+<td>len(dict)</td>
+<td>计算字典元素个数</td>
+</tr>
+<tr>
+<td>str(dict)</td>
+<td>输出字典可打印的字符串表示</td>
+</tr>
+<tr>
+<td>type(variable)</td>
+<td>返回输入的变量类型，如果变量是字典就返回字典类型</td>
+</tr>
+<tr>
+<td>dict.clear()</td>
+<td>删除字典内所有元素</td>
+</tr>
+<tr>
+<td>dict.copy()</td>
+<td>返回一个字典的浅复制</td>
+</tr>
+<tr>
+<td>dict.values()</td>
+<td>以列表返回字典中的所有值</td>
+</tr>
+<tr>
+<td>popitem()</td>
+<td>随机返回并删除字典中的一对键和值</td>
+</tr>
+<tr>
+<td>dict.items()</td>
+<td>以列表返回可遍历的(键, 值) 元组数组</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 
 
@@ -324,7 +358,7 @@
         <a href="Set.html" class="btn btn-neutral float-right" title="二、set" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="第四章" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="第四章 字典和Set" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

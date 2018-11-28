@@ -83,26 +83,26 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第二章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第二章 基本数据类型</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Grammar.html">一、Python 语法的简要说明</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Type_of_data.html">二、Python 的基本数据类型</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">三、基本数据类型转换</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Variable.html">四、Python 中的变量</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章 正则表达式</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
@@ -151,7 +151,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第二章</a> &raquo;</li>
+          <li><a href="index.html">第二章 基本数据类型</a> &raquo;</li>
         
       <li>三、基本数据类型转换</li>
     
@@ -167,22 +167,68 @@
             
   <div class="section" id="">
 <span id="id1"></span><h1>三、基本数据类型转换<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
-<p>|方法|说明|
-|-----|------|
-|int(x [,base ])  |       将x转换为一个整数  |
-|float(x )    |           将x转换到一个浮点数  |
-|complex(real [,imag ])|  创建一个复数  |
-|str(x ) |                将对象 x 转换为字符串  |
-|repr(x ) |               将对象 x 转换为表达式字符串  |
-|eval(str )  |            用来计算在字符串中的有效 Python 表达式,并返回一个对象  |
-|tuple(s )  |             将序列 s 转换为一个元组  |
-|list(s )   |             将序列 s 转换为一个列表  |
-|chr(x )   |              将一个整数转换为一个字符  |
-|unichr(x )  |            将一个整数转换为 Unicode 字符  |
-|ord(x )     |            将一个字符转换为它的整数值  |
-|hex(x )     |            将一个整数转换为一个十六进制字符串  |
-|oct(x )     |            将一个整数转换为一个八进制字符串  |</p>
-<p>注：在 Python 3 里，只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int(x [,base ])</td>
+<td>将x转换为一个整数</td>
+</tr>
+<tr>
+<td>float(x )</td>
+<td>将x转换到一个浮点数</td>
+</tr>
+<tr>
+<td>complex(real [,imag ])</td>
+<td>创建一个复数</td>
+</tr>
+<tr>
+<td>str(x )</td>
+<td>将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td>repr(x )</td>
+<td>将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td>eval(str )</td>
+<td>用来计算在字符串中的有效 Python 表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td>tuple(s )</td>
+<td>将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td>list(s )</td>
+<td>将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td>chr(x )</td>
+<td>将一个整数转换为一个字符</td>
+</tr>
+<tr>
+<td>unichr(x )</td>
+<td>将一个整数转换为 Unicode 字符</td>
+</tr>
+<tr>
+<td>ord(x )</td>
+<td>将一个字符转换为它的整数值</td>
+</tr>
+<tr>
+<td>hex(x )</td>
+<td>将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td>oct(x )</td>
+<td>将一个整数转换为一个八进制字符串</td>
+</tr>
+</tbody>
+</table><p>注：在 Python 3 里，只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。</p>
 </div>
 
 

@@ -83,20 +83,20 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十四章</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章 Python简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章 基本数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章 列表和元组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章 字典和Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章 条件和循环</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章 函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章 迭代器和生成器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章 类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章 魔法方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章 枚举</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章 元类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章 多线程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十四章 正则表达式</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1.html">初识 Python 正则表达式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2.html">字符集</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">数量词</a></li>
@@ -154,7 +154,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">第十四章</a> &raquo;</li>
+          <li><a href="index.html">第十四章 正则表达式</a> &raquo;</li>
         
       <li>数量词</li>
     
@@ -214,15 +214,47 @@
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code>：告诉引擎匹配前导字符 0 次或多次</p>
 </div></blockquote>
 <p>把这部分的知识点总结一下,就是下面这个表了:</p>
-<p>| 贪   婪 | 惰   性 | 描   述                       |
-| ------- | ------- | ----------------------------- |
-| ？      | ？？    | 零次或一次出现，等价于{0,1}   |
-| +       | +？     | 一次或多次出现 ，等价于{1,}   |
-| *       | *？     | 零次或多次出现   ，等价于{0,} |
-| {n}     | {n}？   | 恰好 n 次出现                 |
-| {n,m}   | {n,m}？ | 至少 n 次枝多 m 次出现        |
-| {n,}    | {n,}？  | 至少 n 次出现                 |</p>
-</div>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>贪   婪</th>
+<th>惰   性</th>
+<th>描   述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>？</td>
+<td>？？</td>
+<td>零次或一次出现，等价于{0,1}</td>
+</tr>
+<tr>
+<td>+</td>
+<td>+？</td>
+<td>一次或多次出现 ，等价于{1,}</td>
+</tr>
+<tr>
+<td>*</td>
+<td>*？</td>
+<td>零次或多次出现   ，等价于{0,}</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>{n}？</td>
+<td>恰好 n 次出现</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>{n,m}？</td>
+<td>至少 n 次枝多 m 次出现</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>{n,}？</td>
+<td>至少 n 次出现</td>
+</tr>
+</tbody>
+</table></div>
 
 
            </div>
