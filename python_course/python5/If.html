@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>一、条件语句 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="二、循环语句" href="Cycle.html" />
+    <link rel="prev" title="第五章" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第五章</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">一、条件语句</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if">1、if 语句的基本形式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if">2、if 语句多个判断条件的形式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if">3、if 语句多个条件同时判断</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Cycle.html">二、循环语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Example.html">三、条件语句和循环语句综合实例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第五章</a> &raquo;</li>
+        
+      <li>一、条件语句</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>一、条件语句<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>Python 条件语句跟其他语言基本一致的，都是通过一条或多条语句的执行结果（ True 或者 False ）来决定执行的代码块。</p>
+<p>Python 程序语言指定任何非 0 和非空（null）值为 True，0 或者 null为 False。</p>
+<p>执行的流程图如下：</p>
+<p><img alt="if语句流程图" src="http://upload-images.jianshu.io/upload_images/2136918-4ee2486190450a1a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<div class="section" id="if">
+<span id="if"></span><h2>1、if 语句的基本形式<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h2>
+<p>Python 中，if 语句的基本形式如下：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if 判断条件：
+    执行语句……
+else：
+    执行语句……
+</pre></div>
+</div>
+<p>前面也提到过，Python 语言有着严格的缩进要求，因此这里也需要注意缩进，也不要少写了冒号 <code class="docutils literal notranslate"><span class="pre">:</span></code> 。</p>
+<p>if 语句的判断条件可以用&gt;（大于）、&lt;(小于)、==（等于）、&gt;=（大于等于）、&lt;=（小于等于）来表示其关系。</p>
+<p>例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*-coding:utf-8-*-</span>
+
+<span class="n">results</span><span class="o">=</span><span class="mi">59</span>
+
+<span class="k">if</span> <span class="n">results</span><span class="o">&gt;=</span><span class="mi">60</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;及格&#39;</span><span class="p">)</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;不及格&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果为：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>不及格
+</pre></div>
+</div>
+<p>上面也说道，非零数值、非空字符串、非空 list 等，判断为True，否则为False。因此也可以这样写：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">if</span> <span class="n">num</span> <span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello Python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if">
+<span id="id2"></span><h2>2、if 语句多个判断条件的形式<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h2>
+<p>有些时候，我们的判断语句不可能只有两个，有些时候需要多个，比如上面的例子中大于 60 的为及格，那我们还要判断大于 90 的为优秀，在 80 到 90 之间的良好呢？</p>
+<p>这时候需要用到 if 语句多个判断条件，</p>
+<p>用伪代码来表示：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if 判断条件1:
+    执行语句1……
+elif 判断条件2:
+    执行语句2……
+elif 判断条件3:
+    执行语句3……
+else:
+    执行语句4……
+</pre></div>
+</div>
+<p>实例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*-coding:utf-8-*-</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="mi">89</span>
+
+<span class="k">if</span> <span class="n">results</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;优秀&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">results</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;良好&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">results</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;及格&#39;</span><span class="p">)</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;不及格&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>良好
+</pre></div>
+</div>
+</div>
+<div class="section" id="if">
+<span id="id3"></span><h2>3、if 语句多个条件同时判断<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h2>
+<p>Python 不像 Java 有 switch 语句，所以多个条件判断，只能用 elif 来实现，但是有时候需要多个条件需同时判断时，可以使用 or （或），表示两个条件有一个成立时判断条件成功；使用 and （与）时，表示只有两个条件同时成立的情况下，判断条件才成功。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*-coding:utf-8-*-</span>
+
+<span class="n">java</span> <span class="o">=</span> <span class="mi">86</span>
+<span class="n">python</span> <span class="o">=</span> <span class="mi">68</span>
+
+<span class="k">if</span> <span class="n">java</span> <span class="o">&gt;</span> <span class="mi">80</span> <span class="ow">and</span>  <span class="n">python</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;优秀&#39;</span><span class="p">)</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;不优秀&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="n">java</span> <span class="o">&gt;=</span> <span class="mi">80</span>  <span class="ow">and</span> <span class="n">java</span> <span class="o">&lt;</span> <span class="mi">90</span> <span class="p">)</span>  <span class="ow">or</span> <span class="p">(</span> <span class="n">python</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="ow">and</span> <span class="n">python</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;良好&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>不优秀
+良好
+</pre></div>
+</div>
+<p>注意：if 有多个条件时可使用括号来区分判断的先后顺序，括号中的判断优先执行，此外 and 和 or 的优先级低于 &gt;（大于）、&lt;（小于）等判断符号，即大于和小于在没有括号的情况下会比与或要优先判断。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Cycle.html" class="btn btn-neutral float-right" title="二、循环语句" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="第五章" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

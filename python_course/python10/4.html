@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>四、对象的描述器 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="五、自定义容器（Container）" href="5.html" />
+    <link rel="prev" title="三、属性的访问控制" href="3.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 的 Magic Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、构造(<code class="docutils literal notranslate"><span class="pre">__new__</span></code>)和初始化(<code class="docutils literal notranslate"><span class="pre">__init__</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、属性的访问控制</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">四、对象的描述器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、自定义容器（Container）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.html">六、运算符相关的魔术方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第十章</a> &raquo;</li>
+        
+      <li>四、对象的描述器</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>四、对象的描述器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>一般来说，一个描述器是一个有“绑定行为”的对象属性 (object attribute)，它的访问控制被描述器协议方法重写。这些方法是 <code class="docutils literal notranslate"><span class="pre">__get__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__set__()</span></code> , 和 <code class="docutils literal notranslate"><span class="pre">__delete__()</span></code>  。有这些方法的对象叫做描述器。</p>
+<p>默认对属性的访问控制是从对象的字典里面 (<code class="docutils literal notranslate"><span class="pre">__dict__</span></code>) 中获取 (get) , 设置 (set) 和删除 (delete) 。举例来说， <code class="docutils literal notranslate"><span class="pre">a.x</span></code> 的查找顺序是, <code class="docutils literal notranslate"><span class="pre">a.__dict__['x']</span></code> , 然后 <code class="docutils literal notranslate"><span class="pre">type(a).__dict__['x']</span></code> , 然后找 <code class="docutils literal notranslate"><span class="pre">type(a)</span></code> 的父类 ( 不包括元类 (metaclass) ).如果查找到的值是一个描述器, Python 就会调用描述器的方法来重写默认的控制行为。这个重写发生在这个查找环节的哪里取决于定义了哪个描述器方法。注意, 只有在新式类中时描述器才会起作用。在之前的篇节中已经提到新式类和旧式类的，有兴趣可以查看之前的篇节来看看，至于新式类最大的特点就是所有类都继承自 type 或者 object 的类。</p>
+<p>在面向对象编程时，如果一个类的属性有相互依赖的关系时，使用描述器来编写代码可以很巧妙的组织逻辑。在 Django 的 ORM 中,models.Model中的 InterField 等字段, 就是通过描述器来实现功能的。</p>
+<p>我们先看下下面的例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s1">&#39;男&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sex</span> <span class="o">=</span> <span class="n">sex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">objtype</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;获取 name 值&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;设置 name 值&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">val</span>
+
+
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="s1">&#39;男&#39;</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">m</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;三点水&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>获取 name 值
+两点水
+
+
+设置 name 值
+获取 name 值
+三点水
+
+
+获取 name 值
+三点水
+
+
+5
+</pre></div>
+</div>
+<p>通过这个例子，可以很好的观察到这 <code class="docutils literal notranslate"><span class="pre">__get__()</span></code> 和  <code class="docutils literal notranslate"><span class="pre">__set__()</span></code> 这些方法的调用。</p>
+<p>再看一个经典的例子</p>
+<p>我们知道，距离既可以用单位&quot;米&quot;表示,也可以用单位&quot;英尺&quot;表示。
+现在我们定义一个类来表示距离,它有两个属性: 米和英尺。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+
+<span class="k">class</span> <span class="nc">Meter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Foot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">meter</span> <span class="o">*</span> <span class="mf">3.2808</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">meter</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.2808</span>
+
+
+<span class="k">class</span> <span class="nc">Distance</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">meter</span> <span class="o">=</span> <span class="n">Meter</span><span class="p">()</span>
+    <span class="n">foot</span> <span class="o">=</span> <span class="n">Foot</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">Distance</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">foot</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">meter</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">foot</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">meter</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">foot</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>0.0 0.0
+1.0 3.2808
+2.0 6.5616
+</pre></div>
+</div>
+<p>在上面例子中,在还没有对 Distance 的实例赋值前, 我们认为 meter 和 foot 应该是各自类的实例对象, 但是输出却是数值。这是因为 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 发挥了作用.</p>
+<p>我们只是修改了 meter ,并且将其赋值成为 int ，但 foot 也修改了。这是 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 发挥了作用.</p>
+<p>描述器对象 (Meter、Foot) 不能独立存在, 它需要被另一个所有者类 (Distance) 所持有。描述器对象可以访问到其拥有者实例的属性，比如例子中 Foot 的 <code class="docutils literal notranslate"><span class="pre">instance.meter</span></code> 。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="5.html" class="btn btn-neutral float-right" title="五、自定义容器（Container）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3.html" class="btn btn-neutral" title="三、属性的访问控制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

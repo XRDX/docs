@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>一、面向对象的概念 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="二、类" href="2.html" />
+    <link rel="prev" title="第九章" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第九章</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">一、面向对象的概念</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、面向对象的两个基本概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">2、面向对象的三大特性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、类的属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、类的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、类的继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.html">六、类的多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第九章</a> &raquo;</li>
+        
+      <li>一、面向对象的概念</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>一、面向对象的概念<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>Python 是一门面向对象的语言, 面向对象是一种抽象，抽象是指用分类的眼光去看世界的一种方法。 用 JAVA 的编程思想来说就是：万事万物皆对象。也就是说在面向对象中，把构成问题事务分解成各个对象。</p>
+<p>面向对象有三大特性，封装、继承和多态。</p>
+<div class="section" id="">
+<span id="id2"></span><h2>1、面向对象的两个基本概念<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><strong>类</strong></li>
+</ul>
+<p>用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</p>
+<ul class="simple">
+<li><strong>对象</strong></li>
+</ul>
+<p>通过类定义的数据结构实例</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>2、面向对象的三大特性<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><strong>继承</strong></li>
+</ul>
+<p>即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。</p>
+<p>例如：一个 Dog 类型的对象派生自 Animal 类，这是模拟&quot;是一个（is-a）&quot;关系（例图，Dog 是一个 Animal ）。</p>
+<ul class="simple">
+<li><strong>多态</strong></li>
+</ul>
+<p>它是指对不同类型的变量进行相同的操作，它会根据对象（或类）类型的不同而表现出不同的行为。</p>
+<ul class="simple">
+<li><strong>封装性</strong></li>
+</ul>
+<p>“封装”就是将抽象得到的数据和行为（或功能）相结合，形成一个有机的整体（即类）；封装的目的是增强安全性和简化编程，使用者不必了解具体的实现细节，而只是要通过外部接口，一特定的访问权限来使用类的成员。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2.html" class="btn btn-neutral float-right" title="二、类" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="第九章" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

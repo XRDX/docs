@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>五、迭代器和生成器综合例子 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第八章" href="../python8/index.html" />
+    <link rel="prev" title="四、生成器" href="4.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第七章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、迭代</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、Python 迭代器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、lsit 生成式（列表生成式）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、生成器</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">五、迭代器和生成器综合例子</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、反向迭代</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">2、同时迭代多个序列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第七章</a> &raquo;</li>
+        
+      <li>五、迭代器和生成器综合例子</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>五、迭代器和生成器综合例子<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>因为迭代器和生成器基本是互通的，因此有些知识点需要综合在一起</p>
+<div class="section" id="">
+<span id="id2"></span><h2>1、反向迭代<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>反向迭代，应该也是常有的需求了，比如从一开始迭代的例子里，有个输出 list 的元素，从 1 到 5 的</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">num1</span> <span class="ow">in</span> <span class="n">list1</span> <span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span> <span class="n">num1</span> <span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>那么我们从 5 到 1 呢？这也很简单， Python 中有内置的函数 <code class="docutils literal notranslate"><span class="pre">reversed()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">num1</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span> <span class="n">num1</span> <span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>方向迭代很简单，可是要注意一点就是：<strong>反向迭代仅仅当对象的大小可预先确定或者对象实现了 <code class="docutils literal notranslate"><span class="pre">__reversed__()</span></code> 的特殊方法时才能生效。 如果两者都不符合，那你必须先将对象转换为一个列表才行</strong></p>
+<p>其实很多时候我们可以通过在自定义类上实现 <code class="docutils literal notranslate"><span class="pre">__reversed__()</span></code> 方法来实现反向迭代。不过有些知识点在之前的篇节中还没有提到，不过可以相应的看下，有编程基础的，学完上面的知识点应该也能理解的。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Countdown</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Forward iterator</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">n</span>
+            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Reverse iterator</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">n</span>
+            <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">rr</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">Countdown</span><span class="p">(</span><span class="mi">30</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">rr</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">rr</span> <span class="ow">in</span> <span class="n">Countdown</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">rr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出的结果是 1 到 30 然后 30 到 1 ，分别是顺序打印和倒序打印</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>2、同时迭代多个序列<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>你想同时迭代多个序列，每次分别从一个序列中取一个元素。你遇到过这样的需求吗？</p>
+<p>为了同时迭代多个序列，使用 zip() 函数，具体示例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;laingdianshui&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">ages</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>laingdianshui 18
+twowater 19
+两点水 20
+</pre></div>
+</div>
+<p>其实 zip(a, b) 会生成一个可返回元组 (x, y) 的迭代器，其中 x 来自 a，y 来自 b。 一旦其中某个序列到底结尾，迭代宣告结束。 因此迭代长度跟参数中最短序列长度一致。注意理解这句话喔，也就是说如果 a ， b 的长度不一致的话，以最短的为标准，遍历完后就结束。</p>
+<p>利用 <code class="docutils literal notranslate"><span class="pre">zip()</span></code> 函数，我们还可把一个 key 列表和一个 value 列表生成一个 dict （字典）,如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;laingdianshui&#39;</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="n">dict1</span><span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span><span class="n">ages</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出如下结果：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;laingdianshui&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">&#39;twowater&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;两点水&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>这里提一下， <code class="docutils literal notranslate"><span class="pre">zip()</span></code> 是可以接受多于两个的序列的参数，不仅仅是两个。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python8/index.html" class="btn btn-neutral float-right" title="第八章" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="4.html" class="btn btn-neutral" title="四、生成器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

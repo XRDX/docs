@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>初识 Python 正则表达式 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="字符集" href="2.html" />
+    <link rel="prev" title="第十四章" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十四章</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">初识 Python 正则表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">字符集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">数量词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">边界匹配符和组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">re.sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.html">re.match  和 re.search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Regex.html">常用的正则表达式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第十四章</a> &raquo;</li>
+        
+      <li>初识 Python 正则表达式</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<span id="python"></span><h1>初识 Python 正则表达式<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<p>正则表达式是一个特殊的字符序列，用于判断一个字符串是否与我们所设定的字符序列是否匹配，也就是说检查一个字符串是否与某种模式匹配。</p>
+<p>Python 自 1.5 版本起增加了re 模块，它提供 Perl 风格的正则表达式模式。re 模块使 Python 语言拥有全部的正则表达式功能。</p>
+<p>下面通过实例，一步一步来初步认识正则表达式。</p>
+<p>比如在一段字符串中寻找是否含有某个字符或某些字符，通常我们使用内置函数来实现，如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 设定一个常量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;两点水|twowater|liangdianshui|草根程序员|ReadingWithU&#39;</span>
+
+<span class="c1"># 判断是否有 “两点水” 这个字符串，使用 PY 自带函数</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;是否含有“两点水”这个字符串：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;是否含有“两点水”这个字符串：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span> <span class="ow">in</span> <span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>是否含有“两点水”这个字符串：True
+是否含有“两点水”这个字符串：True
+</pre></div>
+</div>
+<p>那么，如果使用正则表达式呢？</p>
+<p>刚刚提到过，Python 给我们提供了 re 模块来实现正则表达式的所有功能，那么我们先使用其中的一个函数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">string</span><span class="p">[,</span> <span class="n">flags</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>该函数实现了在字符串中找到正则表达式所匹配的所有子串，并组成一个列表返回,具体操作如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># 设定一个常量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;两点水|twowater|liangdianshui|草根程序员|ReadingWithU&#39;</span>
+
+<span class="c1"># 正则表达式</span>
+
+<span class="n">findall</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">findall</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">findall</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a 含有“两点水”这个字符串&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a 不含有“两点水”这个字符串&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>[&#39;两点水&#39;]
+a 含有“两点水”这个字符串
+</pre></div>
+</div>
+<p>从输出结果可以看到，可以实现和内置函数一样的功能，可是在这里也要强调一点，上面这个例子只是方便我们理解正则表达式，这个正则表达式的写法是毫无意义的。为什么这样说呢？</p>
+<p>因为用 Python 自带函数就能解决的问题，我们就没必要使用正则表达式了，这样做多此一举。而且上面例子中的正则表达式设置成为了一个常量，并不是一个正则表达式的规则，正则表达式的灵魂在于规则，所以这样做意义不大。</p>
+<p>那么正则表达式的规则怎么写呢？先不急，我们一步一步来，先来一个简单的，找出字符串中的所有小写字母。首先我们在 <code class="docutils literal notranslate"><span class="pre">findall</span></code> 函数中第一个参数写正则表达式的规则，其中   <code class="docutils literal notranslate"><span class="pre">[a-z]</span></code> 就是匹配任何小写字母，第二个参数只要填写要匹配的字符串就行了。具体如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># 设定一个常量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;两点水|twowater|liangdianshui|草根程序员|ReadingWithU&#39;</span>
+
+<span class="c1"># 选择 a 里面的所有小写英文字母</span>
+
+<span class="n">re_findall</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[a-z]&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">re_findall</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>[&#39;t&#39;, &#39;w&#39;, &#39;o&#39;, &#39;w&#39;, &#39;a&#39;, &#39;t&#39;, &#39;e&#39;, &#39;r&#39;, &#39;l&#39;, &#39;i&#39;, &#39;a&#39;, &#39;n&#39;, &#39;g&#39;, &#39;d&#39;, &#39;i&#39;, &#39;a&#39;, &#39;n&#39;, &#39;s&#39;, &#39;h&#39;, &#39;u&#39;, &#39;i&#39;, &#39;e&#39;, &#39;a&#39;, &#39;d&#39;, &#39;i&#39;, &#39;n&#39;, &#39;g&#39;, &#39;i&#39;, &#39;t&#39;, &#39;h&#39;]
+</pre></div>
+</div>
+<p>这样我们就拿到了字符串中的所有小写字母了。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2.html" class="btn btn-neutral float-right" title="字符集" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="第十四章" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python 闭包2 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="virtualenv" href="virtualenv.html" />
+    <link rel="prev" title="Python 闭包1" href="closure1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python高级用法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="yield.html">问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yield.html#">回答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closure1.html">Python 闭包1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python 闭包2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html#virtualenvwrapper">Virtualenvwrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mac.html">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mac.html#virtualenvwrapper">virtualenvwrapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Python高级用法</a> &raquo;</li>
+        
+      <li>Python 闭包2</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-2">
+<span id="python-2"></span><h1>Python 闭包2<a class="headerlink" href="#python-2" title="永久链接至标题">¶</a></h1>
+<p>上一篇文章将通过解决一个需求问题来了解了闭包，本文也将一样，通过慢慢演变一个需求，一步一步来了解 Python 装饰器。</p>
+<p>首先有这么一个输出员工打卡信息的函数：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：两点水  部门：做鸭事业部 上班打卡成功&#39;</span><span class="p">)</span>
+
+
+<span class="n">punch</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>昵称：两点水  部门：做鸭事业部 上班打卡成功
+</pre></div>
+</div>
+<p>然后，产品反馈，不行啊，怎么上班打卡没有具体的日期，加上打卡的具体日期吧，这应该很简单，分分钟解决啦。好吧，那就直接添加打印日期的代码吧，如下：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：两点水  部门：做鸭事业部 上班打卡成功&#39;</span><span class="p">)</span>
+
+
+<span class="n">punch</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>输出结果如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2018-01-09
+昵称：两点水  部门：做鸭事业部 上班打卡成功
+</pre></div>
+</div>
+<p>这样改是可以，可是这样改是改变了函数的功能结构的，本身这个函数定义的时候就是打印某个员工的信息和提示打卡成功，现在增加打印日期的代码，可能会造成很多代码重复的问题。比如，还有一个地方只需要打印员工信息和打卡成功就行了，不需要日期，那么你又要重写一个函数吗？而且打印当前日期的这个功能方法是经常使用的，是可以作为公共函数给各个模块方法调用的。当然，这都是作为一个整体项目来考虑的。</p>
+<p>既然是这样，我们可以使用函数式编程来修改这部分的代码。因为通过之前的学习，我们知道 Python 函数有两个特点，函数也是一个对象，而且函数里可以嵌套函数，那么修改一下代码变成下面这个样子：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：两点水  部门：做鸭事业部 上班打卡成功&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())))</span>
+    <span class="n">func</span><span class="p">()</span>
+
+
+<span class="n">add_time</span><span class="p">(</span><span class="n">punch</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2018-01-09
+昵称：两点水  部门：做鸭事业部 上班打卡成功
+</pre></div>
+</div>
+<p>这样是不是发现，这样子就没有改动 <code class="docutils literal notranslate"><span class="pre">punch</span></code> 方法，而且任何需要用到打印当前日期的函数都可以把函数传进 <code class="docutils literal notranslate"><span class="pre">add_time</span></code> 就可以了，就比如这样：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：两点水  部门：做鸭事业部 上班打卡成功&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">add_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())))</span>
+    <span class="n">func</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">holiday</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;天气太冷，今天放假&#39;</span><span class="p">)</span>
+
+
+<span class="n">add_time</span><span class="p">(</span><span class="n">punch</span><span class="p">)</span>
+<span class="n">add_time</span><span class="p">(</span><span class="n">holiday</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>打印结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2018-01-09
+昵称：两点水  部门：做鸭事业部 上班打卡成功
+2018-01-09
+天气太冷，今天放假
+</pre></div>
+</div>
+<p>使用函数编程是不是很方便，但是，我们每次调用的时候，我们都不得不把原来的函数作为参数传递进去，还能不能有更好的实现方式呢？有的，就是本文要介绍的装饰器，因为装饰器的写法其实跟闭包是差不多的，不过没有了自由变量，那么这里直接给出上面那段代码的装饰器写法，来对比一下，装饰器的写法和函数式编程有啥不同。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())))</span>
+        <span class="n">func</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">punch</span>
+
+
+<span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：两点水  部门：做鸭事业部 上班打卡成功&#39;</span><span class="p">)</span>
+
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">decorator</span><span class="p">(</span><span class="n">punch</span><span class="p">)</span>
+<span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2018-01-09
+昵称：两点水  部门：做鸭事业部 上班打卡成功
+</pre></div>
+</div>
+<p>通过代码，能知道装饰器函数一般做这三件事：</p>
+<ol class="simple">
+<li>接收一个函数作为参数</li>
+<li>嵌套一个包装函数, 包装函数会接收原函数的相同参数，并执行原函数，且还会执行附加功能</li>
+<li>返回嵌套函数</li>
+</ol>
+<p>可是，认真一看这代码，这装饰器的写法怎么比函数式编程还麻烦啊。而且看起来比较复杂，甚至有点多此一举的感觉。</p>
+<p>那是因为我们还没有用到装饰器的 “语法糖” ，我们看上面的代码可以知道， Python 在引入装饰器 （Decorator） 的时候，没有引入任何新的语法特性，都是基于函数的语法特性。这也就说明了装饰器不是 Python 特有的，而是每个语言通用的一种编程思想。只不过 Python 设计出了 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> 语法糖，让 定义装饰器，把装饰器调用原函数再把结果赋值为原函数的对象名的过程变得更加简单，方便，易操作，所以 Python 装饰器的核心可以说就是它的语法糖。</p>
+<p>那么怎么使用它的语法糖呢？很简单，根据上面的写法写完装饰器函数后，直接在原来的函数上加 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> 和装饰器的函数名。如下：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())))</span>
+        <span class="n">func</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">punch</span>
+
+<span class="nd">@decorator</span>
+<span class="k">def</span> <span class="nf">punch</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：两点水  部门：做鸭事业部 上班打卡成功&#39;</span><span class="p">)</span>
+
+<span class="n">punch</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>输出结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2018-01-09
+昵称：两点水  部门：做鸭事业部 上班打卡成功
+</pre></div>
+</div>
+<p>那么这就很方便了，方便在我们的调用上，比如例子中的，使用了装饰器后，直接在原本的函数上加上装饰器的语法糖就可以了，本函数也无虚任何改变，调用的地方也不需修改。</p>
+<p>不过这里一直有个问题，就是输出打卡信息的是固定的，那么我们需要通过参数来传递，装饰器该怎么写呢？装饰器中的函数可以使用 <code class="docutils literal notranslate"><span class="pre">*args</span></code> 可变参数，可是仅仅使用 <code class="docutils literal notranslate"><span class="pre">*args</span></code> 是不能完全包括所有参数的情况，比如关键字参数就不能了，为了能兼容关键字参数，我们还需要加上 <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> 。</p>
+<p>因此，装饰器的最终形式可以写成这样：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">punch</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())))</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">punch</span>
+
+
+<span class="nd">@decorator</span>
+<span class="k">def</span> <span class="nf">punch</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">department</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;昵称：{0}  部门：{1} 上班打卡成功&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">department</span><span class="p">))</span>
+
+
+<span class="nd">@decorator</span>
+<span class="k">def</span> <span class="nf">print_args</span><span class="p">(</span><span class="n">reason</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="n">punch</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="s1">&#39;做鸭事业部&#39;</span><span class="p">)</span>
+<span class="n">print_args</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s1">&#39;男&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出结果如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2018-01-09
+昵称：两点水  部门：做鸭事业部 上班打卡成功
+2018-01-09
+两点水
+{&#39;sex&#39;: &#39;男&#39;, &#39;age&#39;: 99}
+</pre></div>
+</div>
+<p>至此，<a class="reference external" href="https://github.com/TwoWater/Python"> Python</a>  入门系列文章结束了。如果感兴趣的话，可以关注微信公众号，回复 “Python” 获取更多的 Python 学习资料。</p>
+<p><img alt="微信公众号" src="http://twowater.com.cn/images/20171204192251900.gif" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="virtualenv.html" class="btn btn-neutral float-right" title="virtualenv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="closure1.html" class="btn btn-neutral" title="Python 闭包1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>多线程编程 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="进程" href="3.html" />
+    <link rel="prev" title="线程与进程" href="1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十三章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">线程与进程</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">多线程编程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、线程的创建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#join">2、线程合并（join方法）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">3、线程同步与互斥锁</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condition">4、Condition 条件变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">5、线程间通信</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">6、后台线程</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">进程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第十三章</a> &raquo;</li>
+        
+      <li>多线程编程</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>多线程编程<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>其实创建线程之后，线程并不是始终保持一个状态的，其状态大概如下：</p>
+<ul class="simple">
+<li>New 创建</li>
+<li>Runnable 就绪。等待调度</li>
+<li>Running 运行</li>
+<li>Blocked 阻塞。阻塞可能在 Wait Locked Sleeping</li>
+<li>Dead 消亡</li>
+</ul>
+<p>线程有着不同的状态，也有不同的类型。大致可分为：</p>
+<ul class="simple">
+<li>主线程</li>
+<li>子线程</li>
+<li>守护线程（后台线程）</li>
+<li>前台线程</li>
+</ul>
+<p>简单了解完这些之后，我们开始看看具体的代码使用了。</p>
+<div class="section" id="">
+<span id="id2"></span><h2>1、线程的创建<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>Python 提供两个模块进行多线程的操作，分别是 <code class="docutils literal notranslate"><span class="pre">thread</span></code> 和 <code class="docutils literal notranslate"><span class="pre">threading</span></code></p>
+<p>前者是比较低级的模块，用于更底层的操作，一般应用级别的开发不常用。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+
+<span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;thread {}, @number: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Start main threading&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 创建三个线程</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyThread</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="c1"># 启动三个线程</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;End Main threading&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>运行结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Start main threading
+thread Thread-1, @number: 0
+thread Thread-2, @number: 0
+thread Thread-3, @number: 0
+End Main threading
+thread Thread-2, @number: 1
+thread Thread-1, @number: 1
+thread Thread-3, @number: 1
+thread Thread-1, @number: 2
+thread Thread-3, @number: 2
+thread Thread-2, @number: 2
+thread Thread-2, @number: 3
+thread Thread-3, @number: 3
+thread Thread-1, @number: 3
+thread Thread-3, @number: 4
+thread Thread-2, @number: 4
+thread Thread-1, @number: 4
+</pre></div>
+</div>
+<p>注意喔，这里不同的环境输出的结果肯定是不一样的。</p>
+</div>
+<div class="section" id="join">
+<span id="join"></span><h2>2、线程合并（join方法）<a class="headerlink" href="#join" title="永久链接至标题">¶</a></h2>
+<p>上面的示例打印出来的结果来看，主线程结束后，子线程还在运行。那么我们需要主线程要等待子线程运行完后，再退出，要怎么办呢？</p>
+<p>这时候，就需要用到 <code class="docutils literal notranslate"><span class="pre">join</span></code> 方法了。</p>
+<p>在上面的例子，新增一段代码，具体如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+
+<span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;thread {}, @number: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Start main threading&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 创建三个线程</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyThread</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="c1"># 启动三个线程</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="c1"># 一次让新创建的线程执行 join</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;End Main threading&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>从打印的结果，可以清楚看到，相比上面示例打印出来的结果，主线程是在等待子线程运行结束后才结束的。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Start main threading
+thread Thread-1, @number: 0
+thread Thread-2, @number: 0
+thread Thread-3, @number: 0
+thread Thread-1, @number: 1
+thread Thread-3, @number: 1
+thread Thread-2, @number: 1
+thread Thread-2, @number: 2
+thread Thread-1, @number: 2
+thread Thread-3, @number: 2
+thread Thread-2, @number: 3
+thread Thread-1, @number: 3
+thread Thread-3, @number: 3
+thread Thread-3, @number: 4
+thread Thread-2, @number: 4
+thread Thread-1, @number: 4
+End Main threading
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>3、线程同步与互斥锁<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>使用线程加载获取数据，通常都会造成数据不同步的情况。当然，这时候我们可以给资源进行加锁，也就是访问资源的线程需要获得锁才能访问。</p>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">threading</span></code> 模块给我们提供了一个 Lock 功能。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>在线程中获取锁</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>使用完成后，我们肯定需要释放锁</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>当然为了支持在同一线程中多次请求同一资源，Python 提供了可重入锁（RLock）。RLock 内部维护着一个 Lock 和一个 counter 变量，counter 记录了 acquire 的次数，从而使得资源可以被多次 require。直到一个线程所有的 acquire 都被 release，其他的线程才能获得资源。</p>
+<p>那么怎么创建重入锁呢？也是一句代码的事情：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">RLock</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condition">
+<span id="condition"></span><h2>4、Condition 条件变量<a class="headerlink" href="#condition" title="永久链接至标题">¶</a></h2>
+<p>实用锁可以达到线程同步，但是在更复杂的环境，需要针对锁进行一些条件判断。Python 提供了 Condition 对象。使用 Condition 对象可以在某些事件触发或者达到特定的条件后才处理数据，Condition 除了具有 Lock 对象的 acquire 方法和 release 方法外，还提供了 wait 和 notify 方法。线程首先 acquire 一个条件变量锁。如果条件不足，则该线程 wait，如果满足就执行线程，甚至可以 notify 其他线程。其他处于 wait 状态的线程接到通知后会重新判断条件。</p>
+<p>其中条件变量可以看成不同的线程先后 acquire 获得锁，如果不满足条件，可以理解为被扔到一个（ Lock 或 RLock ）的 waiting 池。直达其他线程 notify 之后再重新判断条件。不断的重复这一过程，从而解决复杂的同步问题。</p>
+<p><img alt="Condition" src="http://p1ceh5usj.bkt.clouddn.com/Condition.png" /></p>
+<p>该模式常用于生产者消费者模式，具体看看下面在线购物买家和卖家的示例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">threading</span><span class="o">,</span> <span class="nn">time</span>
+
+
+<span class="k">class</span> <span class="nc">Consumer</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c1"># 初始化</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Consumer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span> <span class="o">=</span> <span class="n">cond</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 确保先运行Seeker中的方法</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 我这两件商品一起买，可以便宜点吗&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 我已经提交订单了，你修改下价格&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 收到，我支付成功了&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 等待收货&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Producer</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Producer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span> <span class="o">=</span> <span class="n">cond</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="c1"># 释放对琐的占用，同时线程挂起在这里，直到被 notify 并重新占有琐。</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 可以的，你提交订单吧&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 好了，已经修改了&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 嗯，收款成功，马上给你发货&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 发货商品&#39;</span><span class="p">)</span>
+
+
+<span class="n">cond</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">()</span>
+<span class="n">consumer</span> <span class="o">=</span> <span class="n">Consumer</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;买家（两点水）&#39;</span><span class="p">)</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">Producer</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;卖家（三点水）&#39;</span><span class="p">)</span>
+<span class="n">consumer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>买家（两点水）: 我这两件商品一起买，可以便宜点吗
+卖家（三点水）: 可以的，你提交订单吧
+买家（两点水）: 我已经提交订单了，你修改下价格
+卖家（三点水）: 好了，已经修改了
+买家（两点水）: 收到，我支付成功了
+买家（两点水）: 等待收货
+卖家（三点水）: 嗯，收款成功，马上给你发货
+卖家（三点水）: 发货商品
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>5、线程间通信<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>如果程序中有多个线程，这些线程避免不了需要相互通信的。那么我们怎样在这些线程之间安全地交换信息或数据呢？</p>
+<p>从一个线程向另一个线程发送数据最安全的方式可能就是使用 queue 库中的队列了。创建一个被多个线程共享的 <code class="docutils literal notranslate"><span class="pre">Queue</span></code> 对象，这些线程通过使用 <code class="docutils literal notranslate"><span class="pre">put()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">get()</span></code> 操作来向队列中添加或者删除元素。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+
+<span class="n">isRead</span> <span class="o">=</span> <span class="bp">True</span>
+
+
+<span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="c1"># 写数据进程</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="s1">&#39;三点水&#39;</span><span class="p">,</span> <span class="s1">&#39;四点水&#39;</span><span class="p">]:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;写进 Queue 的值为：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="c1"># 读取数据进程</span>
+    <span class="k">while</span> <span class="n">isRead</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;从 Queue 读取的值为：{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">write</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">q</span><span class="p">,))</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">read</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">q</span><span class="p">,))</span>
+    <span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">t2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>写进 Queue 的值为：两点水
+写进 Queue 的值为：三点水
+从 Queue 读取的值为：两点水
+写进 Queue 的值为：四点水
+从 Queue 读取的值为：三点水
+从 Queue 读取的值为：四点水
+</pre></div>
+</div>
+<p>Python 还提供了 Event 对象用于线程间通信，它是由线程设置的信号标志，如果信号标志位真，则其他线程等待直到信号接触。</p>
+<p>Event 对象实现了简单的线程通信机制，它提供了设置信号，清楚信号，等待等用于实现线程间的通信。</p>
+<ul class="simple">
+<li>设置信号</li>
+</ul>
+<p>使用 Event 的 <code class="docutils literal notranslate"><span class="pre">set()</span></code> 方法可以设置 Event 对象内部的信号标志为真。Event 对象提供了 <code class="docutils literal notranslate"><span class="pre">isSe()</span></code> 方法来判断其内部信号标志的状态。当使用 event 对象的 <code class="docutils literal notranslate"><span class="pre">set()</span></code> 方法后，<code class="docutils literal notranslate"><span class="pre">isSet()</span></code> 方法返回真</p>
+<ul class="simple">
+<li>清除信号</li>
+</ul>
+<p>使用 Event 对象的 <code class="docutils literal notranslate"><span class="pre">clear()</span></code> 方法可以清除 Event 对象内部的信号标志，即将其设为假，当使用 Event 的 clear 方法后，isSet() 方法返回假</p>
+<ul class="simple">
+<li>等待</li>
+</ul>
+<p>Event 对象 wait 的方法只有在内部信号为真的时候才会很快的执行并完成返回。当 Event 对象的内部信号标志位假时，则 wait 方法一直等待到其为真时才返回。</p>
+<p>示例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">threading</span>
+
+
+<span class="k">class</span> <span class="nc">mThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threadname</span><span class="p">):</span>
+        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">threadname</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 使用全局Event对象</span>
+        <span class="k">global</span> <span class="n">event</span>
+        <span class="c1"># 判断Event对象内部信号标志</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">isSet</span><span class="p">():</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+            <span class="c1"># 设置Event对象内部信号标志</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="c1"># 生成Event对象</span>
+<span class="n">event</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+<span class="c1"># 设置Event对象内部信号标志</span>
+<span class="n">event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">mThread</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="c1"># 生成线程列表</span>
+    <span class="n">t1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">t1</span><span class="p">:</span>
+    <span class="c1"># 运行线程</span>
+    <span class="n">i</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>1
+0
+3
+2
+5
+4
+7
+6
+9
+8
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>6、后台线程<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>默认情况下，主线程退出之后，即使子线程没有 join。那么主线程结束后，子线程也依然会继续执行。如果希望主线程退出后，其子线程也退出而不再执行，则需要设置子线程为后台线程。Python 提供了 <code class="docutils literal notranslate"><span class="pre">setDeamon</span></code> 方法。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3.html" class="btn btn-neutral float-right" title="进程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.html" class="btn btn-neutral" title="线程与进程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

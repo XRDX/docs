@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>四、类的方法 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="五、类的继承" href="5.html" />
+    <link rel="prev" title="三、类的属性" href="3.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第九章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、面向对象的概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、类的属性</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">四、类的方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、类专有的方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">2、方法的访问控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">3、方法的装饰器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、类的继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.html">六、类的多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第九章</a> &raquo;</li>
+        
+      <li>四、类的方法</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>四、类的方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>1、类专有的方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>一个类创建的时候，就会包含一些方法，主要有以下方法：</p>
+<p>类的专有方法：</p>
+<p>| 方法 | 说明 |
+| ------| ------ |
+|<code class="docutils literal notranslate"><span class="pre">__init__</span></code> |构造函数，在生成对象时调用|
+|<code class="docutils literal notranslate"><span class="pre">__del__</span></code>| 析构函数，释放对象时使用|
+|<code class="docutils literal notranslate"><span class="pre">__repr__</span></code>| 打印，转换|
+|<code class="docutils literal notranslate"><span class="pre">__setitem__</span></code>| 按照索引赋值|
+|<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>| 按照索引获取值|
+|<code class="docutils literal notranslate"><span class="pre">__len__</span></code>| 获得长度|
+|<code class="docutils literal notranslate"><span class="pre">__cmp__</span></code>| 比较运算|
+|<code class="docutils literal notranslate"><span class="pre">__call__</span></code>| 函数调用|
+|<code class="docutils literal notranslate"><span class="pre">__add__</span></code>| 加运算|
+|<code class="docutils literal notranslate"><span class="pre">__sub__</span></code>| 减运算|
+|<code class="docutils literal notranslate"><span class="pre">__mul__</span></code>|乘运算|
+|<code class="docutils literal notranslate"><span class="pre">__div__</span></code>| 除运算|
+|<code class="docutils literal notranslate"><span class="pre">__mod__</span></code>| 求余运算|
+|<code class="docutils literal notranslate"><span class="pre">__pow__</span></code>|乘方|</p>
+<p>当然有些时候我们需要获取类的相关信息，我们可以使用如下的方法：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">type(obj)</span></code>：来获取对象的相应类型；</li>
+<li><code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">type)</span></code>：判断对象是否为指定的 type 类型的实例；</li>
+<li><code class="docutils literal notranslate"><span class="pre">hasattr(obj,</span> <span class="pre">attr)</span></code>：判断对象是否具有指定属性/方法；</li>
+<li><code class="docutils literal notranslate"><span class="pre">getattr(obj,</span> <span class="pre">attr[,</span> <span class="pre">default])</span></code> 获取属性/方法的值, 要是没有对应的属性则返回 default 值（前提是设置了 default），否则会抛出 AttributeError 异常；</li>
+<li><code class="docutils literal notranslate"><span class="pre">setattr(obj,</span> <span class="pre">attr,</span> <span class="pre">value)</span></code>：设定该属性/方法的值，类似于 obj.attr=value；</li>
+<li><code class="docutils literal notranslate"><span class="pre">dir(obj)</span></code>：可以获取相应对象的所有属性和方法名的列表：</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>2、方法的访问控制<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>其实我们也可以把方法看成是类的属性的，那么方法的访问控制也是跟属性是一样的，也是没有实质上的私有方法。一切都是靠程序员自觉遵守 Python 的编程规范。</p>
+<p>示例如下，具体规则也是跟属性一样的，</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">upgrade</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">_buy_equipment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">__pk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>3、方法的装饰器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><strong>&#64;classmethod</strong>
+调用的时候直接使用类名类调用，而不是某个对象</li>
+<li><strong>&#64;property</strong>
+可以像访问属性一样调用方法</li>
+</ul>
+<p>具体的使用看下实例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">UserInfo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">lv</span> <span class="o">=</span> <span class="mi">5</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">account</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__account</span> <span class="o">=</span> <span class="n">account</span>
+
+    <span class="k">def</span> <span class="nf">get_account</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__account</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">lv</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">userInfo</span> <span class="o">=</span> <span class="n">UserInfo</span><span class="p">(</span><span class="s1">&#39;两点水&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">347073565</span><span class="p">);</span>
+    <span class="c1"># 打印所有属性</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">userInfo</span><span class="p">))</span>
+    <span class="c1"># 打印构造函数中的属性</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">userInfo</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+    <span class="c1"># 直接使用类名类调用，而不是某个对象</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">UserInfo</span><span class="o">.</span><span class="n">lv</span><span class="p">)</span>
+    <span class="c1"># 像访问属性一样调用方法（注意看get_age是没有括号的）</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">userInfo</span><span class="o">.</span><span class="n">get_age</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>运行的结果：</p>
+<p><img alt="Python 方法的装饰器" src="http://upload-images.jianshu.io/upload_images/2136918-63dc478a8b2f965f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="5.html" class="btn btn-neutral float-right" title="五、类的继承" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3.html" class="btn btn-neutral" title="三、类的属性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

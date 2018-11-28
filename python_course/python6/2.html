@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二、函数传值问题 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、函数返回值" href="3.html" />
+    <link rel="prev" title="一、Python 自定义函数的基本步骤" href="1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第六章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 自定义函数的基本步骤</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、函数传值问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、函数返回值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、函数的参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、匿名函数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第六章</a> &raquo;</li>
+        
+      <li>二、函数传值问题</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>二、函数传值问题<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>先看一个例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">chagne_number</span><span class="p">(</span> <span class="n">b</span> <span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">chagne_number</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>最后输出的结果为：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+<p>这里可能有些人会有疑问，为啥不是通过函数<code class="docutils literal notranslate"><span class="pre">chagne_number</span></code>更改了 b
+的值吗？为啥没有变化，输出的结果还是 1 ，这个问题很多编程语言都会讲到，原理解释也是差不多的。</p>
+<p>这里主要是函数参数的传递中，传递的是类型对象，之前也介绍了 Python 中基本的数据类型等。而这些类型对象可以分为可更改类型和不可更改的类型</p>
+<p>在 Python 中，字符串，整形，浮点型，tuple 是不可更改的对象，而 list ， dict 等是可以更改的对象。</p>
+<p>例如：</p>
+<p><strong>不可更改的类型</strong>：变量赋值 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code>，其实就是生成一个整形对象 1 ，然后变量 a 指向 1，当 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">1000</span></code> 其实就是再生成一个整形对象 1000，然后改变 a 的指向，不再指向整形对象 1 ，而是指向 1000，最后 1 会被丢弃</p>
+<p><strong>可更改的类型</strong>：变量赋值 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">[1,2,3,4,5,6]</span></code> ，就是生成一个对象 list ，list 里面有 6 个元素，而变量 a 指向 list ，<code class="docutils literal notranslate"><span class="pre">a[2]</span> <span class="pre">=</span> <span class="pre">5</span></code>则是将 list a 的第三个元素值更改,这里跟上面是不同的，并不是将 a 重新指向，而是直接修改 list 中的元素值。</p>
+<p><img alt="指向问题" src="http://upload-images.jianshu.io/upload_images/2136918-31b1031d75e1cec9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>这也将影响到函数中参数的传递了：</p>
+<p><strong>不可更改的类型</strong>：类似 c++ 的值传递，如 整数、字符串、元组。如fun（a），传递的只是 a 的值，没有影响 a 对象本身。比如在 fun（a）内部修改 a 的值，只是修改另一个复制的对象，不会影响 a 本身。</p>
+<p><strong>可更改的类型</strong>：类似 c++ 的引用传递，如 列表，字典。如 fun（a），则是将 a 真正的传过去，修改后 fun 外部的 a 也会受影响</p>
+<p>因此，在一开始的例子中，<code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">1</span></code>,创建了一个整形对象 1 ，变量 b 指向了这个对象，然后通过函数 chagne_number 时，按传值的方式复制了变量 b ，传递的只是 b 的值，并没有影响到 b 的本身。具体可以看下修改后的实例，通过打印的结果更好的理解。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">chagne_number</span><span class="p">(</span> <span class="n">b</span> <span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;函数中一开始 b 的值：{}&#39;</span> <span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;函数中 b 赋值后的值：{}&#39;</span> <span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">chagne_number</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s1">&#39;最后输出 b 的值：{}&#39;</span> <span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>  <span class="p">)</span>
+
+
+</pre></div>
+</div>
+<p>打印的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>函数中一开始 b 的值：1
+函数中 b 赋值后的值：1000
+最后输出 b 的值：1
+</pre></div>
+</div>
+<p>当然，如果参数中的是可更改的类型，那么调用了这个函数后，原来的值也会被更改，具体实例如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">chagne_list</span><span class="p">(</span> <span class="n">b</span> <span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;函数中一开始 b 的值：{}&#39;</span> <span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;函数中 b 赋值后的值：{}&#39;</span> <span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+
+
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">chagne_list</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="s1">&#39;最后输出 b 的值：{}&#39;</span> <span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>  <span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>函数中一开始 b 的值：[1, 2, 3, 4, 5]
+函数中 b 赋值后的值：[1, 2, 3, 4, 5, 1000]
+最后输出 b 的值：[1, 2, 3, 4, 5, 1000]
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3.html" class="btn btn-neutral float-right" title="三、函数返回值" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.html" class="btn btn-neutral" title="一、Python 自定义函数的基本步骤" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>三、主模块和非主模块 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="四、包" href="4.html" />
+    <link rel="prev" title="二、模块的使用" href="2.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第八章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 模块简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、模块的使用</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">三、主模块和非主模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、主模块和非主模块的定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name">2、<strong>name</strong> 属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、作用域</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第八章</a> &raquo;</li>
+        
+      <li>三、主模块和非主模块</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>三、主模块和非主模块<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>1、主模块和非主模块的定义<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>在 Python 函数中，如果一个函数调用了其他函数完成一项功能，我们称这个函数为主函数，如果一个函数没有调用其他函数，我们称这种函数为非主函数。主模块和非主模块的定义也类似，如果一个模块被直接使用，而没有被别人调用，我们称这个模块为主模块，如果一个模块被别人调用，我们称这个模块为非主模块。</p>
+</div>
+<div class="section" id="name">
+<span id="name"></span><h2>2、<strong>name</strong> 属性<a class="headerlink" href="#name" title="永久链接至标题">¶</a></h2>
+<p>在 Python  中，有主模块和非主模块之分，当然，我们也得区分他们啊。那么怎么区分主模块和非主模块呢？</p>
+<p>这就需要用到 <code class="docutils literal notranslate"><span class="pre">__name__</span></code>  属性了，这个 <code class="docutils literal notranslate"><span class="pre">——name——</span></code> 属性值是一个变量，且这个变量是系统给出的。利用这个变量可以判断一个模块是否是主模块。如果一个属性的值是 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> ,那么就说明这个模块是主模块，反之亦然。但是要注意了：** 这个 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> 属性只是帮助我们判断是否是主模块，并不是说这个属性决定他们是否是主模块，决定是否是主模块的条件只是这个模块有没有被人调用**</p>
+<p>具体看示例：</p>
+<p>首先创建了模块 lname ，然后判断一下是否是主模块，如果是主模块就输出 <code class="docutils literal notranslate"><span class="pre">main</span></code> 不是，就输出 <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">main</span></code> ，首先直接运行该模块，由于该模块是直接使用，而没有被人调用，所以是主模块，因此输出了 <code class="docutils literal notranslate"><span class="pre">main</span></code> ，具体看下图：</p>
+<p><img alt="name属性区分模块1" src="http://upload-images.jianshu.io/upload_images/2136918-d892d81a71cda9d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>然后又创建一个 user_lname 模块，里面只是简单的导入了 lname 模块，然后执行，输出的结果是 <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">main</span></code> ，因为 lname 模块被该模块调用了，所以不是主模块，输出结果如图：</p>
+<p><img alt="name属性区分模块2" src="http://upload-images.jianshu.io/upload_images/2136918-9137cb874588dded?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="4.html" class="btn btn-neutral float-right" title="四、包" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2.html" class="btn btn-neutral" title="二、模块的使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

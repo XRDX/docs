@@ -1,0 +1,1022 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>介绍 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="一个完整的初学者指南Django - 第1部分" href="Django-part1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Django</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Django.html">Django</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Django-part1.html">一个完整的初学者指南Django - 第1部分</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">论坛项目</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">用例图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">类图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">原型图</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#models">模型（Models）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#migrating-the-models">迁移模型（Migrating the Models）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#models-api">Models API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">模型操作摘要</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#views-templates">Views, Templates 和静态文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#django">Django 模板引擎设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">测试主页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">静态文件设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#django-admin">Django Admin简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">结论</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Django</a> &raquo;</li>
+        
+      <li>介绍</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><img alt="一个完整的初学者指南Django  - 第2部分" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/featured.jpg" /></p>
+<p><img alt="Python 3.6.2" src="https://img.shields.io/badge/python-3.6.2-brightgreen.svg" />&nbsp;<img alt="Django 1.11.4" src="https://img.shields.io/badge/django-1.11.4-brightgreen.svg" /></p>
+<div class="section" id="">
+<span id="id1"></span><h1>介绍<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>欢迎来到 Django 教程的第二部分！在上一课中，我们安装了项目所需要的一切软件，希望你们在学习这篇文章之前，安装了 Python 3.6，并且在虚拟环境中运行Django 1.11。因为，在本篇文章中，我们将继续在这个项目中编写我们的代码。</p>
+<p>在这一篇文章中，可能不会有太多的代码操作，主要是讨论分析项目。在下一篇中，我们就开始学习 Django 的基础知识，包括模型（models），管理后台（admin），视图（views），模板（templates）和 路由（URL）。</p>
+<p>在这里，还是跟第一篇一样，建议大家多动手。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="">
+<span id="id2"></span><h1>论坛项目<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>每个人的学习习惯都是不同的，不知道你们是怎样的，就我个人而言，通过看实例和一些代码片段，可以让我学的更多，学的更快。但是，有些时候当我们看到 <code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">A</span></code>和<code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">B</span></code> ，或者是 <code class="docutils literal notranslate"><span class="pre">foo(bar)</span></code> 这样的例子的时候，我们是很难理解这些概念的。</p>
+<p>所以在我们进入模型（models），创建视图（views） 这些有趣的代码实操之前，我们还是需要花点时间，简单的讨论一下我们将怎样设计，开发这个项目。</p>
+<p>但是如果你已经有 web 开发经验的，而且觉得讲的太细了，那么你可以快速的浏览一下，然后进入到 【模型（models）】那一块中。</p>
+<p>如果你对 Web 开发并不熟悉，那么我强烈建议你认真阅读下去。这里会介绍 web 应用程序开发的建模和设计，因为对于 web 开发来说，敲代码只是其中的一部分，模型的设计也是很重要的。</p>
+<p><img alt="火箭科学" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/Pixton_Comic_Rocket_Science.png" /></p>
+<div class="section" id="">
+<span id="id3"></span><h2>用例图<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>我们的项目本身是一个论坛系统，整个项目来说就是维护几个【论坛板块（boards）】 ，然后在每个板块里面，用户可以通过创建【主题（Topic）】并且在主题中讨论。</p>
+<p>一般情况下，只有管理员才能创建【论坛板块（boards）】，那么在用户这方面，我们就需要分为普通用户和管理员用户了，而且他们拥有的权限是不同的，管理员用户可以创建 【论坛板块（boards）】，【主题（Topic）】以及讨论回复，而普通用户只能发布【主题（Topic）】以及讨论回复。具体每个用户角色的功能分配如下图：</p>
+<blockquote>
+<div>图1：Web Board 核心功能的用例图</div></blockquote>
+<p><img alt="用例图" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/use-case-diagram.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>类图<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>从上面的用例图中，我们可以开始思考我们项目中的<strong>实体类</strong>有哪些了。这些实体是我们要创建的模型，它与我们的 Django 应用非常密切。</p>
+<p>如果要实现上面我们说到的论坛，那么我们至少需要以下的几个模型：<strong>Board</strong>，<strong>Topic</strong>，<strong>Post</strong>和<strong>User</strong>。</p>
+<ul class="simple">
+<li><strong>Board</strong> : 版块</li>
+<li><strong>Topic</strong> : 主题</li>
+<li><strong>Post</strong> : 帖子（用户评论与回复）</li>
+<li><strong>User</strong> : 用户</li>
+</ul>
+<blockquote>
+<div>图2：Web Board 类图</div></blockquote>
+<p><img alt="基本类图" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/basic-class-diagram.png" /></p>
+<p>上面我们只是说了需要有几个模型，并没有提到模型与模型之间是怎么关联的。</p>
+<p>通过上面的图片我们可以知道，主题（Topic）与版块（Board） 之间是有关联的，就好比我们需要知道这个主题（Topic） 是属于哪一个版块的（Board），因此我们需要一个字段，也就是可以通过外键爱关联它们。</p>
+<p>同样的，一个帖子（Post） 也是需要确定它是那个主题的，当然，用户和主题（Topic）和帖子（Post） 之间也是有联系的，因为我们需要确认是谁发的帖子，是谁回复评论了内容。</p>
+<p>竟然知道了模型之间的联系了，那么我们也必须要考虑这些模型应该存放哪些信息。就目前而言，我们的模型可以设计成这样：</p>
+<blockquote>
+<div>图3：类（模型）之间关系的类图</div></blockquote>
+<p><img alt="类图" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram.png" /></p>
+<p>这个类图强调的是模型之间的关系，当然最后这些线条和箭头都会用字段来进行表示。</p>
+<p><strong>Board（版块模型）</strong> ：Board 中有 <strong>name</strong> 和 <strong>description</strong> 这两个字段，name 是唯一的，主要是为了避免两个名称重复。description 则是用于描述把这个版块来用干什么的。</p>
+<p><strong>Topic（主题模型）</strong> ：subject 表示主题内容，last_update 用来定义话题的排序，starter 用来识别谁发起的话题，board 用于指定它属于哪个版块</p>
+<p><strong>Post（帖子模型）</strong> ： message 字段，用于存储回复的内容，created_at 创建的时间，在排序时候用（最先发表的帖子排最前面），updated_at 更新时间，告诉用户是否更新了内容，同时，还需要有对应的 User 模型的引用，Post 由谁创建的和谁更新的。</p>
+<p><strong>User（用户模型）</strong> ：这里有 username ，password，email 和 is_superuser 四个字段。</p>
+<p>这里值得注意的是，我们在 Django 应用中，不需要创建 User 用户模型，因为在 Django 的 contrib 中已经内置了 User 模型，我们可以直接拿来使用，就没必要重新创建了。</p>
+<p>认真观察的童鞋应该看到了，上面的模型关系图中，模型与模型之间的对应关系有数字 1，0..* 等等的字段，这是代表什么意思呢？</p>
+<p>如下图，<code class="docutils literal notranslate"><span class="pre">1</span></code> 代表一个 Topic 必须与一个  Board 相关联，<code class="docutils literal notranslate"><span class="pre">0..*</span></code> 代表 Board 下面可能会有多个和 0 个 Topic ，也就是一对多的关系。</p>
+<p><img alt="类图板和主题协会" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram-board-topic.png" /></p>
+<p>这里也是一样，<code class="docutils literal notranslate"><span class="pre">1</span></code> 代表一个 Post 只有一个  Topic ，<code class="docutils literal notranslate"><span class="pre">1..*</span></code> 代表一个 Topic 下面可能会有 1 个和多个个 Post ，也就是说，一个主题最少一个一个帖子。</p>
+<p><img alt="类图主题和帖子关联" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram-topic-post.png" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">1</span></code> 代表一个 Topic 有且至于一个  User ，<code class="docutils literal notranslate"><span class="pre">0..*</span></code> 代表一个 User（用户） 可能拥有多个 Topic ，也可能没有。</p>
+<p><img alt="类图主题和用户关联" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram-topic-user.png" /></p>
+<p>Post（帖子） 和 User（用户）的关系也是类似，一个 Post 必须有一个 User ，而一个 User 可能没有也可能有多个 Post。这里的 Post ，用户发布了之后是可以进行修改的，也就是更新（updated_by），当然如果又被修改，updated_by 就是为空了。</p>
+<p><img alt="类图邮政和用户协会" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram-post-user.png" />一</p>
+<p>当然，如果你觉得上面的图看起来很复杂，那么你也可以不需要强调模型与模型之间的关系，直接强调字段就可以了，如下图：</p>
+<blockquote>
+<div>图4：强调类（模型）属性（字段）的类图</div></blockquote>
+<p><img alt="类图属性" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram-attributes.png" /></p>
+<p>其实这种表达图和前面那个显示箭头和线的表达图，要表达的内容是一样的。不过使用这种表达方式可能更符合 Django  Modles API 的设计。</p>
+<p>好了，现在已经够 UML 了！为了绘制本节介绍的图表，我使用的是&nbsp;<a class="reference external" href="http://staruml.io/">StarUML</a> 工具。</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>原型图<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>花了一些时间来设计我们的程序模型，后面我们也需要设计一下我们的网页原型图。只有这样，才能更好的让我们清楚的知道自己将要干什么？</p>
+<p><img alt="线框漫画" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/Pixton_Comic_Wireframes.png" /></p>
+<p>首先，是我们的主页，在主页中，我们会显示我们所有的版块：</p>
+<blockquote>
+<div>图5：主页显示所有的版块信息</div></blockquote>
+<p><img alt="线框板" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/wireframe-boards.png" /></p>
+<p>同样的，当用户点进了版块信息，进入到版块页面，那么版块页面也将显示该版块下的所有主题：</p>
+<blockquote>
+<div>图6：版块下的所有主题信息</div></blockquote>
+<p><img alt="线框主题" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/wireframe-topics.png" /></p>
+<p>通过观察图片，细心的你，可能会发现，用户在这个页面有两条可以走的路线。第一条就是点击 “new topic” 来创建新的主题，第二条就是点击已经存在的主题进入相关的主题进行讨论回复。</p>
+<p>“new topic” 的界面如下 ：</p>
+<p><img alt="线框新主题" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/wireframe-new-topic.png" /></p>
+<p>而，进入了相关的主题后，应该显示具体的帖子信息和用户的一些回复信息：</p>
+<p><img alt="线框帖子" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/wireframe-posts.png" /></p>
+<p>如果用户点击 “Reply” 的按钮，他们将看到下面的页面，并以相反的顺序（最新的第一个）对帖子进行显示：</p>
+<p><img alt="线框回复" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/wireframe-reply.png" /></p>
+<p>那么这些图是用什么来绘制的呢？你可以使用 <a class="reference external" href="https://draw.io/">draw.io</a> ，而且他是完全免费的。</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="models">
+<span id="models"></span><h1>模型（Models）<a class="headerlink" href="#models" title="永久链接至标题">¶</a></h1>
+<p>上一部分，设计了我们 Web 应用的数据库还有界面原型设计。在模型（Models）这一部分中，我们将在 Django 中创建我们数据库的模型类：<strong>Board</strong> ，<strong>Topic</strong> 和 <strong>Post</strong> 。</p>
+<p>这里是不是有个疑问，明明我们设计数据库的时候是有 <strong>User</strong> 的，为什么我们不用创建它的模型类呢？是不是写漏了？</p>
+<p>并不是，那是因为 <strong>User</strong> 这个模型类，已经内置在 Django 应用程序中的，<strong>User</strong> 模型就在 <strong>django.contrib.auth</strong> 中。在 settings.py 中，<code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> 就配置了<strong>django.contrib.auth</strong>。</p>
+<p>好了，现在我们将根据我们上面设计的数据库模型来完成我们项目 <strong>boards</strong> 下的 models.py 文件中的所有操作。</p>
+<blockquote>
+<div><strong>boards/models.py</strong></div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="k">class</span> <span class="nc">Board</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Topic</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">last_updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">board</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Board</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;topics&#39;</span><span class="p">)</span>
+    <span class="n">starter</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;topics&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">4000</span><span class="p">)</span>
+    <span class="n">topic</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Topic</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;posts&#39;</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">created_by</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;posts&#39;</span><span class="p">)</span>
+    <span class="n">updated_by</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>可以看到，创建的所有模型类，<strong>Board</strong> ， <strong>Topic</strong> 和 <strong>Post</strong> 都是 <strong>django.db.models.Model</strong> 的子类，它们都将会转化成数据表。而 <strong>django.db.models.Field</strong> 的子类（Django 内置的核心类）的实例都会转化为数据表中的列。</p>
+<p>上面可以看到的 <code class="docutils literal notranslate"><span class="pre">CharField</span></code>，<code class="docutils literal notranslate"><span class="pre">DateTimeField</span></code> 等，都是 <strong>django.db.models.Field</strong> 的子类，在 Django 项目中都可以直接使用它们。</p>
+<p>在这里，我们仅仅使用了 <code class="docutils literal notranslate"><span class="pre">CharField</span></code>，<code class="docutils literal notranslate"><span class="pre">TextField</span></code>，<code class="docutils literal notranslate"><span class="pre">DateTimeField</span></code>，和 <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> 字段来定义我们的模型（Models） 。当然，在 Django 中，不仅仅只是提供了这些字段，还提供了更多，更广泛的选择来代表不同类型的数据，比如还有：<code class="docutils literal notranslate"><span class="pre">IntegerField</span></code>，<code class="docutils literal notranslate"><span class="pre">BooleanField</span></code>，&nbsp;<code class="docutils literal notranslate"><span class="pre">DecimalField</span></code>。我们会根据不同的需求来使用它们。</p>
+<p>有些字段是需要参数的，就好比 <code class="docutils literal notranslate"><span class="pre">CharField</span></code> ，我们都设定了一个 <code class="docutils literal notranslate"><span class="pre">max_length</span></code> , 设置一个最大长度。当我们设定了这个字段后，就会作用于数据的。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">Board</span></code> 模型（Model）中，在 <code class="docutils literal notranslate"><span class="pre">name</span></code> 字段中，我们也设置了参数&nbsp;<code class="docutils literal notranslate"><span class="pre">unique=True</span></code>，顾名思义，这是为了在数据库中，保证该字段的唯一性。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">Post</span></code> 模型中，<code class="docutils literal notranslate"><span class="pre">created_at</span></code> 字段有一个可选参数，<code class="docutils literal notranslate"><span class="pre">auto_now_add</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">True</span></code>。这是为了指明 Django 在创建 <code class="docutils literal notranslate"><span class="pre">Post</span></code> 对象的时候，<code class="docutils literal notranslate"><span class="pre">created_at</span></code> 使用的是当前的日期和时间。</p>
+<p>创建模型与模型之间关系的其中一种方法就是使用 <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> 字段，使用这个字段，会自动创建模型与模型之间的联系，而且会在数据库中也创建它们的关系。使用 <code class="docutils literal notranslate"><span class="pre">ForeignKey</span></code> 会有一个参数，来表明他与那个模型之间的联系。 例如：</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">Topic</span></code> 模型中，<code class="docutils literal notranslate"><span class="pre">models.ForeignKey(Board,</span> <span class="pre">related_name='topics')</span></code>，第一个参数是代表关联的表格（主表），在默认情况下，外键存储的是主表的主键（Primary Key）。第二个参数 <code class="docutils literal notranslate"><span class="pre">related_name</span></code> 是定义一个名称，用于反向查询的。Django 会自动创建这种反向关系。 虽然 <code class="docutils literal notranslate"><span class="pre">related_name</span></code> 是可选参数，但是如果我们不为它设置一个名称的，Django 会默认生成名称 <code class="docutils literal notranslate"><span class="pre">(class_name)_set</span></code> 。例如，在 <code class="docutils literal notranslate"><span class="pre">Board</span></code> 模型中，<code class="docutils literal notranslate"><span class="pre">Topic</span></code> 实例将在该 <code class="docutils literal notranslate"><span class="pre">topic_set</span></code> 属性下可用。而我们只是将其重新命名为<code class="docutils literal notranslate"><span class="pre">topics</span></code>，使用起来更加自然。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">Post</span></code> 模型中，<code class="docutils literal notranslate"><span class="pre">updated_by</span></code> 字段设置<code class="docutils literal notranslate"><span class="pre">related_name='+'</span></code>。这指示 Django 我们不需要这种反向关系。</p>
+<p>下面这张图可以很好地看到设计图和源码之间的比较，其中绿线就表示了我们是如何处理反向关系的。</p>
+<p><img alt="类图模型定义" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/class-diagram-django-models.png" /></p>
+<p>可能到这一步，你会问：“主键呢？”好像我们都没有定义主键啊。对，如果我们没有为模型（Models）指定主键，那么 Django 会自动生成它。</p>
+<div class="section" id="migrating-the-models">
+<span id="migrating-the-models"></span><h2>迁移模型（Migrating the Models）<a class="headerlink" href="#migrating-the-models" title="永久链接至标题">¶</a></h2>
+<p>到这一步，我们要开始告诉 Django 如何创建数据库，这样方便我们更好的使用。</p>
+<p>打开<strong>终端</strong>&nbsp;，激活虚拟环境，进入到 <strong>manage.py</strong> 文件所在的文件夹，然后运行以下命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">makemigrations</span>
+</pre></div>
+</div>
+<p>这时，你会看到这样的输出信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Migrations</span> <span class="k">for</span> <span class="s1">&#39;boards&#39;</span><span class="p">:</span>
+  <span class="n">boards</span><span class="o">/</span><span class="n">migrations</span><span class="o">/</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">.</span><span class="n">py</span>
+    <span class="o">-</span> <span class="n">Create</span> <span class="n">model</span> <span class="n">Board</span>
+    <span class="o">-</span> <span class="n">Create</span> <span class="n">model</span> <span class="n">Post</span>
+    <span class="o">-</span> <span class="n">Create</span> <span class="n">model</span> <span class="n">Topic</span>
+    <span class="o">-</span> <span class="n">Add</span> <span class="n">field</span> <span class="n">topic</span> <span class="n">to</span> <span class="n">post</span>
+    <span class="o">-</span> <span class="n">Add</span> <span class="n">field</span> <span class="n">updated_by</span> <span class="n">to</span> <span class="n">post</span>
+</pre></div>
+</div>
+<p>
+此时，Django 在 <strong>boards / migrations</strong> 目录内创建了一个名为<strong>0001_initial.py</strong> 的文件。它代表了我们应用程序模型的当前状态。在下一步中，Django 将使用该文件来创建表和列。</p>
+<p>迁移文件被翻译成 SQL 语句。如果您熟悉 SQL，则可以运行以下命令来检查将在数据库中执行的 SQL 指令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">sqlmigrate</span> <span class="n">boards</span> <span class="mi">0001</span>
+</pre></div>
+</div>
+<p>如果你不熟悉 SQL，也不用担心。在本系列教程中，我们不会直接使用 SQL。所有的工作都将使用 Django ORM 来完成，它是一个与数据库进行通信的抽象层。</p>
+<p>好了，下一步我们将把我们的迁移文件应用到我们的数据库中：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>输出应该是这样的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Operations</span> <span class="n">to</span> <span class="n">perform</span><span class="p">:</span>
+  <span class="n">Apply</span> <span class="nb">all</span> <span class="n">migrations</span><span class="p">:</span> <span class="n">admin</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">boards</span><span class="p">,</span> <span class="n">contenttypes</span><span class="p">,</span> <span class="n">sessions</span>
+<span class="n">Running</span> <span class="n">migrations</span><span class="p">:</span>
+  <span class="n">Applying</span> <span class="n">contenttypes</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">admin</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">admin</span><span class="o">.</span><span class="mi">0002</span><span class="n">_logentry_remove_auto_add</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">contenttypes</span><span class="o">.</span><span class="mi">0002</span><span class="n">_remove_content_type_name</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0002</span><span class="n">_alter_permission_name_max_length</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0003</span><span class="n">_alter_user_email_max_length</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0004</span><span class="n">_alter_user_username_opts</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0005</span><span class="n">_alter_user_last_login_null</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0006</span><span class="n">_require_contenttypes_0002</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0007</span><span class="n">_alter_validators_add_error_messages</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0008</span><span class="n">_alter_user_username_max_length</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">boards</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">sessions</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+</pre></div>
+</div>
+<p>因为这是我们第一次迁移数据库，所以该 <code class="docutils literal notranslate"><span class="pre">migrate</span></code> 命令还应用了 Django contrib 应用中现有的迁移文件，这些文件列于 <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> 。</p>
+<p>而 <code class="docutils literal notranslate"><span class="pre">Applying</span> <span class="pre">boards.0001_initial...</span> <span class="pre">OK</span></code> 就是指我们在上一步中生成的迁移文件。</p>
+<p>好了，此时！我们的数据库已经可以使用了。</p>
+<p><img alt="SQLite的" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/Pixton_Comic_SQLite.png" /></p>
+<blockquote>
+<div><p><strong>注意：</strong>&nbsp;需要注意的是 <strong>SQLite</strong> 是一个数据库。SQLite 被许多公司用于成千上万的产品，如所有 Android 和 iOS 设备，所有主要的 Web 浏览器，Windows 10，MacOS 等。</p>
+<p>当然，它也不是适合所有的应用场景。SQLite 不能与 MySQL，PostgreSQL 或 Oracle 等数据库进行比较。大容量网站，密集型的应用程序，大数据集，高并发性，这些使用使用 SQLite 可能会导致很多问题。</p>
+<p>在我们开发的项目中，我们将使用 SQLite ，因为它很方便，我们不需要安装其他任何东西。当我们将项目部署到生产环境时，我们将切换到 PostgreSQL 。因为这对于简单的网站是不错的选择。但这里有一点要注意，对于复杂的网站，建议在开发和生产中使用相同的数据库。</p>
+</div></blockquote>
+</div>
+<div class="section" id="models-api">
+<span id="models-api"></span><h2>Models API<a class="headerlink" href="#models-api" title="永久链接至标题">¶</a></h2>
+<p>使用 Python 开发的一个重要优点是交互式 shell。我几乎一直都在使用它。这是一个可以快速尝试和测试实验的方法。</p>
+<p>你可以使用 <strong>manage.py</strong> 加载我们的项目来启动 Python shell&nbsp;：</p>
+<p>启动命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span>
+</pre></div>
+</div>
+<p>可以看到这样的输出：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.6</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jul</span> <span class="mi">17</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">16</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">45</span><span class="p">)</span>
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">4.2</span><span class="o">.</span><span class="mi">1</span> <span class="n">Compatible</span> <span class="n">Apple</span> <span class="n">LLVM</span> <span class="mf">8.1</span><span class="o">.</span><span class="mi">0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">802.0</span><span class="o">.</span><span class="mi">42</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="p">(</span><span class="n">InteractiveConsole</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>在我们使用 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">shell</span></code> 之外，我们也可以将项目添加到<code class="docutils literal notranslate"><span class="pre">sys.path</span></code>并加载 Django。这意味着我们可以在项目中导入我们的模型(models) 和任何其他资源。</p>
+<p>我们从导入 <strong>Board</strong> 类开始：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">boards.models</span> <span class="k">import</span> <span class="n">Board</span>
+</pre></div>
+</div>
+<p>如果我们需要创建 <strong>Board</strong> 对象，我们可以执行以下操作：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span> <span class="o">=</span> <span class="n">Board</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Django&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;This is a board about Django.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>此时我们只是创建了这个对象，并没有保存到数据库的，因此我们可以调用 <code class="docutils literal notranslate"><span class="pre">save</span></code> 方法，将这个对象保存在数据库中。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>该 <code class="docutils literal notranslate"><span class="pre">save</span></code> 方法 ，在创建对象和更新对象中都可以使用，这里 Django 会创建一个新的对象，因为 <strong>Board</strong> 实例是没有 <strong>id</strong> 这个字段的，因此保存后，Django 会自动设置一个 ID ：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">id</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>其他的字段你也可以当作属性来访问就好了，比如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">name</span>
+<span class="s1">&#39;Django&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">description</span>
+<span class="s1">&#39;This is a board about Django.&#39;</span>
+</pre></div>
+</div>
+<p>要更新一个值，我们可以这样做：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Django discussion board.&#39;</span>
+<span class="n">board</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>每个 Django 模型 (Models) 都带有一个特殊的属性;&nbsp;我们称之为 <strong>Model Manager（模型管理器）</strong>。我们可以通过 Python 属性 <code class="docutils literal notranslate"><span class="pre">objects</span></code> 来访问它。它主要用于在数据库中执行查询。例如，我们可以使用它来直接创建一个新的<strong>Board</strong> 对象：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;General discussion about Python.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">id</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span><span class="o">.</span><span class="n">name</span>
+<span class="s1">&#39;Python&#39;</span>
+</pre></div>
+</div>
+<p>所以，结合之前的操作，我们现在有两个 boards 对象。我们可以使用<code class="docutils literal notranslate"><span class="pre">objects</span></code> 列出数据库中所有现有的 boards ：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Board</span><span class="p">:</span> <span class="n">Board</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Board</span><span class="p">:</span> <span class="n">Board</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>结果是一个 <strong>QuerySet</strong> 。稍后我们会进一步了解它。基本上，它是来自数据库的对象列表。通过输出结果，可以看到我们有两个对象，但我们只能读取 <strong>Board对象</strong> 。这是因为我们没有在 <strong>Board</strong> 模型中定义 <code class="docutils literal notranslate"><span class="pre">__str__</span></code> 方法。</p>
+<p>该 <code class="docutils literal notranslate"><span class="pre">__str__</span></code> 方法是一个对象的字符串表示。我们可以使用 Board 的名称来表示它。</p>
+<p>首先，退出交互式控制台：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>现在编辑 <strong>boards</strong> 应用程序中的 <strong>models.py</strong> 文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Board</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<p>让我们再次尝试查询。再次打开交互式控制台：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">boards.models</span> <span class="k">import</span> <span class="n">Board</span>
+
+<span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Board</span><span class="p">:</span> <span class="n">Django</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Board</span><span class="p">:</span> <span class="n">Python</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>仔细对比上面的，看下区别？</p>
+<p>可以看到上面那个是 object ，而这里是我们定义的字符串。</p>
+<p>我们可以将这个 <strong>QuerySet</strong> 看作一个列表。假设我们想遍历它并打印每个 Board（版块） 的描述：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boards_list</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">board</span> <span class="ow">in</span> <span class="n">boards_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>结果是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Django</span> <span class="n">discussion</span> <span class="n">board</span><span class="o">.</span>
+<span class="n">General</span> <span class="n">discussion</span> <span class="n">about</span> <span class="n">Python</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>当然，我们也可以使用 <strong>Model Manager（模型管理器）</strong> 来查询数据库，如果查询其中的一个，我们可以使用 <code class="docutils literal notranslate"><span class="pre">get</span></code> 的方法：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">django_board</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">django_board</span><span class="o">.</span><span class="n">name</span>
+<span class="s1">&#39;Django&#39;</span>
+</pre></div>
+</div>
+<p>当然我们要小心这种情况，因为很容易发生内存溢出的。比如我们试图去查询一个不存在的对象，就好比我们数据库只有两个 Board 对象，如果你查询 <code class="docutils literal notranslate"><span class="pre">id=3</span></code>，那么它会引发一个异常：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">board</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">boards</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span> <span class="n">Board</span> <span class="n">matching</span> <span class="n">query</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>当然，在 <code class="docutils literal notranslate"><span class="pre">get</span></code> 方法中，参数可以是该模型下的字段，最好是使用唯一的标识字段。否则会返回多个对象，会导致异常的。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Django&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Board</span><span class="p">:</span> <span class="n">Django</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>请注意，查询是区分大小写的，小写 “django” 是不匹配的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;django&#39;</span><span class="p">)</span>
+<span class="n">boards</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span> <span class="n">Board</span> <span class="n">matching</span> <span class="n">query</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>模型操作摘要<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>下面的表格是我们在本章节中学到的方法和操作。代码示例使用 <strong>Board</strong> 模型作为参考示例。大写的 <strong>Board</strong> 代表类，小写的 <strong>board</strong> 是指 <strong>Board</strong> 的实例对象。</p>
+<p>| 描述 | 代码示例 |
+| --- | --- |
+| 创建一个对象并没有保存 | <code class="docutils literal notranslate"><span class="pre">board</span> <span class="pre">=</span> <span class="pre">Board()</span></code> |
+| 保存一个对象（创建或更新） | <code class="docutils literal notranslate"><span class="pre">board.save()</span></code> |
+| 在数据库中创建并保存一个对象 | <code class="docutils literal notranslate"><span class="pre">Board.objects.create(name='...',</span> <span class="pre">description='...')</span></code> |
+| 列出所有对象 | <code class="docutils literal notranslate"><span class="pre">Board.objects.all()</span></code> |
+| 获取由字段标识的单个对象 | <code class="docutils literal notranslate"><span class="pre">Board.objects.get(id=1)</span></code> |</p>
+<p>在下一节中，我们将开始编写视图并在 HTML 页面中显示我们的版块页面。</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="views-templates">
+<span id="views-templates"></span><h1>Views, Templates 和静态文件<a class="headerlink" href="#views-templates" title="永久链接至标题">¶</a></h1>
+<p>回顾一下，我们之前做的。我们已经可以在应用程序的主页上显示 ”Hello ，World！“ 的界面了。</p>
+<blockquote>
+<div><strong>MyProject/urls.py</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="k">import</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="k">import</span> <span class="n">admin</span>
+
+<span class="kn">from</span> <span class="nn">boards</span> <span class="k">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^/code&gt;, views.home, name=&#39;</span><span class="n">home</span><span class="s1">&#39;),</span>
+    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><strong>boards/views.py</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="k">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>好了，现在我们需要修改这个主页，如果你不记得我们的主页要做成什么样子，可以看看之前我们已经设计好的原型界面图。我们在主页上，要做的是在表格中显示一些版块的名单和其他的一些信息。</p>
+<p>首先我们要做的是：导入 <strong>Board</strong> 模型，然后获取所有的存在的版块（boards）信息</p>
+<blockquote>
+<div><strong>boards/views.py</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="k">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">Board</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">boards</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">boards_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">board</span> <span class="ow">in</span> <span class="n">boards</span><span class="p">:</span>
+        <span class="n">boards_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="n">response_html</span> <span class="o">=</span> <span class="s1">&#39;&lt;br&gt;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">boards_names</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">response_html</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>然后我们运行，就会看到这个简单的 HTML 页面：</p>
+<p><img alt="主页HttpResponse" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/boards-homepage-httpresponse.png" /></p>
+<p>但是，一般情况下，我们是不会通过这种方式去渲染 HTML ，在 <strong>views.py</strong> 中，我们只需要获取 <strong>boards</strong> 的集合，至于 HTML 渲染那部分的代码，我们应该在 Django 的 templates 目录下完成。</p>
+<div class="section" id="django">
+<span id="django"></span><h2>Django 模板引擎设置<a class="headerlink" href="#django" title="永久链接至标题">¶</a></h2>
+<p>竟然我们要将 <strong>views.py</strong> 里渲染 HTML 的代码分离，那么我们首先要在 <strong>baords</strong> 的同目录下，创建一个名为 <strong>templates</strong> 的文件夹。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>myproject/
+ |-- myproject/
+ |    |-- boards/
+ |    |-- myproject/
+ |    |-- templates/   &lt;-- here!
+ |    +-- manage.py
+ +-- venv/
+</pre></div>
+</div>
+<p>在我们创建的 <strong>templates</strong> 文件夹中，我们创建一个名为 <strong>home.html</strong> 的 HTML 文件</p>
+<blockquote>
+<div><strong>templates/home.html</strong></div></blockquote>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Boards<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Boards<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    {% for board in boards %}
+      {{ board.name }} <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    {% endfor %}
+
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>home.html</strong> 的文件内容如上面的一样，是一些原始的 HTML 标签代码和 Django 语言上的代码：<code class="docutils literal notranslate"><span class="pre">{%&nbsp;for&nbsp;...&nbsp;in&nbsp;...&nbsp;%}</span></code> ，<code class="docutils literal notranslate"><span class="pre">{{&nbsp;variable&nbsp;}}</span></code>。上面的代码中展示了如何使用 for 循环遍历 list 对象。</p>
+<p>到此，我们的 HTML 页面已经完成了，可是我们还没有告诉 Django 在哪里能找到我们应用中的 <code class="docutils literal notranslate"><span class="pre">templates</span></code> 文件夹里的 HTML。</p>
+<p>首先，我们在 Django 中绑定一下我们的 <code class="docutils literal notranslate"><span class="pre">templates</span></code> ,打开我们 ** myproject** 项目中的 <strong>settings.py</strong> 文件，搜索 <code class="docutils literal notranslate"><span class="pre">TEMPLATES</span></code> 变量然后在 <code class="docutils literal notranslate"><span class="pre">DIRS</span></code>设置 ：<code class="docutils literal notranslate"><span class="pre">os.path.join(BASE_DIR,</span> <span class="pre">'templates')</span></code></p>
+<p>具体如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;BACKEND&#39;</span><span class="p">:</span> <span class="s1">&#39;django.template.backends.django.DjangoTemplates&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DIRS&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;APP_DIRS&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="s1">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;context_processors&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;django.template.context_processors.debug&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.template.context_processors.request&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.contrib.auth.context_processors.auth&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.contrib.messages.context_processors.messages&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>这样设计就好比相当于在你的项目中的完整路径下，在加上 &quot;/templates&quot;</p>
+<p>那是不是跟我们预想的一样呢？我们可以通过 python shell 进行调试：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.conf</span> <span class="k">import</span> <span class="n">settings</span>
+
+<span class="n">settings</span><span class="o">.</span><span class="n">BASE_DIR</span>
+<span class="s1">&#39;/Users/vitorfs/Development/myproject&#39;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">)</span>
+<span class="s1">&#39;/Users/vitorfs/Development/myproject/templates&#39;</span>
+</pre></div>
+</div>
+<p>可以看到，目录就是指向我们在上面创建的 <strong>templates</strong> 文件夹</p>
+<p>此时，我们只是绑定了 <strong>templates</strong> 文件夹的路径，Django 并没有绑定我们 <strong>home.html</strong> ，我们可以在 <strong>views.py</strong> 中绑定：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="k">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">Board</span>
+
+<span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">boards</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;boards&#39;</span><span class="p">:</span> <span class="n">boards</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>运行后，HTML 的页面是这样的：</p>
+<p><img alt="主板渲染" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/boards-homepage-render.png" /></p>
+<p>我们可以改进HTML模板来代替使用表格：</p>
+<blockquote>
+<div><strong>templates/home.html</strong></div></blockquote>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Boards<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Boards<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Board<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Posts<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Topics<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Last Post<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+        {% for board in boards %}
+          <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+              {{ board.name }}<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">small</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: #888&quot;</span><span class="p">&gt;</span>{{ board.description }}<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        {% endfor %}
+      <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><img alt="主板渲染" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/boards-homepage-render-2.png" /></p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>测试主页<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p><img alt="测试漫画" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/Pixton_Comic_Testing.png" /></p>
+<p>测试这部分会在这系列教程中会不断的重复探讨。</p>
+<p>现在让我们来写第一个测试，首先在应用程序 <strong>boards</strong> 中找到 <strong>tests.py</strong></p>
+<blockquote>
+<div><strong>boards/tests.py</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="k">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="k">import</span> <span class="n">TestCase</span>
+
+<span class="k">class</span> <span class="nc">HomeTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_home_view_status_code</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这是一个非常简单的测试用例，但非常的有用。我们在测试的是响应状态码，如果是 200 意味着成功。</p>
+<p>我们可以在控制台中检查响应码：</p>
+<p><img alt="回应200" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/test-homepage-view-status-code-200.png" /></p>
+<p>如果出现未捕获的异常，语法错误或其他任何情况，Django 会返回状态代码<strong>500</strong>，这意味着<strong>服务器错误</strong>。现在，想象我们的应用程序有 100 个界面（view）。如果我们为所有视图（view）编写了这个简单的测试，只需一个命令，我们就可以测试所有视图是否返回成功代码，这样用户就不会在任何地方看到任何错误消息。如果没有自动化测试，我们需要逐一检查每个页面。</p>
+<p>要执行 Django 的测试套件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Creating</span> <span class="n">test</span> <span class="n">database</span> <span class="k">for</span> <span class="n">alias</span> <span class="s1">&#39;default&#39;</span><span class="o">...</span>
+<span class="n">System</span> <span class="n">check</span> <span class="n">identified</span> <span class="n">no</span> <span class="n">issues</span> <span class="p">(</span><span class="mi">0</span> <span class="n">silenced</span><span class="p">)</span><span class="o">.</span>
+<span class="o">.</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">1</span> <span class="n">test</span> <span class="ow">in</span> <span class="mf">0.041</span><span class="n">s</span>
+
+<span class="n">OK</span>
+<span class="n">Destroying</span> <span class="n">test</span> <span class="n">database</span> <span class="k">for</span> <span class="n">alias</span> <span class="s1">&#39;default&#39;</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>现在我们可以测试 Django 是否为请求的 URL 返回了正确的视图函数。这也是一个有用的测试，因为随着开发的进展，您会发现 <strong>urls.py</strong> 模块可能变得非常庞大而复杂。URL 配置全部是关于解析正则表达式的。有些情况下我们有一个非常宽容的URL，所以 Django 最终可能返回错误的视图函数。</p>
+<p>以下是我们如何做到的：</p>
+<blockquote>
+<div><strong>boards/tests.py</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="k">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="k">import</span> <span class="n">resolve</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="k">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">.views</span> <span class="k">import</span> <span class="n">home</span>
+
+<span class="k">class</span> <span class="nc">HomeTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_home_view_status_code</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_home_url_resolves_home_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">view</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">func</span><span class="p">,</span> <span class="n">home</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在第二个测试中，我们正在使用 <code class="docutils literal notranslate"><span class="pre">resolve</span></code> 功能。Django 使用它来将请求的 URL与 <strong>urls.py</strong> 模块中列出的 URL 列表进行匹配。该测试将确保使用 <code class="docutils literal notranslate"><span class="pre">/</span></code>根 URL ，是否返回主视图（home view）。</p>
+<p>再次测试：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Creating</span> <span class="n">test</span> <span class="n">database</span> <span class="k">for</span> <span class="n">alias</span> <span class="s1">&#39;default&#39;</span><span class="o">...</span>
+<span class="n">System</span> <span class="n">check</span> <span class="n">identified</span> <span class="n">no</span> <span class="n">issues</span> <span class="p">(</span><span class="mi">0</span> <span class="n">silenced</span><span class="p">)</span><span class="o">.</span>
+<span class="o">..</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">2</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.027</span><span class="n">s</span>
+
+<span class="n">OK</span>
+<span class="n">Destroying</span> <span class="n">test</span> <span class="n">database</span> <span class="k">for</span> <span class="n">alias</span> <span class="s1">&#39;default&#39;</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>要查看有关测试执行的更多详细信息，请将 <strong>verbosity</strong> 设置为更高级别：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span> <span class="o">--</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Creating</span> <span class="n">test</span> <span class="n">database</span> <span class="k">for</span> <span class="n">alias</span> <span class="s1">&#39;default&#39;</span> <span class="p">(</span><span class="s1">&#39;file:memorydb_default?mode=memory&amp;cache=shared&#39;</span><span class="p">)</span><span class="o">...</span>
+<span class="n">Operations</span> <span class="n">to</span> <span class="n">perform</span><span class="p">:</span>
+  <span class="n">Synchronize</span> <span class="n">unmigrated</span> <span class="n">apps</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span> <span class="n">staticfiles</span>
+  <span class="n">Apply</span> <span class="nb">all</span> <span class="n">migrations</span><span class="p">:</span> <span class="n">admin</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">boards</span><span class="p">,</span> <span class="n">contenttypes</span><span class="p">,</span> <span class="n">sessions</span>
+<span class="n">Synchronizing</span> <span class="n">apps</span> <span class="n">without</span> <span class="n">migrations</span><span class="p">:</span>
+  <span class="n">Creating</span> <span class="n">tables</span><span class="o">...</span>
+    <span class="n">Running</span> <span class="n">deferred</span> <span class="n">SQL</span><span class="o">...</span>
+<span class="n">Running</span> <span class="n">migrations</span><span class="p">:</span>
+  <span class="n">Applying</span> <span class="n">contenttypes</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">admin</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">admin</span><span class="o">.</span><span class="mi">0002</span><span class="n">_logentry_remove_auto_add</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">contenttypes</span><span class="o">.</span><span class="mi">0002</span><span class="n">_remove_content_type_name</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0002</span><span class="n">_alter_permission_name_max_length</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0003</span><span class="n">_alter_user_email_max_length</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0004</span><span class="n">_alter_user_username_opts</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0005</span><span class="n">_alter_user_last_login_null</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0006</span><span class="n">_require_contenttypes_0002</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0007</span><span class="n">_alter_validators_add_error_messages</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">auth</span><span class="o">.</span><span class="mi">0008</span><span class="n">_alter_user_username_max_length</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">boards</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+  <span class="n">Applying</span> <span class="n">sessions</span><span class="o">.</span><span class="mi">0001</span><span class="n">_initial</span><span class="o">...</span> <span class="n">OK</span>
+<span class="n">System</span> <span class="n">check</span> <span class="n">identified</span> <span class="n">no</span> <span class="n">issues</span> <span class="p">(</span><span class="mi">0</span> <span class="n">silenced</span><span class="p">)</span><span class="o">.</span>
+<span class="n">test_home_url_resolves_home_view</span> <span class="p">(</span><span class="n">boards</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">HomeTests</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="n">test_home_view_status_code</span> <span class="p">(</span><span class="n">boards</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">HomeTests</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">2</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.017</span><span class="n">s</span>
+
+<span class="n">OK</span>
+<span class="n">Destroying</span> <span class="n">test</span> <span class="n">database</span> <span class="k">for</span> <span class="n">alias</span> <span class="s1">&#39;default&#39;</span> <span class="p">(</span><span class="s1">&#39;file:memorydb_default?mode=memory&amp;cache=shared&#39;</span><span class="p">)</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>详细程度决定了将要打印到控制台的通知和调试信息量;&nbsp;0 是无输出，1 是正常输出，2 是详细输出。</p>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h2>静态文件设置<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>静态文件是指 CSS，JavaScript，字体，图像或者是我们用来组成用户界面的任何其他资源。</p>
+<p>事实上，Django 不提供这些文件。但在开发过程中，我们又会用到，因此 Django 提供了一些功能来帮助我们管理静态文件。这些功能可在配置文件（settings.py）中 <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> 里的&nbsp;<strong>django.contrib.staticfiles</strong> 。</p>
+<p>有了这么多的前端组件库，我们没有理由继续渲染基本的 HTML 。我们可以轻松地将Bootstrap 4 添加到我们的项目中。Bootstrap 是一个用 HTML，CSS 和JavaScript 开发的开源工具包。</p>
+<p>在项目根目录中，除<strong>boards</strong>，<strong>templates</strong> 和 <strong>myproject</strong> 文件夹外，我们还需要创建一个名为 <strong>static</strong> 的文件夹，并在 <strong>static</strong> 文件夹内创建另一个名为 <strong>css</strong> 文件夹：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">boards</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">templates</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">static</span><span class="o">/</span>       <span class="o">&lt;--</span> <span class="n">here</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">css</span><span class="o">/</span>     <span class="o">&lt;--</span> <span class="ow">and</span> <span class="n">here</span>
+ <span class="o">|</span>    <span class="o">+--</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">+--</span> <span class="n">venv</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>到 <a class="reference external" href="https://getbootstrap.com/docs/4.0/getting-started/download/#compiled-css-and-js">getbootstrap.com</a> 下载最新版本：</p>
+<p><img alt="Bootstrap下载" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/bootstrap-download.png" /></p>
+<p>下载 <strong>Compiled CSS and JS</strong> 的版本。</p>
+<p>解压从 Bootstrap 网站下载的 <strong>bootstrap-4.0.0-beta-dist.zip</strong> 文件，将文件 <strong>css / bootstrap.min.css</strong> 复制到我们项目的css文件夹中：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">boards</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">myproject</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">templates</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|--</span> <span class="n">static</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|</span>    <span class="o">+--</span> <span class="n">css</span><span class="o">/</span>
+ <span class="o">|</span>    <span class="o">|</span>         <span class="o">+--</span> <span class="n">bootstrap</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">css</span>    <span class="o">&lt;--</span> <span class="n">here</span>
+ <span class="o">|</span>    <span class="o">+--</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">+--</span> <span class="n">venv</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>还是一样的问题，我们需要将 Django 中的 <strong>settings.py</strong> 里配置一下静态文件的目录。在 <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> 添加以下内容：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
+
+<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>这里可以回忆一下，<code class="docutils literal notranslate"><span class="pre">TEMPLATES</span></code> 配置目录的路径，操作是差不多的。</p>
+<p>现在我们必须在模板中加载静态文件（Bootstrap CSS文件）：</p>
+<blockquote>
+<div><strong>templates/home.html</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{% load static %}&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Boards&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &#39;css/bootstrap.min.css&#39; %}&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- body suppressed for brevity ... --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>首先，我们在 html 的开头加载静态文件：<code class="docutils literal notranslate"><span class="pre">{%&nbsp;load&nbsp;static&nbsp;%}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">{%&nbsp;static&nbsp;%}</span></code> 是用于告诉资源文件存在的路径，在这是，<code class="docutils literal notranslate"><span class="pre">{%&nbsp;static&nbsp;'css/bootstrap.min.css'&nbsp;%}</span></code> 就会返回 <strong>/static/css/bootstrap.min.css</strong> ，相当于 <strong>http://127.0.0.1:8000/static/css/bootstrap.min.css</strong></p>
+<p>这个 <code class="docutils literal notranslate"><span class="pre">{%&nbsp;static&nbsp;%}</span></code> 标签将会和 <strong>settings.py</strong> 的 <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> 组成最终的 URL。怎么理解这句话呢？</p>
+<p>例如，我们在静态文件托管在 <strong>https://static.example.com/</strong> ，然后我们设置了这个属性：<code class="docutils literal notranslate"><span class="pre">STATIC_URL=https://static.example.com/</span></code>，然后 <code class="docutils literal notranslate"><span class="pre">{%&nbsp;static&nbsp;'css/bootstrap.min.css'&nbsp;%}</span></code> 返回的是 ：<strong>https://static.example.com/css/bootstrap.min.css</strong>。</p>
+<p>如果还不能理解，放心，你现在只需要了解和记住相关的过程就行了，后面正式开发上线的时候，会继续开展这部分的内容。</p>
+<p>刷新页面 <strong>127.0.0.1:8000</strong> 我们可以看到它是这个样子的：</p>
+<p><img alt="Boards主页Bootstrap" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/boards-homepage-bootstrap.png" /></p>
+<p>现在我们可以编辑模板，以利用Bootstrap CSS：</p>
+<p>现在我们可以利用 Bootstrap CSS 来编辑我们的模板页面了：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{% load static %}&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Boards&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &#39;css/bootstrap.min.css&#39; %}&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;ol class=&quot;breadcrumb my-4&quot;&gt;
+        &lt;li class=&quot;breadcrumb-item active&quot;&gt;Boards&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;table class=&quot;table&quot;&gt;
+        &lt;thead class=&quot;thead-inverse&quot;&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Board&lt;/th&gt;
+            &lt;th&gt;Posts&lt;/th&gt;
+            &lt;th&gt;Topics&lt;/th&gt;
+            &lt;th&gt;Last Post&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          {% for board in boards %}
+            &lt;tr&gt;
+              &lt;td&gt;
+                {{ board.name }}
+                &lt;small class=&quot;text-muted d-block&quot;&gt;{{ board.description }}&lt;/small&gt;
+              &lt;/td&gt;
+              &lt;td class=&quot;align-middle&quot;&gt;0&lt;/td&gt;
+              &lt;td class=&quot;align-middle&quot;&gt;0&lt;/td&gt;
+              &lt;td&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+          {% endfor %}
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>修改后变成这样子：</p>
+<p><img alt="Boards主页Bootstrap" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/boards-homepage-bootstrap-2.png" /></p>
+<p>到目前为止，我们使用交互式控制台（<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">shell</span></code>）添加新的版块（board）。但是这样很不方便，因此我们需要一个更好的方式来做这个。在下一节中，我们将为网站管理员实施一个管理界面来管理它。</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="django-admin">
+<span id="django-admin"></span><h1>Django Admin简介<a class="headerlink" href="#django-admin" title="永久链接至标题">¶</a></h1>
+<p>当我们开始一个新项目时，Django 在 <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> 中已经配置了 <strong>Django Admin</strong> 。</p>
+<p><img alt="Django Admin漫画" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/Pixton_Comic_Django_Admin.png" /></p>
+<p>Django Admin 的一个很好的用例就是，在博客中，它可以被作者用来编写和发布文章。另一个例子是电子商务网站，工作人员可以创建，编辑，删除产品。</p>
+<p>目前，我们将配置 Django Admin 来维护我们的应用程序的版块模块。</p>
+<p>我们首先创建一个管理员帐户：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+</pre></div>
+</div>
+<p>按照说明操作：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Username</span> <span class="p">(</span><span class="n">leave</span> <span class="n">blank</span> <span class="n">to</span> <span class="n">use</span> <span class="s1">&#39;vitorfs&#39;</span><span class="p">):</span> <span class="n">admin</span>
+<span class="n">Email</span> <span class="n">address</span><span class="p">:</span> <span class="n">admin</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Password</span><span class="p">:</span>
+<span class="n">Password</span> <span class="p">(</span><span class="n">again</span><span class="p">):</span>
+<span class="n">Superuser</span> <span class="n">created</span> <span class="n">successfully</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>现在在浏览器中打开 URL：<strong>http://127.0.0.1:8000/admin/</strong></p>
+<p><img alt="Django管理员登录" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/django-admin-login.png" /></p>
+<p>输入 <strong>用户名</strong> 和 <strong>密码</strong> ：</p>
+<p><img alt="Django Admin" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/django-admin.png" /></p>
+<p>在这里，它已经配置了一些功能，我们也可以添加<strong>用户</strong>和<strong>组</strong>来管理权限。</p>
+<p>那么我们如何在这个管理后台中管理版块（Board）里面的内容呢？</p>
+<p>其实很简单，在 <strong>board</strong> 目录下，<strong>admin.py</strong> 中添加以下代码：</p>
+<blockquote>
+<div><strong>boards/admin.py</strong></div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="k">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">Board</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Board</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>保存以下，然后刷新网页：</p>
+<p><img alt="Django管理委员会" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/django-admin-boards.png" /></p>
+<p>点击 <strong>Boards</strong> 链接就能查看现有版块列表：</p>
+<p><img alt="Django管理委员会名单" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/django-admin-boards-list.png" /></p>
+<p>我们可以通过点击 <strong>Add Board</strong> 按钮添加一个新的版块：</p>
+<p><img alt="Django管理委员会添加" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/django-admin-boards-add.png" /></p>
+<p>点击 <strong>SAVE</strong> 按钮：</p>
+<p><img alt="Django管理委员会名单" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/django-admin-boards-list-2.png" /></p>
+<p>我们可以检查一切是否正常，打开 <strong>http://127.0.0.1:8000</strong>&nbsp;URL：</p>
+<p><img alt="董事会主页" src="https://simpleisbetterthancomplex.com/media/series/beginners-guide/1.11/part-2/boards-homepage-bootstrap-3.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="">
+<span id="id9"></span><h1>结论<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>在本教程中，我们探讨了许多新概念。我们为我们的项目定义了一些要求，创建了第一个模型，迁移了数据库，开始玩 Models API。我们创建了第一个视图并编写了一些单元测试。我们还配置了 Django 模板引擎，静态文件，并将 Bootstrap 4 库添加到项目中。最后，我们简要介绍了 Django Admin 界面。</p>
+<p>该项目的源代码在 GitHub 上,你可以在下面的链接中找到本章节的代码：</p>
+<p><a class="reference external" href="https://github.com/sibtc/django-beginners-guide/tree/v0.2-lw">https://github.com/sibtc/django-beginners-guide/tree/v0.2-lw</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Django-part1.html" class="btn btn-neutral" title="一个完整的初学者指南Django - 第1部分" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

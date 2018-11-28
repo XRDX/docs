@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二、模块的使用 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、主模块和非主模块" href="3.html" />
+    <link rel="prev" title="一、Python 模块简介" href="1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第八章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 模块简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、模块的使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import">1、import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fromimport">2、from···import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-import">3、from ··· import *</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、主模块和非主模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、作用域</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第八章</a> &raquo;</li>
+        
+      <li>二、模块的使用</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>二、模块的使用<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="import">
+<span id="import"></span><h2>1、import<a class="headerlink" href="#import" title="永久链接至标题">¶</a></h2>
+<p>Python 模块的使用跟其他编程语言也是类似的。你要使用某个模块，在使用之前，必须要导入这个模块。导入模块我们使用关键字 <code class="docutils literal notranslate"><span class="pre">import</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code> 的语法基本如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module1</span><span class="p">[,</span> <span class="n">module2</span><span class="p">[,</span><span class="o">...</span> <span class="n">moduleN</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>比如我们使用标准库模块中的 math 模块。当解释器遇到 <code class="docutils literal notranslate"><span class="pre">import</span></code> 语句，如果模块在当前的搜索路径就会被导入。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">_author_</span> <span class="o">=</span> <span class="s1">&#39;两点水&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+<p>一个模块只会被导入一次，不管你执行了多少次 import。这样可以防止导入模块被一遍又一遍地执行。</p>
+<p>当我们使用 import 语句的时候，Python 解释器是怎样找到对应的文件的呢？</p>
+<p>这就涉及到 Python 的搜索路径，搜索路径是由一系列目录名组成的，Python 解释器就依次从这些目录中去寻找所引入的模块。这看起来很像环境变量，事实上，也可以通过定义环境变量的方式来确定搜索路径。搜索路径是在 Python 编译或安装的时候确定的，安装新的库应该也会修改。搜索路径被存储在sys 模块中的 path 变量 。</p>
+<p>因此，我们可以查一下路径：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>[&#39;C:\\Users\\Administrator\\Desktop\\Python\\Python8Code&#39;, &#39;G:\\PyCharm 2017.1.4\\helpers\\pycharm&#39;, &#39;C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python36\\python36.zip&#39;, &#39;C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python36\\DLLs&#39;, &#39;C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python36\\lib&#39;, &#39;C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python36&#39;, &#39;C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python36\\lib\\site-packages&#39;, &#39;C:\\Users\\Administrator\\Desktop\\Python\\Python8Code\\com\\Learn\\module\\sys&#39;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="fromimport">
+<span id="fromimport"></span><h2>2、from···import<a class="headerlink" href="#fromimport" title="永久链接至标题">¶</a></h2>
+<p>有没有想过，怎么直接导入某个模块中的属性和方法呢？</p>
+<p>Python 中，导入一个模块的方法我们使用的是 <code class="docutils literal notranslate"><span class="pre">import</span></code> 关键字，这样做是导入了这个模块，这里需要注意了，这样做只是导入了模块，并没有导入模块中具体的某个属性或方法的。而我们想直接导入某个模块中的某一个功能，也就是属性和方法的话，我们可以使用 <code class="docutils literal notranslate"><span class="pre">from···import</span></code> 语句。</p>
+<p>语法如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modname</span> <span class="kn">import</span> <span class="n">name1</span><span class="p">[,</span> <span class="n">name2</span><span class="p">[,</span> <span class="o">...</span> <span class="n">nameN</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>看完简介后可能会想， <code class="docutils literal notranslate"><span class="pre">from···import</span></code>  和 <code class="docutils literal notranslate"><span class="pre">import</span></code> 方法有啥区别呢？</p>
+<p>想知道区别是什么，观察下面两个例子：</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code> 导入 sys 模块，然后使用 version 属性</p>
+<p><img alt="from···import和 import的区别1" src="http://upload-images.jianshu.io/upload_images/2136918-499dd531d4ce3d72?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">from···import</span></code> 直接导入 version 属性</p>
+<p><img alt="from···import和 import的区别2" src="http://upload-images.jianshu.io/upload_images/2136918-eea99fc170ed5a07?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+</div>
+<div class="section" id="from-import">
+<span id="from-import"></span><h2>3、from ··· import *<a class="headerlink" href="#from-import" title="永久链接至标题">¶</a></h2>
+<p>通过上面的学习，我们知道了 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sys</span> <span class="pre">import</span> <span class="pre">version</span></code> 可以直接导入 version 属性。但是如果我们想使用其他的属性呢？比如使用 sys 模块中的 <code class="docutils literal notranslate"><span class="pre">executable</span></code> ，难道又要写多一句 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sys</span> <span class="pre">import</span> <span class="pre">executable</span></code> ,两个还好，如果三个，四个呢？难道要一直这样写下去？</p>
+<p>这时候就需要 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">···</span> <span class="pre">import</span> <span class="pre">*</span></code> 语句了，这个语句可以把某个模块中的所有方法属性都导入。比如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">executable</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>输出的结果为：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>3.6.1 (v3.6.1:69c0db5, Mar 21 2017, 18:41:36) [MSC v.1900 64 bit (AMD64)]
+C:\Users\Administrator\AppData\Local\Programs\Python\Python36\python.exe
+</pre></div>
+</div>
+<p>注意：这提供了一个简单的方法来导入一个模块中的所有方法属性。然而这种声明不该被过多地使用。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3.html" class="btn btn-neutral float-right" title="三、主模块和非主模块" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.html" class="btn btn-neutral" title="一、Python 模块简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

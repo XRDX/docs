@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二、类 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、类的属性" href="3.html" />
+    <link rel="prev" title="一、面向对象的概念" href="1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第九章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、面向对象的概念</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、定义类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">2、Python 定义类的历史遗留问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、类的属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、类的方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、类的继承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6.html">六、类的多态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第九章</a> &raquo;</li>
+        
+      <li>二、类</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>二、类<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>1、定义类<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>类定义语法格式如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="n">N</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>一个类也是由属性和方法组成的，有些时候我们定义类的时候需要设置类的属性，因此这就需要构造函</p>
+<p>类的构造函数如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,[</span><span class="o">...</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>类定义了 <strong>init</strong>() 方法的话，类的实例化操作会自动调用 <strong>init</strong>() 方法。</p>
+<p>那么如构造函数相对应的是析构函数，理所当然，一个类创建的时候我们可以用过构造函数设置属性，那么当一个类销毁的时候，就会调用析构函数。</p>
+<p>析构函数语法如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">,[</span><span class="o">...</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>仔细观察的童鞋都会发现，类的方法与普通的函数有一个特别的区别，它们必须有一个额外的第一个参数名称, 按照惯例它的名称是 self。</p>
+<p>那么这个 self 代表什么呢？</p>
+<p>我们可以看下实例，通过实例来找出答案：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">prt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">prt</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>观察输出的结果：</p>
+<p><img alt="Python self" src="http://upload-images.jianshu.io/upload_images/2136918-66d29b081ad5510b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>从执行结果可以很明显的看出，self 代表的是类的实例，输出的是当前对象的地址，而 <code class="docutils literal notranslate"><span class="pre">self.__class__</span></code> 则指向类。</p>
+<p>当然 self 不是 python 关键字，也就是说我们把他换成其他的字符也是可以正常执行的。只不过我们习惯使用 self</p>
+</div>
+<div class="section" id="python">
+<span id="python"></span><h2>2、Python 定义类的历史遗留问题<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
+<p>Python  在版本的迭代中，有一个关于类的历史遗留问题，就是新式类和旧式类的问题，具体先看以下的代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="c1"># 旧式类</span>
+<span class="k">class</span> <span class="nc">OldClass</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># 新式类</span>
+<span class="k">class</span> <span class="nc">NewClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+</pre></div>
+</div>
+<p>可以看到，这里使用了两者中不同的方式定义类，可以看到最大的不同就是，新式类继承了<code class="docutils literal notranslate"><span class="pre">object</span></code> 类，在 Python2 中，我们定义类的时候最好定义新式类，当然在 Python3 中不存在这个问题了，因为 Python3 中所有类都是新式类。</p>
+<p>那么新式类和旧式类有什么区别呢？</p>
+<p>运行下下面的那段代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="c1"># 旧式类</span>
+<span class="k">class</span> <span class="nc">OldClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account</span> <span class="o">=</span> <span class="n">account</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+
+
+<span class="c1"># 新式类</span>
+<span class="k">class</span> <span class="nc">NewClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account</span> <span class="o">=</span> <span class="n">account</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">old_class</span> <span class="o">=</span> <span class="n">OldClass</span><span class="p">(</span><span class="mi">111111</span><span class="p">,</span> <span class="s1">&#39;OldClass&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">old_class</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">old_class</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">old_class</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">new_class</span><span class="o">=</span><span class="n">NewClass</span><span class="p">(</span><span class="mi">222222</span><span class="p">,</span><span class="s1">&#39;NewClass&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">new_class</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">new_class</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">new_class</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>仔细观察输出的结果，对比一下，就能观察出来，注意喔，Pyhton3 中输出的结果是一模一样的，因为Python3 中没有新式类旧式类的问题。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3.html" class="btn btn-neutral float-right" title="三、类的属性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.html" class="btn btn-neutral" title="一、面向对象的概念" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

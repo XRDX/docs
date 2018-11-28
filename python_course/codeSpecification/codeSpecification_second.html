@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二、注释 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、命名规范" href="codeSpecification_third.html" />
+    <link rel="prev" title="一、简明概述" href="codeSpecification_first.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python代码规范</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="codeSpecification_Preface.html">前言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codeSpecification_Preface.html#">目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codeSpecification_first.html">一、简明概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、注释</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、注释</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">1.1、块注释</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">1.2、行注释</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">1.3、建议</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#docstring">2、文档注释（Docstring）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="codeSpecification_third.html">三、命名规范</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Python代码规范</a> &raquo;</li>
+        
+      <li>二、注释</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>二、注释<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>1、注释<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<div class="section" id="">
+<span id="id3"></span><h3>1.1、块注释<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>“#”号后空一格，段落件用空行分开（同样需要“#”号）</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 块注释</span>
+<span class="c1"># 块注释</span>
+<span class="c1">#</span>
+<span class="c1"># 块注释</span>
+<span class="c1"># 块注释</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>1.2、行注释<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>至少使用两个空格和语句分开，注意不要使用无意义的注释</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 正确的写法</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 边框加粗一个像素</span>
+
+<span class="c1"># 不推荐的写法(无意义的注释)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># x加1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>1.3、建议<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>在代码的关键部分(或比较复杂的地方), 能写注释的要尽量写注释</li>
+<li>比较重要的注释段, 使用多个等号隔开, 可以更加醒目, 突出重要性</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+
+<span class="c1"># =====================================</span>
+<span class="c1"># 请勿在此处添加 get post等app路由行为 !!!</span>
+<span class="c1"># =====================================</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="docstring">
+<span id="docstring"></span><h2>2、文档注释（Docstring）<a class="headerlink" href="#docstring" title="永久链接至标题">¶</a></h2>
+<p>作为文档的Docstring一般出现在模块头部、函数和类的头部，这样在python中可以通过对象的__doc__对象获取文档.
+编辑器和IDE也可以根据Docstring给出自动提示.</p>
+<ul class="simple">
+<li>文档注释以 &quot;&quot;&quot; 开头和结尾, 首行不换行, 如有多行, 末行必需换行, 以下是Google的docstring风格示例</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Example docstrings.</span>
+
+<span class="sd">This module demonstrates documentation as specified by the `Google Python</span>
+<span class="sd">Style Guide`_. Docstrings may extend over multiple lines. Sections are created</span>
+<span class="sd">with a section header and a colon followed by a block of indented text.</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    Examples can be given using either the ``Example`` or ``Examples``</span>
+<span class="sd">    sections. Sections support any reStructuredText formatting, including</span>
+<span class="sd">    literal blocks::</span>
+
+<span class="sd">        $ python example_google.py</span>
+
+<span class="sd">Section breaks are created by resuming unindented text. Section breaks</span>
+<span class="sd">are also implicitly created anytime a new section starts.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>不要在文档注释复制函数定义原型, 而是具体描述其具体内容, 解释具体参数和返回值等</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  不推荐的写法(不要写函数原型等废话)</span>
+<span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;function(a, b) -&gt; list&quot;&quot;&quot;</span>
+    <span class="o">...</span> <span class="o">...</span>
+
+
+<span class="c1">#  正确的写法</span>
+<span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;计算并返回a到b范围内数据的平均值&quot;&quot;&quot;</span>
+    <span class="o">...</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>对函数参数、返回值等的说明采用numpy标准, 如下所示</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;在这里写函数的一句话总结(如: 计算平均值).</span>
+
+<span class="sd">    这里是具体描述.</span>
+
+<span class="sd">    参数</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arg1 : int</span>
+<span class="sd">        arg1的具体描述</span>
+<span class="sd">    arg2 : int</span>
+<span class="sd">        arg2的具体描述</span>
+
+<span class="sd">    返回值</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">        返回值的具体描述</span>
+
+<span class="sd">    参看</span>
+<span class="sd">    --------</span>
+<span class="sd">    otherfunc : 其它关联函数等...</span>
+
+<span class="sd">    示例</span>
+<span class="sd">    --------</span>
+<span class="sd">    示例使用doctest格式, 在`&gt;&gt;&gt;`后的代码可以被文档测试工具作为测试用例自动运行</span>
+
+<span class="sd">    &gt;&gt;&gt; a=[1,2,3]</span>
+<span class="sd">    &gt;&gt;&gt; print [x + 3 for x in a]</span>
+<span class="sd">    [4, 5, 6]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>文档注释不限于中英文, 但不要中英文混用</li>
+<li>文档注释不是越长越好, 通常一两句话能把情况说清楚即可</li>
+<li>模块、公有类、公有方法, 能写文档注释的, 应该尽量写文档注释</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="codeSpecification_third.html" class="btn btn-neutral float-right" title="三、命名规范" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="codeSpecification_first.html" class="btn btn-neutral" title="一、简明概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

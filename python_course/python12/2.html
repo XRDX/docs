@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二、使用 type() 动态创建类 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、什么是元类" href="3.html" />
+    <link rel="prev" title="一、Python 中类也是对象" href="1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十二章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 中类也是对象</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、使用 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 动态创建类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、什么是元类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、自定义元类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、使用元类</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第十二章</a> &raquo;</li>
+        
+      <li>二、使用 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 动态创建类</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="type">
+<span id="type"></span><h1>二、使用 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 动态创建类<a class="headerlink" href="#type" title="永久链接至标题">¶</a></h1>
+<p>因为类也是对象，所以我们可以在程序运行的时候创建类。Python 是动态语言。动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的。在之前，我们先了了解下 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数。</p>
+<p>首先我们新建一个 <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> 的模块，然后定义一个 Hello 的 class ，</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hello</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Py&#39;</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>然后在另一个模块中引用 hello 模块，并输出相应的信息。其中 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数的作用是可以查看一个类型和变量的类型。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">com.twowater.hello</span> <span class="kn">import</span> <span class="n">Hello</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">Hello</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Hello</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>输出的结果是怎样的呢？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello, Py
+&lt;class &#39;type&#39;&gt;
+&lt;class &#39;com.twowater.hello.Hello&#39;&gt;
+</pre></div>
+</div>
+<p>上面也提到过，<code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数可以查看一个类型或变量的类型，<code class="docutils literal notranslate"><span class="pre">Hello</span></code> 是一个 <code class="docutils literal notranslate"><span class="pre">class</span></code> ，它的类型就是 <code class="docutils literal notranslate"><span class="pre">type</span></code> ，而 <code class="docutils literal notranslate"><span class="pre">h</span></code> 是一个实例，它的类型就是 <code class="docutils literal notranslate"><span class="pre">com.twowater.hello.Hello</span></code>。前面的 <code class="docutils literal notranslate"><span class="pre">com.twowater</span></code> 是我的包名，<code class="docutils literal notranslate"><span class="pre">hello</span></code> 模块在该包名下。</p>
+<p>在这里还要细想一下，上面的例子中，我们使用 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数查看一个类型或者变量的类型。其中查看了一个 <code class="docutils literal notranslate"><span class="pre">Hello</span></code> class 的类型，打印的结果是： <code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'type'&gt;</span></code> 。其实   <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数不仅可以返回一个对象的类型，也可以创建出新的类型。class 的定义是运行时动态创建的，而创建 class 的方法就是使用 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数。比如我们可以通过 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数创建出上面例子中的 <code class="docutils literal notranslate"><span class="pre">Hello</span></code> 类，具体看下面的代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">printHello</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Py&#39;</span><span class="p">):</span>
+    <span class="c1"># 定义一个打印 Hello 的函数</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+
+<span class="c1"># 创建一个 Hello 类</span>
+<span class="n">Hello</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">hello</span><span class="o">=</span><span class="n">printHello</span><span class="p">))</span>
+
+<span class="c1"># 实例化 Hello 类</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">Hello</span><span class="p">()</span>
+<span class="c1"># 调用 Hello 类的方法</span>
+<span class="n">h</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+<span class="c1"># 查看 Hello class 的类型</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Hello</span><span class="p">))</span>
+<span class="c1"># 查看实例 h 的类型</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>输出的结果如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello, Py
+&lt;class &#39;type&#39;&gt;
+&lt;class &#39;__main__.Hello&#39;&gt;
+</pre></div>
+</div>
+<p>在这里，需先了解下通过 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数创建 class 对象的参数说明：</p>
+<p>1、class 的名称，比如例子中的起名为 <code class="docutils literal notranslate"><span class="pre">Hello</span></code></p>
+<p>2、继承的父类集合，注意 Python 支持多重继承，如果只有一个父类，tuple 要使用单元素写法；例子中继承 object 类，因为是单元素的 tuple ，所以写成 <code class="docutils literal notranslate"><span class="pre">(object,)</span></code></p>
+<p>3、class 的方法名称与函数绑定；例子中将函数 <code class="docutils literal notranslate"><span class="pre">printHello</span></code> 绑定在方法名 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 中</p>
+<p>具体的模式如下：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>type(类名, 父类的元组（针对继承的情况，可以为空），包含属性的字典（名称和值）)
+</pre></div>
+</div>
+<p>好了，了解完具体的参数使用之外，我们看看输出的结果，可以看到，通过 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数创建的类和直接写 class 是完全一样的，因为Python 解释器遇到 class 定义时，仅仅是扫描一下 class 定义的语法，然后调用 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数创建出 class 的 。</p>
+<p>不过一般的情况下，我们都是使用 <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">***...</span></code> 的方法来定义类的，不过 <code class="docutils literal notranslate"><span class="pre">type()</span></code> 函数也可以让我们创建出类来。也就是说，动态语言本身支持运行期动态创建类，这和静态语言有非常大的不同，要在静态语言运行期创建类，必须构造源代码字符串再调用编译器，或者借助一些工具生成字节码实现，本质上都是动态编译，会非常复杂。</p>
+<p>可以看到，在 Python 中，类也是对象，你可以动态的创建类。其实这也就是当你使用关键字 class 时 Python 在幕后做的事情，而这就是通过元类来实现的。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3.html" class="btn btn-neutral float-right" title="三、什么是元类" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.html" class="btn btn-neutral" title="一、Python 中类也是对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

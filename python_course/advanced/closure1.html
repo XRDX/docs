@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python 闭包1 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Python 闭包2" href="closure2.html" />
+    <link rel="prev" title="问题" href="yield.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python高级用法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="yield.html">问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yield.html#">回答</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python 闭包1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closure2.html">Python 闭包2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html#virtualenvwrapper">Virtualenvwrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mac.html">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mac.html#virtualenvwrapper">virtualenvwrapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Python高级用法</a> &raquo;</li>
+        
+      <li>Python 闭包1</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-1">
+<span id="python-1"></span><h1>Python 闭包1<a class="headerlink" href="#python-1" title="永久链接至标题">¶</a></h1>
+<p>网络上介绍 Python 闭包的文章已经很多了，本文将通过解决一个需求问题来了解闭包。</p>
+<p>这个需求是这样的，我们需要一直记录自己的学习时间，以分钟为单位。就好比我学习了 2 分钟，就返回 2 ，然后隔了一阵子，我学习了 10 分钟，那么就返回 12 ，像这样把学习时间一直累加下去。</p>
+<p>面对这个需求，我们一般都会创建一个全局变量来记录时间，然后用一个方法来新增每次的学习时间，通常都会写成下面这个形式：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="nb">min</span>
+    <span class="k">return</span>  <span class="n">time</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">insert_time</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">insert_time</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>认真想一下，会不会有什么问题呢？</p>
+<p>其实，这个在 Python 里面是会报错的。会报如下错误：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">UnboundLocalError</span><span class="p">:</span> <span class="n">local</span> <span class="n">variable</span> <span class="s1">&#39;time&#39;</span> <span class="n">referenced</span> <span class="n">before</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<p>那是因为，在 Python 中，如果一个函数使用了和全局变量相同的名字且改变了该变量的值，那么该变量就会变成局部变量，那么就会造成在函数中我们没有进行定义就引用了，所以会报该错误。</p>
+<p>如果确实要引用全局变量，并在函数中对它进行修改，该怎么做呢？</p>
+<p>我们可以使用 <code class="docutils literal notranslate"><span class="pre">global</span></code> 关键字,具体修改如下：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
+    <span class="k">global</span>  <span class="n">time</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="nb">min</span>
+    <span class="k">return</span>  <span class="n">time</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">insert_time</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">insert_time</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>输出结果如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">12</span>
+</pre></div>
+</div>
+<p>可是啊，这里使用了全局变量，我们在开发中能尽量避免使用全局变量的就尽量避免使用。因为不同模块，不同函数都可以自由的访问全局变量，可能会造成全局变量的不可预知性。比如程序员甲修改了全局变量 <code class="docutils literal notranslate"><span class="pre">time</span></code> 的值，然后程序员乙同时也对 <code class="docutils literal notranslate"><span class="pre">time</span></code> 进行了修改，如果其中有错误，这种错误是很难发现和更正的。</p>
+<p>全局变量降低了函数或模块之间的通用性，不同的函数或模块都要依赖于全局变量。同样，全局变量降低了代码的可读性，阅读者可能并不知道调用的某个变量是全局变量。</p>
+<p>那有没有更好的方法呢？</p>
+<p>这时候我们使用闭包来解决一下，先直接看代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
+        <span class="n">nonlocal</span>  <span class="n">time</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="nb">min</span>
+        <span class="k">return</span> <span class="n">time</span>
+
+    <span class="k">return</span> <span class="n">insert_time</span>
+
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出结果如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">0</span>
+<span class="mi">12</span>
+<span class="mi">0</span>
+</pre></div>
+</div>
+<p>这里最直接的表现就是全局变量 <code class="docutils literal notranslate"><span class="pre">time</span></code> 至此至终都没有修改过,这里还是用了 <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> 关键字,表示在函数或其他作用域中使用外层(非全局)变量。那么上面那段代码具体的运行流程是怎样的。我们可以看下下图：</p>
+<p><img alt="Python 闭包解决" src="http://p1ceh5usj.bkt.clouddn.com/python15/Python%20%E9%97%AD%E5%8C%85%E8%A7%A3%E5%86%B3.png" /></p>
+<p>这种内部函数的局部作用域中可以访问外部函数局部作用域中变量的行为，我们称为： 闭包。更加直接的表达方式就是，当某个函数被当成对象返回时，夹带了外部变量，就形成了一个闭包。k</p>
+<p>闭包避免了使用全局变量，此外，闭包允许将函数与其所操作的某些数据（环境）关连起来。而且使用闭包，可以使代码变得更加的优雅。而且下一篇讲到的装饰器，也是基于闭包实现的。</p>
+<p>到这里，就会有一个问题了，你说它是闭包就是闭包了？有没有什么办法来验证一下这个函数就是闭包呢？</p>
+<p>有的，所有函数都有一个 <code class="docutils literal notranslate"><span class="pre">__closure__</span></code> 属性，如果函数是闭包的话，那么它返回的是一个由 cell 组成的元组对象。cell 对象的 cell_contents 属性就是存储在闭包中的变量。</p>
+<p>我们打印出来体验一下：</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">insert_time</span><span class="p">(</span><span class="nb">min</span><span class="p">):</span>
+        <span class="n">nonlocal</span>  <span class="n">time</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="nb">min</span>
+        <span class="k">return</span> <span class="n">time</span>
+
+    <span class="k">return</span> <span class="n">insert_time</span>
+
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">study_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>打印的结果为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">&lt;</span><span class="n">cell</span> <span class="n">at</span> <span class="mh">0x0000000000410C48</span><span class="p">:</span> <span class="nb">int</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000000001D6AB420</span><span class="o">&gt;</span><span class="p">,)</span>
+<span class="mi">2</span>
+<span class="mi">0</span>
+<span class="mi">2</span>
+<span class="mi">12</span>
+<span class="mi">0</span>
+<span class="mi">12</span>
+</pre></div>
+</div>
+<p>从打印结果可见，传进来的值一直存储在闭包的 cell_contents 中,因此，这也就是闭包的最大特点，可以将父函数的变量与其内部定义的函数绑定。就算生成闭包的父函数已经释放了，闭包仍然存在。</p>
+<p>闭包的过程其实好比类（父函数）生成实例（闭包），不同的是父函数只在调用时执行，执行完毕后其环境就会释放，而类则在文件执行时创建，一般程序执行完毕后作用域才释放，因此对一些需要重用的功能且不足以定义为类的行为，使用闭包会比使用类占用更少的资源，且更轻巧灵活。</p>
+<p>欢迎打开微信扫一扫，关注微信公众号：</p>
+<p><img alt="微信公众号" src="http://twowater.com.cn/images/20171204192251900.gif" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="closure2.html" class="btn btn-neutral float-right" title="Python 闭包2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="yield.html" class="btn btn-neutral" title="问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

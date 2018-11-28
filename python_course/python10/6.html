@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>六、运算符相关的魔术方法 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第十一章" href="../python11/index.html" />
+    <link rel="prev" title="五、自定义容器（Container）" href="5.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第十章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、Python 的 Magic Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、构造(<code class="docutils literal notranslate"><span class="pre">__new__</span></code>)和初始化(<code class="docutils literal notranslate"><span class="pre">__init__</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、属性的访问控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">四、对象的描述器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、自定义容器（Container）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">六、运算符相关的魔术方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、比较运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">2、算术运算符</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第十章</a> &raquo;</li>
+        
+      <li>六、运算符相关的魔术方法</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>六、运算符相关的魔术方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>运算符相关的魔术方法实在太多了,j就大概列举下面两类：</p>
+<div class="section" id="">
+<span id="id2"></span><h2>1、比较运算符<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>|魔术方法|说明|
+|-----|-----|
+|<code class="docutils literal notranslate"><span class="pre">__cmp__(self,</span> <span class="pre">other)</span></code>|如果该方法返回负数，说明 <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&lt;</span> <span class="pre">other</span></code>;  返回正数，说明 <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&gt;</span> <span class="pre">other</span></code>; 返回 0 说明 <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">==</span> <span class="pre">other</span></code>。强烈不推荐来定义 <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> , 取而代之, 最好分别定义 <code class="docutils literal notranslate"><span class="pre">__lt__</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> 等方法从而实现比较功能。 <code class="docutils literal notranslate"><span class="pre">__cmp__</span></code> 在 Python3 中被废弃了。|
+|<code class="docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">other)</span></code>|定义了比较操作符 == 的行为|
+|<code class="docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">other)</span></code>|定义了比较操作符 != 的行为|
+|<code class="docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">other)</span></code>|定义了比较操作符 &lt; 的行为|
+|<code class="docutils literal notranslate"><span class="pre">__gt__(self,</span> <span class="pre">other)</span></code>|定义了比较操作符 &gt; 的行为|
+|<code class="docutils literal notranslate"><span class="pre">__le__(self,</span> <span class="pre">other)</span></code>|定义了比较操作符 &lt;= 的行为|
+|<code class="docutils literal notranslate"><span class="pre">__ge__(self,</span> <span class="pre">other)</span></code>|定义了比较操作符 &gt;= 的行为|</p>
+<p>来看个简单的例子就能理解了：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Number</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__eq__&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__ne__&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__lt__&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__gt__&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__le__&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__ge__&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num1 == num2 ? --------&gt; {} </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num1</span> <span class="o">==</span> <span class="n">num2</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num1 != num2 ? --------&gt; {} </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num1</span> <span class="o">==</span> <span class="n">num2</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num1 &lt; num2 ? --------&gt; {} </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num1</span> <span class="o">&lt;</span> <span class="n">num2</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num1 &gt; num2 ? --------&gt; {} </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num1</span> <span class="o">&gt;</span> <span class="n">num2</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num1 &lt;= num2 ? --------&gt; {} </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num1</span> <span class="o">&lt;=</span> <span class="n">num2</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;num1 &gt;= num2 ? --------&gt; {} </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num1</span> <span class="o">&gt;=</span> <span class="n">num2</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>输出的结果为：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>__eq__
+num1 == num2 ? --------&gt; False
+
+__eq__
+num1 != num2 ? --------&gt; False
+
+__lt__
+num1 &lt; num2 ? --------&gt; True
+
+__gt__
+num1 &gt; num2 ? --------&gt; False
+
+__le__
+num1 &lt;= num2 ? --------&gt; True
+
+__ge__
+num1 &gt;= num2 ? --------&gt; False
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>2、算术运算符<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>|魔术方法|说明|
+|-----|-----|
+|<code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other)</span></code>|实现了加号运算|
+|<code class="docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">other)</span></code>|实现了减号运算|
+|<code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">other)</span></code>|实现了乘法运算|
+|<code class="docutils literal notranslate"><span class="pre">__floordiv__(self,</span> <span class="pre">other)</span></code>|实现了 // 运算符|
+|<code class="docutils literal notranslate"><span class="pre">___div__(self,</span> <span class="pre">other)</span></code>|实现了/运算符. 该方法在 Python3 中废弃. 原因是 Python3 中，division 默认就是 true division|
+|<code class="docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">other)</span></code>|实现了 true division. 只有你声明了 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></code> 该方法才会生效|
+|<code class="docutils literal notranslate"><span class="pre">__mod__(self,</span> <span class="pre">other)</span></code>|实现了 % 运算符, 取余运算|
+|<code class="docutils literal notranslate"><span class="pre">__divmod__(self,</span> <span class="pre">other)</span></code>|实现了 divmod() 內建函数|
+|<code class="docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">other)</span></code>|实现了 <code class="docutils literal notranslate"><span class="pre">**</span></code> 操作. N 次方操作|
+|<code class="docutils literal notranslate"><span class="pre">__lshift__(self,</span> <span class="pre">other)</span></code>|实现了位操作 <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>|
+|<code class="docutils literal notranslate"><span class="pre">__rshift__(self,</span> <span class="pre">other)</span></code>|实现了位操作 <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>|
+|<code class="docutils literal notranslate"><span class="pre">__and__(self,</span> <span class="pre">other)</span></code>|实现了位操作 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>|
+|<code class="docutils literal notranslate"><span class="pre">__or__(self,</span> <span class="pre">other)</span></code>|实现了位操作 <code class="docutils literal notranslate"><span class="pre">|</span></code>|
+|<code class="docutils literal notranslate"><span class="pre">__xor__(self,</span> <span class="pre">other)</span></code>|实现了位操作 <code class="docutils literal notranslate"><span class="pre">^</span></code>|</p>
+<p>最后，如果对本文感兴趣的，可以关注下公众号：</p>
+<p><img alt="公众号" src="http://twowater.com.cn/images/20171204192251900.gif" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python11/index.html" class="btn btn-neutral float-right" title="第十一章" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="5.html" class="btn btn-neutral" title="五、自定义容器（Container）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

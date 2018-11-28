@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>四、生成器 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="五、迭代器和生成器综合例子" href="5.html" />
+    <link rel="prev" title="三、lsit 生成式（列表生成式）" href="3.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python2/index.html">第二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第七章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1.html">一、迭代</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.html">二、Python 迭代器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">三、lsit 生成式（列表生成式）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">四、生成器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、为什么需要生成器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">2、生成器的创建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">3、遍历生成器的元素</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">4、以函数的形式实现生成器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">5、打印杨辉三角</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">五、迭代器和生成器综合例子</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第七章</a> &raquo;</li>
+        
+      <li>四、生成器</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>四、生成器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>1、为什么需要生成器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>通过上面的学习，可以知道列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含 1000 万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。</p>
+<p>所以，如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？这样就不必创建完整的 list，从而节省大量的空间。在 Python 中，这种一边循环一边计算的机制，称为生成器：generator。</p>
+<p>在 Python 中，使用了 yield 的函数被称为生成器（generator）。</p>
+<p>跟普通函数不同的是，生成器是一个返回迭代器的函数，只能用于迭代操作，更简单点理解生成器就是一个迭代器。</p>
+<p>在调用生成器运行的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息，返回yield的值。并在下一次执行 next()方法时从当前位置继续运行。</p>
+<p>那么如何创建一个生成器呢？</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>2、生成器的创建<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>最简单最简单的方法就是把一个列表生成式的 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 改成 <code class="docutils literal notranslate"><span class="pre">()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="n">gen</span><span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x0000000002734A40&gt;
+</pre></div>
+</div>
+<p>创建 List 和 generator 的区别仅在于最外层的 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">()</span></code> 。但是生成器并不真正创建数字列表， 而是返回一个生成器，这个生成器在每次计算出一个条目后，把这个条目“产生” ( yield ) 出来。 生成器表达式使用了“惰性计算” ( lazy evaluation，也有翻译为“延迟求值”，我以为这种按需调用 call by need 的方式翻译为惰性更好一些)，只有在检索时才被赋值（ evaluated ），所以在列表比较长的情况下使用内存上更有效。</p>
+<p>那么竟然知道了如何创建一个生成器，那么怎么查看里面的元素呢？</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>3、遍历生成器的元素<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>按我们的思维，遍历用 for 循环，对了，我们可以试试：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="n">gen</span><span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">num</span>  <span class="ow">in</span>  <span class="n">gen</span> <span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>没错，直接这样就可以遍历出来了。当然，上面也提到了迭代器，那么用 next() 可以遍历吗？当然也是可以的。</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>4、以函数的形式实现生成器<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>上面也提到，创建生成器最简单最简单的方法就是把一个列表生成式的 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 改成 <code class="docutils literal notranslate"><span class="pre">()</span></code>。为啥突然来个以函数的形式来创建呢？</p>
+<p>其实生成器也是一种迭代器，但是你只能对其迭代一次。这是因为它们并没有把所有的值存在内存中，而是在运行时生成值。你通过遍历来使用它们，要么用一个“for”循环，要么将它们传递给任意可以进行迭代的函数和结构。而且实际运用中，大多数的生成器都是通过函数来实现的。那么我们该如何通过函数来创建呢？</p>
+<p>先不急，来看下这个例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">print</span> <span class="p">(</span> <span class="n">i</span> <span class="p">)</span>
+
+<span class="n">my_function</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+<p>如果我们需要把它变成生成器，我们只需要把 <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(</span> <span class="pre">i</span> <span class="pre">)</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">i</span></code> 就可以了，具体看下修改后的例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_function</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">generator</span> <span class="na">object</span> <span class="na">my_function</span> <span class="na">at</span> <span class="na">0x0000000002534A40</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>但是，这个例子非常不适合使用生成器，发挥不出生成器的特点，生成器的最好的应用应该是：你不想同一时间将所有计算出来的大量结果集分配到内存当中，特别是结果集里还包含循环。因为这样会耗很大的资源。</p>
+<p>比如下面是一个计算斐波那契数列的生成器：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">fibon</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">a</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="c1"># 引用函数</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fibon</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>运行的效果：</p>
+<p><img alt="计算斐波那契数列的生成器" src="http://upload-images.jianshu.io/upload_images/2136918-304e50af22b787ce?imageMogr2/auto-orient/strip" /></p>
+<p>你看，运行一个这么打的参数，也不会说有卡死的状态，因为这种方式不会使用太大的资源。这里，最难理解的就是 generator 和函数的执行流程不一样。函数是顺序执行，遇到 return 语句或者最后一行函数语句就返回。而变成 generator 的函数，在每次调用 next() 的时候执行，遇到 yield语句返回，再次执行时从上次返回的 yield 语句处继续执行。</p>
+<p>比如这个例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">odd</span><span class="p">():</span>
+    <span class="k">print</span> <span class="p">(</span> <span class="s1">&#39;step 1&#39;</span> <span class="p">)</span>
+    <span class="k">yield</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span> <span class="s1">&#39;step 2&#39;</span> <span class="p">)</span>
+    <span class="k">yield</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span> <span class="s1">&#39;step 3&#39;</span> <span class="p">)</span>
+    <span class="k">yield</span> <span class="p">(</span> <span class="mi">5</span> <span class="p">)</span>
+
+<span class="n">o</span> <span class="o">=</span> <span class="n">odd</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span> <span class="nb">next</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="nb">next</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="nb">next</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>输出的结果：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>step 1
+1
+step 2
+3
+step 3
+5
+</pre></div>
+</div>
+<p>可以看到，odd 不是普通函数，而是 generator，在执行过程中，遇到 yield 就中断，下次又继续执行。执行 3 次 yield 后，已经没有 yield 可以执行了，如果你继续打印 <code class="docutils literal notranslate"><span class="pre">print(</span> <span class="pre">next(</span> <span class="pre">o</span> <span class="pre">)</span> <span class="pre">)</span></code> ,就会报错的。所以通常在 generator 函数中都要对错误进行捕获。</p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>5、打印杨辉三角<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>通过学习了生成器，我们可以直接利用生成器的知识点来打印杨辉三角：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+<span class="k">def</span> <span class="nf">triangles</span><span class="p">(</span> <span class="n">n</span> <span class="p">):</span>         <span class="c1"># 杨辉三角形</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">L</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="p">[</span> <span class="n">L</span> <span class="p">[</span> <span class="n">i</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="n">L</span> <span class="p">[</span> <span class="n">i</span> <span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">))]</span>
+
+<span class="n">n</span><span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">(</span> <span class="mi">10</span> <span class="p">):</span>   <span class="c1"># 直接修改函数名即可运行</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<p>输出的结果为：</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>[1]
+[1, 1]
+[1, 2, 1]
+[1, 3, 3, 1]
+[1, 4, 6, 4, 1]
+[1, 5, 10, 10, 5, 1]
+[1, 6, 15, 20, 15, 6, 1]
+[1, 7, 21, 35, 35, 21, 7, 1]
+[1, 8, 28, 56, 70, 56, 28, 8, 1]
+[1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="5.html" class="btn btn-neutral float-right" title="五、迭代器和生成器综合例子" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3.html" class="btn btn-neutral" title="三、lsit 生成式（列表生成式）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

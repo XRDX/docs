@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二、Python 的基本数据类型 &mdash; Python 教程 beta 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="三、基本数据类型转换" href="Type_conversion.html" />
+    <link rel="prev" title="一、Python 语法的简要说明" href="Grammar.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python 教程
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python1/index.html">第一章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">第二章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Grammar.html">一、Python 语法的简要说明</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二、Python 的基本数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">1、整数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">2、浮点数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">3、字符串</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python">（1） Python 中的字符串和字符串转义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">（2） 字符串的编码问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">4、布尔值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">5、空值</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Type_conversion.html">三、基本数据类型转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Variable.html">四、Python 中的变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python3/index.html">第三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python4/index.html">第四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python5/index.html">第五章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python6/index.html">第六章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python7/index.html">第七章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python8/index.html">第八章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python9/index.html">第九章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python10/index.html">第十章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python11/index.html">第十一章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python12/index.html">第十二章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python13/index.html">第十三章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python14/index.html">第十四章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Python高级用法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeSpecification/index.html">Python代码规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../django/index.html">Django</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python 教程</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">第二章</a> &raquo;</li>
+        
+      <li>二、Python 的基本数据类型</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<span id="python"></span><h1>二、Python 的基本数据类型<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>1、整数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>Python 可以处理任意大小的整数，当然包括负整数，在 Python 程序中，整数的表示方法和数学上的写法一模一样，例如：<code class="docutils literal notranslate"><span class="pre">1</span></code>，<code class="docutils literal notranslate"><span class="pre">100</span></code>，<code class="docutils literal notranslate"><span class="pre">-8080</span></code>，<code class="docutils literal notranslate"><span class="pre">0</span></code>，等等。</p>
+<p>计算机由于使用二进制，所以，有时候用十六进制表示整数比较方便，十六进制用 0x 前缀和 0-9，a-f 表示，例如：0xff00，0xa5b4c3d2，等等。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>2、浮点数<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>浮点数也就是小数，之所以称为浮点数，是因为按照科学记数法表示时，一个浮点数的小数点位置是可变的。整数和浮点数在计算机内部存储的方式是不同的，整数运算永远是精确的（除法也是精确的），而浮点数运算则可能会有四舍五入的误差。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>3、字符串<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>字符串是以 '' 或 &quot;&quot; 括起来的任意文本，比如 <code class="docutils literal notranslate"><span class="pre">'abc'</span></code> ，<code class="docutils literal notranslate"><span class="pre">&quot;123&quot;</span></code> 等等。请注意，'' 或 &quot;&quot; 本身只是一种表示方式，不是字符串的一部分，因此，字符串 <code class="docutils literal notranslate"><span class="pre">'abc'</span></code> 只有 a，b，c 这 3 个字符。这个其他的编程语言也是类似的。</p>
+<div class="section" id="python">
+<span id="id4"></span><h3>（1） Python 中的字符串和字符串转义<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h3>
+<p>在上面那里提到，字符串可以用 <code class="docutils literal notranslate"><span class="pre">''</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> 括起来表示。可是有些时候，我们字符串本身就包含了 <code class="docutils literal notranslate"><span class="pre">''</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> ，怎么办呢？</p>
+<p>那这个时候就需要对字符串的某些特殊字符进行“转义”，Python 字符串用 <code class="docutils literal notranslate"><span class="pre">\</span></code> 进行转义。跟 JAVA 也是一样的。</p>
+<p>常用的转义字符还有：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>\n 表示换行
+\t 表示一个制表符
+\\ 表示 \ 字符本身
+</pre></div>
+</div>
+<p>具体例子：</p>
+<p><img alt="Python字符串转义.png" src="http://upload-images.jianshu.io/upload_images/2136918-88fdd2055dd834f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>那上面就有一个问题呢，如果一个字符串包含很多需要转义的字符，对每一个字符都进行转义会很麻烦。这里为了应付这种情况，我们可以在字符串前面加个前缀 <code class="docutils literal notranslate"><span class="pre">r</span></code> ，表示这是一个 raw 字符串，里面的字符就不需要转义了。</p>
+<p><img alt="Python转义r.png" src="http://upload-images.jianshu.io/upload_images/2136918-8391230097f54800.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>但是，要注意的一点是，但是<code class="docutils literal notranslate"><span class="pre">r'...'</span></code>表示法不能表示多行字符串，也不能表示包含<code class="docutils literal notranslate"><span class="pre">'</span></code>和<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>的字符串。</p>
+<p>如果要表示多行字符串，可以用<code class="docutils literal notranslate"><span class="pre">'''...'''</span></code>表示,当然你也还可以在多行字符串前面添加 <code class="docutils literal notranslate"><span class="pre">r</span></code> ，把这个多行字符串也变成一个raw字符串</p>
+<p><img alt="多行转义.png" src="http://upload-images.jianshu.io/upload_images/2136918-36df87f50895af18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>（2） 字符串的编码问题<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>我们都知道计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），0 - 255被用来表示大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母 A 的编码是 65，小写字母 z 的编码是 122。</p>
+<p>如果要表示中文，显然一个字节是不够的，至少需要两个字节，而且还不能和 ASCII 编码冲突，所以，中国制定了 GB2312 编码，用来把中文编进去。</p>
+<p>类似的，日文和韩文等其他语言也有这个问题。为了统一所有文字的编码，Unicode 应运而生。Unicode 把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p>
+<p>Unicode 通常用两个字节表示一个字符，原有的英文编码从单字节变成双字节，只需要把高字节全部填为 0 就可以。</p>
+<p>因为 Python 的诞生比 Unicode 标准发布的时间还要早，所以最早的Python 只支持 ASCII 编码，普通的字符串 'ABC' 在 Python 内部都是 ASCII 编码的。</p>
+<p>Python 在后来添加了对 Unicode 的支持，以 Unicode 表示的字符串用<code class="docutils literal notranslate"><span class="pre">u'...'</span></code>表示。</p>
+<p>不过在最新的 Python 3 版本中，字符串是以 Unicode 编码的，也就是说，Python 的字符串支持多语言。就像上面的例子一样，我的代码中没有加<code class="docutils literal notranslate"><span class="pre">u'...'</span></code>，也能正常显示。</p>
+<p>不过由于 Python 源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为 UTF-8 编码。当Python 解释器读取源代码时，为了让它按 UTF-8 编码读取，我们通常在文件开头写上这两行：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+</pre></div>
+</div>
+<p>第一行注释是为了告诉 Linux/OS X 系统，这是一个 Python 可执行程序，Windows 系统会忽略这个注释；</p>
+<p>第二行注释是为了告诉 Python 解释器，按照 UTF-8 编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。</p>
+<p>申明了 UTF-8 编码并不意味着你的 .py 文件就是 UTF-8 编码的，必须并且要确保文本编辑器正在使用 UTF-8 without BOM 编码</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>4、布尔值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>布尔值和布尔代数的表示完全一致，一个布尔值只有 <code class="docutils literal notranslate"><span class="pre">True</span></code> 、 <code class="docutils literal notranslate"><span class="pre">False</span></code>两种值，要么是 <code class="docutils literal notranslate"><span class="pre">True</span></code>，要么是 <code class="docutils literal notranslate"><span class="pre">False</span></code>，在 Python 中，可以直接用 True、False 表示布尔值（请注意大小写），也可以通过布尔运算计算出来。</p>
+<p>布尔值可以用 <code class="docutils literal notranslate"><span class="pre">and</span></code>、<code class="docutils literal notranslate"><span class="pre">or</span></code> 和 <code class="docutils literal notranslate"><span class="pre">not</span></code> 运算。</p>
+<p><code class="docutils literal notranslate"><span class="pre">and</span></code> 运算是与运算，只有所有都为 True，and 运算结果才是 True。</p>
+<p><code class="docutils literal notranslate"><span class="pre">or</span></code> 运算是或运算，只要其中有一个为 True，or 运算结果就是 True。</p>
+<p><code class="docutils literal notranslate"><span class="pre">not</span></code> 运算是非运算，它是一个单目运算符，把 True 变成 False，False 变成 True。</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>5、空值<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>基本上每种编程语言都有自己的特殊值——空值，在 Python 中，用 None 来表示</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Type_conversion.html" class="btn btn-neutral float-right" title="三、基本数据类型转换" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Grammar.html" class="btn btn-neutral" title="一、Python 语法的简要说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Vic Wang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'beta',
+            LANGUAGE:'zh',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/GA.js"></script>
+      <script type="text/javascript" src="../_static/googleAnalysis.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
